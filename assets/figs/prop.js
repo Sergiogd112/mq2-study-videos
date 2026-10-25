@@ -149,10 +149,12 @@ fig("axial_stage", {
   init(a) {
     const yR = 90, yS = 190, s = 70;
     a.text(20, yR, "rotor", { size: 14, weight: 700, anchor: "start", color: C.blue }); a.text(20, yS, "stator", { size: 14, weight: 700, anchor: "start", color: C.mid });
-    const blade = (x, y, ang, col) => a.path(`M${x - 22 * Math.sin(ang)},${y - 28} Q${x + 10},${y} ${x + 22 * Math.sin(ang)},${y + 28}`, { color: col, width: 7 });
+    // lean = −1: leading edge faces flow with swirl AGAINST U (rotor, relative frame V_R = V − U);
+    // lean = +1: leading edge faces flow with swirl ALONG U (stator, absolute frame). Both turn the flow towards axial.
+    const blade = (x, y, lean, col) => a.path(`M${x - lean * 12},${y - 28} Q${x + lean * 10},${y} ${x + lean * 12},${y + 28}`, { color: col, width: 7 });
     const rotor = a.g();
-    a.within(rotor, () => { for (let k = -1; k < 11; k++) blade(k * s, yR, 0.6, C.blue); });
-    for (let k = 1; k < 10; k++) blade(k * s - 30, yS, -0.5, C.mid);
+    a.within(rotor, () => { for (let k = -1; k < 11; k++) blade(k * s, yR, -1, C.blue); });
+    for (let k = 1; k < 10; k++) blade(k * s - 30, yS, 1, C.mid);
     const U = a.arrow(300, 30, 400, 30, C.blue, 3); a.text(410, 30, "U", { size: 15, weight: 700, color: C.blue, anchor: "start" });
     const flow = Array.from({ length: 24 }, (_, i) => ({ y: (i * 37) % 270 + 10, x: 100 + ((i * 53) % 500), c: a.circle(0, 0, 3, { fill: C.orange, color: "none" }) }));
     a.text(680, 280, "flow (axial u + swirl)", { size: 12, color: C.orange, anchor: "end" });
