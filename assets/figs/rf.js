@@ -224,7 +224,7 @@ fig("fm_wave", {
     sp.axes("(f − f_C) / f_m", "|J_n(m_f)|", { yAt: 0 });
     const bars = Array.from({ length: 25 }, (_, i) => a.line(sp.X(i - 12), sp.Y(0), sp.X(i - 12), sp.Y(0), { color: C.blue, width: 6 }));
     const car = a.rect(0, 150, 0, 120, { fill: C.orange, color: "none", opacity: 0.12 });
-    const read = a.text(640, 138, "", { size: 13, anchor: "end", weight: 700 });
+    const read = a.text(40, 304, "", { size: 13, anchor: "start", weight: 700 });
     const J = (n, x) => { n = Math.abs(n); let s = 0, f = 1; for (let k = 0; k < 40; k++) { let den = 1; for (let i = 2; i <= k; i++) den *= i; let d2 = 1; for (let i = 2; i <= k + n; i++) d2 *= i; s += ((k % 2 ? -1 : 1) * (x / 2) ** (2 * k + n)) / (den * d2); } return s; };
     let mf = 5;
     a.slider("modulation index m_f = Δf/f_m", 0.2, 8, 0.1, 5, (v) => {
@@ -236,8 +236,9 @@ fig("fm_wave", {
     a.loop((t) => {
       const ph = t * 0.3;
       a.set(msg, { d: p.d((x) => Math.cos(TAU * (x - ph)), 0, 2) });
-      let d = "", phase = 0;
-      for (let i = 0; i <= 1400; i++) { const x = (2 * i) / 1400; const fi = 14 * (1 + 0.5 * Math.min(1, mf / 5) * Math.cos(TAU * (x - ph))); phase += (TAU * fi * 2) / 1400; d += (i ? "L" : "M") + p.X(x).toFixed(1) + "," + p.Y(Math.cos(phase)).toFixed(1); }
+      // x_FM = cos(2π f_C x + m_f sin(2π f_m (x − ph))) with f_m = 1, f_C = 14 per display unit: f_inst = f_C + m_f f_m cos(…)
+      let d = "";
+      for (let i = 0; i <= 1400; i++) { const x = (2 * i) / 1400; d += (i ? "L" : "M") + p.X(x).toFixed(1) + "," + p.Y(Math.cos(TAU * 14 * x + mf * Math.sin(TAU * (x - ph)))).toFixed(1); }
       a.set(w, { d });
     });
   },
@@ -262,14 +263,14 @@ fig("fdm_tdm", {
 
 fig("iq_modulator", {
   title: "I/Q modulation (QPSK)", w: 680, h: 280,
-  caption: "The bit stream is split into pairs: one bit drives the in-phase carrier cos ω_Ct, the other the quadrature carrier sin ω_Ct (the same LO shifted 90°). Their sum is a carrier whose phase takes four values: the four points of the constellation.",
+  caption: "The bit stream is split into pairs: one bit drives the in-phase carrier cos ω_Ct, the other the quadrature carrier −sin ω_Ct (the same LO shifted +90°): I cos ω_Ct − Q sin ω_Ct = A cos(ω_Ct + φ) with φ = atan2(Q, I). Their sum is a carrier whose phase takes four values: the four points of the constellation.",
   init(a) {
     Parts.box(a, 60, 140, 80, 44, "bits →\npairs");
     Parts.mixer(a, 200, 80, 16); Parts.mixer(a, 200, 200, 16);
     a.line(100, 130, 140, 130); a.line(140, 130, 140, 80); a.arrow(140, 80, 184, 80); a.line(100, 150, 140, 150); a.line(140, 150, 140, 200); a.arrow(140, 200, 184, 200);
     a.text(160, 70, "I", { size: 14, weight: 700, color: C.blue }); a.text(160, 190, "Q", { size: 14, weight: 700, color: C.orange });
     a.circle(200, 140, 13, { fill: C.bg }); a.text(200, 140, "LO", { size: 10 }); a.line(200, 127, 200, 96); a.line(200, 153, 200, 184);
-    a.text(222, 160, "−90°", { size: 11, color: C.mid });
+    a.text(222, 160, "+90°", { size: 11, color: C.mid });
     a.circle(300, 140, 14, { fill: C.bg }); a.text(300, 140, "Σ", { size: 16 });
     a.line(216, 80, 300, 80); a.arrow(300, 80, 300, 126); a.line(216, 200, 300, 200); a.arrow(300, 200, 300, 154);
     a.arrow(314, 140, 350, 140); a.text(352, 128, "RF out", { size: 12, anchor: "start" });

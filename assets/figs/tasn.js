@@ -59,7 +59,7 @@ fig("globe", {
     const latArc = a.path("", { color: C.orange, width: 4 });
     const dot = a.circle(0, 0, 6, { fill: C.orange, color: C.bg });
     const lab = a.text(0, 0, "P (41.4°N, 2.2°E)", { size: 13, anchor: "start", weight: 600 });
-    a.text(470, 40, "1 nmi = 1′ of latitude = 1 852 m", { size: 16, weight: 700 });
+    a.text(470, 40, "1 nmi = 1 852 m ≈ 1′ of latitude", { size: 16, weight: 700 });
     a.text(470, 72, "1° of latitude = 60 nmi", { size: 15 });
     a.text(470, 100, "1 kt = 1 nmi/h", { size: 15 });
     a.text(470, 140, "along a parallel at latitude φ:", { size: 14, color: C.mid });
@@ -367,15 +367,15 @@ fig("phasor", {
 
 fig("fourier_square", {
   title: "Fourier series: building a square wave", w: 680, h: 280,
-  caption: "Adding odd harmonics (4/π)·sin((2k−1)ω₀t)/(2k−1) approaches the square wave; the overshoot at each jump (Gibbs, ≈ 9 %) never disappears. The line spectrum below shows the amplitudes |c_n|.",
+  caption: "Adding odd harmonics (4/π)·sin((2k−1)ω₀t)/(2k−1) approaches the square wave; the overshoot at each jump (Gibbs, ≈ 9 %) never disappears. The line spectrum below shows the two-sided coefficients |c_n| = 2/(πn) for odd n (each sine of amplitude 4/(πn) splits into two lines).",
   init(a) {
     const pl = a.plot(40, 20, 600, 150, [0, 2], [-1.4, 1.4]);
     pl.axes("t / T₀", "", { xAt: 0 });
     pl.curve((x) => (x % 1 < 0.5 ? 1 : -1), { color: C.soft, width: 2 });
     const sum = a.path("", { color: C.blue, width: 2.5 });
-    const sp = a.plot(40, 200, 600, 60, [0, 26], [0, 1.4]);
+    const sp = a.plot(40, 200, 600, 60, [0, 26], [0, 0.7]);
     a.line(40, 260, 650, 260, { color: C.ink, width: 1.4 });
-    const bars = Array.from({ length: 13 }, (_, k) => { const n = 2 * k + 1; const h = 4 / Math.PI / n; return a.line(sp.X(n), sp.Y(0), sp.X(n), sp.Y(h), { color: C.soft, width: 5 }); });
+    const bars = Array.from({ length: 13 }, (_, k) => { const n = 2 * k + 1; const h = 2 / Math.PI / n; /* two-sided |c_n| */ return a.line(sp.X(n), sp.Y(0), sp.X(n), sp.Y(h), { color: C.soft, width: 5 }); });
     a.text(650, 275, "harmonic n", { size: 12, anchor: "end", color: C.mid });
     const lab = a.text(60, 12, "", { size: 14, weight: 700, color: C.blue, anchor: "start" });
     a.loop((t) => {
@@ -401,7 +401,7 @@ fig("pulse_spectrum", {
     const read = a.text(636, 140, "", { size: 13, anchor: "end", weight: 700 });
     const sinc = (x) => (Math.abs(x) < 1e-9 ? 1 : Math.sin(Math.PI * x) / (Math.PI * x));
     a.slider("duty τ/T", 0.05, 0.6, 0.01, 0.25, (d) => {
-      a.set(train, { d: tp.d((x) => { const u = ((x % 1) + 1.5) % 1; return (u < d / 2 || u > 1 - d / 2) ? 1 : 0; }, -1.5, 1.5, 1200) });
+      a.set(train, { d: tp.d((x) => { const u = ((x % 1) + 1) % 1; return (u < d / 2 || u > 1 - d / 2) ? 1 : 0; }, -1.5, 1.5, 1200) });
       a.set(env, { d: fp.d((f) => d * sinc(f * d), -10, 10, 600) });
       lines.forEach((l, i) => { const n = i - 10, c = d * sinc(n * d); a.set(l, { x1: fp.X(n), y1: fp.Y(0), x2: fp.X(n), y2: fp.Y(c) }); });
       a.setText(read, `mean = Aτ/T = ${d.toFixed(2)} · first zero at f = ${(1 / d).toFixed(1)}/T`);
@@ -497,10 +497,10 @@ fig("harmonics", {
     a.slider("drive level", 0.2, 4, 0.1, 1.5, (v) => {
       g = v;
       a.set(cur, { d: cp.d((x) => Math.tanh(g * x) / Math.tanh(g) * 1, -1.6, 1.6) });
-      const N = 256, amp = [];
-      for (let n = 1; n <= 5; n++) { let re = 0, im = 0; for (let k = 0; k < N; k++) { const y = f(Math.sin((TAU * k) / N)); re += y * Math.cos((TAU * n * k) / N); im += y * Math.sin((TAU * n * k) / N); } amp.push((2 / N) * Math.hypot(re, im)); }
+      const N = 512, amp = [];
+      for (let n = 1; n <= 31; n++) { let re = 0, im = 0; for (let k = 0; k < N; k++) { const y = f(Math.sin((TAU * k) / N)); re += y * Math.cos((TAU * n * k) / N); im += y * Math.sin((TAU * n * k) / N); } amp.push((2 / N) * Math.hypot(re, im)); }
       bars.forEach((b, i) => a.set(b, { y2: sp.Y(amp[i] / amp[0]) }));
-      a.setText(thd, `THD = ${(100 * Math.sqrt(amp.slice(1).reduce((s, x) => s + x * x, 0)) / amp[0]).toFixed(1)} %`);
+      a.setText(thd, `THD (to n = 31) = ${(100 * Math.sqrt(amp.slice(1).reduce((s, x) => s + x * x, 0)) / amp[0]).toFixed(1)} %`);
     }, (v) => v.toFixed(1));
     a.loop((t) => {
       a.set(xi, { d: ip.d((x) => Math.sin(TAU * (x - t * 0.25)), 0, 2) });
@@ -728,6 +728,8 @@ fig("ad_chain", {
     [[20, 35], [155, 195], [315, 355], [475, 515], [635, 670]].forEach(([p, q]) => a.arrow(p, 60, q, 60, C.ink, 2));
     const sh = [0, 1, 2, 3].map(() => a.path("", { color: C.orange, width: 2 }));
     const sig = (x) => 0.6 * Math.sin(TAU * x * 0.9) + 0.3 * Math.sin(TAU * x * 2.1 + 1);
+    // one 3-bit quantizer shared by the quantizer and the coder: index 0..7 over [−1, 1]
+    const qi = (v) => clamp(Math.floor(((v + 1) / 2) * 8), 0, 7), qv = (q) => -1 + (q + 0.5) / 4;
     a.loop((t) => {
       const ph = t * 0.15;
       const ws = [[35, 155], [195, 315], [355, 475], [515, 635]];
@@ -735,8 +737,8 @@ fig("ad_chain", {
         let d = "";
         if (i === 0) for (let x = p; x <= q; x++) d += (d ? "L" : "M") + x + "," + (170 - 40 * (sig((x - p) / 120 + ph) + 0.15 * Math.sin(x * 1.7))).toFixed(1);
         else if (i === 1) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = sig(k / 12 + ph); d += `M${x},170 L${x},${(170 - 40 * v).toFixed(1)}`; }
-        else if (i === 2) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = Math.round(sig(k / 12 + ph) * 4) / 4; d += `M${x},${(170 - 40 * v).toFixed(1)} L${x + 10},${(170 - 40 * v).toFixed(1)}`; }
-        else for (let k = 0; k < 24; k++) { const x = p + k * 5, v = (Math.round((sig(Math.floor(k / 3) / 12 + ph) + 1) * 3.5) >> (2 - (k % 3))) & 1; d += (d ? "L" : "M") + x + "," + (185 - v * 30) + " L" + (x + 5) + "," + (185 - v * 30); }
+        else if (i === 2) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = qv(qi(sig(k / 12 + ph))); d += `M${x},${(170 - 40 * v).toFixed(1)} L${x + 10},${(170 - 40 * v).toFixed(1)}`; }
+        else for (let k = 0; k < 24; k++) { const x = p + k * 5, v = (qi(sig(Math.floor(k / 3) / 12 + ph)) >> (2 - (k % 3))) & 1; d += (d ? "L" : "M") + x + "," + (185 - v * 30) + " L" + (x + 5) + "," + (185 - v * 30); }
         a.set(sh[i], { d });
       });
     });
@@ -755,7 +757,7 @@ fig("sampling", {
     const sp = a.plot(40, 230, 600, 60, [0, 40], [0, 1]);
     a.line(40, 290, 650, 290, { color: C.ink, width: 1.4 });
     a.text(650, 305, "frequency (Hz)", { size: 11, anchor: "end", color: C.mid });
-    const lines = Array.from({ length: 12 }, () => a.line(0, 0, 0, 0, { color: C.blue, width: 3 }));
+    const lines = Array.from({ length: 24 }, () => a.line(0, 0, 0, 0, { color: C.blue, width: 3 }));
     const fsL = Array.from({ length: 4 }, () => a.line(0, 0, 0, 0, { color: C.soft, width: 1, dash: "3 3" }));
     const read = a.text(630, 22, "", { size: 14, anchor: "end", weight: 700 });
     const st = { f: 3, fs: 10 };
@@ -766,7 +768,8 @@ fig("sampling", {
       a.set(ali, { d: f > fs / 2 ? p.d((t) => Math.cos(TAU * fa * t), 0, 1, 600) : "" });
       dots.forEach((d, k) => { const t = k / fs; a.set(d, t <= 1 ? { cx: p.X(t), cy: p.Y(Math.cos(TAU * f * t)), opacity: 1 } : { opacity: 0 }); });
       let i = 0;
-      for (let k = 0; k < 4; k++) for (const s of [-1, 1]) { const fr = k * fs + s * f; if (i < 12) { a.set(lines[i], { x1: sp.X(fr), x2: sp.X(fr), y1: sp.Y(0), y2: sp.Y(k === 0 ? 1 : 0.7), stroke: k === 0 ? C.blue : C.purple, opacity: fr >= 0 && fr <= 40 ? 1 : 0 }); i++; } }
+      lines.forEach((l) => a.set(l, { opacity: 0 }));
+      for (let k = -6; k <= 12; k++) for (const s of [-1, 1]) { const fr = k * fs + s * f; if (fr >= 0 && fr <= 40 && i < lines.length) { const orig = k === 0 && s === 1; a.set(lines[i], { x1: sp.X(fr), x2: sp.X(fr), y1: sp.Y(0), y2: sp.Y(orig ? 1 : 0.7), stroke: orig ? C.blue : C.purple, opacity: 1 }); i++; } }
       fsL.forEach((l, k) => a.set(l, { x1: sp.X((k + 0.5) * fs), x2: sp.X((k + 0.5) * fs), y1: 230, y2: 290, opacity: (k + 0.5) * fs <= 40 ? 1 : 0 }));
       a.setText(read, f > fs / 2 ? `f = ${f} Hz > f_s/2: alias at ${fa.toFixed(1)} Hz` : `f = ${f} Hz ≤ f_s/2 = ${fs / 2}: no aliasing`);
     };
@@ -784,7 +787,7 @@ fig("quantizer", {
     const orig = a.path("", { color: C.soft, width: 2 }), q = a.path("", { color: C.blue, width: 2.5 });
     const ep = a.plot(40, 215, 600, 60, [0, 1], [-0.5, 0.5]);
     a.line(40, ep.Y(0), 640, ep.Y(0), { color: C.soft, width: 1 });
-    a.text(40, 207, "error", { size: 12, anchor: "start", color: C.mid });
+    a.text(40, 207, "error x − x_q (same scale as the signal, full scale ±1)", { size: 12, anchor: "start", color: C.mid });
     const err = a.path("", { color: C.red, width: 1.6 });
     const read = a.text(636, 30, "", { size: 14, anchor: "end", weight: 700 });
     const sig = (t) => 0.95 * Math.sin(TAU * t) * Math.cos(TAU * 0.3 * t) + 0.04;
@@ -795,9 +798,9 @@ fig("quantizer", {
       const qf = (v) => clamp(-1 + D * (Math.floor((v + 1) / D) + 0.5), -1 + D / 2, 1 - D / 2);
       a.set(orig, { d: p.d(sig, 0, 1, 500) });
       let d = "", de = "";
-      for (let i = 0; i < 64; i++) { const t0 = i / 64, v = qf(sig(t0)); d += (d ? "L" : "M") + p.X(t0) + "," + p.Y(v) + "L" + p.X(t0 + 1 / 64) + "," + p.Y(v); const e = (sig(t0) - v) / (D) * 0.8; de += (de ? "L" : "M") + ep.X(t0) + "," + ep.Y(clamp(e * 0.5, -0.5, 0.5)) + "L" + ep.X(t0 + 1 / 64) + "," + ep.Y(clamp(e * 0.5, -0.5, 0.5)); }
+      for (let i = 0; i < 64; i++) { const t0 = i / 64, v = qf(sig(t0)); d += (d ? "L" : "M") + p.X(t0) + "," + p.Y(v) + "L" + p.X(t0 + 1 / 64) + "," + p.Y(v); const e = sig(t0) - v; de += (de ? "L" : "M") + ep.X(t0) + "," + ep.Y(clamp(e, -0.5, 0.5)) + "L" + ep.X(t0 + 1 / 64) + "," + ep.Y(clamp(e, -0.5, 0.5)); }
       a.set(q, { d }); a.set(err, { d: de });
-      a.setText(read, `${L} levels · SQNR ≈ 6.02N + 1.76 = ${(6.02 * N + 1.76).toFixed(1)} dB`);
+      a.setText(read, `${L} levels · full-scale sine: SQNR ≈ 6.02N + 1.76 = ${(6.02 * N + 1.76).toFixed(1)} dB`);
     });
   },
 });
@@ -955,7 +958,7 @@ fig("dipole_radiation", {
   init(a) {
     const cx = 200, cy = 150;
     a.line(cx, cy - 40, cx, cy - 4, { width: 4 }); a.line(cx, cy + 4, cx, cy + 40, { width: 4 });
-    const rings = Array.from({ length: 5 }, () => Array.from({ length: 36 }, () => a.path("", { color: C.blue, width: 3 })));
+    const rings = Array.from({ length: 4 }, () => Array.from({ length: 36 }, () => a.set(a.path("", { color: C.blue, width: 3.5 }), { "stroke-linecap": "butt" })));
     const pc = [520, 150], pr = 110;
     a.circle(...pc, pr, { color: C.soft, width: 1 }); a.circle(...pc, pr / 2, { color: C.faint, width: 1 });
     a.line(pc[0], pc[1] - pr - 10, pc[0], pc[1] + pr + 10, { color: C.mid, width: 1, dash: "3 3" });
@@ -964,8 +967,8 @@ fig("dipole_radiation", {
     a.text(pc[0] + 8, pc[1] - pr - 4, "θ = 0 (axis): null", { size: 11, anchor: "start", color: C.mid });
     a.loop((t) => {
       rings.forEach((segs, j) => {
-        const r = ((t * 45 + j * 40) % 200) + 45;
-        segs.forEach((p, k) => { const t0 = (k / 36) * TAU, t1 = ((k + 1) / 36) * TAU, th = (t0 + t1) / 2; a.set(p, { d: `M${cx + r * Math.sin(t0)},${cy - r * Math.cos(t0)} A${r},${r} 0 0 1 ${cx + r * Math.sin(t1)},${cy - r * Math.cos(t1)}`, opacity: (Math.sin(th) ** 2) * (1 - (r - 45) / 200) }); });
+        const r = ((t * 40 + j * 40) % 160) + 45;
+        segs.forEach((p, k) => { const t0 = (k / 36) * TAU, t1 = ((k + 1) / 36) * TAU, th = (t0 + t1) / 2; a.set(p, { d: `M${cx + r * Math.sin(t0)},${cy - r * Math.cos(t0)} A${r},${r} 0 0 1 ${cx + r * Math.sin(t1)},${cy - r * Math.cos(t1)}`, opacity: (Math.sin(th) ** 2) * (1 - (r - 45) / 160) }); });
       });
     });
   },
@@ -987,10 +990,10 @@ fig("pattern_polar", {
     let half = 0; for (let d = 0; d <= 180; d += 0.25) if (tdB(rad(d)) >= -3) half = d;
     let side = floor, sideAt = 0; let inMain = true;
     for (let d = 0; d <= 180; d += 0.25) { const v = tdB(rad(d)); if (inMain && v <= floor + 0.01) inMain = false; if (!inMain && v > side) { side = v; sideAt = d; } }
-    const back = tdB(Math.PI);
+    const backRaw = af(Math.PI);
     a.text(410, 60, `−3 dB beamwidth ≈ ${(2 * half).toFixed(0)}°`, { size: 15, anchor: "start" });
     a.text(410, 88, `NLPS ≈ ${(-side).toFixed(1)} dB`, { size: 15, anchor: "start" });
-    a.text(410, 116, `front-to-back ≈ ${(-back).toFixed(1)} dB`, { size: 15, anchor: "start" });
+    a.text(410, 116, backRaw < 1e-6 ? "front-to-back: ∞ (exact rear null)" : `front-to-back ≈ ${(-20 * Math.log10(backRaw)).toFixed(1)} dB`, { size: 15, anchor: "start" });
     const rd = a.text(410, 170, "", { size: 15, anchor: "start", weight: 700, color: C.red });
     const rd2 = a.text(410, 196, "", { size: 14, anchor: "start" });
     a.slider("antenna turned (° clockwise)", 0, 180, 5, 30, (rot) => {
@@ -1041,8 +1044,9 @@ fig("antenna_circuit", {
   caption: "Seen from its terminals an antenna is Z_ant = R_rad + R_Ω + jX_ant (R_rad 'dissipates' the radiated power; R_Ω is ohmic loss). Receiving, it is a Thévenin source V_ant = l_ef·E behind Z_ant; the load gets the most power when Z_L = Z_ant*.",
   init(a) {
     a.line(60, 40, 60, 140, { width: 4 }); a.text(60, 30, "dipole", { size: 13 });
-    for (let k = 0; k < 4; k++) a.arrow(20 + k * 3, 60 + k * 22, 45 + k * 3, 60 + k * 22, C.red, 1.6);
-    a.text(4, 160, "incident E", { size: 12, color: C.red, anchor: "start" });
+    for (let k = 0; k < 3; k++) a.arrow(14 + k * 12, 120, 14 + k * 12, 60, C.red, 1.8);
+    a.arrow(10, 140, 46, 140, C.mid, 1.4); a.text(28, 154, "k", { size: 11, color: C.mid });
+    a.text(42, 66, "E", { size: 13, color: C.red, anchor: "start", weight: 700 });
     a.arrow(85, 90, 130, 90, C.ink, 2); a.text(108, 76, "≡", { size: 20 });
     const y0 = 70, y1 = 200;
     Parts.source(a, 170, 135, 20); a.text(170, 175, "V_ant = l_ef E", { size: 13 });

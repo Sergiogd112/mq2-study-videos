@@ -145,7 +145,7 @@ fig("mfp_curve", {
 
 fig("axial_stage", {
   title: "An axial compressor stage: rotor, then stator", w: 700, h: 300,
-  caption: "Unwrapped mean-line view. The rotor blades (blue) move at U and add swirl (work: cp ΔTt = U(v₂ − v₁)); the stator vanes (grey) are fixed and remove the swirl, diffusing the flow. Both rows slow the flow down, which is what limits the pressure rise per stage.",
+  caption: "Unwrapped mean-line view. The rotor blades (blue) move at U and add swirl (work: cp ΔTt = U(v₂ − v₁)); the stator vanes (grey) are fixed and remove the swirl, diffusing the flow. The rotor diffuses the RELATIVE velocity (V₂R < V₁R) and the stator the ABSOLUTE velocity (V₃ < V₂); that diffusion is what limits the pressure rise per stage.",
   init(a) {
     const yR = 90, yS = 190, s = 70;
     a.text(20, yR, "rotor", { size: 14, weight: 700, anchor: "start", color: C.blue }); a.text(20, yS, "stator", { size: 14, weight: 700, anchor: "start", color: C.mid });
@@ -212,19 +212,19 @@ fig("combustor", {
 
 fig("turbine_stage", {
   title: "An axial turbine stage: nozzle guide vanes, then rotor", w: 700, h: 300,
-  caption: "The stator (nozzle) turns and ACCELERATES the hot gas to a large swirl angle α₂; the rotor blades take the swirl out and the shaft gets cp ΔTt = U(v₂ + v₃). The flow accelerates in both rows (favourable pressure gradient), so one turbine stage can drive several compressor stages. Blades are cooled with compressor air.",
+  caption: "The stator (nozzle) turns and ACCELERATES the hot gas to a large swirl angle α₂ in the direction of blade motion U; the rotor blades take that swirl out and the shaft gets cp ΔTt = U(v₂ + v₃). The flow accelerates in both rows (favourable pressure gradient), so one turbine stage can drive several compressor stages. Blades are cooled with compressor air.",
   init(a) {
     const yS = 90, yR = 200, s = 74;
     a.text(20, yS, "nozzle (stator)", { size: 13, weight: 700, anchor: "start", color: C.mid }); a.text(20, yR, "rotor", { size: 13, weight: 700, anchor: "start", color: C.red });
     const vane = (x, y, col, k) => a.path(`M${x},${y - 32} C${x + 4},${y - 5} ${x - 10 * k},${y + 20} ${x - 40 * k},${y + 32}`, { color: col, width: 9 });
-    for (let k = 1; k < 10; k++) vane(k * s, yS, C.mid, 1);
+    for (let k = 1; k < 10; k++) vane(k * s - 40, yS, C.mid, -1);
     const rot = a.g();
-    a.within(rot, () => { for (let k = -1; k < 11; k++) a.path(`M${k * s - 30},${yR - 32} C${k * s},${yR - 10} ${k * s},${yR + 10} ${k * s - 30},${yR + 32}`, { color: C.red, width: 9 }); });
+    a.within(rot, () => { for (let k = -1; k < 11; k++) a.path(`M${k * s + 30},${yR - 32} C${k * s},${yR - 10} ${k * s},${yR + 10} ${k * s + 30},${yR + 32}`, { color: C.red, width: 9 }); });
     a.arrow(300, 270, 400, 270, C.red, 3); a.text(410, 270, "U", { size: 15, weight: 700, color: C.red, anchor: "start" });
     const ps = Array.from({ length: 28 }, (_, i) => ({ y: (i * 41) % 280, x: 60 + ((i * 59) % 560), c: a.circle(0, 0, 3, { fill: C.orange, color: "none" }) }));
     a.loop((t, dt) => {
       rot.setAttribute("transform", `translate(${100 + ((t * 70) % s)},0)`);
-      ps.forEach((p) => { const sw = p.y < yS - 32 ? 0 : p.y < yR - 32 ? -1.6 : 0.1; const sp = p.y < yS - 32 ? 40 : 75; p.y += sp * dt; p.x += sp * sw * dt; if (p.y > 290) { p.y = 0; p.x = 60 + Math.random() * 560; } a.set(p.c, { cx: ((p.x % 700) + 700) % 700, cy: p.y, fill: tempColor(p.y < yR ? 1600 : 1340, 800, 1700) }); });
+      ps.forEach((p) => { const sw = p.y < yS - 32 ? 0 : p.y < yR - 32 ? 1.6 : -0.1; /* nozzle swirl along U, rotor takes it out */ const sp = p.y < yS - 32 ? 40 : 75; p.y += sp * dt; p.x += sp * sw * dt; if (p.y > 290) { p.y = 0; p.x = 60 + Math.random() * 560; } a.set(p.c, { cx: ((p.x % 700) + 700) % 700, cy: p.y, fill: tempColor(p.y < yR ? 1600 : 1340, 800, 1700) }); });
     });
   },
 });
@@ -244,6 +244,7 @@ fig("nozzle", {
     let M9 = 1, under = 1;
     const upd = () => {
       const crit = 1.832, Pst = st.Pt / crit;
+      if (st.Pt <= st.P0) { M9 = 0; under = 1; out[0].t = `Pt9 = ${st.Pt.toFixed(3)} bar ≤ P0 = ${st.P0.toFixed(3)} bar`; out[1].t = "no forward flow"; out[2].t = "outside the nozzle model"; out[3].t = "raise Pt9 or lower P0"; show(); a.set(plume, { d: "" }); return; }
       if (Pst >= st.P0) { M9 = 1; under = Pst / st.P0; out[2].t = `P9* = ${Pst.toFixed(3)} bar ≥ P0 → CHOKED, M9 = 1`; out[3].t = `under-expanded: P9/P0 = ${under.toFixed(2)}, pressure thrust`; }
       else { under = 1; M9 = Math.sqrt(((st.Pt / st.P0) ** (0.3 / 1.3) - 1) / 0.15); out[2].t = `P9* = ${Pst.toFixed(3)} bar < P0 → MATCHED, P9 = P0`; out[3].t = `M9 = ${M9.toFixed(2)}, no pressure thrust`; }
       out[0].t = `Pt9 = ${st.Pt.toFixed(3)} bar, P0 = ${st.P0.toFixed(4)} bar`;
@@ -446,7 +447,7 @@ fig("turboprop", {
 
 fig("open_rotor", {
   title: "Propfan / open rotor: contra-rotating unducted blades", w: 700, h: 300,
-  caption: "Same gas generator as the turbofan, but the fan is replaced by two rows of swept, contra-rotating propeller blades without a duct: bypass ratios of 30–50 and about 20–35 % lower TSFC (exercises 1A/1B part 2), paid for with tip-Mach limits (M₀ ≲ 0.8), noise, gearbox and installation.",
+  caption: "Same gas generator as the turbofan, but the fan is replaced by two rows of swept, contra-rotating propeller blades without a duct. In exercises 1A/1B part 2 this gives a bypass ratio of 44.5 at cruise and 16.4 at take-off, with 21 % and 35 % lower TSFC than the turbofan, paid for with tip-Mach limits (M₀ ≲ 0.8), noise, gearbox and installation.",
   init(a) {
     const cy = 150;
     a.path(`M60,${cy} Q90,${cy - 40} 160,${cy - 42} L560,${cy - 34} L640,${cy - 14} L640,${cy + 14} L560,${cy + 34} L160,${cy + 42} Q90,${cy + 40} 60,${cy} z`, { fill: "#e2e8f0", color: C.mid });

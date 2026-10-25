@@ -89,16 +89,16 @@ fig("engine_bleed", {
       const ipcv = !hpvOpen || p5 >= pj - 0.01;
       let prv = "fully open", out = pj, opv = "open", closedBy = "";
       if (!st.prvFail) { if (pj > 44) { prv = "REGULATING"; out = 44; } }
-      else { prv = "failed open"; out = pj; if (pj >= 57 && !st.solFail) { prv = "CLOSED by BMC (57 psi, TLT solenoid)"; out = 0; closedBy = "HPV closes with it"; } else if (pj > 74) { opv = pj >= 90 ? "throttling hard (shut at 90)" : "closing (74–90 psi band)"; out = Math.min(pj, 74 + (pj - 74) * 0.25); } }
+      else { prv = "failed open"; out = pj; if (pj >= 57 && !st.solFail) { prv = "CLOSED by BMC (57 psi, TLT solenoid)"; out = 0; closedBy = "HPV closes with it"; } else if (pj >= 90) { opv = "SHUT (≥ 90 psi): no flow to the users"; out = 0; } else if (pj > 74) { opv = "closing (74–90 psi band)"; out = Math.min(pj, 74 + (pj - 74) * 0.25); } }
       const hpvState = prv.startsWith("CLOSED") ? "CLOSED (slaved to PRV)" : hpvOpen ? (p9 > 36 ? "REGULATING 36 psi" : "fully open") : "CLOSED (stage 5 > 36 psi)";
       vIP(ipcv && out > 0, ipcv && out > 0 ? C.green : C.ink); vHP(hpvOpen && !prv.startsWith("CLOSED"), hpvOpen && !prv.startsWith("CLOSED") ? C.green : C.ink);
-      vPRV(!prv.startsWith("CLOSED"), prv === "REGULATING" ? C.amber : prv.startsWith("CLOSED") ? C.red : C.green); vOPV(!opv.startsWith("throttling hard"), opv === "open" ? C.green : C.amber);
+      vPRV(!prv.startsWith("CLOSED"), prv === "REGULATING" ? C.amber : prv.startsWith("CLOSED") ? C.red : C.green); vOPV(!opv.startsWith("SHUT"), opv === "open" ? C.green : opv.startsWith("SHUT") ? C.red : C.amber);
       act = { ip: ipcv && out > 0, hp: hpvOpen && !prv.startsWith("CLOSED"), j: out > 0 };
       a.set(dIP, { stroke: act.ip ? "#fdba74" : C.soft }); a.set(dHP, { stroke: act.hp ? "#fca5a5" : C.soft }); a.set(dJ, { stroke: act.j ? "#fdba74" : C.soft });
       Object.entries(flows).forEach(([k, f]) => f.show(act[k]));
       a.setText(pTxt.p5, `${p5.toFixed(0)} psi`); a.setText(pTxt.p9, `${p9.toFixed(0)} psi`); a.setText(pTxt.out, `${out.toFixed(0)} psi`);
       notes[0].textContent = `IPCV ${ipcv ? "open" : "shut (stage-9 air is higher)"} · HPV ${hpvState} · PRV ${prv} · OPV ${opv}`;
-      notes[1].textContent = `delivered ≈ ${out.toFixed(0)} psi${prv === "REGULATING" ? " (44 ± 4)" : hpvState.startsWith("REG") ? " (36 ± 4)" : ""} ${closedBy}`;
+      notes[1].textContent = out === 0 ? `no delivery: ${prv.startsWith("CLOSED") ? "PRV shut by the BMC" : "OPV shut"} ${closedBy}` : `delivered ≈ ${out.toFixed(0)} psi${prv === "REGULATING" ? " (44 ± 4)" : hpvState.startsWith("REG") ? " (36 ± 4)" : ""} ${closedBy}`;
     };
     a.slider("stage-5 pressure (engine power)", 10, 110, 1, 25, (v) => { st.p5 = v; upd(); }, (v) => v + " psi");
     a.buttons(["PRV normal", "PRV regulator fails high"], (i) => { st.prvFail = i === 1; upd(); });
@@ -132,7 +132,7 @@ fig("butterfly_valve", {
       if (target !== null) th += (target - th) * Math.min(1, dt * 3);
       else th = clamp(th + (44 - pd) * dt * 0.02 + Math.sin(t * 2.3) * dt * 0.05, 0.05, 1);
       pd = st.pu * Math.min(1, Math.sin((th * Math.PI) / 2) * 1.15);
-      const ang = (1 - th) * 80;
+      const ang = th * 85; // 0 = disc across the duct (closed), 85 = edge-on (open)
       a.set(bf, { x1: 360 - 30 * Math.sin(rad(ang)), y1: 245 - 30 * Math.cos(rad(ang)), x2: 360 + 30 * Math.sin(rad(ang)), y2: 245 + 30 * Math.cos(rad(ang)) });
       const px = 250 + th * 180;
       a.set(pis, { x: px }); a.set(chC, { width: px - 232 }); a.set(chD, { x: px + 10, width: 488 - px - 10 }); a.set(rod, { x1: px + 5 });
@@ -147,7 +147,7 @@ fig("prv_closure", {
   title: "Every way the PRV (and the slaved HPV) closes", w: 720, h: 340,
   caption: "Click the conditions. Electrical closures go through the BMC and the TLT solenoid; pneumatic ones act directly on the PRV sense line or by lack of pressure. Whatever closes the PRV also closes the HPV (PRV chamber C is piped to HPV chamber E), but not the reverse.",
   init(a) {
-    const groups = [["crew", ["ENG BLEED pushbutton OFF", "ENG FIRE pushbutton pushed"]], ["BMC → TLT solenoid", ["overpressure ≥ 57 psi", "overtemperature ≥ 257 °C", "leak detected (that side)", "engine start sequence", "APU bleed valve open"]], ["pneumatic", ["upstream < 8 psi (spring)", "reverse flow (TLT diaphragm)", "thermal fuse 450 °C"]]];
+    const groups = [["crew", ["ENG BLEED pushbutton OFF", "ENG FIRE pushbutton pushed"]], ["BMC → TLT solenoid", ["overpressure ≥ 57 psi", "overtemperature ≥ 257 °C", "leak detected (that side)", "engine start sequence", "APU BLEED selected (priority)"]], ["pneumatic", ["upstream < 8 psi (spring)", "reverse flow (TLT diaphragm)", "thermal fuse 450 °C"]]];
     const state = {};
     let y = 30;
     groups.forEach(([gname, items]) => { a.text(20, y, gname, { size: 13, weight: 700, anchor: "start", color: C.blue }); y += 22; items.forEach((it) => { svgToggle(a, 30, y, it, false, (v) => { state[it] = v; upd(); }); y += 24; }); y += 6; });
@@ -169,15 +169,16 @@ fig("temp_ladder", {
     const Y = (T) => 290 - ((T - 150) / 330) * 260;
     a.rect(80, 20, 30, 275, { r: 15, fill: "#f8fafc", color: C.ink }); a.circle(95, 295, 22, { fill: C.red, color: C.ink });
     const merc = a.rect(87, 0, 16, 0, { fill: C.red, color: "none" });
-    const rungs = [[185, 215, "TCT → FAV: more fan air, holds 200 ± 15 °C", C.green], [235, 245, "TLT probe: bleeds the PRV sense line → PRV throttles", C.amber], [257, 260, "BMC → TLT solenoid: PRV (and HPV) shut, ECAM caution", C.red], [450, 453, "PRV thermal fuse melts: sense line vented, PRV shut", C.purple]];
+    a.rect(115, Y(215) - 2, 30, Y(185) - Y(215) + 4, { fill: C.green, color: "none", opacity: 0.18 });
+    const rungs = [[200, 215, "TCT vent opens at 200 °C → FAV: more fan air; outlet held at 200 ± 15 °C", C.green], [235, 245, "TLT probe: bleeds the PRV sense line → PRV throttles", C.amber], [257, 260, "BMC → TLT solenoid: PRV (and HPV) shut, ECAM caution", C.red], [450, 453, "PRV thermal fuse melts: sense line vented, PRV shut", C.purple]];
     const ly = [Y(200), Y(240) + 9, Y(258) - 11, Y(451)];
-    const rows = rungs.map(([lo, hi, s, c], i) => { a.rect(115, Y(hi) - 2, 30, Math.max(4, Y(lo) - Y(hi) + 4), { fill: c, color: "none", opacity: 0.6 }); a.text(150, ly[i], `${lo}${hi - lo > 5 ? "–" + hi : ""} °C`, { size: 12, anchor: "start", weight: 700, color: c }); return [lo, a.text(250, ly[i], s, { size: 12.5, anchor: "start", opacity: 0.35 })]; });
+    const rows = rungs.map(([lo, hi, s, c], i) => { a.rect(115, Y(hi) - 2, 30, Math.max(4, Y(lo) - Y(hi) + 4), { fill: c, color: "none", opacity: 0.6 }); a.text(150, ly[i], ["200 ± 15 °C", "235–245 °C", "257 °C", "450 °C"][i], { size: 12, anchor: "start", weight: 700, color: c }); return [lo, a.text(250, ly[i], s, { size: 12.5, anchor: "start", opacity: 0.35 })]; });
     for (let T = 150; T <= 480; T += 50) a.text(72, Y(T), T, { size: 11, anchor: "end", color: C.mid });
     const out = a.text(470, 30, "", { size: 15, weight: 700 });
     a.slider("bleed temperature (°C)", 150, 480, 1, 200, (T) => {
       a.set(merc, { y: Y(T), height: 295 - Y(T) });
       rows.forEach(([lo, t]) => a.set(t, { opacity: T >= lo ? 1 : 0.35, "font-weight": T >= lo ? 700 : 400 }));
-      a.setText(out, T < 185 ? "below 200 °C: FAV stays shut" : T <= 215 ? "normal regulation band" : T < 235 ? "above the band: FAV wide open" : T < 257 ? "TLT limiting the PRV" : T < 450 ? "PRV shut by the BMC" : "fuse: last resort");
+      a.setText(out, T < 200 ? "below 200 °C: TCT vent closed, FAV spring-shut" : T <= 215 ? "TCT/FAV regulating (200 ± 15 °C band)" : T < 235 ? "above the band: FAV wide open" : T < 257 ? "TLT limiting the PRV" : T < 450 ? "PRV shut by the BMC" : "fuse: last resort");
     });
   },
 });
@@ -247,8 +248,8 @@ fig("opv_valve", {
     let open = 1;
     a.slider("upstream pressure (psi)", 0, 100, 0.5, 60, (p) => {
       open = clamp((90 - p) / 16, 0, 1);
-      const ang = (1 - open) * 85;
-      a.set(bf, { x1: 360 - 30 * Math.sin(rad(90 - ang)) * 0 - 30 * Math.sin(rad(ang)), y1: 155 - 30 * Math.cos(rad(ang)), x2: 360 + 30 * Math.sin(rad(ang)), y2: 155 + 30 * Math.cos(rad(ang)) });
+      const ang = open * 85; // 0 = disc across the duct (closed), 85 = edge-on (open)
+      a.set(bf, { x1: 360 - 30 * Math.sin(rad(ang)), y1: 155 - 30 * Math.cos(rad(ang)), x2: 360 + 30 * Math.sin(rad(ang)), y2: 155 + 30 * Math.cos(rad(ang)) });
       a.set(p1, { x: 310 + (1 - open) * 90 });
       a.setText(out, p < 74 ? "fully OPEN (spring)" : p < 90 ? `closing: ${(open * 100).toFixed(0)} % open` : "CLOSED");
     });
@@ -483,7 +484,7 @@ fig("piston_pump", {
 
 fig("accumulator", {
   title: "Hydraulic accumulator: nitrogen spring", w: 720, h: 300,
-  caption: "A piston separates a nitrogen pre-charge (Green: 1885 psi at 20 °C, 1 litre) from the fluid. Below 1885 psi the accumulator is empty; above it the gas is compressed (Boyle, isothermal: V = V₀·p₀/p) and stores fluid that it gives back when users suddenly demand flow, damping pressure drops.",
+  caption: "A piston separates a nitrogen pre-charge (Green: 1885 psi at 20 °C, 1 litre) from the fluid. Below 1885 psi the accumulator is empty; above it the gas is compressed (Boyle, isothermal, absolute pressures: V = V₀·p₀,abs/p_abs) and stores fluid that it gives back when users suddenly demand flow, damping pressure drops.",
   init(a) {
     a.rect(260, 30, 200, 240, { r: 30, fill: "#f8fafc", color: C.ink, width: 3 });
     const gas = a.rect(264, 34, 192, 0, { fill: "#e0e7ff", color: "none" }), fl = a.rect(264, 0, 192, 0, { fill: "#bbf7d0", color: "none" });
@@ -492,7 +493,7 @@ fig("accumulator", {
     a.line(360, 270, 360, 300, { color: C.green, width: 8 });
     const out = [0, 1, 2].map((i) => a.text(490, 100 + i * 28, "", { size: 14, anchor: "start", weight: i === 2 ? 700 : 400 }));
     a.slider("system pressure (psi)", 0, 3200, 10, 3000, (p) => {
-      const Vg = p <= 1885 ? 1 : 1885 / p, Vf = 1 - Vg, H = 232;
+      const Vg = p <= 1885 ? 1 : (1885 + 14.7) / (p + 14.7), Vf = 1 - Vg, H = 232; // Boyle with ABSOLUTE pressures
       a.set(gas, { height: H * Vg }); a.set(pis, { y: 34 + H * Vg - 5 }); a.set(fl, { y: 34 + H * Vg + 5, height: Math.max(0, H * Vf - 5) });
       a.setText(out[0], `pre-charge 1885 psi, V₀ = 1 l`); a.setText(out[1], `gas volume ${Vg.toFixed(3)} l`); a.setText(out[2], `fluid stored ${Vf.toFixed(3)} l${p <= 1885 ? " (empty)" : ""}`);
     });
@@ -645,13 +646,14 @@ fig("priority_valve", {
     const pfc = Parts.flowDots(a, [[90, 120], [90, 40], [620, 40]], { color: C.green, gap: 22, speed: 60 });
     const out = a.text(600, 130, "", { size: 15, weight: 700 });
     let open = 1;
-    a.slider("Green pressure (fraction of 3000 psi)", 0.2, 1, 0.01, 1, (v) => {
+    a.text(360, 252, "illustrative opening law: the course gives no thresholds for this valve", { size: 11, color: C.mid });
+    a.slider("Green pressure (relative to normal)", 0.2, 1, 0.01, 1, (v) => {
       open = clamp((v - 0.45) / 0.25, 0, 1);
       const x = 200 + open * 120 - 60; a.set(spool, { x });
       let d = `M${x + 120},120`; for (let k = 0; k < 8; k++) d += ` L${x + 120 + ((500 - x - 120) * (k + 0.5)) / 8},${k % 2 ? 136 : 104}`; d += " L500,120"; a.set(spr, { d });
       heavy.show(open > 0.05);
       a.setText(out, open > 0.95 ? "all users fed" : open > 0.05 ? "heavy users throttled" : "heavy users CUT"); a.set(out, { fill: open > 0.95 ? C.green : open > 0.05 ? C.amber : C.red });
-    }, (v) => (v * 3000).toFixed(0) + " psi");
+    }, (v) => (v * 100).toFixed(0) + " %");
     a.loop((t) => { pfc(t); if (open > 0.05) heavy(t, 20 + 40 * open); });
   },
 });
