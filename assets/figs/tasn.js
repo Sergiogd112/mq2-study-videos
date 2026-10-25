@@ -43,7 +43,7 @@ fig("nav_aids", {
 
 fig("globe", {
   title: "Latitude, longitude and the nautical mile", w: 640, h: 320,
-  caption: "Latitude φ is measured from the equator along a meridian, longitude λ from the Greenwich meridian (red). One minute of arc along any great circle is one nautical mile; along a parallel a minute of longitude shrinks to cos φ nautical miles.",
+  caption: "Latitude φ is measured from the equator along a meridian, longitude λ from the Greenwich meridian (red). One minute of arc along any great circle is about one nautical mile (1 nmi = 1 852 m exactly); along a parallel a minute of longitude shrinks to cos φ nautical miles.",
   init(a) {
     const cx = 170, cy = 160, R = 135, tilt = rad(22);
     a.circle(cx, cy, R, { fill: "#eff6ff", color: C.blue, width: 2 });
@@ -60,7 +60,7 @@ fig("globe", {
     const dot = a.circle(0, 0, 6, { fill: C.orange, color: C.bg });
     const lab = a.text(0, 0, "P (41.4°N, 2.2°E)", { size: 13, anchor: "start", weight: 600 });
     a.text(470, 40, "1 nmi = 1 852 m ≈ 1′ of latitude", { size: 16, weight: 700 });
-    a.text(470, 72, "1° of latitude = 60 nmi", { size: 15 });
+    a.text(470, 72, "1° of latitude ≈ 60 nmi", { size: 15 });
     a.text(470, 100, "1 kt = 1 nmi/h", { size: 15 });
     a.text(470, 140, "along a parallel at latitude φ:", { size: 14, color: C.mid });
     a.text(470, 164, "1′ of longitude = cos φ nmi", { size: 15 });
@@ -738,7 +738,7 @@ fig("ad_chain", {
         if (i === 0) for (let x = p; x <= q; x++) d += (d ? "L" : "M") + x + "," + (170 - 40 * (sig((x - p) / 120 + ph) + 0.15 * Math.sin(x * 1.7))).toFixed(1);
         else if (i === 1) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = sig(k / 12 + ph); d += `M${x},170 L${x},${(170 - 40 * v).toFixed(1)}`; }
         else if (i === 2) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = qv(qi(sig(k / 12 + ph))); d += `M${x},${(170 - 40 * v).toFixed(1)} L${x + 10},${(170 - 40 * v).toFixed(1)}`; }
-        else for (let k = 0; k < 24; k++) { const x = p + k * 5, v = (qi(sig(Math.floor(k / 3) / 12 + ph)) >> (2 - (k % 3))) & 1; d += (d ? "L" : "M") + x + "," + (185 - v * 30) + " L" + (x + 5) + "," + (185 - v * 30); }
+        else for (let k = 0; k < 36; k++) { const w = 10 / 3, x = p + k * w, v = (qi(sig(Math.floor(k / 3) / 12 + ph)) >> (2 - (k % 3))) & 1; d += (d ? "L" : "M") + x.toFixed(1) + "," + (185 - v * 30) + " L" + (x + w).toFixed(1) + "," + (185 - v * 30); } /* 3 bits per sample: T_b = T_s/3 */
         a.set(sh[i], { d });
       });
     });
@@ -757,7 +757,7 @@ fig("sampling", {
     const sp = a.plot(40, 230, 600, 60, [0, 40], [0, 1]);
     a.line(40, 290, 650, 290, { color: C.ink, width: 1.4 });
     a.text(650, 305, "frequency (Hz)", { size: 11, anchor: "end", color: C.mid });
-    const lines = Array.from({ length: 24 }, () => a.line(0, 0, 0, 0, { color: C.blue, width: 3 }));
+    const lines = Array.from({ length: 40 }, () => a.line(0, 0, 0, 0, { color: C.blue, width: 3 }));
     const fsL = Array.from({ length: 4 }, () => a.line(0, 0, 0, 0, { color: C.soft, width: 1, dash: "3 3" }));
     const read = a.text(630, 22, "", { size: 14, anchor: "end", weight: 700 });
     const st = { f: 3, fs: 10 };
@@ -769,7 +769,8 @@ fig("sampling", {
       dots.forEach((d, k) => { const t = k / fs; a.set(d, t <= 1 ? { cx: p.X(t), cy: p.Y(Math.cos(TAU * f * t)), opacity: 1 } : { opacity: 0 }); });
       let i = 0;
       lines.forEach((l) => a.set(l, { opacity: 0 }));
-      for (let k = -6; k <= 12; k++) for (const s of [-1, 1]) { const fr = k * fs + s * f; if (fr >= 0 && fr <= 40 && i < lines.length) { const orig = k === 0 && s === 1; a.set(lines[i], { x1: sp.X(fr), x2: sp.X(fr), y1: sp.Y(0), y2: sp.Y(orig ? 1 : 0.7), stroke: orig ? C.blue : C.purple, opacity: 1 }); i++; } }
+      const kmin = Math.floor(-f / fs) - 1, kmax = Math.ceil((40 + f) / fs) + 1; // every replica that can land in 0–40 Hz
+      for (let k = kmin; k <= kmax; k++) for (const s of [-1, 1]) { const fr = k * fs + s * f; if (fr >= 0 && fr <= 40 && i < lines.length) { const orig = k === 0 && s === 1; a.set(lines[i], { x1: sp.X(fr), x2: sp.X(fr), y1: sp.Y(0), y2: sp.Y(orig ? 1 : 0.7), stroke: orig ? C.blue : C.purple, opacity: 1 }); i++; } }
       fsL.forEach((l, k) => a.set(l, { x1: sp.X((k + 0.5) * fs), x2: sp.X((k + 0.5) * fs), y1: 230, y2: 290, opacity: (k + 0.5) * fs <= 40 ? 1 : 0 }));
       a.setText(read, f > fs / 2 ? `f = ${f} Hz > f_s/2: alias at ${fa.toFixed(1)} Hz` : `f = ${f} Hz ≤ f_s/2 = ${fs / 2}: no aliasing`);
     };
@@ -787,7 +788,7 @@ fig("quantizer", {
     const orig = a.path("", { color: C.soft, width: 2 }), q = a.path("", { color: C.blue, width: 2.5 });
     const ep = a.plot(40, 215, 600, 60, [0, 1], [-0.5, 0.5]);
     a.line(40, ep.Y(0), 640, ep.Y(0), { color: C.soft, width: 1 });
-    a.text(40, 207, "error x − x_q (same scale as the signal, full scale ±1)", { size: 12, anchor: "start", color: C.mid });
+    a.text(40, 207, "error x − x_q (same amplitude units as the signal, full scale ±1)", { size: 12, anchor: "start", color: C.mid });
     const err = a.path("", { color: C.red, width: 1.6 });
     const read = a.text(636, 30, "", { size: 14, anchor: "end", weight: 700 });
     const sig = (t) => 0.95 * Math.sin(TAU * t) * Math.cos(TAU * 0.3 * t) + 0.04;

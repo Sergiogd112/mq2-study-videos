@@ -219,7 +219,7 @@ fig("turbine_stage", {
     const vane = (x, y, col, k) => a.path(`M${x},${y - 32} C${x + 4},${y - 5} ${x - 10 * k},${y + 20} ${x - 40 * k},${y + 32}`, { color: col, width: 9 });
     for (let k = 1; k < 10; k++) vane(k * s - 40, yS, C.mid, -1);
     const rot = a.g();
-    a.within(rot, () => { for (let k = -1; k < 11; k++) a.path(`M${k * s + 30},${yR - 32} C${k * s},${yR - 10} ${k * s},${yR + 10} ${k * s + 30},${yR + 32}`, { color: C.red, width: 9 }); });
+    a.within(rot, () => { for (let k = -1; k < 11; k++) a.path(`M${k * s - 30},${yR - 32} C${k * s},${yR - 10} ${k * s},${yR + 10} ${k * s - 30},${yR + 32}` /* camber follows the RELATIVE flow: in towards +U, out towards −U */, { color: C.red, width: 9 }); });
     a.arrow(300, 270, 400, 270, C.red, 3); a.text(410, 270, "U", { size: 15, weight: 700, color: C.red, anchor: "start" });
     const ps = Array.from({ length: 28 }, (_, i) => ({ y: (i * 41) % 280, x: 60 + ((i * 59) % 560), c: a.circle(0, 0, 3, { fill: C.orange, color: "none" }) }));
     a.loop((t, dt) => {
@@ -256,6 +256,8 @@ fig("nozzle", {
     a.slider("Pt9 (bar)", 0.25, 2, 0.001, 0.887, (v) => { st.Pt = v; upd(); }, (v) => v.toFixed(3));
     a.slider("P0 (bar)", 0.2, 1.013, 0.001, 0.2273, (v) => { st.P0 = v; upd(); }, (v) => v.toFixed(3));
     a.loop((t, dt) => parts.forEach((p) => {
+      a.set(p.c, { opacity: st.Pt > st.P0 ? 1 : 0 });
+      if (st.Pt <= st.P0) return;
       const sp = p.x < 300 ? 60 : p.x < 430 ? 90 + 80 * M9 : 160 + 60 * M9; p.x += sp * dt; if (p.x > 690) p.x = 40;
       const half = p.x < 300 ? 85 : p.x < 430 ? lerp(85, 35, (p.x - 300) / 130) : 35 + (p.x - 430) * 0.12 * Math.log(under + 1);
       a.set(p.c, { cx: p.x, cy: 150 + p.f * half });
