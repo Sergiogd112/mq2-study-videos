@@ -1,0 +1,2033 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:03.063
+Welcome to part three, the last one.
+
+2
+00:00:03.113 --> 00:00:06.393
+We cover digital data transmission
+and coding, analogue to
+
+3
+00:00:06.433 --> 00:00:09.541
+digital conversion, radio
+propagation and polarization,
+
+4
+00:00:09.581 --> 00:00:12.804
+and antennas with the Friis
+transmission equation, which
+
+5
+00:00:12.844 --> 00:00:18.231
+gave the link-budget problems
+of the 2022 and 2023 partials.
+
+6
+00:00:18.281 --> 00:00:21.383
+As before, every exam
+question on these topics is
+
+7
+00:00:21.423 --> 00:00:25.748
+solved, and checked against the
+official key where one exists.
+
+8
+00:00:27.398 --> 00:00:30.446
+Data communication moves
+characters from one point
+
+9
+00:00:30.486 --> 00:00:33.924
+to another, today almost
+always between computers.
+
+10
+00:00:33.974 --> 00:00:37.764
+In parallel transmission every
+bit of a character travels at the
+
+11
+00:00:37.804 --> 00:00:41.654
+same time on its own line, which
+is fast but needs many lines, so
+
+12
+00:00:41.694 --> 00:00:45.485
+it is only used over very short
+distances; the handwritten notes
+
+13
+00:00:45.525 --> 00:00:50.184
+show the historical example of Salvà's
+telegraph, one wire per letter.
+
+14
+00:00:50.234 --> 00:00:54.600
+In serial transmission the bits travel
+one after another on a single line,
+
+15
+00:00:54.640 --> 00:00:59.396
+which takes longer but is the only
+practical solution over long distances.
+
+16
+00:00:59.446 --> 00:01:03.640
+A serial link must tell the receiver
+where each word starts and ends: in
+
+17
+00:01:03.680 --> 00:01:07.875
+asynchronous transmission every
+character carries its own start and stop
+
+18
+00:01:07.915 --> 00:01:11.699
+symbols, as drawn here, so the
+circuits are simple, but the extra
+
+19
+00:01:11.739 --> 00:01:16.676
+symbols carry no user information and
+the gap between characters is not fixed.
+
+20
+00:01:16.726 --> 00:01:20.886
+In synchronous transmission there are
+no start or stop symbols: a special
+
+21
+00:01:20.926 --> 00:01:25.373
+sequence synchronises the receiver's
+clock once, and then a continuous flow of
+
+22
+00:01:25.413 --> 00:01:29.802
+symbols is kept even when there is nothing
+to send, which is faster but needs
+
+23
+00:01:29.842 --> 00:01:34.909
+more sophisticated equipment, as in the
+digital links between telephone exchanges.
+
+24
+00:01:36.559 --> 00:01:39.624
+A binary signal takes one
+of two values in each
+
+25
+00:01:39.664 --> 00:01:43.515
+symbol interval, and an M-ary
+signal one of M values.
+
+26
+00:01:43.565 --> 00:01:47.015
+Nothing forces data transmission
+to be binary: with four
+
+27
+00:01:47.055 --> 00:01:50.193
+voltage levels, each level
+carries two bits, and in
+
+28
+00:01:50.233 --> 00:01:54.446
+general M symbols represent n
+bits when M equals 2 to the n.
+
+29
+00:01:54.496 --> 00:01:58.608
+In the figure, the binary signal
+needs twelve symbols to send twelve
+
+30
+00:01:58.648 --> 00:02:03.126
+bits, while the 8-ary signal sends
+the same twelve bits with only four
+
+31
+00:02:03.166 --> 00:02:08.278
+symbols, three bits each, so it is three
+times faster at the same symbol rate.
+
+32
+00:02:08.328 --> 00:02:12.894
+Problem 3.8 is the inverse question:
+to code the five vowels you need at
+
+33
+00:02:12.934 --> 00:02:17.676
+least 3 bits, because 2 bits only give
+four words and 3 bits give eight.
+
+34
+00:02:19.326 --> 00:02:22.672
+Do not confuse the two rates,
+it is a favourite trap.
+
+35
+00:02:22.722 --> 00:02:26.128
+The signalling rate is the
+number of symbols per second,
+
+36
+00:02:26.168 --> 00:02:29.575
+measured in baud, and a channel
+of bandwidth B allows at
+
+37
+00:02:29.615 --> 00:02:33.904
+most 2 B baud, a limit only
+reached with special pulse shapes.
+
+38
+00:02:33.954 --> 00:02:38.631
+The information rate is the number of
+bits per second, which equals the baud
+
+39
+00:02:38.671 --> 00:02:43.986
+rate times the number of bits per symbol,
+n, where M equals 2 to the n levels.
+
+40
+00:02:44.036 --> 00:02:46.968
+The two coincide only in a
+binary synchronous link; in
+
+41
+00:02:47.008 --> 00:02:49.884
+a binary asynchronous link
+the bit rate is lower than
+
+42
+00:02:49.924 --> 00:02:52.745
+the baud rate because of
+the start and stop symbols;
+
+43
+00:02:52.785 --> 00:02:56.217
+and in an M-ary synchronous
+link the bit rate is higher.
+
+44
+00:02:56.267 --> 00:02:59.463
+That is how old telephone
+modems worked: half a telephone
+
+45
+00:02:59.503 --> 00:03:04.574
+channel, about 1.5 kHz, allows
+3 000 baud, yet the V.34
+
+46
+00:03:04.614 --> 00:03:10.131
+standard reached 33 600 bits per
+second with multilevel symbols.
+
+47
+00:03:11.781 --> 00:03:14.273
+This problem, from the
+collection, came back in
+
+48
+00:03:14.313 --> 00:03:19.782
+2023 with the new 8.33 kHz
+channels, so let us do both.
+
+49
+00:03:19.832 --> 00:03:26.242
+The maximum signalling rate is twice the
+bandwidth: 2 times 25 kHz, 50 kilobaud.
+
+50
+00:03:26.292 --> 00:03:30.248
+With 4 levels each symbol carries
+2 bits, because 2 squared
+
+51
+00:03:30.288 --> 00:03:34.667
+is 4, so the information rate
+is 50 thousand times 2, 100
+
+52
+00:03:34.707 --> 00:03:38.810
+kilobits per second; Barlabé
+confirms this step in the FAQ.
+
+53
+00:03:38.860 --> 00:03:43.955
+With 30 dB, that is a ratio of
+1 000, Shannon gives 25 000
+
+54
+00:03:43.995 --> 00:03:50.692
+times log base 2 of 1 001, which
+is 249.2 kilobits per second.
+
+55
+00:03:50.742 --> 00:03:57.953
+For the 2023 version, the 8.333
+kHz channel allows 16.67 kilobaud.
+
+56
+00:03:58.003 --> 00:04:01.408
+Eight symbols carry 3 bits
+each, so 50 kilobits per
+
+57
+00:04:01.448 --> 00:04:07.142
+second, and the capacity at 30
+dB is 83.1 kilobits per second.
+
+58
+00:04:08.792 --> 00:04:14.401
+If multilevel signals carry more bits per
+symbol, why not use thousands of levels?
+
+59
+00:04:14.451 --> 00:04:18.581
+Because, for the same signal power,
+more levels means the levels
+
+60
+00:04:18.621 --> 00:04:22.816
+are closer together, and noise
+pushes the received value across a
+
+61
+00:04:22.856 --> 00:04:27.375
+decision threshold more easily,
+as the handwritten notes sketch.
+
+62
+00:04:27.425 --> 00:04:30.376
+These curves show it: at
+any given signal to noise
+
+63
+00:04:30.416 --> 00:04:34.416
+ratio, the error probability
+grows with the number of levels.
+
+64
+00:04:34.466 --> 00:04:38.272
+So in the 2016 partial, with
+the same signal to noise
+
+65
+00:04:38.312 --> 00:04:41.508
+ratio and the same signalling
+rate, the 16-level
+
+66
+00:04:41.548 --> 00:04:45.439
+signal has a larger error
+probability than the binary one.
+
+67
+00:04:45.489 --> 00:04:49.949
+In the presence of noise you cannot make
+a digital signal look more and more
+
+68
+00:04:49.989 --> 00:04:54.779
+like an analog one; coding is then used
+to recover part of the reliability.
+
+69
+00:04:56.429 --> 00:04:59.332
+Modulation is processing
+of the signal; coding is
+
+70
+00:04:59.372 --> 00:05:02.665
+processing of the symbols
+of the digital message.
+
+71
+00:05:02.715 --> 00:05:05.994
+Source coding removes redundancy
+so that the source is
+
+72
+00:05:06.034 --> 00:05:09.190
+represented with fewer bits:
+Morse does it by giving
+
+73
+00:05:09.230 --> 00:05:12.448
+the shortest words to the
+most frequent letters, like
+
+74
+00:05:12.488 --> 00:05:15.767
+a single dot for E, compressors
+like ZIP do it without
+
+75
+00:05:15.807 --> 00:05:18.656
+loss, and JPEG, MPEG or MP3 do it with an
+
+76
+00:05:18.696 --> 00:05:21.730
+imperceptible loss; reducing
+the number of bits is
+
+77
+00:05:21.770 --> 00:05:26.668
+exactly the 'main objective of source
+coding' asked in the question sheet.
+
+78
+00:05:26.718 --> 00:05:30.918
+Channel coding does the opposite:
+it adds bits to detect and correct
+
+79
+00:05:30.958 --> 00:05:35.158
+transmission errors and to keep
+synchronism, with parity bits, block
+
+80
+00:05:35.198 --> 00:05:40.536
+codes, Hamming codes and convolutional
+codes decoded with the Viterbi algorithm.
+
+81
+00:05:40.586 --> 00:05:45.533
+A single parity bit detects one
+error, misses two, and corrects none.
+
+82
+00:05:45.583 --> 00:05:49.802
+The Hamming code of the notes maps
+4 data bits into 7, choosing 16
+
+83
+00:05:49.842 --> 00:05:54.770
+of the 128 possible words so that
+any two differ in at least three
+
+84
+00:05:54.810 --> 00:05:58.100
+bits, so one or two errors are
+detected and a single error is
+
+85
+00:05:58.140 --> 00:06:02.257
+corrected by picking the closest
+valid word; the price is redundancy.
+
+86
+00:06:02.307 --> 00:06:05.938
+For the exam, 'name a source
+code and a channel code' has a
+
+87
+00:06:05.978 --> 00:06:10.621
+ready answer: Morse or ZIP for source,
+parity or Hamming for channel.
+
+88
+00:06:12.271 --> 00:06:17.358
+The last family of channel codes shapes
+the electrical waveform: line codes.
+
+89
+00:06:17.408 --> 00:06:21.683
+Binary signals can be unipolar
+or bipolar, and return to zero,
+
+90
+00:06:21.723 --> 00:06:25.789
+R Z, if they go back to zero
+during half of the bit, or non
+
+91
+00:06:25.829 --> 00:06:30.634
+return to zero, N R Z, if they
+hold the level for the whole bit.
+
+92
+00:06:30.684 --> 00:06:34.813
+A long run of zeros in unipolar
+format has no transitions, so the
+
+93
+00:06:34.853 --> 00:06:38.855
+receiver loses bit synchronism,
+and a long run of ones leaves a
+
+94
+00:06:38.895 --> 00:06:43.735
+non-zero mean, a DC component, which
+transmission systems must avoid.
+
+95
+00:06:43.785 --> 00:06:47.850
+A M I, alternate mark inversion,
+makes successive ones alternate
+
+96
+00:06:47.890 --> 00:06:51.892
+in polarity, which removes the
+DC component, but a long run of
+
+97
+00:06:51.932 --> 00:06:55.997
+zeros is still a flat line with
+no transitions; H D B three, not
+
+98
+00:06:56.037 --> 00:07:00.102
+drawn here, fixes that by replacing
+every run of four zeros with
+
+99
+00:07:00.142 --> 00:07:04.534
+a pattern containing pulses, so
+the receiver keeps synchronism.
+
+100
+00:07:04.584 --> 00:07:07.784
+Local networks use the Manchester
+code, with a guaranteed
+
+101
+00:07:07.824 --> 00:07:10.855
+transition in the middle of
+every bit: no DC and easy
+
+102
+00:07:10.895 --> 00:07:14.883
+synchronism, but at the cost of
+a larger transmission bandwidth.
+
+103
+00:07:16.533 --> 00:07:19.800
+Long-distance data links
+modulate a sinusoidal
+
+104
+00:07:19.840 --> 00:07:23.035
+carrier, and with a
+digital modulating signal
+
+105
+00:07:23.075 --> 00:07:28.888
+amplitude, frequency and phase
+modulation are called ASK, FSK and PSK.
+
+106
+00:07:28.938 --> 00:07:33.486
+Facing noise, for a given signal
+to noise ratio, PSK gives the
+
+107
+00:07:33.526 --> 00:07:38.750
+lowest error probability, followed
+by FSK, and ASK is the worst.
+
+108
+00:07:38.800 --> 00:07:42.370
+A modem, short for modulator-demodulator,
+is the equipment that
+
+109
+00:07:42.410 --> 00:07:46.151
+converts a low-pass digital signal
+into a band-pass digital signal
+
+110
+00:07:46.191 --> 00:07:51.468
+and back, which is the answer to 'what
+is a modem' in the 2023 partial.
+
+111
+00:07:51.518 --> 00:07:55.209
+To go faster, modems combine
+amplitude and phase, and such
+
+112
+00:07:55.249 --> 00:07:59.068
+multilevel signals are drawn as
+a constellation: one dot per
+
+113
+00:07:59.108 --> 00:08:02.992
+symbol at the tip of its phasor,
+here twelve phases, the four
+
+114
+00:08:03.032 --> 00:08:07.948
+inner points sharing four of them,
+and two amplitudes: sixteen symbols.
+
+115
+00:08:07.998 --> 00:08:11.439
+Above the line codes,
+communication protocols, organised
+
+116
+00:08:11.479 --> 00:08:14.919
+in the seven layers of the I
+S O O S I model, decide who
+
+117
+00:08:14.959 --> 00:08:18.913
+talks, how errors are reported
+and how packets are routed.
+
+118
+00:08:20.563 --> 00:08:23.533
+Analogue to digital conversion
+is the last topic of
+
+119
+00:08:23.573 --> 00:08:27.287
+the exam scope, and its block
+diagram is a sure question.
+
+120
+00:08:27.337 --> 00:08:31.578
+First comes the anti-aliasing
+filter, an analogue low-pass filter
+
+121
+00:08:31.618 --> 00:08:35.662
+that guarantees a signal band-limited
+to W at the input of the
+
+122
+00:08:35.702 --> 00:08:41.190
+sampler; that is why a filter is needed
+as the first stage, to avoid aliasing.
+
+123
+00:08:41.240 --> 00:08:44.511
+Then the sampler measures the
+signal at regular instants
+
+124
+00:08:44.551 --> 00:08:48.625
+separated by the sampling period
+T s, giving a discrete signal.
+
+125
+00:08:48.675 --> 00:08:52.123
+Then the quantizer assigns to
+each sample the nearest of a
+
+126
+00:08:52.163 --> 00:08:56.723
+finite number of amplitude levels,
+giving a multilevel digital signal.
+
+127
+00:08:56.773 --> 00:09:00.160
+Finally the coder replaces
+each level by an N-bit binary
+
+128
+00:09:00.200 --> 00:09:04.100
+word, so the bit time is the
+sampling period divided by N.
+
+129
+00:09:04.150 --> 00:09:09.693
+Filter, sampler, quantizer, coder:
+memorise the four names in this order, in
+
+130
+00:09:09.733 --> 00:09:16.180
+Catalan if you like: filtre anti-aliasing,
+mostrejador, quantificador, codificador.
+
+131
+00:09:17.830 --> 00:09:21.721
+Why must the sampling frequency
+be at least twice the bandwidth?
+
+132
+00:09:21.771 --> 00:09:27.188
+The spectrum of a sampled signal is
+periodic: the original spectrum, of width
+
+133
+00:09:27.228 --> 00:09:32.965
+W on each side, is repeated around every
+multiple of the sampling frequency.
+
+134
+00:09:33.015 --> 00:09:36.989
+As long as f s is at least twice
+W, the copies do not touch,
+
+135
+00:09:37.029 --> 00:09:41.527
+and an ideal low-pass filter can
+recover the original exactly.
+
+136
+00:09:41.577 --> 00:09:45.911
+Watch what happens as the sampling
+frequency is lowered: below twice W
+
+137
+00:09:45.951 --> 00:09:49.973
+the replicas overlap, and the sum
+in red no longer looks like the
+
+138
+00:09:50.013 --> 00:09:54.988
+original; this is aliasing, a distortion
+that nothing can undo afterwards.
+
+139
+00:09:55.038 --> 00:09:58.848
+The minimum, twice W, is the
+Nyquist frequency, and because
+
+140
+00:09:58.888 --> 00:10:02.762
+real filters need a transition
+band we sample a little faster:
+
+141
+00:10:02.802 --> 00:10:09.401
+the compact disc samples 20 kHz
+audio at 44.1 kHz instead of 40.
+
+142
+00:10:11.051 --> 00:10:14.763
+The quantizer is a non-linear
+system, so it has no transfer
+
+143
+00:10:14.803 --> 00:10:19.667
+function; it is described by its
+staircase input-output characteristic.
+
+144
+00:10:19.717 --> 00:10:24.357
+Its error, the difference between each
+sample and the nearest level, cannot be
+
+145
+00:10:24.397 --> 00:10:29.367
+corrected when converting back, but it
+becomes negligible with enough levels.
+
+146
+00:10:29.417 --> 00:10:36.049
+Voice, in telephony or between pilot and
+controller, needs 256 levels, 8 bits,
+
+147
+00:10:36.089 --> 00:10:44.651
+while high-quality music on a CD uses 65
+536 levels, 16 bits, per stereo channel.
+
+148
+00:10:44.701 --> 00:10:47.964
+The quantization steps need
+not be equal: non-uniform
+
+149
+00:10:48.004 --> 00:10:52.841
+quantizers use smaller steps for the
+most probable values of the signal.
+
+150
+00:10:52.891 --> 00:10:57.186
+After coding, each sample becomes N
+bits, so the binary signal is N times
+
+151
+00:10:57.226 --> 00:11:01.522
+faster than the multilevel one, and
+the converter is characterised by its
+
+152
+00:11:01.562 --> 00:11:06.128
+number of bits per sample together
+with its maximum sampling frequency.
+
+153
+00:11:07.778 --> 00:11:12.494
+Here is the numerical example of
+the notes, a perfect exam question.
+
+154
+00:11:12.544 --> 00:11:16.811
+Sampling at 8 kHz gives
+one sample every 125
+
+155
+00:11:16.851 --> 00:11:21.508
+microseconds, and 256 levels
+need 8 bits per sample.
+
+156
+00:11:21.558 --> 00:11:25.984
+Eight bits must fit in
+125 microseconds, so each
+
+157
+00:11:26.024 --> 00:11:31.521
+bit lasts 15.625 microseconds,
+giving 64 000 baud.
+
+158
+00:11:31.571 --> 00:11:34.904
+In a binary synchronous link
+the bit rate equals the baud
+
+159
+00:11:34.944 --> 00:11:39.317
+rate: 64 kilobits per second,
+the classic telephone channel.
+
+160
+00:11:39.367 --> 00:11:43.084
+And since a channel of bandwidth
+B carries at most 2 B baud, the
+
+161
+00:11:43.124 --> 00:11:47.924
+minimum bandwidth is 32 kHz, far
+more than the 8 kHz that the
+
+162
+00:11:47.964 --> 00:11:51.510
+notes quote for analog transmission:
+digital pays in bandwidth,
+
+163
+00:11:51.550 --> 00:11:56.284
+which is why compression algorithms
+such as M P 3 or JPEG were developed.
+
+164
+00:11:57.934 --> 00:12:01.291
+Digital to analogue
+conversion is much simpler.
+
+165
+00:12:01.341 --> 00:12:04.725
+A decoder turns the binary
+words back into a multilevel
+
+166
+00:12:04.765 --> 00:12:07.837
+signal, and a low-pass
+filter removes the spectral
+
+167
+00:12:07.877 --> 00:12:12.024
+replicas created by sampling,
+leaving only the original band.
+
+168
+00:12:12.074 --> 00:12:17.567
+If the sampling respected Nyquist, the
+recovery is perfect, at least in theory.
+
+169
+00:12:17.617 --> 00:12:20.822
+The only difference between
+the original and the recovered
+
+170
+00:12:20.862 --> 00:12:25.073
+signal is the small quantization
+error introduced in the A to D step.
+
+171
+00:12:26.723 --> 00:12:30.799
+Now propagation, starting with the
+plane wave, the simplest solution of
+
+172
+00:12:30.839 --> 00:12:35.594
+Maxwell's equations and a good local
+model of any wave far from its antenna.
+
+173
+00:12:35.644 --> 00:12:40.246
+In a plane wave the electric field, the
+magnetic field and the direction of
+
+174
+00:12:40.286 --> 00:12:44.949
+propagation are mutually perpendicular,
+and the ratio between E and H is the
+
+175
+00:12:44.989 --> 00:12:49.652
+intrinsic impedance of the medium, the
+square root of mu over epsilon, about
+
+176
+00:12:49.692 --> 00:12:56.416
+377 ohms in vacuum, the analogue of the
+characteristic impedance of a line.
+
+177
+00:12:56.466 --> 00:12:59.618
+The wave number is omega over
+the propagation speed, which
+
+178
+00:12:59.658 --> 00:13:02.370
+is one over the square root
+of mu epsilon, and the
+
+179
+00:13:02.410 --> 00:13:06.336
+refractive index is the square
+root of the relative permittivity.
+
+180
+00:13:06.386 --> 00:13:10.381
+At a discontinuity, part of the wave
+is reflected, with the angle of
+
+181
+00:13:10.421 --> 00:13:14.238
+reflection equal to the angle of
+incidence, and part is refracted
+
+182
+00:13:14.278 --> 00:13:18.451
+into the second medium following
+Snell's law, n 1 sine theta i equals
+
+183
+00:13:18.491 --> 00:13:23.350
+n 2 sine theta t, with all angles
+measured from the normal to the surface.
+
+184
+00:13:23.400 --> 00:13:27.331
+The reflection coefficient depends
+on both media, on the angle of
+
+185
+00:13:27.371 --> 00:13:31.607
+incidence and on the polarization:
+decompose the electric field into a
+
+186
+00:13:31.647 --> 00:13:35.821
+component perpendicular to the plane
+of incidence and one parallel to
+
+187
+00:13:35.861 --> 00:13:40.097
+it; for a reflection from the ground,
+a horizontally polarized wave is
+
+188
+00:13:40.137 --> 00:13:44.190
+the perpendicular case and a
+vertically polarized wave the parallel
+
+189
+00:13:44.230 --> 00:13:48.221
+one; each has its own reflection
+coefficient, so an oblique linear
+
+190
+00:13:48.261 --> 00:13:53.681
+polarization generally comes back with a
+different orientation, or even elliptical.
+
+191
+00:13:53.731 --> 00:13:57.022
+Diffraction is what cannot be
+explained by reflection or
+
+192
+00:13:57.062 --> 00:14:01.067
+refraction: by Huygens' principle
+every point of a front radiates a
+
+193
+00:14:01.107 --> 00:14:06.097
+new wave, so waves go round obstacles,
+which gives some coverage behind hills.
+
+194
+00:14:07.747 --> 00:14:11.522
+The main propagation mechanism
+depends on the frequency band.
+
+195
+00:14:11.572 --> 00:14:16.324
+Below about 100 kHz, waves are
+guided between the Earth's surface
+
+196
+00:14:16.364 --> 00:14:19.964
+and the ionosphere; this was
+used by the old Omega and Loran
+
+197
+00:14:20.004 --> 00:14:24.600
+navigation systems, and today only
+for communications with submarines.
+
+198
+00:14:24.650 --> 00:14:30.194
+Between 100 kHz and 3 MHz the surface
+wave dominates, following the
+
+199
+00:14:30.234 --> 00:14:34.612
+ground; it needs vertical polarization,
+which is why the NDB and ADF
+
+200
+00:14:34.652 --> 00:14:39.849
+system uses vertically polarized antennas,
+and AM broadcasting lives here too.
+
+201
+00:14:39.899 --> 00:14:44.681
+Between 3 and 30 MHz, waves bounce
+off the ionosphere, reaching
+
+202
+00:14:44.721 --> 00:14:49.328
+very long distances, farther at
+night because the lower layer rises.
+
+203
+00:14:49.378 --> 00:14:54.403
+Above 30 MHz propagation is optical,
+along the line of sight, with a
+
+204
+00:14:54.443 --> 00:14:58.753
+direct wave and a ground-reflected
+wave in the troposphere: this is
+
+205
+00:14:58.793 --> 00:15:03.558
+where aeronautical VHF voice, VOR,
+DME, TACAN, secondary radar and
+
+206
+00:15:03.598 --> 00:15:08.688
+satellite systems work, and it is the
+regime for all the Friis problems.
+
+207
+00:15:10.338 --> 00:15:14.209
+Polarization is the orientation in
+space of the electric field of the
+
+208
+00:15:14.249 --> 00:15:19.418
+wave, the definition asked word for
+word in 2016 and in the question sheet.
+
+209
+00:15:19.468 --> 00:15:23.086
+To see it, fix a point, for
+example z equal to zero, and
+
+210
+00:15:23.126 --> 00:15:27.330
+follow the tip of the electric
+field vector as time passes.
+
+211
+00:15:27.380 --> 00:15:32.384
+If the field has a single component,
+or two components in phase, the tip
+
+212
+00:15:32.424 --> 00:15:37.889
+moves along a line: linear polarization,
+vertical, horizontal or oblique.
+
+213
+00:15:37.939 --> 00:15:41.723
+If the two components are 90
+degrees apart, the tip draws an
+
+214
+00:15:41.763 --> 00:15:45.638
+ellipse, and if they are also
+equal in amplitude, a circle.
+
+215
+00:15:45.688 --> 00:15:49.804
+Watch the four cases:
+vertical, oblique x plus 2 y,
+
+216
+00:15:49.844 --> 00:15:54.350
+circular x minus j y, and
+elliptical 2 x minus j y.
+
+217
+00:15:54.400 --> 00:15:59.370
+Antennas take the name of the polarization
+they radiate far away: a vertical dipole
+
+218
+00:15:59.410 --> 00:16:04.770
+is vertically polarized, and aeronautical
+voice antennas use vertical polarization.
+
+219
+00:16:06.420 --> 00:16:11.754
+Barlabé's method, from the FAQ: fix z
+equal to zero, write any j as e to the j
+
+220
+00:16:11.794 --> 00:16:17.718
+90 degrees, take the real part, and look
+at how each component varies with time.
+
+221
+00:16:17.768 --> 00:16:22.321
+In part a, the x component
+is 2 E zero cosine omega t.
+
+222
+00:16:22.371 --> 00:16:26.558
+The y component has a j in front,
+so it is 2 E zero cosine of
+
+223
+00:16:26.598 --> 00:16:31.510
+omega t plus 90 degrees, which
+is minus 2 E zero sine omega t.
+
+224
+00:16:31.560 --> 00:16:36.105
+Equal amplitudes and a 90 degree
+shift: the tip of E draws a circle,
+
+225
+00:16:36.145 --> 00:16:40.954
+so the polarization is circular,
+rotating from plus x towards minus y.
+
+226
+00:16:41.004 --> 00:16:43.672
+The answer key calls
+it left-hand circular,
+
+227
+00:16:43.712 --> 00:16:46.820
+consistent with the notes'
+worked example, where x
+
+228
+00:16:46.860 --> 00:16:50.862
+minus j y, rotating the other
+way, is right-hand circular.
+
+229
+00:16:50.912 --> 00:16:54.755
+In part b both components are
+j times E zero, so both equal
+
+230
+00:16:54.795 --> 00:16:58.638
+minus E zero sine omega t: they
+are in phase, the tip moves
+
+231
+00:16:58.678 --> 00:17:04.161
+along the 45 degree diagonal, and
+the polarization is linear, oblique.
+
+232
+00:17:05.811 --> 00:17:09.302
+An antenna is the transition
+region, the interface, between
+
+233
+00:17:09.342 --> 00:17:12.653
+a wave guided by a transmission
+line and a wave radiated
+
+234
+00:17:12.693 --> 00:17:16.184
+into space, and it can also
+give the radiation a direction;
+
+235
+00:17:16.224 --> 00:17:20.465
+opening up the end of a two-wire
+line is how the dipole was born.
+
+236
+00:17:20.515 --> 00:17:24.074
+Far from the antenna, in the
+far-field or Fraunhofer zone, the
+
+237
+00:17:24.114 --> 00:17:28.353
+wave arriving at a receiver can be
+treated locally as a plane wave.
+
+238
+00:17:28.403 --> 00:17:32.453
+Do not confuse isotropic and
+omnidirectional: an isotropic radiator
+
+239
+00:17:32.493 --> 00:17:36.909
+radiates equally in every direction
+of space and cannot physically exist,
+
+240
+00:17:36.949 --> 00:17:42.244
+while an omnidirectional antenna radiates
+equally in all directions of one plane.
+
+241
+00:17:42.294 --> 00:17:45.384
+Each system needs its
+antenna: broadcasting uses an
+
+242
+00:17:45.424 --> 00:17:48.575
+omnidirectional transmitter
+and directive receivers,
+
+243
+00:17:48.615 --> 00:17:51.276
+or omnidirectional ones
+if there are several
+
+244
+00:17:51.316 --> 00:17:54.283
+transmitters; a point to
+point link uses two very
+
+245
+00:17:54.323 --> 00:17:58.724
+directive antennas; and a radar
+uses a rotating directive antenna.
+
+246
+00:17:58.774 --> 00:18:02.498
+By Lorentz reciprocity, the same
+antenna transmits and receives
+
+247
+00:18:02.538 --> 00:18:06.891
+with the same pattern, so we simply
+speak of the radiation pattern.
+
+248
+00:18:06.941 --> 00:18:11.660
+So the 2022 question about the pattern
+of an aeronautical voice antenna on
+
+249
+00:18:11.700 --> 00:18:15.435
+an aircraft has this answer:
+omnidirectional in the horizontal plane,
+
+250
+00:18:15.475 --> 00:18:20.201
+because the ground stations can be in any
+direction, with vertical polarization.
+
+251
+00:18:21.851 --> 00:18:25.333
+Barlabé's slides on antenna
+structures are a picture gallery,
+
+252
+00:18:25.373 --> 00:18:29.190
+so for the exam just know the
+families and where they are used.
+
+253
+00:18:29.240 --> 00:18:33.370
+Dipoles, usually half a wavelength
+long, and their arrays, as in
+
+254
+00:18:33.410 --> 00:18:37.801
+the ILS localizer; folded dipoles;
+and quarter-wave monopoles over
+
+255
+00:18:37.841 --> 00:18:42.686
+a ground plane, sometimes with a
+capacitive load or inside a fairing.
+
+256
+00:18:42.736 --> 00:18:47.557
+Slots and slot arrays, common in radars,
+travelling-wave antennas, horns,
+
+257
+00:18:47.597 --> 00:18:53.140
+and parabolic reflectors such as the
+Cassegrain, the offset and the Gregorian.
+
+258
+00:18:53.190 --> 00:18:57.370
+Helical antennas, Yagi-Uda
+arrays, microstrip patches like
+
+259
+00:18:57.410 --> 00:19:02.098
+those of the SMOS satellite,
+lenses, and wideband designs such
+
+260
+00:19:02.138 --> 00:19:07.507
+as the biconical, the discone, the
+log-periodic and fractal antennas.
+
+261
+00:19:07.557 --> 00:19:11.234
+On aircraft, the NAV COM antennas
+are monopoles or dipoles, inside
+
+262
+00:19:11.274 --> 00:19:14.951
+fairings on fast aircraft, which
+is exactly your course project: a
+
+263
+00:19:14.991 --> 00:19:18.555
+vertical quarter-wave monopole or
+half-wave dipole for the voice
+
+264
+00:19:18.595 --> 00:19:27.510
+band, 118 to 137 MHz, centred at
+127.5 MHz, where the wavelength is
+
+265
+00:19:27.550 --> 00:19:34.320
+2.35 m, so about 59 centimetres or
+1.18 metres before end corrections.
+
+266
+00:19:35.970 --> 00:19:40.302
+Now the most important formula of
+the partial, derived in four steps.
+
+267
+00:19:40.352 --> 00:19:44.706
+An isotropic radiator in a lossless
+medium spreads its power P T over a
+
+268
+00:19:44.746 --> 00:19:49.224
+sphere, so at distance R the power
+density is P T over 4 pi R squared,
+
+269
+00:19:49.264 --> 00:19:54.936
+falling with the square of the distance:
+6 dB every time the distance doubles.
+
+270
+00:19:54.986 --> 00:19:59.101
+A real antenna concentrates power
+in some directions; the directivity
+
+271
+00:19:59.141 --> 00:20:03.315
+function D of theta and phi is the
+ratio between its power density and
+
+272
+00:20:03.355 --> 00:20:08.281
+the isotropic one, so the density towards
+the receiver is multiplied by D T.
+
+273
+00:20:08.331 --> 00:20:12.360
+The receiving antenna behaves like
+a funnel: the power it delivers
+
+274
+00:20:12.400 --> 00:20:16.820
+to its load is the incident density
+times its effective area A ef.
+
+275
+00:20:16.870 --> 00:20:19.986
+Reciprocity links the two
+parameters: the effective
+
+276
+00:20:20.026 --> 00:20:23.965
+area is lambda squared over
+4 pi times the directivity.
+
+277
+00:20:24.015 --> 00:20:27.785
+Putting it together: P L
+equals P T times D T times
+
+278
+00:20:27.825 --> 00:20:31.519
+D R times lambda over 4
+pi R squared, times the
+
+279
+00:20:31.559 --> 00:20:35.329
+product of loss coefficients
+c i, each between zero
+
+280
+00:20:35.369 --> 00:20:39.063
+and one, for medium losses,
+polarization mismatch,
+
+281
+00:20:39.103 --> 00:20:42.723
+mispointing, mismatch and
+efficiency; and, as the
+
+282
+00:20:42.763 --> 00:20:47.446
+FAQ insists, everything in
+linear units, watts and metres.
+
+283
+00:20:49.096 --> 00:20:53.173
+The notes use this example to
+show the orders of magnitude.
+
+284
+00:20:53.223 --> 00:20:56.379
+Convert the directivity:
+3 dB is a factor of
+
+285
+00:20:56.419 --> 00:20:59.610
+2, and the distance is
+ten to the 4 metres.
+
+286
+00:20:59.660 --> 00:21:03.555
+Power density times effective
+area: 1 000 watts over 4
+
+287
+00:21:03.595 --> 00:21:07.696
+pi times ten to the 8, times
+2, times one square metre.
+
+288
+00:21:07.746 --> 00:21:11.056
+That gives only 1.59 microwatts.
+
+289
+00:21:11.106 --> 00:21:16.036
+From one kilowatt to one and a half
+microwatts is an attenuation of 88 dB,
+
+290
+00:21:16.076 --> 00:21:20.732
+which is why received radio powers are
+always tiny and are expressed in dBm.
+
+291
+00:21:22.382 --> 00:21:25.601
+The radiation pattern draws
+the power density radiated
+
+292
+00:21:25.641 --> 00:21:28.437
+at a fixed distance as a
+function of direction,
+
+293
+00:21:28.477 --> 00:21:32.810
+normalised to its maximum and
+usually in decibels on a polar plot.
+
+294
+00:21:32.860 --> 00:21:36.023
+The biggest lobe, at 0 dB, is the main
+
+295
+00:21:36.063 --> 00:21:39.479
+lobe, and all the others
+are secondary lobes.
+
+296
+00:21:39.529 --> 00:21:42.870
+The beamwidth is the angular width
+of the main lobe between the
+
+297
+00:21:42.910 --> 00:21:47.554
+points where it falls to minus 3 dB,
+half power, or between its nulls.
+
+298
+00:21:47.604 --> 00:21:52.419
+The main to secondary lobe level, N L
+P S in Catalan, is the difference in
+
+299
+00:21:52.459 --> 00:21:57.927
+decibels between the main lobe and the
+largest secondary lobe, wherever it is.
+
+300
+00:21:57.977 --> 00:22:04.248
+The front to back ratio compares the main
+lobe with the lobe 180 degrees behind it.
+
+301
+00:22:04.298 --> 00:22:07.365
+Finally, the gain refers to
+the power delivered to the
+
+302
+00:22:07.405 --> 00:22:10.530
+antenna rather than radiated,
+so gain equals efficiency
+
+303
+00:22:10.570 --> 00:22:13.695
+times directivity, practically
+equal unless the antenna
+
+304
+00:22:13.735 --> 00:22:16.918
+is damaged; and the radiation
+resistance is the resistor
+
+305
+00:22:16.958 --> 00:22:20.588
+that would dissipate the same
+power the antenna radiates.
+
+306
+00:22:22.238 --> 00:22:25.106
+Two more antenna parameters
+complete the notes, and
+
+307
+00:22:25.146 --> 00:22:28.405
+both are about connecting
+the antenna to a circuit.
+
+308
+00:22:28.455 --> 00:22:32.087
+The antenna impedance is the ratio
+of voltage to current at its
+
+309
+00:22:32.127 --> 00:22:37.315
+terminals; by reciprocity it is the same
+whether the antenna transmits or receives.
+
+310
+00:22:37.365 --> 00:22:41.192
+To the generator, a transmitting
+antenna looks like a resistor that
+
+311
+00:22:41.232 --> 00:22:45.795
+dissipates the radiated power: that
+resistor is the radiation resistance.
+
+312
+00:22:45.845 --> 00:22:49.151
+The improved model adds
+the ohmic loss resistance
+
+313
+00:22:49.191 --> 00:22:52.565
+of the metal, usually
+negligible, and a reactance,
+
+314
+00:22:52.605 --> 00:22:56.505
+so the impedance is R rad
+plus R omega plus j X ant.
+
+315
+00:22:56.555 --> 00:23:00.507
+When receiving, the same impedance
+sits in series with a source, the
+
+316
+00:23:00.547 --> 00:23:05.299
+open-circuit voltage V ant that the
+incident wave induces at the terminals.
+
+317
+00:23:05.349 --> 00:23:09.736
+The effective length is that open-circuit
+voltage divided by the incident
+
+318
+00:23:09.776 --> 00:23:14.224
+electric field; it has units of metres
+but is not the physical length, and
+
+319
+00:23:14.264 --> 00:23:18.530
+it relates to the effective area
+through A ef equals eta, the intrinsic
+
+320
+00:23:18.570 --> 00:23:25.227
+impedance of free space, about 377 ohms,
+times l ef squared over four R ant.
+
+321
+00:23:26.877 --> 00:23:29.641
+Problem 2.4 gives a measured pattern,
+
+322
+00:23:29.681 --> 00:23:32.893
+reproduced on the right,
+and asks three readings.
+
+323
+00:23:32.943 --> 00:23:37.223
+The main lobe points east, to 090,
+and the minus 3 dB points are
+
+324
+00:23:37.263 --> 00:23:41.150
+about 65 degrees apart, the
+official beamwidth; reading graphs
+
+325
+00:23:41.190 --> 00:23:46.029
+always has some error, and Barlabé accepts
+anything within the reading error.
+
+326
+00:23:46.079 --> 00:23:50.762
+The largest secondary lobe, here
+the back lobe at 270, is at
+
+327
+00:23:50.802 --> 00:23:55.368
+about minus 18 dB, so the main
+to secondary lobe level is 18
+
+328
+00:23:55.408 --> 00:23:59.536
+dB, which here happens to coincide
+with the front to back ratio.
+
+329
+00:23:59.586 --> 00:24:02.947
+When the antenna turns 30
+degrees clockwise, the wave from
+
+330
+00:24:02.987 --> 00:24:06.348
+the east arrives 30 degrees
+away from the main axis, where
+
+331
+00:24:06.388 --> 00:24:10.687
+the pattern reads about minus 2
+dB: the mispointing coefficient.
+
+332
+00:24:10.737 --> 00:24:13.933
+So 1 microwatt, which is minus 30 dBm,
+
+333
+00:24:13.973 --> 00:24:19.458
+becomes minus 32 dBm,
+which is 0.63 microwatts.
+
+334
+00:24:19.508 --> 00:24:23.605
+Problem 2.5 is the same with
+a formula: sine squared theta
+
+335
+00:24:23.645 --> 00:24:27.561
+is maximum at theta equal to
+90 degrees, and turned 45
+
+336
+00:24:27.601 --> 00:24:33.047
+degrees it gives sine squared of
+45, one half, so 0.5 microwatts.
+
+337
+00:24:34.697 --> 00:24:37.044
+Now the link-budget
+problems, starting with
+
+338
+00:24:37.084 --> 00:24:39.877
+the two aeronautical
+ones of the collection.
+
+339
+00:24:39.927 --> 00:24:45.038
+In 2.1 the wavelength is 3
+times ten to the 8 over 120
+
+340
+00:24:45.078 --> 00:24:53.919
+MHz, 2.5 m; 5 nmi is 9 260 m;
+and 2 dB is a factor 1.585.
+
+341
+00:24:53.969 --> 00:24:59.322
+Friis gives 10 watts times 1.585
+squared times 2.5 over 4 pi
+
+342
+00:24:59.362 --> 00:25:05.836
+times 9 260, squared, which is 11.6
+nanowatts, the official answer.
+
+343
+00:25:05.886 --> 00:25:11.694
+In 2.2 we solve for the transmitted
+power: at 127 MHz the wavelength
+
+344
+00:25:11.734 --> 00:25:17.221
+is 2.36 m, and the product of
+directivities and losses is 1.585
+
+345
+00:25:17.261 --> 00:25:24.963
+times 1.995 times 0.251, which is
+0.794, since minus 6 dB is a quarter.
+
+346
+00:25:25.013 --> 00:25:27.643
+The minimum transmitted
+power is the receiver
+
+347
+00:25:27.683 --> 00:25:30.373
+sensitivity divided by
+that product and by the
+
+348
+00:25:30.413 --> 00:25:36.520
+free-space factor, which is 1.41
+times ten to the minus 11 at 50 km.
+
+349
+00:25:36.570 --> 00:25:40.577
+That gives 8.9 watts,
+again the official answer.
+
+350
+00:25:42.227 --> 00:25:45.061
+Space links push Friis to the extreme.
+
+351
+00:25:45.111 --> 00:25:49.817
+In 2.3 we solve for R: R max
+equals lambda over 4 pi times the
+
+352
+00:25:49.857 --> 00:25:53.947
+square root of P T D T D R over
+P L min; with lambda equal to 3
+
+353
+00:25:53.987 --> 00:25:57.769
+centimetres and the product under
+the root equal to ten to the
+
+354
+00:25:57.809 --> 00:26:04.014
+24, the maximum range is 2.39 million
+kilometres, the official answer.
+
+355
+00:26:04.064 --> 00:26:08.412
+In the 2023 partial the distance
+is 20 light-minutes, 20 times
+
+356
+00:26:08.452 --> 00:26:12.490
+60 seconds times the speed of
+light, 3.6 times ten to the 11
+
+357
+00:26:12.530 --> 00:26:17.371
+metres, so the free-space factor
+is 4.4 times ten to the minus 29.
+
+358
+00:26:17.421 --> 00:26:22.282
+The up-link uses the 3 000 watt
+ground transmitter, 70 dB, that is
+
+359
+00:26:22.322 --> 00:26:26.670
+ten to the 7, and the probe's
+antenna, with a gain of 50 dB, ten
+
+360
+00:26:26.710 --> 00:26:32.132
+to the 5, so the probe receives 1.3
+times ten to the minus 13 watts.
+
+361
+00:26:32.182 --> 00:26:36.722
+The down-link uses the same two
+antennas but only 300 watts, so the
+
+362
+00:26:36.762 --> 00:26:42.703
+ground station receives ten times less,
+1.3 times ten to the minus 14 watts.
+
+363
+00:26:42.753 --> 00:26:46.924
+For part c, the effective area is
+lambda squared times D over 4 pi,
+
+364
+00:26:46.964 --> 00:26:53.120
+716 square metres on the ground
+and 7.16 on the probe, and if that
+
+365
+00:26:53.160 --> 00:27:00.007
+is 70 % of the circular aperture,
+the diameters are 36 m and 3.6 m.
+
+366
+00:27:01.657 --> 00:27:06.361
+The 2022 partial asked a
+practical version, in decibels.
+
+367
+00:27:06.411 --> 00:27:12.147
+Add up everything in decibels: 17
+dBm transmitted, plus 3 and 3 dB of
+
+368
+00:27:12.187 --> 00:27:16.793
+directivity, down to a sensitivity
+of minus 70 dBm, so the link can
+
+369
+00:27:16.833 --> 00:27:23.084
+afford 93 dB of free-space loss, which
+is 20 log of 4 pi R over lambda.
+
+370
+00:27:23.134 --> 00:27:28.620
+At 2.4 GHz the wavelength is 12.5
+centimetres, so R equals lambda
+
+371
+00:27:28.660 --> 00:27:35.466
+over 4 pi times ten to the 93 over
+20: about 444 metres in free space.
+
+372
+00:27:35.516 --> 00:27:39.757
+Inside the building, the loss
+coefficients are minus 3 dB for
+
+373
+00:27:39.797 --> 00:27:43.858
+polarization, minus 6 for multipath
+and minus 5 for each of the
+
+374
+00:27:43.898 --> 00:27:50.158
+three walls, a total of minus 24 dB,
+which leaves 69 dB for distance.
+
+375
+00:27:50.208 --> 00:27:56.630
+Then R is only about 28 metres; every
+6 dB of extra loss halves the range.
+
+376
+00:27:56.680 --> 00:27:59.773
+And question 4 of the same
+paper is the same rule:
+
+377
+00:27:59.813 --> 00:28:03.320
+doubling the distance costs
+6 dB of signal while the
+
+378
+00:28:03.360 --> 00:28:08.558
+noise stays the same, so an S
+over N of 20 dB becomes 14 dB.
+
+379
+00:28:10.208 --> 00:28:13.048
+Since you cannot bring anything
+into the exam, here is
+
+380
+00:28:13.088 --> 00:28:16.317
+the sheet to rewrite from
+memory on Wednesday evening.
+
+381
+00:28:16.367 --> 00:28:19.682
+Navigation: ground equals
+air plus wind, turn the wind
+
+382
+00:28:19.722 --> 00:28:24.281
+round by 180, components with
+sine and cosine, the sine
+
+383
+00:28:24.321 --> 00:28:28.710
+and cosine laws, and one minute
+of latitude is one nautical mile.
+
+384
+00:28:28.760 --> 00:28:33.850
+Signals and systems: the mean is c
+zero, a cosine gives two lines of A
+
+385
+00:28:33.890 --> 00:28:39.347
+over 2, rectangle and sinc, the ideal
+low-pass impulse response, delta in
+
+386
+00:28:39.387 --> 00:28:45.527
+gives h out, Y equals X times H, and
+non-linear systems create new frequencies.
+
+387
+00:28:45.577 --> 00:28:49.958
+Noise and data: k T B with T
+in kelvin, decibels and dBm,
+
+388
+00:28:49.998 --> 00:28:55.353
+minus 6 dB per doubling of
+distance, regenerative repeaters, 2
+
+389
+00:28:55.393 --> 00:29:00.764
+B baud, bits per symbol, Shannon,
+and more levels mean more errors.
+
+390
+00:29:00.814 --> 00:29:04.656
+A to D: filter, sampler,
+quantizer, coder, sampling at
+
+391
+00:29:04.696 --> 00:29:10.150
+least at twice W, and 64 kilobits
+per second for digital voice.
+
+392
+00:29:10.200 --> 00:29:15.516
+Antennas: Friis in linear units, the
+effective area formula, beamwidth and N
+
+393
+00:29:15.556 --> 00:29:20.524
+L P S; plus the definitions that are
+asked again and again: half-duplex,
+
+394
+00:29:20.564 --> 00:29:26.340
+broadcast, polarization, loxodrome and
+orthodrome, and the network topologies.
+
+395
+00:29:27.990 --> 00:29:31.416
+Let me finish with a plan for
+the days before the exam.
+
+396
+00:29:31.466 --> 00:29:34.282
+On Sunday, watch parts
+one and two again where
+
+397
+00:29:34.322 --> 00:29:37.261
+needed, and redo the
+navigation problems and the
+
+398
+00:29:37.301 --> 00:29:41.313
+signals problems on paper without
+looking at the solutions.
+
+399
+00:29:41.363 --> 00:29:45.304
+On Monday, part three, the antenna
+and data problems, and the list
+
+400
+00:29:45.344 --> 00:29:49.736
+of theory questions until you can
+answer each one in two sentences.
+
+401
+00:29:49.786 --> 00:29:54.724
+On Tuesday, sit the 2016 and
+2022 partials as real mocks, one
+
+402
+00:29:54.764 --> 00:29:58.872
+hour each, skipping question
+5 of 2016, the envelope of a
+
+403
+00:29:58.912 --> 00:30:02.546
+modulated signal, which is passband
+material and out of scope,
+
+404
+00:30:02.586 --> 00:30:08.329
+and on Wednesday the 2023 paper, then
+rewrite the memory sheet from scratch.
+
+405
+00:30:08.379 --> 00:30:13.377
+On Thursday, a light review in the
+morning, then room 2.3 of TR5 at
+
+406
+00:30:13.417 --> 00:30:17.756
+15:00 with your calculator and
+your ID; and remember that even if
+
+407
+00:30:17.796 --> 00:30:22.765
+something goes wrong, this partial can
+be retaken on the 20th of January.
+
+408
+00:30:22.815 --> 00:30:24.698
+Good luck with the exam.

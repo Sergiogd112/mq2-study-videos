@@ -1,0 +1,1594 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:06.209
+Welcome to part three, the hydraulic
+system of the A320, chapter 29.
+
+2
+00:00:06.259 --> 00:00:09.868
+The exam scope stops after the
+Green system, so we cover the
+
+3
+00:00:09.908 --> 00:00:13.396
+architecture shared by the
+three systems, the controls and
+
+4
+00:00:13.436 --> 00:00:16.680
+indications, and then follow
+the Green system from its
+
+5
+00:00:16.720 --> 00:00:21.145
+reservoir to its users; the detailed
+Yellow and Blue pages are out.
+
+6
+00:00:22.795 --> 00:00:27.986
+The A320 has three independent
+hydraulic systems, named by colour.
+
+7
+00:00:28.036 --> 00:00:31.121
+Green works as the main
+system: it has a pump driven
+
+8
+00:00:31.161 --> 00:00:34.876
+by engine 1, the most users
+and the biggest reservoir.
+
+9
+00:00:34.926 --> 00:00:38.209
+Yellow behaves as an alternate
+system: an engine-driven
+
+10
+00:00:38.249 --> 00:00:42.103
+pump on engine 2, plus an
+electric pump and a hand pump.
+
+11
+00:00:42.153 --> 00:00:45.368
+Blue is the emergency system,
+with an electric pump and
+
+12
+00:00:45.408 --> 00:00:48.564
+the ram air turbine; Airbus
+does not use these labels,
+
+13
+00:00:48.604 --> 00:00:52.209
+but compared with other
+aircraft those are their roles.
+
+14
+00:00:52.259 --> 00:00:54.932
+All three work at 3000 psi, and the
+
+15
+00:00:54.972 --> 00:00:58.669
+engine-driven pumps are of the
+variable displacement type.
+
+16
+00:00:58.719 --> 00:01:03.168
+Each system has its own reservoir,
+pumps, pipes and users, so a leak in one
+
+17
+00:01:03.208 --> 00:01:07.716
+cannot drain another; the only link is
+the power transfer unit between Green
+
+18
+00:01:07.756 --> 00:01:13.373
+and Yellow, which is mechanical and acts
+at a pressure difference of 500 psi.
+
+19
+00:01:13.423 --> 00:01:16.244
+And a detail the quiz
+tests: all three reservoirs
+
+20
+00:01:16.284 --> 00:01:19.787
+are filled from the service
+panel of the Green system.
+
+21
+00:01:21.437 --> 00:01:26.884
+This deck page lists the users of each
+system, read upwards from each reservoir.
+
+22
+00:01:26.934 --> 00:01:30.889
+Green, the biggest, supplies
+the landing gear and its doors,
+
+23
+00:01:30.929 --> 00:01:34.817
+the nose-wheel steering, the
+normal brakes, the reverser of
+
+24
+00:01:34.857 --> 00:01:38.945
+engine 1, the flap and slat
+motors, the trimmable horizontal
+
+25
+00:01:38.985 --> 00:01:43.863
+stabiliser, the rudder, a yaw damper
+and many flight control servos.
+
+26
+00:01:43.913 --> 00:01:47.968
+Yellow supplies the reverser of
+engine 2, the flaps, the cargo
+
+27
+00:01:48.008 --> 00:01:52.262
+doors, the alternate brakes and
+its share of flight controls.
+
+28
+00:01:52.312 --> 00:01:56.497
+Blue supplies the constant speed motor
+generator, which is the emergency
+
+29
+00:01:56.537 --> 00:02:01.230
+electrical generator, the slats and
+the rest of its flight control servos.
+
+30
+00:02:01.280 --> 00:02:04.828
+The flight controls show the
+redundancy philosophy: each
+
+31
+00:02:04.868 --> 00:02:08.805
+aileron has two servo actuators,
+one Blue and one Green.
+
+32
+00:02:08.855 --> 00:02:12.675
+And the elevators: on the left
+one servo is Green and the other
+
+33
+00:02:12.715 --> 00:02:16.351
+Blue, on the right one Blue and
+one Yellow, so pitch control
+
+34
+00:02:16.391 --> 00:02:20.908
+survives the loss of any single
+system; fail safe, as the notes say.
+
+35
+00:02:22.558 --> 00:02:24.928
+Let us look at the power sources.
+
+36
+00:02:24.978 --> 00:02:28.298
+The engine-driven pumps, Green
+on engine 1 and Yellow on
+
+37
+00:02:28.338 --> 00:02:31.425
+engine 2, sit on the accessory
+gearbox, so they turn
+
+38
+00:02:31.465 --> 00:02:35.870
+whenever the engine turns, even when
+they are not delivering pressure.
+
+39
+00:02:35.920 --> 00:02:40.561
+They are variable displacement pumps:
+pistons in a rotating barrel, like the
+
+40
+00:02:40.601 --> 00:02:44.935
+cylinder of a revolver, rest on a
+plate whose tilt is set by a solenoid
+
+41
+00:02:44.975 --> 00:02:50.171
+valve; tilted, the pistons stroke and
+deliver fluid at 3000 psi, and with
+
+42
+00:02:50.211 --> 00:02:55.612
+the plate neutral there is no flow, which
+is the state with the pushbutton at OFF.
+
+43
+00:02:55.662 --> 00:03:00.301
+They are fed from the reservoir at 50
+psi so that they never cavitate, and the
+
+44
+00:03:00.341 --> 00:03:05.370
+same fluid lubricates and cools the pump
+and returns through the case-drain filter.
+
+45
+00:03:05.420 --> 00:03:08.461
+The alternating current
+electric pumps are a backup on
+
+46
+00:03:08.501 --> 00:03:11.657
+Yellow, also used for the
+cargo doors, and the main pump
+
+47
+00:03:11.697 --> 00:03:16.497
+of the Blue system; they take
+fluid at 50 psi and deliver 3000.
+
+48
+00:03:16.547 --> 00:03:19.996
+The minimum equipment list
+treats them differently: without
+
+49
+00:03:20.036 --> 00:03:23.366
+the Blue electric pump the
+aircraft cannot fly, while the
+
+50
+00:03:23.406 --> 00:03:27.091
+Yellow one is a category C item,
+10 days to repair; since they
+
+51
+00:03:27.131 --> 00:03:31.561
+are identical, a failed Blue pump
+can be swapped with the Yellow one.
+
+52
+00:03:31.611 --> 00:03:34.288
+Finally Yellow has a hand
+pump, to operate the
+
+53
+00:03:34.328 --> 00:03:37.394
+cargo doors when there
+is no electrical power.
+
+54
+00:03:39.044 --> 00:03:41.728
+Three more elements
+complete the power side.
+
+55
+00:03:41.778 --> 00:03:45.032
+The ram air turbine is the
+emergency source of the Blue
+
+56
+00:03:45.072 --> 00:03:48.266
+system: a two-blade turbine
+stowed in the left ventral
+
+57
+00:03:48.306 --> 00:03:51.740
+fuselage whose variable-pitch
+blades hold a constant speed
+
+58
+00:03:51.780 --> 00:03:55.214
+whatever the airspeed, the
+timing and rpm figures being on
+
+59
+00:03:55.254 --> 00:03:58.509
+a later page beyond the exam
+scope, driving a Blue pump
+
+60
+00:03:58.549 --> 00:04:02.852
+and, through the constant speed
+motor generator, electrical power.
+
+61
+00:04:02.902 --> 00:04:06.892
+It is deployed by a compressed
+spring pack, released when either
+
+62
+00:04:06.932 --> 00:04:10.858
+of two solenoid valves is energised,
+automatically on a loss of
+
+63
+00:04:10.898 --> 00:04:15.593
+electrical power, or manually with
+the guarded RAT MAN ON pushbutton.
+
+64
+00:04:15.643 --> 00:04:22.314
+Accumulators hold fluid against a
+nitrogen pre-charge, 1885 psi at 20
+
+65
+00:04:22.354 --> 00:04:26.055
+degrees in the one-litre Green
+accumulator, so that when a user
+
+66
+00:04:26.095 --> 00:04:30.958
+suddenly demands flow, the pressure drop
+is absorbed before the pump reacts.
+
+67
+00:04:31.008 --> 00:04:34.400
+The power transfer unit is a
+hydraulic motor and a pump on a
+
+68
+00:04:34.440 --> 00:04:38.004
+common shaft, one on the Green
+side and one on the Yellow side:
+
+69
+00:04:38.044 --> 00:04:42.008
+with its pushbutton in AUTO,
+when one system is more than 500
+
+70
+00:04:42.048 --> 00:04:45.726
+psi below the other, the healthy
+system drives the motor, which
+
+71
+00:04:45.766 --> 00:04:50.120
+turns the pump of the weak system,
+transferring power but never fluid.
+
+72
+00:04:50.170 --> 00:04:53.412
+It is inhibited during engine
+start and when the cargo doors
+
+73
+00:04:53.452 --> 00:04:56.367
+are operated with the Yellow
+electric pump, so that an
+
+74
+00:04:56.407 --> 00:05:00.586
+aircraft on the ground does not start
+transferring power unexpectedly.
+
+75
+00:05:02.236 --> 00:05:04.778
+The reservoirs are
+pressurised with air, and
+
+76
+00:05:04.818 --> 00:05:07.985
+that is where the two
+systems of this exam meet.
+
+77
+00:05:08.035 --> 00:05:12.211
+Each reservoir is pressurised
+to 50 psi, 3.5 bar, so
+
+78
+00:05:12.251 --> 00:05:15.734
+that the pumps are always
+primed and never cavitate.
+
+79
+00:05:15.784 --> 00:05:20.638
+The air normally comes from stage 8 of
+the high pressure compressor of engine 1.
+
+80
+00:05:20.688 --> 00:05:23.738
+If engine 1 is lost, the
+pneumatic system supplies
+
+81
+00:05:23.778 --> 00:05:27.099
+it, and on the ground a
+ground supply can be used.
+
+82
+00:05:27.149 --> 00:05:30.296
+The reservoirs are sealed,
+so they keep their pressure
+
+83
+00:05:30.336 --> 00:05:33.873
+after a pressurisation failure
+or an engine shut-down.
+
+84
+00:05:33.923 --> 00:05:38.347
+If the air pressure falls below
+22 psi in Green or Yellow,
+
+85
+00:05:38.387 --> 00:05:43.201
+or 30 psi in Blue, the ECAM shows
+a low air pressure warning.
+
+86
+00:05:44.851 --> 00:05:47.840
+The crew controls the
+hydraulics from overhead panel
+
+87
+00:05:47.880 --> 00:05:51.784
+40VU, next to the air conditioning
+and pneumatic panels.
+
+88
+00:05:51.834 --> 00:05:55.492
+The engine pump pushbuttons,
+ENG 1 PUMP for Green and ENG
+
+89
+00:05:55.532 --> 00:05:58.906
+2 PUMP for Yellow, are dark
+when the pump is pressurising;
+
+90
+00:05:58.946 --> 00:06:02.149
+a white OFF means the pump is
+turning with the engine but
+
+91
+00:06:02.189 --> 00:06:05.953
+not delivering pressure, and an
+amber FAULT means a failure.
+
+92
+00:06:06.003 --> 00:06:10.097
+The Yellow electric pump shows a blue
+ON when it has been switched on, a
+
+93
+00:06:10.137 --> 00:06:14.735
+non-normal state that must be cancelled
+later, and amber FAULT on failure.
+
+94
+00:06:14.785 --> 00:06:18.101
+The Blue electric pump pushbutton
+sits in AUTO, and, with
+
+95
+00:06:18.141 --> 00:06:21.575
+electrical power available, the
+pump runs when an engine is
+
+96
+00:06:21.615 --> 00:06:25.342
+running, or in flight, which the
+system knows from the nose-gear
+
+97
+00:06:25.382 --> 00:06:30.089
+shock absorber being extended, or when
+the BLUE PUMP OVERRIDE is selected.
+
+98
+00:06:30.139 --> 00:06:35.621
+The PTU pushbutton arms the power transfer
+unit in AUTO, with its own amber FAULT.
+
+99
+00:06:35.671 --> 00:06:39.538
+The RAT MAN ON pushbutton is
+protected by a red guard.
+
+100
+00:06:39.588 --> 00:06:43.281
+A second panel further aft holds
+four guarded pushbuttons: BLUE
+
+101
+00:06:43.321 --> 00:06:46.954
+PUMP OVERRIDE, used by maintenance
+to run the Blue pump on the
+
+102
+00:06:46.994 --> 00:06:51.490
+ground, and the three leak measurement
+valves, Green, Blue and Yellow.
+
+103
+00:06:53.140 --> 00:06:58.285
+Pressing HYD on the ECAM control panel
+brings up this page on the lower display.
+
+104
+00:06:58.335 --> 00:07:01.374
+Each system has its label
+and its pressure from a
+
+105
+00:07:01.414 --> 00:07:06.789
+transmitter, green when normal,
+around 3000 psi, and amber when low.
+
+106
+00:07:06.839 --> 00:07:10.338
+Each pump has a symbol: a square
+in line with the supply line
+
+107
+00:07:10.378 --> 00:07:13.876
+and green when delivering pressure;
+across the line and amber
+
+108
+00:07:13.916 --> 00:07:17.241
+when the pump is selected off;
+and an amber LO when it is
+
+109
+00:07:17.281 --> 00:07:23.664
+selected on but the pressure switch
+after it reads less than 1740 psi.
+
+110
+00:07:23.714 --> 00:07:27.618
+The reservoir shows its level
+with an arrow, green at the box
+
+111
+00:07:27.658 --> 00:07:31.174
+when normal, lower and amber
+when low, plus an overheat
+
+112
+00:07:31.214 --> 00:07:35.183
+indication when the returning
+fluid is too hot, which suggests
+
+113
+00:07:35.223 --> 00:07:40.875
+heavy internal leakage, and LO AIR PRESS
+when the reservoir pressurisation falls.
+
+114
+00:07:40.925 --> 00:07:45.129
+The fire valves of Green and Yellow
+are shown in line and green when
+
+115
+00:07:45.169 --> 00:07:49.498
+open and across and amber when fully
+closed, and the PTU and RAT are
+
+116
+00:07:49.538 --> 00:07:54.568
+white when available, amber while
+changing state, and green when supplying.
+
+117
+00:07:56.218 --> 00:08:01.677
+And an exercise with the HYD page:
+picture it before each answer appears.
+
+118
+00:08:01.727 --> 00:08:03.841
+One: normal flight.
+
+119
+00:08:03.891 --> 00:08:08.122
+The three system labels are green
+at about 3000 psi, the Green
+
+120
+00:08:08.162 --> 00:08:11.643
+and Yellow engine pumps are drawn
+in line and green, the fire
+
+121
+00:08:11.683 --> 00:08:16.188
+valves are open, and the PTU and the
+RAT are white, meaning available.
+
+122
+00:08:16.238 --> 00:08:20.977
+Two: the Green engine-driven pump
+has failed, with the PTU in AUTO.
+
+123
+00:08:21.027 --> 00:08:25.201
+The Green pump shows an amber LO,
+the PTU symbol turns green with its
+
+124
+00:08:25.241 --> 00:08:31.268
+arrow pointing towards Green, and Green
+holds about 2 500 psi, still green.
+
+125
+00:08:31.318 --> 00:08:34.884
+Three: the engine 1 fire
+pushbutton is pushed.
+
+126
+00:08:34.934 --> 00:08:37.739
+The Green fire valve is
+drawn across the line, in
+
+127
+00:08:37.779 --> 00:08:41.031
+amber, fully closed, and
+the Green pump shows LO.
+
+128
+00:08:41.081 --> 00:08:43.788
+Four: the Green reservoir is leaking.
+
+129
+00:08:43.838 --> 00:08:47.500
+The reservoir arrow drops below the
+box and turns amber when the low
+
+130
+00:08:47.540 --> 00:08:51.584
+level is reached at 3 litres, while
+an overheat is a different failure:
+
+131
+00:08:51.624 --> 00:08:56.112
+heavy internal leakage heats the returning
+fluid without lowering the level.
+
+132
+00:08:57.762 --> 00:09:00.251
+In the aircraft, every
+pipe carries a coded
+
+133
+00:09:00.291 --> 00:09:04.230
+band, and this slide shows
+the A320 hydraulic code.
+
+134
+00:09:04.280 --> 00:09:06.791
+There are supply and return lines, and the
+
+135
+00:09:06.831 --> 00:09:09.854
+return lines are usually
+of larger diameter.
+
+136
+00:09:09.904 --> 00:09:13.605
+The colour combination identifies
+a hydraulic line, as opposed
+
+137
+00:09:13.645 --> 00:09:17.917
+to fuel; pneumatic ducts are much
+thicker and easy to tell apart.
+
+138
+00:09:17.967 --> 00:09:22.787
+Arrows show the direction of flow,
+and black dots mark a pressure line.
+
+139
+00:09:22.837 --> 00:09:29.236
+A numbered band identifies the system:
+1 is Green, 2 is Blue and 3 is Yellow.
+
+140
+00:09:29.286 --> 00:09:34.059
+And a part number lets the mechanic
+find exactly that pipe in the manuals.
+
+141
+00:09:35.709 --> 00:09:40.483
+The leak measurement valves deserve their
+own slide because the quiz uses them.
+
+142
+00:09:40.533 --> 00:09:44.216
+In each system, a leak measurement
+valve isolates the group of
+
+143
+00:09:44.256 --> 00:09:48.870
+primary flight control users from the
+rest of the users of that system.
+
+144
+00:09:48.920 --> 00:09:53.486
+Normally it is open, so the flight
+controls are permanently supplied through
+
+145
+00:09:53.526 --> 00:09:57.971
+it; it closes for the leak test, and
+on Yellow also automatically when the
+
+146
+00:09:58.011 --> 00:10:03.028
+cargo doors are operated with the electric
+pump, so that no surface can move.
+
+147
+00:10:03.078 --> 00:10:07.452
+Leaks are tested because the return flow
+equals the demand plus the permanent
+
+148
+00:10:07.492 --> 00:10:12.658
+internal leakage of every component, which
+flows even when the users are in neutral.
+
+149
+00:10:12.708 --> 00:10:16.581
+The test uses an external hydraulic
+power unit with a flowmeter;
+
+150
+00:10:16.621 --> 00:10:20.372
+the internal leakage is read on
+the flowmeter, and closing the
+
+151
+00:10:20.412 --> 00:10:23.919
+valves section by section,
+right wing, left wing, tail and
+
+152
+00:10:23.959 --> 00:10:28.650
+centre, locates the guilty group by
+comparison with the allowed values.
+
+153
+00:10:28.700 --> 00:10:33.130
+Excess leakage heats the fluid and
+degrades the system; when a servo control
+
+154
+00:10:33.170 --> 00:10:37.990
+is suspected, it is disconnected and
+the section is re-tested to confirm it.
+
+155
+00:10:39.640 --> 00:10:41.869
+Now we follow the fluid through the Green
+
+156
+00:10:41.909 --> 00:10:44.970
+system, which is the last
+part of the exam scope.
+
+157
+00:10:45.020 --> 00:10:49.001
+The reservoir holds 18 litres
+at most, about 14 in normal
+
+158
+00:10:49.041 --> 00:10:52.381
+operation, with a low level
+warning at 3 litres; it is
+
+159
+00:10:52.421 --> 00:10:57.375
+pressurised to 50 psi with a low
+air pressure warning at 22 psi.
+
+160
+00:10:57.425 --> 00:11:01.547
+The filling equipment of this system
+serves all three: a selector valve
+
+161
+00:11:01.587 --> 00:11:06.158
+chooses whether the hand pump fills
+the Green, Yellow or Blue reservoir.
+
+162
+00:11:06.208 --> 00:11:10.466
+From the reservoir, the fluid passes
+the fire valve, located in the left
+
+163
+00:11:10.506 --> 00:11:15.181
+pylon and driven by an electric motor;
+when the crew pushes the ENG 1 FIRE
+
+164
+00:11:15.221 --> 00:11:20.048
+pushbutton, it closes and isolates the
+Green fluid from the burning engine.
+
+165
+00:11:20.098 --> 00:11:24.376
+Then comes the engine-driven pump,
+3000 psi, self-regulating and
+
+166
+00:11:24.416 --> 00:11:27.897
+of variable displacement, whose
+case-drain flow returns to the
+
+167
+00:11:27.937 --> 00:11:31.590
+reservoir through its own filter,
+with a clogging indication at a
+
+168
+00:11:31.630 --> 00:11:36.418
+pressure difference of 87 psi,
+not to be confused with the 3000
+
+169
+00:11:36.458 --> 00:11:40.167
+psi system pressure; a pressure
+switch after it triggers the LO
+
+170
+00:11:40.207 --> 00:11:46.919
+indication below 1740 psi, and the line
+also feeds the reverser of engine 1.
+
+171
+00:11:48.569 --> 00:11:50.810
+The pump delivers into the high pressure
+
+172
+00:11:50.850 --> 00:11:53.547
+manifold, a block that
+carries most of the Green
+
+173
+00:11:53.587 --> 00:11:57.244
+system's small components, all
+with numbers worth knowing.
+
+174
+00:11:57.294 --> 00:12:00.738
+The high pressure filter has a
+clogging indicator that pops out
+
+175
+00:12:00.778 --> 00:12:05.387
+at a pressure difference of 87
+psi, and is replaced when it does.
+
+176
+00:12:05.437 --> 00:12:09.873
+There is a check valve, and a sample
+port valve to take fluid samples, which
+
+177
+00:12:09.913 --> 00:12:14.739
+the laboratory analyses for water and
+particles that reveal worn components.
+
+178
+00:12:14.789 --> 00:12:17.571
+A pressure transducer
+sends the pressure to the
+
+179
+00:12:17.611 --> 00:12:21.385
+ELAC flight control computers
+and to the ECAM display.
+
+180
+00:12:21.435 --> 00:12:26.110
+A pressure switch informs the ELAC,
+SEC and FAC flight computers, the
+
+181
+00:12:26.150 --> 00:12:33.929
+brake and steering control unit, the
+BSCU, and the ECAM; it trips at 1450 psi.
+
+182
+00:12:33.979 --> 00:12:37.780
+The relief valve opens at 3500 psi to
+
+183
+00:12:37.820 --> 00:12:42.630
+protect the system and
+closes again at 3200 psi.
+
+184
+00:12:42.680 --> 00:12:45.448
+Finally the leak measurement
+valve, and outside the
+
+185
+00:12:45.488 --> 00:12:48.312
+manifold the accumulator:
+a one-litre steel cylinder
+
+186
+00:12:48.352 --> 00:12:55.035
+wrapped in Kevlar with a nitrogen
+pre-charge of 1885 psi at 20 degrees.
+
+187
+00:12:56.685 --> 00:12:59.425
+The last block of the
+Green system is the PTU
+
+188
+00:12:59.465 --> 00:13:02.596
+manifold, with its own
+dedicated set of valves.
+
+189
+00:13:02.646 --> 00:13:05.914
+The normal brake selector valve
+supplies the normal braking
+
+190
+00:13:05.954 --> 00:13:10.229
+system and cuts it off, putting it
+to return, when there is a problem.
+
+191
+00:13:10.279 --> 00:13:14.200
+A solenoid valve, open with the
+PTU pushbutton in AUTO, cuts the
+
+192
+00:13:14.240 --> 00:13:18.431
+operation of the power transfer
+unit when the pushbutton is off.
+
+193
+00:13:18.481 --> 00:13:21.431
+Two check valves complete the PTU path.
+
+194
+00:13:21.481 --> 00:13:24.662
+The priority valve, marked
+P, isolates the large-flow
+
+195
+00:13:24.702 --> 00:13:27.639
+users, the landing gear
+and doors, the nose-wheel
+
+196
+00:13:27.679 --> 00:13:30.921
+steering and the slat and
+flap motors, when the system
+
+197
+00:13:30.961 --> 00:13:34.263
+pressure drops, so that all
+the pressure available goes
+
+198
+00:13:34.303 --> 00:13:38.724
+to the primary flight controls and
+the aircraft stays controllable.
+
+199
+00:13:38.774 --> 00:13:42.571
+The fluid returns through the
+return manifold, with a temperature
+
+200
+00:13:42.611 --> 00:13:47.448
+transmitter and a return filter
+of 29 psi, back to the reservoir.
+
+201
+00:13:49.098 --> 00:13:51.993
+Back on the Green schematic,
+the top block is the leak
+
+202
+00:13:52.033 --> 00:13:55.915
+measurement manifold, and it is
+worth knowing who sits behind it.
+
+203
+00:13:55.965 --> 00:14:00.074
+Through the leak measurement valve,
+it feeds the Green primary flight
+
+204
+00:14:00.114 --> 00:14:04.732
+control users, split into three groups:
+tail, left wing and right wing.
+
+205
+00:14:04.782 --> 00:14:07.966
+The tail group holds the
+hydraulic motor that drives the
+
+206
+00:14:08.006 --> 00:14:11.074
+trimmable horizontal stabiliser
+screw, the rudder, and
+
+207
+00:14:11.114 --> 00:14:14.687
+one of the yaw damper actuators
+that prevent Dutch roll.
+
+208
+00:14:14.737 --> 00:14:17.296
+The left wing group holds
+one of the two servo
+
+209
+00:14:17.336 --> 00:14:20.567
+actuators of the aileron
+and spoilers 1 and 5.
+
+210
+00:14:20.617 --> 00:14:23.568
+The right wing group is the
+mirror image on the right.
+
+211
+00:14:23.618 --> 00:14:27.064
+The spool valves drawn at the top
+are normally closed and are used
+
+212
+00:14:27.104 --> 00:14:31.363
+only during maintenance, to check the
+internal leakage section by section.
+
+213
+00:14:33.013 --> 00:14:35.233
+Finally, where all of this lives.
+
+214
+00:14:35.283 --> 00:14:38.410
+Almost every Green component
+is in the main landing
+
+215
+00:14:38.450 --> 00:14:41.640
+gear bay: opening the gear
+door is enough to see the
+
+216
+00:14:41.680 --> 00:14:45.942
+reservoir, the high pressure
+and PTU manifolds and the PTU.
+
+217
+00:14:45.992 --> 00:14:49.923
+The reservoir is made of two welded
+metal cylinders, with a drain valve
+
+218
+00:14:49.963 --> 00:14:53.725
+at the bottom, an air manifold
+carrying a pressure gauge, a pressure
+
+219
+00:14:53.765 --> 00:14:58.533
+switch and a check valve, and a direct-
+reading quantity indicator on its side.
+
+220
+00:14:58.583 --> 00:15:02.100
+Its low level sensor is a
+cylindrical capacitor in which the
+
+221
+00:15:02.140 --> 00:15:05.834
+hydraulic fluid acts as the
+dielectric: as the quantity changes
+
+222
+00:15:05.874 --> 00:15:10.670
+so does the capacitance, and at 3
+litres it sends the low level signal.
+
+223
+00:15:12.320 --> 00:15:15.063
+This last Green page
+shows the PTU manifold
+
+224
+00:15:15.103 --> 00:15:18.359
+on the left and the service
+panel on the right.
+
+225
+00:15:18.409 --> 00:15:22.371
+On the PTU manifold you can recognise
+the priority valve, the two
+
+226
+00:15:22.411 --> 00:15:26.643
+check valves and the solenoid valve
+that we met in the schematic.
+
+227
+00:15:26.693 --> 00:15:30.131
+The service panel, behind the
+left main gear door, has the
+
+228
+00:15:30.171 --> 00:15:33.610
+reservoir filling selector
+valve, to choose Green, Blue or
+
+229
+00:15:33.650 --> 00:15:38.258
+Yellow, and a quantity indicator with
+a coloured range for each system.
+
+230
+00:15:38.308 --> 00:15:42.066
+Its filling port with a filter and
+its filling hand pump, not to be
+
+231
+00:15:42.106 --> 00:15:46.092
+confused with the Yellow hand pump
+of the cargo doors, are used to fill
+
+232
+00:15:46.132 --> 00:15:51.301
+all three reservoirs, which is the fact
+behind statement b of the 2020 quiz.
+
+233
+00:15:51.351 --> 00:15:55.424
+It also has the suction and pressure
+ports to connect a hydraulic ground
+
+234
+00:15:55.464 --> 00:16:00.327
+cart, the mule, which bypasses the Green
+pump for maintenance and hangar tests.
+
+235
+00:16:01.977 --> 00:16:05.250
+To finish the Green system,
+let us trace failures the
+
+236
+00:16:05.290 --> 00:16:09.015
+way an exam statement does;
+pause after each question.
+
+237
+00:16:09.065 --> 00:16:12.036
+One: the Green engine-driven
+pump fails in flight
+
+238
+00:16:12.076 --> 00:16:15.684
+with the PTU in AUTO; what
+is the first indication?
+
+239
+00:16:15.734 --> 00:16:18.695
+The pressure switch at the
+pump outlet reads less than
+
+240
+00:16:18.735 --> 00:16:24.420
+1740 psi, and the ECAM shows
+the amber LO on the Green pump.
+
+241
+00:16:24.470 --> 00:16:25.505
+And then?
+
+242
+00:16:25.555 --> 00:16:30.164
+As soon as Green is 500 psi below
+Yellow, the Yellow system drives the
+
+243
+00:16:30.204 --> 00:16:37.282
+PTU, which holds Green at about 2
+500 psi, so the 1450 psi manifold
+
+244
+00:16:37.322 --> 00:16:42.263
+switch is never reached, and the brakes
+and the priority valve are not affected.
+
+245
+00:16:42.313 --> 00:16:46.247
+Three: the same failure, but with
+the PTU off or inhibited, or
+
+246
+00:16:46.287 --> 00:16:52.660
+with the Green fluid lost, so the
+pressure falls below 1450 psi.
+
+247
+00:16:52.710 --> 00:16:56.847
+The manifold pressure switch tells the
+brake and steering control unit, which
+
+248
+00:16:56.887 --> 00:17:01.686
+loses the normal brakes and switches to
+the alternate brakes on the Yellow system.
+
+249
+00:17:01.736 --> 00:17:04.594
+Four: and as the pressure keeps falling?
+
+250
+00:17:04.644 --> 00:17:07.967
+The priority valve shuts off
+the heavy users, the landing
+
+251
+00:17:08.007 --> 00:17:11.566
+gear and doors, the nose-wheel
+steering and the slat and flap
+
+252
+00:17:11.606 --> 00:17:15.791
+motors, so that what is left goes
+to the primary flight controls.
+
+253
+00:17:15.841 --> 00:17:19.593
+Five: the crew pushes the
+engine 1 fire pushbutton.
+
+254
+00:17:19.643 --> 00:17:23.384
+The fire valve in the left
+pylon closes, the engine-driven
+
+255
+00:17:23.424 --> 00:17:27.231
+pump loses its fluid and shows
+LO, and the PTU can still
+
+256
+00:17:27.271 --> 00:17:31.533
+pressurise Green from Yellow,
+transferring power, not fluid.
+
+257
+00:17:31.583 --> 00:17:36.519
+Six: on the ground, the cargo doors are
+operated with the Yellow electric pump.
+
+258
+00:17:36.569 --> 00:17:40.829
+The PTU is inhibited, the Yellow leak
+measurement valve closes and the
+
+259
+00:17:40.869 --> 00:17:45.189
+flap computer is told not to move the
+flaps; these happen together, which
+
+260
+00:17:45.229 --> 00:17:50.177
+is the trap of statement b in quiz
+question 5, but none causes the others.
+
+261
+00:17:51.827 --> 00:17:56.798
+As in part one, pause after each
+statement, decide, then listen.
+
+262
+00:17:56.848 --> 00:18:02.655
+One: the engine-driven pumps give
+3000 psi as soon as the engines turn.
+
+263
+00:18:02.705 --> 00:18:06.510
+False: they turn with the engine
+but only deliver pressure when
+
+264
+00:18:06.550 --> 00:18:11.112
+the ENG PUMP pushbutton is not at
+OFF, which tilts the swashplate.
+
+265
+00:18:11.162 --> 00:18:15.076
+Two: the PTU can move fluid
+from Yellow to Green.
+
+266
+00:18:15.126 --> 00:18:19.493
+False: it transfers power
+through its shaft, never fluid.
+
+267
+00:18:19.543 --> 00:18:23.992
+Three: the Green reservoir low
+level warning is at 3 litres.
+
+268
+00:18:24.042 --> 00:18:24.903
+True.
+
+269
+00:18:24.953 --> 00:18:29.784
+Four: the Green relief
+valve opens at 3200 psi.
+
+270
+00:18:29.834 --> 00:18:35.443
+False: it opens at 3500
+and closes again at 3200.
+
+271
+00:18:35.493 --> 00:18:40.476
+Five: the leak measurement valves are
+normally closed and opened for tests.
+
+272
+00:18:40.526 --> 00:18:43.067
+False: they are normally open, feeding the
+
+273
+00:18:43.107 --> 00:18:46.530
+flight controls, and are
+closed for the leak test.
+
+274
+00:18:46.580 --> 00:18:53.896
+Six: the accumulator is pre-charged with
+nitrogen at 1885 psi at 20 degrees.
+
+275
+00:18:53.946 --> 00:18:54.923
+True.
+
+276
+00:18:54.973 --> 00:19:01.093
+Seven: the Green pump LO
+indication appears below 1740 psi.
+
+277
+00:19:01.143 --> 00:19:02.004
+True.
+
+278
+00:19:02.054 --> 00:19:06.258
+Eight: the reservoir air normally
+comes from the pneumatic manifold.
+
+279
+00:19:06.308 --> 00:19:12.127
+False: it normally comes from stage 8 of
+engine 1, and the manifold is the backup.
+
+280
+00:19:13.777 --> 00:19:17.772
+Question 4 of the 2020
+quiz, the false statements.
+
+281
+00:19:17.822 --> 00:19:20.453
+Statement a is true:
+the nose-wheel steering
+
+282
+00:19:20.493 --> 00:19:23.757
+is a Green user, fed
+through the priority valve.
+
+283
+00:19:23.807 --> 00:19:27.219
+Statement b is false: there is
+a single filling point, the
+
+284
+00:19:27.259 --> 00:19:31.657
+Green service panel, with a selector
+valve for the three reservoirs.
+
+285
+00:19:31.707 --> 00:19:35.692
+Statement c is true: the ram air
+turbine drives a Blue pump and,
+
+286
+00:19:35.732 --> 00:19:40.485
+through the constant speed motor
+generator, provides electrical power.
+
+287
+00:19:40.535 --> 00:19:46.161
+Statement d speaks of hydraulic transfer:
+the conditions are right, AUTO, 500
+
+288
+00:19:46.201 --> 00:19:51.497
+psi, inhibited during engine start and
+cargo door operation, but what the PTU
+
+289
+00:19:51.537 --> 00:19:56.305
+transfers is power, through its shaft,
+never fluid, since the systems are
+
+290
+00:19:56.345 --> 00:20:01.899
+independent; read as power transfer, which
+is clearly what is meant, d is true.
+
+291
+00:20:01.949 --> 00:20:05.299
+So the false statement is b,
+and if your examiner reads
+
+292
+00:20:05.339 --> 00:20:09.058
+transfer literally as fluid, d
+as well: write one line saying
+
+293
+00:20:09.098 --> 00:20:13.700
+the PTU transfers power, not fluid,
+and you are covered either way.
+
+294
+00:20:15.350 --> 00:20:18.127
+Question 5 asks for the
+correct statements,
+
+295
+00:20:18.167 --> 00:20:21.273
+and requires the logic
+of the PTU manifold.
+
+296
+00:20:21.323 --> 00:20:23.660
+Statement a is wrong: arming the PTU has
+
+297
+00:20:23.700 --> 00:20:26.654
+nothing to do with the
+leak measurement valve.
+
+298
+00:20:26.704 --> 00:20:31.057
+Statement b is wrong too, and it is
+a trap: during cargo door operation
+
+299
+00:20:31.097 --> 00:20:35.573
+with the Yellow electric pump, the
+PTU is inhibited and the Yellow leak
+
+300
+00:20:35.613 --> 00:20:40.027
+measurement valve closes at the same
+time, but neither causes the other,
+
+301
+00:20:40.067 --> 00:20:45.305
+and the PTU is never inhibited because
+a Green leak measurement valve closes.
+
+302
+00:20:45.355 --> 00:20:51.481
+Statement c is correct: the Green
+pressure switch, which trips at 1450 psi,
+
+303
+00:20:51.521 --> 00:20:55.478
+informs the brake and steering control
+unit, and with Green below that
+
+304
+00:20:55.518 --> 00:21:00.322
+value the normal brakes are lost and the
+alternate brakes on Yellow take over.
+
+305
+00:21:00.372 --> 00:21:04.804
+Statement d is correct: 800
+psi is more than the 500 psi
+
+306
+00:21:04.844 --> 00:21:08.143
+threshold, so the Yellow system
+drives the PTU motor, and
+
+307
+00:21:08.183 --> 00:21:11.483
+the PTU pump on the Green side
+draws fluid from the Green
+
+308
+00:21:11.523 --> 00:21:15.269
+reservoir and delivers it into
+the Green high pressure line.
+
+309
+00:21:15.319 --> 00:21:19.063
+So the correct statements are
+c and d; there is no official
+
+310
+00:21:19.103 --> 00:21:23.622
+key, so in the exam add one line
+of justification to each choice.
+
+311
+00:21:25.272 --> 00:21:28.826
+To finish, the hydraulic
+numbers in one table.
+
+312
+00:21:28.876 --> 00:21:33.780
+3000 psi in every system, 500 psi
+of pressure difference for the
+
+313
+00:21:33.820 --> 00:21:38.326
+PTU, 50 psi in the reservoirs with
+a warning at 22, and the Green
+
+314
+00:21:38.366 --> 00:21:43.774
+reservoir of 18 litres maximum, 14
+normal, with a low level warning at 3.
+
+315
+00:21:43.824 --> 00:21:51.302
+1740 psi for the pump low pressure
+indication, 1450 psi for the manifold
+
+316
+00:21:51.342 --> 00:21:58.389
+pressure switch, 3500 to open and 3200
+to close for the relief valve, 87 and
+
+317
+00:21:58.429 --> 00:22:05.757
+29 psi for the filters, and 1885 psi of
+nitrogen in the one-litre accumulator.
+
+318
+00:22:05.807 --> 00:22:08.747
+And the RAT, the Blue
+emergency source, deployed
+
+319
+00:22:08.787 --> 00:22:13.111
+automatically on electrical loss
+or with its guarded pushbutton.
+
+320
+00:22:13.161 --> 00:22:18.037
+With the three lectures you have the
+whole exam scope: redo the 2020 quiz
+
+321
+00:22:18.077 --> 00:22:22.533
+without looking, explain the TLT, the
+TCT and the crossbleed aloud, and
+
+322
+00:22:22.573 --> 00:22:27.780
+sketch the bleed circuit and the Green
+system from memory; good luck on Thursday.

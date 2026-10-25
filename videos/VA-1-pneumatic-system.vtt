@@ -1,0 +1,1283 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:03.310
+Welcome to the first of
+three lectures for the
+
+2
+00:00:03.350 --> 00:00:06.569
+aircraft systems exam of
+Vehicles Aeroespacials.
+
+3
+00:00:06.619 --> 00:00:10.811
+The exam covers two systems
+of the Airbus A320: the whole
+
+4
+00:00:10.851 --> 00:00:14.663
+pneumatic system, ATA chapter
+36, and the hydraulic
+
+5
+00:00:14.703 --> 00:00:19.601
+system, ATA chapter 29, up to
+and including the Green system.
+
+6
+00:00:19.651 --> 00:00:23.508
+This part explains what the pneumatic
+system is for, where the air
+
+7
+00:00:23.548 --> 00:00:27.465
+comes from, who uses it, and how
+the crew and the computers control
+
+8
+00:00:27.505 --> 00:00:32.284
+it; part two goes inside every valve,
+and part three covers the hydraulics.
+
+9
+00:00:33.934 --> 00:00:35.735
+First, what to expect.
+
+10
+00:00:35.785 --> 00:00:38.972
+The scope agreed for this exam
+is the whole pneumatic deck
+
+11
+00:00:39.012 --> 00:00:42.142
+and the hydraulic deck up to
+the Green system, which ends
+
+12
+00:00:42.182 --> 00:00:45.981
+on page 12, so the Yellow and
+Blue system details are out.
+
+13
+00:00:46.031 --> 00:00:50.155
+The 2020 systems quiz, the
+closest past paper, is a set of
+
+14
+00:00:50.195 --> 00:00:54.256
+statements to mark as true or false:
+for example, whether the high
+
+15
+00:00:54.296 --> 00:01:00.115
+pressure valve opens at 36 psi, or which
+reservoir is filled from which panel.
+
+16
+00:01:00.165 --> 00:01:03.949
+Older papers also ask you to
+explain how a component works,
+
+17
+00:01:03.989 --> 00:01:07.513
+such as the temperature
+limiting thermostat, or to list
+
+18
+00:01:07.553 --> 00:01:12.764
+conditions, such as when the pressure
+regulating valve closes electrically.
+
+19
+00:01:12.814 --> 00:01:17.333
+Some old papers ask about the
+MD87, which belonged to an earlier
+
+20
+00:01:17.373 --> 00:01:22.881
+version of the course; the current decks
+only cover the A320, so skip those.
+
+21
+00:01:22.931 --> 00:01:27.710
+The winning skill is precise: for every
+valve, know its default position without
+
+22
+00:01:27.750 --> 00:01:32.918
+air, the pressures and temperatures that
+move it, and which element commands it.
+
+23
+00:01:34.568 --> 00:01:37.706
+The pneumatic system of an
+aircraft takes compressed air
+
+24
+00:01:37.746 --> 00:01:40.942
+from one of its sources, the
+engines, the auxiliary power
+
+25
+00:01:40.982 --> 00:01:45.134
+unit or a ground cart, and delivers
+it to the systems that need it.
+
+26
+00:01:45.184 --> 00:01:50.614
+On the A320 the air is delivered
+regulated to 44 psi and about 200
+
+27
+00:01:50.654 --> 00:01:55.658
+degrees Celsius: those two numbers are
+the reference values of the whole system.
+
+28
+00:01:55.708 --> 00:01:59.008
+The main user is the air
+conditioning and pressurisation
+
+29
+00:01:59.048 --> 00:02:02.347
+system, chapter 21, then
+engine starting and the
+
+30
+00:02:02.387 --> 00:02:05.507
+anti-ice of the wings and
+the engine intakes, chapter
+
+31
+00:02:05.547 --> 00:02:10.072
+30; the deck's generic list also
+mentions the vertical stabiliser.
+
+32
+00:02:10.122 --> 00:02:13.263
+Bleed air also pressurises
+the hydraulic reservoirs,
+
+33
+00:02:13.303 --> 00:02:16.262
+so that the pumps never
+cavitate, and the potable
+
+34
+00:02:16.302 --> 00:02:20.201
+water tank, so that water
+reaches the galleys and toilets.
+
+35
+00:02:20.251 --> 00:02:24.271
+Finally, it can provide motive
+power, for example to actuate thrust
+
+36
+00:02:24.311 --> 00:02:28.998
+reversers or to drive air-driven
+hydraulic pumps, and on the A320 it
+
+37
+00:02:29.038 --> 00:02:33.569
+also heats the aft cargo hold, which
+is needed to carry live animals.
+
+38
+00:02:35.219 --> 00:02:37.833
+There are three sources of compressed air.
+
+39
+00:02:37.883 --> 00:02:41.163
+The engines are the main source
+in flight: from their high
+
+40
+00:02:41.203 --> 00:02:45.914
+compressor stages the air comes
+at between 50 and 410 psi and
+
+41
+00:02:45.954 --> 00:02:51.581
+between 180 and 540 degrees
+Celsius, from idle to cruise, far
+
+42
+00:02:51.621 --> 00:02:56.321
+too hot and too variable to use directly,
+which is why it must be regulated.
+
+43
+00:02:56.371 --> 00:03:00.464
+The auxiliary power unit, the APU,
+is a small gas turbine in the tail
+
+44
+00:03:00.504 --> 00:03:04.538
+that supplies electrical and pneumatic
+power on the ground, for engine
+
+45
+00:03:04.578 --> 00:03:09.876
+starting and air conditioning, and in
+flight as a backup, up to 20 000 feet.
+
+46
+00:03:09.926 --> 00:03:13.098
+On the ground, a pneumatic
+cart can be connected through
+
+47
+00:03:13.138 --> 00:03:16.252
+a quick-release access panel
+under the fuselage, onto a
+
+48
+00:03:16.292 --> 00:03:19.912
+connector with a check valve
+that stops the air escaping.
+
+49
+00:03:19.962 --> 00:03:24.187
+The notes stress that the APU is
+on the Minimum Equipment List, the
+
+50
+00:03:24.227 --> 00:03:28.329
+document that says which items may
+be inoperative and for how long:
+
+51
+00:03:28.369 --> 00:03:34.221
+deferred defects of category B, C
+and D allow 3, 10 and 120 days.
+
+52
+00:03:34.271 --> 00:03:37.478
+Two drawing conventions: odd
+numbers are on the left and
+
+53
+00:03:37.518 --> 00:03:40.957
+even numbers on the right, and
+both the APU and the ground
+
+54
+00:03:40.997 --> 00:03:45.058
+connection feed the left side,
+side 1, of the crossbleed duct.
+
+55
+00:03:46.708 --> 00:03:50.982
+This is the generic layout from the
+deck, and every airliner follows it.
+
+56
+00:03:51.032 --> 00:03:53.963
+Each engine feeds its own
+side of a common manifold
+
+57
+00:03:54.003 --> 00:03:57.791
+through its bleed valves;
+pneumatic ducts are drawn dashed.
+
+58
+00:03:57.841 --> 00:04:03.392
+A crossbleed, or isolation, valve in the
+middle can join or separate the two sides.
+
+59
+00:04:03.442 --> 00:04:06.760
+The APU joins the manifold
+on one side, through its own
+
+60
+00:04:06.800 --> 00:04:10.979
+bleed valve and a check valve that
+prevents reverse flow into it.
+
+61
+00:04:11.029 --> 00:04:15.252
+And the users are connected along the
+manifold: the air conditioning packs,
+
+62
+00:04:15.292 --> 00:04:20.133
+the wing anti-ice, the engine starters
+and the pressurisation of other systems.
+
+63
+00:04:20.183 --> 00:04:23.980
+The point of the architecture is
+flexibility with isolation: any
+
+64
+00:04:24.020 --> 00:04:28.567
+source can feed any user, and a failed
+or leaking side can be cut off.
+
+65
+00:04:30.217 --> 00:04:34.375
+Now the heart of the system: how
+the air is taken from the engine.
+
+66
+00:04:34.425 --> 00:04:38.433
+Normally the air comes from an
+intermediate compressor stage, the fifth
+
+67
+00:04:38.473 --> 00:04:42.766
+stage of the high pressure compressor
+on the A320, through a check
+
+68
+00:04:42.806 --> 00:04:47.604
+valve, the intermediate pressure check
+valve, that lets it flow only outwards.
+
+69
+00:04:47.654 --> 00:04:52.338
+At idle or low thrust, stage 5 cannot
+give enough pressure, so the air is
+
+70
+00:04:52.378 --> 00:04:57.826
+taken from a higher stage, stage 9,
+through the high pressure valve, the HPV.
+
+71
+00:04:57.876 --> 00:05:01.152
+Both paths join upstream
+of the pressure regulating
+
+72
+00:05:01.192 --> 00:05:05.703
+valve, the PRV, which delivers
+44 psi to the system.
+
+73
+00:05:05.753 --> 00:05:09.452
+The air is then cooled in the
+precooler, a heat exchanger where
+
+74
+00:05:09.492 --> 00:05:13.132
+cold air bled from the fan flows
+around the tubes carrying the
+
+75
+00:05:13.172 --> 00:05:16.990
+hot bleed air; the two streams
+never mix, and the used fan air is
+
+76
+00:05:17.030 --> 00:05:21.416
+dumped overboard; a fan air valve
+controls how much fan air is used.
+
+77
+00:05:21.466 --> 00:05:24.270
+Pressure and temperature
+sensors at several points let
+
+78
+00:05:24.310 --> 00:05:27.610
+the bleed computers monitor
+and control the whole chain.
+
+79
+00:05:29.260 --> 00:05:31.509
+The deck shows the
+typical bleed regulating
+
+80
+00:05:31.549 --> 00:05:35.148
+valve, and the A320 valves
+follow the same pattern.
+
+81
+00:05:35.198 --> 00:05:38.007
+A butterfly in the duct
+is moved by a pneumatic
+
+82
+00:05:38.047 --> 00:05:41.159
+actuator, while the valve
+is controlled electrically
+
+83
+00:05:41.199 --> 00:05:45.671
+through a solenoid: electrically
+controlled, pneumatically actuated.
+
+84
+00:05:45.721 --> 00:05:48.796
+The actuator compares a reference
+pressure with the pressure
+
+85
+00:05:48.836 --> 00:05:52.014
+downstream of the butterfly: if
+the downstream pressure is too
+
+86
+00:05:52.054 --> 00:05:55.232
+high it closes the butterfly a
+little, and if it is too low it
+
+87
+00:05:55.272 --> 00:05:59.307
+opens it, so the butterfly hunts
+constantly around the reference value.
+
+88
+00:05:59.357 --> 00:06:02.607
+The valve therefore has three
+functions: to switch the
+
+89
+00:06:02.647 --> 00:06:05.654
+bleed on and off, to regulate
+the pressure, and to
+
+90
+00:06:05.694 --> 00:06:09.761
+protect the system against high
+temperature and reverse flow.
+
+91
+00:06:09.811 --> 00:06:13.878
+Position switches send discrete signals
+which, together with the pressures,
+
+92
+00:06:13.918 --> 00:06:18.485
+are checked by a built-in test to confirm
+the real position of the butterfly.
+
+93
+00:06:20.135 --> 00:06:22.424
+Let us look at each user in turn.
+
+94
+00:06:22.474 --> 00:06:26.042
+Wing anti-ice sends hot bleed
+air through a valve on each wing
+
+95
+00:06:26.082 --> 00:06:29.708
+into a perforated duct along the
+leading edge, which bathes its
+
+96
+00:06:29.748 --> 00:06:33.374
+inside surface; telescopic ducts
+with flexible joints carry the
+
+97
+00:06:33.414 --> 00:06:37.156
+air to the slats, from slat 3
+outwards, and over-pressure and
+
+98
+00:06:37.196 --> 00:06:42.085
+over-temperature sensors let the valve
+cut the supply if something goes wrong.
+
+99
+00:06:42.135 --> 00:06:45.329
+Engine anti-ice is separate:
+one or more valves on the fan
+
+100
+00:06:45.369 --> 00:06:48.340
+case send hot air from the
+engine itself to the intake
+
+101
+00:06:48.380 --> 00:06:52.354
+cowl, and a pressure switch tells
+the crew whether it is working.
+
+102
+00:06:52.404 --> 00:06:56.300
+For engine start, air from the
+APU, the ground cart or the other
+
+103
+00:06:56.340 --> 00:07:00.116
+engine reaches the starter valve,
+which opens and drives the air
+
+104
+00:07:00.156 --> 00:07:04.231
+starter on the accessory gearbox:
+the starter turns the high pressure
+
+105
+00:07:04.271 --> 00:07:08.822
+spool, N2, which drags the fan, N1,
+and fuel is injected once N2 has
+
+106
+00:07:08.862 --> 00:07:13.745
+reached the right speed; turning the
+engine without fuel is called cranking.
+
+107
+00:07:13.795 --> 00:07:17.623
+The hydraulic reservoirs are
+pressurised to 50 psi, normally
+
+108
+00:07:17.663 --> 00:07:21.611
+from stage 8 of the high pressure
+compressor of engine 1; the
+
+109
+00:07:21.651 --> 00:07:26.405
+professor insists that the deck
+drawing, which shows stage 9, is wrong.
+
+110
+00:07:26.455 --> 00:07:29.914
+Finally the potable water tank,
+the aft cargo heating and,
+
+111
+00:07:29.954 --> 00:07:34.769
+above all, the air conditioning
+packs, which belong to chapter 21.
+
+112
+00:07:36.419 --> 00:07:39.706
+Here is the A320 layout with its users.
+
+113
+00:07:39.756 --> 00:07:44.215
+Air is obtained from the two
+engines, the APU, or a ground cart,
+
+114
+00:07:44.255 --> 00:07:50.126
+selected with the ENG 1 BLEED, ENG
+2 BLEED and APU BLEED pushbuttons.
+
+115
+00:07:50.176 --> 00:07:53.539
+A crossbleed valve in the
+transverse duct separates the two
+
+116
+00:07:53.579 --> 00:07:57.057
+sides or joins them so that a
+single source feeds every user;
+
+117
+00:07:57.097 --> 00:08:01.312
+when it is closed, each engine feeds
+its own air conditioning pack.
+
+118
+00:08:01.362 --> 00:08:06.274
+On the deck's drawing, engine 1 also feeds
+the heating of the aft cargo compartment.
+
+119
+00:08:06.324 --> 00:08:10.603
+The system is designed so that the
+APU bleed has priority: as soon
+
+120
+00:08:10.643 --> 00:08:14.668
+as APU BLEED is selected, the
+APU bleed valve opens and both
+
+121
+00:08:14.708 --> 00:08:19.759
+engine bleed valves close automatically,
+so the APU supplies everything.
+
+122
+00:08:19.809 --> 00:08:23.165
+And remember that the APU and
+the ground connection both
+
+123
+00:08:23.205 --> 00:08:26.892
+enter on the left side, side
+1, of the crossbleed duct.
+
+124
+00:08:28.542 --> 00:08:32.276
+The crew controls the system
+from the overhead panel 21VU,
+
+125
+00:08:32.316 --> 00:08:35.940
+which the air conditioning and
+the pneumatic systems share.
+
+126
+00:08:35.990 --> 00:08:40.600
+Each engine bleed pushbutton has two
+legends: with the bleed requested
+
+127
+00:08:40.640 --> 00:08:44.984
+it is dark, a white OFF appears
+when the crew deselects it, and an
+
+128
+00:08:45.024 --> 00:08:50.423
+amber FAULT, together with an ECAM
+message, signals a failure on that side.
+
+129
+00:08:50.473 --> 00:08:53.624
+The APU BLEED pushbutton
+is normally dark, shows a
+
+130
+00:08:53.664 --> 00:08:57.266
+blue ON when selected, and
+an amber FAULT on failure.
+
+131
+00:08:57.316 --> 00:09:01.270
+The crossbleed valve is commanded
+by a rotary selector with three
+
+132
+00:09:01.310 --> 00:09:05.080
+positions, AUTO, OPEN and SHUT,
+and the valve has two electric
+
+133
+00:09:05.120 --> 00:09:10.263
+motors, one used by the automatic logic
+and the other by the manual positions.
+
+134
+00:09:10.313 --> 00:09:14.926
+In AUTO the crossbleed valve always
+follows the APU bleed valve: it opens
+
+135
+00:09:14.966 --> 00:09:20.218
+only when air is taken from the APU,
+while OPEN and SHUT force it regardless.
+
+136
+00:09:20.268 --> 00:09:23.479
+This is the Airbus dark cockpit:
+in normal operation the
+
+137
+00:09:23.519 --> 00:09:26.730
+panel is dark, and any light
+means an abnormal condition
+
+138
+00:09:26.770 --> 00:09:30.719
+or a non-standard selection that
+must eventually be cancelled.
+
+139
+00:09:32.369 --> 00:09:35.112
+Information reaches the
+crew through the ECAM, the
+
+140
+00:09:35.152 --> 00:09:38.175
+two central screens of the
+main instrument panel.
+
+141
+00:09:38.225 --> 00:09:41.711
+The upper one, the Engine and
+Warning display, permanently
+
+142
+00:09:41.751 --> 00:09:45.297
+shows the main engine
+parameters, N1, N2, exhaust gas
+
+143
+00:09:45.337 --> 00:09:48.762
+temperature and fuel flow,
+plus the fuel on board and the
+
+144
+00:09:48.802 --> 00:09:53.529
+high-lift surfaces, with the warning
+and caution messages at the bottom.
+
+145
+00:09:53.579 --> 00:09:56.527
+Class 1 alerts are red warnings
+that require immediate
+
+146
+00:09:56.567 --> 00:10:00.013
+crew action, and class 2 are
+amber cautions that do not.
+
+147
+00:10:00.063 --> 00:10:03.894
+Class 3 failures are not shown
+to the crew at all: maintenance
+
+148
+00:10:03.934 --> 00:10:08.331
+reads them on the multipurpose
+control and display unit, the MCDU.
+
+149
+00:10:08.381 --> 00:10:12.170
+The lower screen, the System
+Display, shows synoptic pages,
+
+150
+00:10:12.210 --> 00:10:16.259
+chosen automatically by flight
+phase or with the pushbuttons of
+
+151
+00:10:16.299 --> 00:10:20.933
+the ECAM control panel; the BLEED
+pushbutton brings up this page.
+
+152
+00:10:20.983 --> 00:10:24.416
+It shows the position of every
+bleed valve, the pressures and
+
+153
+00:10:24.456 --> 00:10:28.060
+temperatures, and a GND indication
+that appears only when the
+
+154
+00:10:28.100 --> 00:10:32.664
+aircraft is on the ground, detected by
+the landing gear proximity sensors.
+
+155
+00:10:34.314 --> 00:10:36.955
+Now an exercise with the
+BLEED page: for each
+
+156
+00:10:36.995 --> 00:10:40.562
+situation, picture the page
+before the answer appears.
+
+157
+00:10:40.612 --> 00:10:45.269
+One: normal cruise, both engine
+bleeds on and the APU off.
+
+158
+00:10:45.319 --> 00:10:49.612
+Both PRVs are open, drawn in
+line with the duct; the HPVs are
+
+159
+00:10:49.652 --> 00:10:54.411
+closed, because stage 5 alone is
+enough; the crossbleed and the APU
+
+160
+00:10:54.451 --> 00:11:00.867
+valve are closed; and each side reads
+about 44 psi and about 200 degrees.
+
+161
+00:11:00.917 --> 00:11:03.587
+Two: on the ground before
+engine start, with
+
+162
+00:11:03.627 --> 00:11:07.118
+APU BLEED on and the
+crossbleed selector in AUTO.
+
+163
+00:11:07.168 --> 00:11:10.676
+The APU bleed valve is open,
+the crossbleed valve has
+
+164
+00:11:10.716 --> 00:11:14.224
+followed it and is open,
+both PRVs are closed because
+
+165
+00:11:14.264 --> 00:11:18.420
+the APU has priority, and
+the GND indication is shown.
+
+166
+00:11:18.470 --> 00:11:21.931
+Three: an engine 2 bleed fault in cruise.
+
+167
+00:11:21.981 --> 00:11:26.359
+PRV 2 is closed, ENG 2 BLEED
+shows an amber FAULT with an ECAM
+
+168
+00:11:26.399 --> 00:11:30.737
+caution, and the crossbleed stays
+closed until the crew opens it.
+
+169
+00:11:30.787 --> 00:11:35.955
+Four: one side shows a bleed
+temperature of 250 degrees.
+
+170
+00:11:36.005 --> 00:11:41.027
+That is well above the 200 plus or
+minus 15 degree loop, so the TCT
+
+171
+00:11:41.067 --> 00:11:44.916
+and fan air valve are not coping
+and the TLT probe is already
+
+172
+00:11:44.956 --> 00:11:51.541
+throttling the PRV; if it reaches 257
+degrees, the BMC closes that PRV.
+
+173
+00:11:53.191 --> 00:11:57.044
+The system is supervised by two
+Bleed Monitoring Computers,
+
+174
+00:11:57.084 --> 00:12:01.201
+BMC 1 and BMC 2, identical
+and interchangeable, one for
+
+175
+00:12:01.241 --> 00:12:05.615
+each side, permanently connected
+to each other by data buses.
+
+176
+00:12:05.665 --> 00:12:09.092
+Each receives electrical
+signals from the pushbuttons,
+
+177
+00:12:09.132 --> 00:12:12.109
+the crossbleed valve,
+the engine and APU fire
+
+178
+00:12:12.149 --> 00:12:15.640
+pushbuttons, the positions
+of the bleed valves, the two
+
+179
+00:12:15.680 --> 00:12:19.107
+pressure transmitters,
+transferred pressure before the
+
+180
+00:12:19.147 --> 00:12:22.573
+PRV and regulated pressure
+after it, the temperature
+
+181
+00:12:22.613 --> 00:12:27.842
+sensor and the leak detection loops of
+its side, and some of the other side.
+
+182
+00:12:27.892 --> 00:12:32.013
+With them it supervises the bleed, shuts
+off its side if it detects a failure,
+
+183
+00:12:32.053 --> 00:12:36.671
+and informs the crew through the ECAM and
+maintenance through the fault system.
+
+184
+00:12:36.721 --> 00:12:41.549
+Around them, the System Data Acquisition
+Concentrators, the SDACs, collect
+
+185
+00:12:41.589 --> 00:12:46.096
+the data for the Flight Warning
+Computers, which generate the aural and
+
+186
+00:12:46.136 --> 00:12:50.899
+visual alerts, and for the three display
+computers, the DMCs, two working
+
+187
+00:12:50.939 --> 00:12:55.831
+and one in standby; the CFDIU centralises
+the faults of every system; the
+
+188
+00:12:55.871 --> 00:13:00.314
+Engine Interface Units pass on the
+data that each engine's own control
+
+189
+00:13:00.354 --> 00:13:06.084
+unit collects; and the APU is controlled
+by its Electronic Control Box, the ECB.
+
+190
+00:13:06.134 --> 00:13:10.526
+Finally, leak detection loops run
+alongside the ducts, the pylons and
+
+191
+00:13:10.566 --> 00:13:15.151
+the APU duct; when one detects hot
+air, the BMC isolates the leak by
+
+192
+00:13:15.191 --> 00:13:20.358
+closing the corresponding bleed valve
+before nearby components are damaged.
+
+193
+00:13:22.008 --> 00:13:25.876
+The APU bleed has its own
+logic, shown in this diagram.
+
+194
+00:13:25.926 --> 00:13:28.938
+The APU supplies air directly
+to the left side of the
+
+195
+00:13:28.978 --> 00:13:33.323
+crossbleed duct, on the ground
+and in flight up to 20 000 feet.
+
+196
+00:13:33.373 --> 00:13:37.444
+Its bleed valve is operated by a
+pneumatic actuator and controlled by a
+
+197
+00:13:37.484 --> 00:13:42.466
+solenoid, and a check valve downstream
+prevents air flowing back into the APU.
+
+198
+00:13:42.516 --> 00:13:46.476
+When the crew presses APU BLEED,
+the blue ON light comes on and the
+
+199
+00:13:46.516 --> 00:13:50.765
+BMC checks that the APU fire pushbutton
+has not been operated and that
+
+200
+00:13:50.805 --> 00:13:54.939
+no leak is detected in the APU duct;
+on the ground a leak is tolerated
+
+201
+00:13:54.979 --> 00:13:59.619
+until the engines have started, after
+which the APU has to be shut down.
+
+202
+00:13:59.669 --> 00:14:03.188
+If those conditions are met,
+the BMC signals the APU's
+
+203
+00:14:03.228 --> 00:14:06.870
+Electronic Control Box, which
+opens the bleed valve provided
+
+204
+00:14:06.910 --> 00:14:12.906
+there is no APU shut-down signal and
+the APU speed is stabilised at 95 %.
+
+205
+00:14:12.956 --> 00:14:16.290
+The ground cart, finally,
+connects through a quick-release
+
+206
+00:14:16.330 --> 00:14:19.781
+access panel on the lower left
+fuselage to a connector whose
+
+207
+00:14:19.821 --> 00:14:23.836
+check valve has two spring-loaded
+flaps that open only inwards.
+
+208
+00:14:25.486 --> 00:14:28.420
+Starting the engines puts
+all of this together, and it
+
+209
+00:14:28.460 --> 00:14:32.280
+is the subject of the first
+question of the 2020 quiz.
+
+210
+00:14:32.330 --> 00:14:34.715
+With the engines stopped
+there is no engine
+
+211
+00:14:34.755 --> 00:14:38.264
+bleed, so the air comes from
+the APU or a ground cart.
+
+212
+00:14:38.314 --> 00:14:43.692
+Selecting APU BLEED opens the APU bleed
+valve and, with the crossbleed selector
+
+213
+00:14:43.732 --> 00:14:49.566
+in AUTO, the crossbleed valve follows it
+and opens, so APU air reaches both sides.
+
+214
+00:14:49.616 --> 00:14:52.940
+The air then flows in the opposite
+direction to normal, from
+
+215
+00:14:52.980 --> 00:14:56.360
+the manifold towards the engine,
+up to the start valve, which
+
+216
+00:14:56.400 --> 00:15:00.450
+opens and feeds the air starter,
+which turns N2 and then N1.
+
+217
+00:15:00.500 --> 00:15:04.905
+During the start sequence of an engine,
+its BMC keeps that engine's pressure
+
+218
+00:15:04.945 --> 00:15:09.627
+regulating valve closed electrically,
+so the starting engine does not bleed.
+
+219
+00:15:09.677 --> 00:15:14.059
+Once the engine is running, the start
+valve closes; when the crew deselects
+
+220
+00:15:14.099 --> 00:15:18.990
+APU BLEED, the engine pressure regulating
+valves reopen and regulate again.
+
+221
+00:15:19.040 --> 00:15:23.596
+And if a leak is detected during the
+start sequence, the crossbleed valve
+
+222
+00:15:23.636 --> 00:15:28.066
+stays open until the sequence ends,
+so the start is not interrupted; so
+
+223
+00:15:28.106 --> 00:15:33.240
+yes, both engines can be started with
+APU bleed with the selector in AUTO.
+
+224
+00:15:34.890 --> 00:15:37.994
+Time to practise in the
+exam format: after each
+
+225
+00:15:38.034 --> 00:15:42.799
+statement, pause the video, decide
+true or false, and then listen.
+
+226
+00:15:42.849 --> 00:15:47.506
+One: the APU can supply bleed
+air in flight at any altitude.
+
+227
+00:15:47.556 --> 00:15:51.250
+False: its bleed is
+limited to 20 000 feet.
+
+228
+00:15:51.300 --> 00:15:56.340
+Two: the APU and the ground cart feed
+the right side of the crossbleed duct.
+
+229
+00:15:56.390 --> 00:15:59.909
+False: both feed the left side, side 1.
+
+230
+00:15:59.959 --> 00:16:05.453
+Three: selecting APU BLEED closes the
+engine bleed valves automatically.
+
+231
+00:16:05.503 --> 00:16:08.662
+True: that is the APU priority.
+
+232
+00:16:08.712 --> 00:16:13.892
+Four: in AUTO, the crossbleed valve
+opens whenever an engine bleed fails.
+
+233
+00:16:13.942 --> 00:16:17.747
+False: in AUTO it only follows
+the APU bleed valve, and the
+
+234
+00:16:17.787 --> 00:16:21.792
+crew must select OPEN to
+cross-feed from the other engine.
+
+235
+00:16:21.842 --> 00:16:27.033
+Five: the hydraulic reservoirs are
+pressurised from stage 9 of engine 2.
+
+236
+00:16:27.083 --> 00:16:32.449
+False: from stage 8 of engine 1, with
+the pneumatic manifold as a backup.
+
+237
+00:16:32.499 --> 00:16:36.970
+Six: class 3 failures appear
+in amber on the upper ECAM.
+
+238
+00:16:37.020 --> 00:16:43.175
+False: amber is class 2, and class 3
+is only for maintenance, on the MCDU.
+
+239
+00:16:43.225 --> 00:16:46.411
+Seven: each BMC supervises
+its own side and
+
+240
+00:16:46.451 --> 00:16:50.170
+also receives some signals
+from the other side.
+
+241
+00:16:50.220 --> 00:16:51.197
+True.
+
+242
+00:16:51.247 --> 00:16:55.962
+Eight: the engine anti-ice takes its
+air from the wing anti-ice duct.
+
+243
+00:16:56.012 --> 00:16:59.188
+False: each engine has its
+own anti-ice valves on the
+
+244
+00:16:59.228 --> 00:17:02.794
+fan case, feeding its intake
+cowl with its own bleed.
+
+245
+00:17:04.444 --> 00:17:07.645
+To summarise part one: air
+comes from stage 5 of the
+
+246
+00:17:07.685 --> 00:17:12.006
+engines, or stage 9 at idle,
+from the APU up to 20 000 feet,
+
+247
+00:17:12.046 --> 00:17:16.462
+or from a ground cart, and the APU
+and the cart feed the left side.
+
+248
+00:17:16.512 --> 00:17:20.089
+It goes to the packs, the engine
+starters, wing and engine
+
+249
+00:17:20.129 --> 00:17:23.705
+anti-ice, the hydraulic
+reservoirs, pressurised from stage
+
+250
+00:17:23.745 --> 00:17:27.961
+8 of engine 1, the water tank
+and the aft cargo heating.
+
+251
+00:17:28.011 --> 00:17:31.748
+On its way it passes the check
+valve or the high pressure valve,
+
+252
+00:17:31.788 --> 00:17:35.348
+the pressure regulating valve,
+the overpressure valve and the
+
+253
+00:17:35.388 --> 00:17:39.751
+precooler with its fan air valve
+and temperature control thermostat.
+
+254
+00:17:39.801 --> 00:17:43.033
+The APU bleed has priority
+over the engines, and the
+
+255
+00:17:43.073 --> 00:17:46.757
+crossbleed valve in AUTO
+follows the APU bleed valve.
+
+256
+00:17:46.807 --> 00:17:50.758
+Two BMCs supervise and isolate,
+the ECAM shows the state,
+
+257
+00:17:50.798 --> 00:17:54.484
+and the cockpit stays dark
+when all is well; in part two
+
+258
+00:17:54.524 --> 00:17:58.732
+we open every valve and learn
+its exact logic and numbers.

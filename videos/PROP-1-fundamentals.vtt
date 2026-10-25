@@ -1,0 +1,1444 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:05.698
+Welcome to the first of three lectures
+for the aircraft propulsion partial exam.
+
+2
+00:00:05.748 --> 00:00:09.623
+Part one builds the toolbox:
+thermodynamic fundamentals, the station
+
+3
+00:00:09.663 --> 00:00:13.710
+numbering, the model of every engine
+component, the thrust equation and
+
+4
+00:00:13.750 --> 00:00:18.475
+the efficiencies, and the complete
+turbojet procedure with a worked example.
+
+5
+00:00:18.525 --> 00:00:22.286
+Part two applies it to turbofans,
+turboprops and open rotors,
+
+6
+00:00:22.326 --> 00:00:26.274
+solving exercises 1 A and 1 B
+in full, and part three covers
+
+7
+00:00:26.314 --> 00:00:31.588
+compressor and turbine stages with
+exercises 2 A, 2 B, 3 A and 3 B.
+
+8
+00:00:31.638 --> 00:00:34.517
+Every number shown has
+been recomputed with a
+
+9
+00:00:34.557 --> 00:00:38.280
+cycle solver that reproduces
+the official solutions.
+
+10
+00:00:39.930 --> 00:00:42.638
+First, the rules, from
+the Exams page that the
+
+11
+00:00:42.678 --> 00:00:46.074
+professors updated on the
+twenty-second of October.
+
+12
+00:00:46.124 --> 00:00:50.289
+There is a conflict on the date: the
+timetable viewer says Monday the
+
+13
+00:00:50.329 --> 00:00:54.251
+second of November, but both the
+Atenea Exams page and the course
+
+14
+00:00:54.291 --> 00:01:00.468
+overview say Thursday the fifth, from
+15:00 to 18:00 in room 2.6 of TR5;
+
+15
+00:01:00.508 --> 00:01:05.978
+two course sources agree on the fifth, but
+confirm it by email with both professors.
+
+16
+00:01:06.028 --> 00:01:08.454
+The exam lasts two and
+a half hours with no
+
+17
+00:01:08.494 --> 00:01:11.998
+breaks, and leaving the room
+means handing in the exam.
+
+18
+00:01:12.048 --> 00:01:14.471
+You may bring water, your ID, pens of any
+
+19
+00:01:14.511 --> 00:01:17.970
+colour except red, and a
+non-programmable calculator.
+
+20
+00:01:18.020 --> 00:01:21.583
+And you may bring a cheat sheet
+of two pages, front and back,
+
+21
+00:01:21.623 --> 00:01:26.579
+handwritten or printed, which is collected
+with the exam, so keep a photocopy.
+
+22
+00:01:26.629 --> 00:01:30.720
+The partial is worth 30 % of
+the course and covers the first
+
+23
+00:01:30.760 --> 00:01:34.202
+half of the course plan: on-design
+analysis and turboprops,
+
+24
+00:01:34.242 --> 00:01:39.018
+compressors and turbines, exactly
+the topics of exercises 1 A to 3 B.
+
+25
+00:01:40.668 --> 00:01:43.793
+The whole course rests
+on a few hypotheses.
+
+26
+00:01:43.843 --> 00:01:47.821
+The gas is calorically perfect,
+with one set of properties for the
+
+27
+00:01:47.861 --> 00:01:52.508
+cold section, air with gamma 1.4,
+and another for the hot section,
+
+28
+00:01:52.548 --> 00:01:57.500
+combustion products with gamma about
+1.3; the flow is one-dimensional,
+
+29
+00:01:57.540 --> 00:02:02.455
+steady and adiabatic in ducts, and
+isentropic only where explicitly stated.
+
+30
+00:02:02.505 --> 00:02:06.996
+The equation of state is P equals
+rho R T, with R equal to c p times
+
+31
+00:02:07.036 --> 00:02:12.051
+gamma minus one over gamma, and mass
+conservation is rho v A constant.
+
+32
+00:02:12.101 --> 00:02:16.334
+The first law balances heat and work
+against the change of total enthalpy,
+
+33
+00:02:16.374 --> 00:02:21.286
+with the sign convention that work is
+positive when extracted, as in a turbine.
+
+34
+00:02:21.336 --> 00:02:25.475
+Entropy changes as c p log of the
+temperature ratio minus R log of the
+
+35
+00:02:25.515 --> 00:02:29.534
+pressure ratio, and this is the
+relation to remember, because losses
+
+36
+00:02:29.574 --> 00:02:34.283
+will always appear as total pressure
+drops at constant total temperature.
+
+37
+00:02:34.333 --> 00:02:37.449
+Finally, the isentropic
+relation links temperature and
+
+38
+00:02:37.489 --> 00:02:40.606
+pressure ratios with the
+exponent gamma minus one over
+
+39
+00:02:40.646 --> 00:02:44.621
+gamma, and the speed of sound is
+the square root of gamma R T.
+
+40
+00:02:46.271 --> 00:02:49.571
+Total, or stagnation, quantities
+are the backbone of every
+
+41
+00:02:49.611 --> 00:02:53.819
+engine calculation, and there is
+one asymmetry you must understand.
+
+42
+00:02:53.869 --> 00:02:57.524
+Total temperature only requires
+the deceleration to be
+
+43
+00:02:57.564 --> 00:03:02.636
+adiabatic and without work: T t
+equals T plus v squared over two c p.
+
+44
+00:03:02.686 --> 00:03:07.193
+Total pressure requires, in addition,
+that the deceleration be reversible.
+
+45
+00:03:07.243 --> 00:03:10.353
+In terms of Mach number,
+T t over T is one plus
+
+46
+00:03:10.393 --> 00:03:13.705
+gamma minus one over two
+M squared, and P t over P
+
+47
+00:03:13.745 --> 00:03:17.983
+is that same bracket raised to
+gamma over gamma minus one.
+
+48
+00:03:18.033 --> 00:03:21.669
+The consequence is that in a duct
+with no work and no heat the
+
+49
+00:03:21.709 --> 00:03:25.226
+total temperature is constant
+whatever the losses, while the
+
+50
+00:03:25.266 --> 00:03:29.080
+total pressure drops with the
+entropy generated, P t 2 over P t
+
+51
+00:03:29.120 --> 00:03:33.442
+1 equals e to the minus delta s
+over R, as across a normal shock.
+
+52
+00:03:33.492 --> 00:03:36.832
+That is why every component
+is described by a total
+
+53
+00:03:36.872 --> 00:03:40.544
+temperature ratio tau and a
+total pressure ratio pi, and
+
+54
+00:03:40.584 --> 00:03:45.243
+why an adiabatic inlet has tau d
+equal to one but pi d below one.
+
+55
+00:03:46.893 --> 00:03:50.579
+Whenever continuity meets the
+total quantities, the same
+
+56
+00:03:50.619 --> 00:03:54.240
+group appears: the mass flow
+parameter, m dot times the
+
+57
+00:03:54.280 --> 00:03:59.421
+square root of R T t, divided by the
+area normal to the flow and by P t.
+
+58
+00:03:59.471 --> 00:04:03.314
+It depends only on gamma and the
+Mach number: the square root of
+
+59
+00:04:03.354 --> 00:04:07.257
+gamma times M, times one plus gamma
+minus one over two M squared,
+
+60
+00:04:07.297 --> 00:04:11.261
+raised to minus gamma plus one over
+two times gamma minus one, the
+
+61
+00:04:11.301 --> 00:04:16.261
+formula in the title of the plot, which
+you must copy onto your cheat sheet.
+
+62
+00:04:16.311 --> 00:04:20.069
+It has a maximum at Mach one:
+for given total conditions, the
+
+63
+00:04:20.109 --> 00:04:23.432
+largest mass flow per unit
+area is sonic, which is the
+
+64
+00:04:23.472 --> 00:04:27.105
+statement that the flow is
+choked; as an example, for gamma
+
+65
+00:04:27.145 --> 00:04:34.842
+1.3 and Mach 1.11, the turbine stator
+exit of exercise 3 A, it is 0.661.
+
+66
+00:04:34.892 --> 00:04:38.920
+We use it to size every station:
+the area equals m dot times
+
+67
+00:04:38.960 --> 00:04:43.056
+root R T t over P t times M F
+P; in turbomachinery the normal
+
+68
+00:04:43.096 --> 00:04:47.514
+area is the annulus area times
+the cosine of the flow angle.
+
+69
+00:04:47.564 --> 00:04:51.769
+One warning from the manual: Mattingly's
+tables use a dimensional M F P
+
+70
+00:04:51.809 --> 00:04:55.781
+that absorbs the square root of R,
+so if an area comes out wrong by a
+
+71
+00:04:55.821 --> 00:05:02.218
+factor of about 17, the root of 287,
+you have mixed the two conventions.
+
+72
+00:05:03.868 --> 00:05:06.436
+The station numbers follow
+the SAE standard A S
+
+73
+00:05:06.476 --> 00:05:10.766
+755, and you must use
+them without hesitation.
+
+74
+00:05:10.816 --> 00:05:16.229
+In a turbojet: 0 is the free stream, 2
+the compressor face, 3 the burner entry,
+
+75
+00:05:16.269 --> 00:05:22.009
+4 the burner exit and turbine entry, 5
+the turbine exit and 9 the nozzle exit.
+
+76
+00:05:22.059 --> 00:05:26.248
+A turbofan adds 13 at the fan exit
+and 19 at the fan nozzle exit,
+
+77
+00:05:26.288 --> 00:05:29.652
+where the bypass stream leaves
+through its own nozzle, and two
+
+78
+00:05:29.692 --> 00:05:33.221
+spools drawn as shafts: the high
+pressure turbine drives the high
+
+79
+00:05:33.261 --> 00:05:36.736
+pressure compressor, and the low
+pressure turbine drives the fan
+
+80
+00:05:36.776 --> 00:05:42.727
+and the booster; 2.5 sits between the
+compressors and 4.5 between the turbines.
+
+81
+00:05:42.777 --> 00:05:46.567
+In a turboprop, the low pressure,
+or free, turbine drives the
+
+82
+00:05:46.607 --> 00:05:50.272
+propeller through a gearbox,
+and the propeller stream is an
+
+83
+00:05:50.312 --> 00:05:54.493
+external stream with no nozzle,
+handled with momentum theory.
+
+84
+00:05:54.543 --> 00:05:58.008
+An open rotor has the same
+block diagram, with the rotor,
+
+85
+00:05:58.048 --> 00:06:01.574
+often a pusher behind the gas
+generator, driven by the low
+
+86
+00:06:01.614 --> 00:06:05.325
+pressure turbine; these block
+diagrams, with their shafts and
+
+87
+00:06:05.365 --> 00:06:09.835
+streams, appear in the exercises,
+so practise drawing them quickly.
+
+88
+00:06:11.485 --> 00:06:14.599
+Every component ratio is written
+pi for total pressure and
+
+89
+00:06:14.639 --> 00:06:18.360
+tau for total temperature, with
+a subscript for the component.
+
+90
+00:06:18.410 --> 00:06:22.945
+Two members of the family are special:
+pi r and tau r describe the free-stream
+
+91
+00:06:22.985 --> 00:06:27.850
+deceleration, so they belong to the
+flight condition and not to any hardware.
+
+92
+00:06:27.900 --> 00:06:32.809
+The other is tau lambda, c p t times T
+t four divided by c p c times T zero:
+
+93
+00:06:32.849 --> 00:06:37.758
+it compares the hottest total enthalpy
+in the engine with the coldest static
+
+94
+00:06:37.798 --> 00:06:43.227
+enthalpy, and almost every performance
+trend is best read as a function of it.
+
+95
+00:06:43.277 --> 00:06:49.153
+In the exercises the cold gas has
+gamma 1.4 and c p 1 004.5, and
+
+96
+00:06:49.193 --> 00:06:56.050
+the hot gas gamma 1.3 and c p 1
+239 joules per kilogram kelvin.
+
+97
+00:06:56.100 --> 00:06:58.924
+And the fuel-to-air ratio f
+is always referred to the
+
+98
+00:06:58.964 --> 00:07:01.518
+core mass flow entering
+the burner, which is the
+
+99
+00:07:01.558 --> 00:07:05.204
+source of the most common error
+in turbofan fuel consumption.
+
+100
+00:07:06.854 --> 00:07:11.743
+Now the components, one by one, starting
+with the flight condition and the inlet.
+
+101
+00:07:11.793 --> 00:07:14.520
+The free-stream total
+temperature and pressure
+
+102
+00:07:14.560 --> 00:07:17.287
+follow from the flight
+Mach number, assuming a
+
+103
+00:07:17.327 --> 00:07:21.466
+reversible deceleration, so all
+real inlet losses go into pi d.
+
+104
+00:07:21.516 --> 00:07:25.808
+Pi d is the friction and diffusion
+loss, pi d max, times the shock
+
+105
+00:07:25.848 --> 00:07:30.600
+recovery of the military standard: one
+for subsonic flight, and one minus
+
+106
+00:07:30.640 --> 00:07:40.048
+0.075 times M zero minus one to the 1.35
+for supersonic flight, 0.925 at Mach 2.
+
+107
+00:07:40.098 --> 00:07:44.407
+The inlet is adiabatic, so tau d
+equals one, and if an isentropic
+
+108
+00:07:44.447 --> 00:07:50.084
+efficiency is used instead, it compares
+the ideal and actual pressure recovery.
+
+109
+00:07:50.134 --> 00:07:53.993
+The inlet delivers the air to
+the fan or compressor at a Mach
+
+110
+00:07:54.033 --> 00:08:00.256
+number of about 0.4 to 0.6, and
+in exercise 1 A, at 11 km and
+
+111
+00:08:00.296 --> 00:08:09.083
+Mach 0.8, the total temperature is
+244.55 kelvin and pi d is 0.98.
+
+112
+00:08:10.733 --> 00:08:14.206
+The compressor raises the total
+pressure by pi c, a design
+
+113
+00:08:14.246 --> 00:08:18.595
+choice, and the temperature rise
+follows from its figure of merit.
+
+114
+00:08:18.645 --> 00:08:21.882
+With a polytropic efficiency
+e c, tau c equals
+
+115
+00:08:21.922 --> 00:08:25.763
+pi c to the power gamma
+minus one over gamma e c.
+
+116
+00:08:25.813 --> 00:08:29.117
+With an isentropic
+efficiency, which is how the
+
+117
+00:08:29.157 --> 00:08:32.958
+exercises give the data, tau
+c equals one plus pi c to
+
+118
+00:08:32.998 --> 00:08:37.901
+the gamma minus one over gamma,
+minus one, all divided by eta c.
+
+119
+00:08:37.951 --> 00:08:42.130
+The power absorbed is m dot c p
+times the total temperature rise,
+
+120
+00:08:42.170 --> 00:08:46.869
+and the kinetic energy change is
+already inside the total enthalpy.
+
+121
+00:08:46.919 --> 00:08:50.546
+The fan is treated exactly like
+a compressor, but remember that
+
+122
+00:08:50.586 --> 00:08:54.097
+it compresses the whole inlet
+flow, and its pressure ratio is
+
+123
+00:08:54.137 --> 00:08:59.785
+limited to about 1.4 to 1.7 in civil
+engines by the tip Mach number.
+
+124
+00:08:59.835 --> 00:09:05.252
+Applying these formulas to exercise
+1 A gives 268.3 kelvin after the
+
+125
+00:09:05.292 --> 00:09:13.199
+fan, 457.0 after the low pressure
+compressor, and 771.2 at the burner entry.
+
+126
+00:09:14.849 --> 00:09:17.429
+Two efficiencies exist
+for every turbomachine,
+
+127
+00:09:17.469 --> 00:09:20.552
+and the exam expects you
+to know the difference.
+
+128
+00:09:20.602 --> 00:09:24.496
+The polytropic efficiency is the
+efficiency of an infinitesimal stage,
+
+129
+00:09:24.536 --> 00:09:28.487
+applied uniformly along the machine;
+the isentropic efficiency compares
+
+130
+00:09:28.527 --> 00:09:32.980
+the whole machine with one reversible
+process between the same pressures.
+
+131
+00:09:33.030 --> 00:09:37.363
+Because constant pressure lines diverge
+on the T s diagram, a compressor's
+
+132
+00:09:37.403 --> 00:09:41.677
+isentropic efficiency is lower than
+its polytropic one, and the gap grows
+
+133
+00:09:41.717 --> 00:09:46.499
+with the pressure ratio; in a turbine
+it is the reverse, the reheat effect.
+
+134
+00:09:46.549 --> 00:09:50.968
+This table, from the manual, uses
+exactly the components of exercise 1
+
+135
+00:09:51.008 --> 00:09:57.595
+A: the fan's 0.85 is a polytropic
+0.856, the low pressure compressor's
+
+136
+00:09:57.635 --> 00:10:07.832
+0.83 is 0.863, while the turbines'
+0.80 and 0.81 are polytropic 0.78.
+
+137
+00:10:07.882 --> 00:10:11.024
+Use the polytropic efficiency
+to compare designs with
+
+138
+00:10:11.064 --> 00:10:14.267
+different pressure ratios,
+and the isentropic one when
+
+139
+00:10:14.307 --> 00:10:19.400
+analysing a specific engine whose data
+are given that way, as in the exercises.
+
+140
+00:10:21.050 --> 00:10:24.385
+The combustor burns fuel and
+delivers the gas to the turbine
+
+141
+00:10:24.425 --> 00:10:27.647
+at a uniform temperature T t
+four, which is limited by the
+
+142
+00:10:27.687 --> 00:10:31.861
+turbine materials and is the single
+most important design parameter.
+
+143
+00:10:31.911 --> 00:10:36.110
+The energy balance says that the
+combustion efficiency times the
+
+144
+00:10:36.150 --> 00:10:40.613
+fuel flow times the heating value
+equals the total enthalpy leaving,
+
+145
+00:10:40.653 --> 00:10:45.705
+with the hot c p, minus the total
+enthalpy entering, with the cold c p.
+
+146
+00:10:45.755 --> 00:10:51.064
+Solving for f gives c p t T t four
+minus c p c T t three, over eta b h P R
+
+147
+00:10:51.104 --> 00:10:57.019
+minus c p t T t four, or the equivalent
+form with tau lambda and tau r tau c.
+
+148
+00:10:57.069 --> 00:11:01.007
+The burner loses total pressure,
+roughly one minus epsilon gamma
+
+149
+00:11:01.047 --> 00:11:05.918
+over two times the burner Mach
+number squared, about 0.95 for a
+
+150
+00:11:05.958 --> 00:11:12.152
+Mach of 0.2, which is why burners
+are wide; the exercises use 0.90.
+
+151
+00:11:12.202 --> 00:11:18.841
+For exercise 1 A, with T t three
+of 771 kelvin, T t four of 1 600
+
+152
+00:11:18.881 --> 00:11:23.612
+kelvin and a heating value of 42.5
+megajoules per kilogram, f is
+
+153
+00:11:23.652 --> 00:11:29.098
+0.0301; careful with a claim you
+may read, the formula only blows up
+
+154
+00:11:29.138 --> 00:11:34.048
+at about 34 000 kelvin, which is
+meaningless, while the real limit is
+
+155
+00:11:34.088 --> 00:11:39.177
+chemistry: the stoichiometric fuel
+ratio of kerosene, about 0.068,
+
+156
+00:11:39.217 --> 00:11:46.604
+corresponds to roughly 2 300 to 2 500
+kelvin, and engines stay well below it.
+
+157
+00:11:48.254 --> 00:11:50.901
+The turbine extracts
+power from the hot gas to
+
+158
+00:11:50.941 --> 00:11:54.211
+drive the compressor, the
+fan and the accessories.
+
+159
+00:11:54.261 --> 00:11:57.738
+Its power is the hot mass flow,
+one plus f times the core
+
+160
+00:11:57.778 --> 00:12:01.131
+flow, times c p t times the
+total temperature drop, and
+
+161
+00:12:01.171 --> 00:12:05.223
+the shaft delivers a fraction
+eta m of it to the compressor.
+
+162
+00:12:05.273 --> 00:12:09.032
+Equating the two gives tau t,
+and this power balance is the
+
+163
+00:12:09.072 --> 00:12:13.025
+heart of the calculation, the
+only equation that links the hot
+
+164
+00:12:13.065 --> 00:12:16.695
+section back to the cold one;
+for a turbojet it reads one
+
+165
+00:12:16.735 --> 00:12:21.529
+minus tau r times tau c minus one
+over eta m, one plus f, tau lambda.
+
+166
+00:12:21.579 --> 00:12:25.869
+Only then do you get the pressure
+ratio, either with the polytropic
+
+167
+00:12:25.909 --> 00:12:30.587
+exponent or, as in the exercises, by
+inverting the isentropic efficiency:
+
+168
+00:12:30.627 --> 00:12:36.406
+pi t equals one minus one minus tau t over
+eta t, to the gamma over gamma minus one.
+
+169
+00:12:36.456 --> 00:12:40.622
+Notice that the polytropic efficiency
+divides the exponent for a compressor and
+
+170
+00:12:40.662 --> 00:12:44.668
+multiplies it for a turbine, because
+losses increase the compressor work and
+
+171
+00:12:44.708 --> 00:12:52.281
+decrease the turbine work; in exercise
+1 A this gives 1 339.7 kelvin and 3.49
+
+172
+00:12:52.321 --> 00:12:58.633
+bar after the high pressure turbine and 1
+045.6 kelvin after the low pressure one.
+
+173
+00:13:00.283 --> 00:13:06.299
+The nozzle accelerates the gas, and it is
+adiabatic, so T t nine equals T t five.
+
+174
+00:13:06.349 --> 00:13:10.448
+For a convergent-divergent nozzle
+the exit pressure ratio is a design
+
+175
+00:13:10.488 --> 00:13:15.696
+choice, and the exit Mach number follows
+from the total-to-static pressure ratio.
+
+176
+00:13:15.746 --> 00:13:19.831
+For a purely convergent nozzle,
+which is the case in the exercises,
+
+177
+00:13:19.871 --> 00:13:24.079
+you must use hypothesis and check:
+first assume the nozzle is choked,
+
+178
+00:13:24.119 --> 00:13:28.327
+Mach one at the exit, where P t over
+P equals gamma plus one over two
+
+179
+00:13:28.367 --> 00:13:35.613
+to the gamma over gamma minus one,
+1.832 for hot gas and 1.893 for air.
+
+180
+00:13:35.663 --> 00:13:38.570
+If that critical pressure
+is at least the ambient
+
+181
+00:13:38.610 --> 00:13:41.879
+pressure, the nozzle is choked
+and the exit pressure is
+
+182
+00:13:41.919 --> 00:13:45.127
+the critical one; otherwise
+the nozzle is matched, the
+
+183
+00:13:45.167 --> 00:13:49.968
+exit pressure equals ambient, and you
+compute a subsonic exit Mach number.
+
+184
+00:13:50.018 --> 00:13:53.651
+With a nozzle isentropic efficiency,
+as in the exercises, the
+
+185
+00:13:53.691 --> 00:13:57.203
+critical static temperature is
+two T t over gamma plus one,
+
+186
+00:13:57.243 --> 00:14:01.386
+and the critical pressure comes
+from the efficiency definition.
+
+187
+00:14:01.436 --> 00:14:06.687
+In exercise 1 A the core nozzle's
+critical pressure, 0.447 bar, is above
+
+188
+00:14:06.727 --> 00:14:13.093
+the ambient 0.227 bar, so it is choked
+with 581 metres per second, while
+
+189
+00:14:13.133 --> 00:14:19.721
+the fan nozzle is matched at Mach
+0.97 and 292.5 metres per second; it
+
+190
+00:14:19.761 --> 00:14:24.065
+is normal for the two nozzles of one
+engine to be in different regimes.
+
+191
+00:14:25.715 --> 00:14:29.025
+The thrust equation comes from
+a momentum balance on a control
+
+192
+00:14:29.065 --> 00:14:32.320
+volume whose upstream boundary
+is pushed into the undisturbed
+
+193
+00:14:32.360 --> 00:14:36.329
+free stream, which eliminates the
+unknown pre-entry pressure force.
+
+194
+00:14:36.379 --> 00:14:41.103
+The result is F equals m dot nine v nine
+minus m dot zero v zero plus P nine
+
+195
+00:14:41.143 --> 00:14:45.868
+minus P zero times A nine: a momentum
+term, the ram drag of bringing the air
+
+196
+00:14:45.908 --> 00:14:51.148
+on board, and a pressure term that exists
+only when the nozzle is not matched.
+
+197
+00:14:51.198 --> 00:14:54.034
+For a turbofan you add the
+fan stream terms, and the
+
+198
+00:14:54.074 --> 00:14:56.910
+exit areas come from continuity
+with the static exit
+
+199
+00:14:56.950 --> 00:15:00.453
+state; never forget the pressure
+term of a choked nozzle.
+
+200
+00:15:00.503 --> 00:15:03.776
+The installed thrust subtracts
+the nacelle and additive
+
+201
+00:15:03.816 --> 00:15:07.900
+drags, but the engine efficiencies
+use the uninstalled thrust.
+
+202
+00:15:07.950 --> 00:15:11.426
+A nice insight, due to Farokhi:
+writing the force on each
+
+203
+00:15:11.466 --> 00:15:14.590
+component as the change of
+impulse function shows that
+
+204
+00:15:14.630 --> 00:15:17.929
+the compressor and the burner
+carry large forward forces,
+
+205
+00:15:17.969 --> 00:15:20.742
+while the turbine and the
+convergent nozzle pull
+
+206
+00:15:20.782 --> 00:15:23.788
+rearwards; the net thrust
+is the small difference of
+
+207
+00:15:23.828 --> 00:15:28.455
+large forces; the manual's text swaps
+these signs, so trust this version.
+
+208
+00:15:30.105 --> 00:15:33.613
+Every engine is judged with
+the same handful of numbers.
+
+209
+00:15:33.663 --> 00:15:37.383
+Specific thrust is the thrust
+per unit of inlet mass flow, and
+
+210
+00:15:37.423 --> 00:15:40.779
+it sets the size of the engine;
+the thrust specific fuel
+
+211
+00:15:40.819 --> 00:15:44.176
+consumption is the fuel flow
+per unit thrust, usually in
+
+212
+00:15:44.216 --> 00:15:48.932
+milligrams per second per newton, and
+enters the Breguet range equation.
+
+213
+00:15:48.982 --> 00:15:53.436
+The thermal efficiency is the mechanical
+power produced, the increase of
+
+214
+00:15:53.476 --> 00:15:58.945
+kinetic energy of all the streams, divided
+by the fuel power, m dot f times h P R.
+
+215
+00:15:58.995 --> 00:16:02.626
+The propulsive efficiency is
+the useful power, F v zero,
+
+216
+00:16:02.666 --> 00:16:06.232
+divided by that kinetic energy
+increase, and the manual
+
+217
+00:16:06.272 --> 00:16:11.210
+stresses that the full thrust,
+including pressure terms, must be used.
+
+218
+00:16:11.260 --> 00:16:15.479
+The overall efficiency is their
+product, F v zero over the fuel power,
+
+219
+00:16:15.519 --> 00:16:19.616
+which equals v zero over h P R times
+T S F C: a perfect cross-check,
+
+220
+00:16:19.656 --> 00:16:26.126
+since for exercise 1 A, 236 metres
+per second over 42.5 megajoules
+
+221
+00:16:26.166 --> 00:16:33.635
+times 32.49 milligrams per newton second
+gives exactly the official 17.1 %.
+
+222
+00:16:35.285 --> 00:16:38.142
+Here is the central trade
+of the whole subject.
+
+223
+00:16:38.192 --> 00:16:41.524
+For a single matched stream,
+the propulsive efficiency is
+
+224
+00:16:41.564 --> 00:16:45.191
+approximately two over one plus
+v nine over v zero: the closer
+
+225
+00:16:45.231 --> 00:16:49.839
+the jet speed to the flight speed,
+the higher the propulsive efficiency.
+
+226
+00:16:49.889 --> 00:16:53.488
+Raising T t four raises the
+thermal efficiency but also the
+
+227
+00:16:53.528 --> 00:16:56.942
+jet velocity, which costs
+propulsive efficiency; raising
+
+228
+00:16:56.982 --> 00:17:00.519
+the pressure ratio also raises
+the thermal efficiency, but
+
+229
+00:17:00.559 --> 00:17:03.911
+the jet velocity only grows
+up to the pressure ratio of
+
+230
+00:17:03.951 --> 00:17:07.365
+maximum specific thrust and
+then falls, so beyond it the
+
+231
+00:17:07.405 --> 00:17:11.950
+propulsive efficiency recovers, as
+the design-trend slide will show.
+
+232
+00:17:12.000 --> 00:17:15.247
+The turbofan breaks the coupling:
+it takes the core power and
+
+233
+00:17:15.287 --> 00:17:18.642
+spreads it over a much larger
+mass flow at a lower velocity, so
+
+234
+00:17:18.682 --> 00:17:21.983
+the overall efficiency improves
+even if the thermal efficiency
+
+235
+00:17:22.023 --> 00:17:25.875
+does not, and the propeller is the
+extreme case of the same idea.
+
+236
+00:17:25.925 --> 00:17:28.941
+That is the reason bypass
+ratios have kept growing
+
+237
+00:17:28.981 --> 00:17:32.754
+for four decades, and why open
+rotors are studied today.
+
+238
+00:17:34.404 --> 00:17:36.565
+All of this assembles into an explicit
+
+239
+00:17:36.605 --> 00:17:40.141
+procedure with no iteration,
+the same for every engine.
+
+240
+00:17:40.191 --> 00:17:44.836
+Step one, gas properties and flight
+condition; step two, the inlet.
+
+241
+00:17:44.886 --> 00:17:48.254
+Step three, the compressor
+temperature ratio, and
+
+242
+00:17:48.294 --> 00:17:52.469
+step four, the burner: tau
+lambda and the fuel ratio f.
+
+243
+00:17:52.519 --> 00:17:56.146
+Step five, the turbine from
+the power balance, first tau
+
+244
+00:17:56.186 --> 00:18:00.334
+t, then pi t; this is the step
+students most often forget.
+
+245
+00:18:00.384 --> 00:18:04.821
+Step six, the nozzle: the total-to-static
+pressure ratio is the product of
+
+246
+00:18:04.861 --> 00:18:09.298
+all the pi's times P zero over P nine,
+then the exit Mach number, with the
+
+247
+00:18:09.338 --> 00:18:13.472
+choked or matched check for a
+convergent nozzle; step seven, the exit
+
+248
+00:18:13.512 --> 00:18:18.823
+temperature and velocity, being careful
+with the different gamma R of the hot gas.
+
+249
+00:18:18.873 --> 00:18:22.919
+Step eight, the performance:
+specific thrust, T S F C equal
+
+250
+00:18:22.959 --> 00:18:27.327
+to f over the specific thrust,
+and the three efficiencies.
+
+251
+00:18:28.977 --> 00:18:33.676
+The manual's worked example, from
+Mattingly, lets you validate the procedure
+
+252
+00:18:33.716 --> 00:18:40.419
+line by line: Mach 2 at 12 km, compressor
+pressure ratio 10, T t four 1 800
+
+253
+00:18:40.459 --> 00:18:45.488
+kelvin and a convergent-divergent nozzle
+with P zero over P nine of one half.
+
+254
+00:18:45.538 --> 00:18:50.298
+The free-stream gives tau
+r 1.8 and pi r 7.82, and
+
+255
+00:18:50.338 --> 00:18:56.279
+the shock recovery 0.925
+brings pi d down to 0.879.
+
+256
+00:18:56.329 --> 00:19:02.752
+The compressor gives tau c 2.08 with
+an isentropic efficiency of 0.864,
+
+257
+00:19:02.792 --> 00:19:10.088
+below the polytropic 0.9 as expected,
+and the burner needs f equal to 0.0357.
+
+258
+00:19:10.138 --> 00:19:17.139
+The power balance gives tau t 0.8155
+and pi t 0.375, the nozzle expands to
+
+259
+00:19:17.179 --> 00:19:23.631
+Mach 2.25, and the jet leaves at 4.25
+times the free-stream speed of sound.
+
+260
+00:19:23.681 --> 00:19:28.846
+The specific thrust is 807 newton
+seconds per kilogram and the T S F C
+
+261
+00:19:28.886 --> 00:19:36.349
+44.2 milligrams per second per newton,
+with efficiencies of 42, 74 and 31 %.
+
+262
+00:19:36.399 --> 00:19:40.297
+The propulsive efficiency is high
+because at Mach 2 the jet is only
+
+263
+00:19:40.337 --> 00:19:44.121
+about twice as fast as the aircraft,
+and the strong ram compression
+
+264
+00:19:44.161 --> 00:19:48.002
+keeps the thermal efficiency high
+despite the inlet shock loss; that
+
+265
+00:19:48.042 --> 00:19:52.387
+is why turbojets survive at high Mach
+numbers, where turbofans do not.
+
+266
+00:19:54.037 --> 00:19:57.499
+Two trends must be
+understood qualitatively.
+
+267
+00:19:57.549 --> 00:20:01.424
+There is an optimum compressor
+pressure ratio: raising it raises the
+
+268
+00:20:01.464 --> 00:20:05.454
+thermal efficiency, but the turbine
+must then expand more to drive it,
+
+269
+00:20:05.494 --> 00:20:10.565
+leaving less pressure for the nozzle, so
+beyond a point the specific thrust falls.
+
+270
+00:20:10.615 --> 00:20:14.525
+For the ideal cycle, maximum
+specific thrust occurs when tau c
+
+271
+00:20:14.565 --> 00:20:18.602
+equals the square root of tau
+lambda divided by tau r, while the
+
+272
+00:20:18.642 --> 00:20:22.678
+minimum fuel consumption occurs
+at a much higher pressure ratio,
+
+273
+00:20:22.718 --> 00:20:27.719
+so real engines are designed between
+the two, as these ideal curves show.
+
+274
+00:20:27.769 --> 00:20:31.593
+And as the flight Mach number
+grows, the ram compression does the
+
+275
+00:20:31.633 --> 00:20:35.756
+job and the optimum pressure ratio
+falls, until above Mach 3 or so
+
+276
+00:20:35.796 --> 00:20:40.367
+the compressor and turbine can be
+removed: the engine becomes a ramjet.
+
+277
+00:20:42.017 --> 00:20:45.931
+Let me summarise part one as the
+first page of your cheat sheet.
+
+278
+00:20:45.981 --> 00:20:49.247
+Total temperature is conserved
+without work or heat,
+
+279
+00:20:49.287 --> 00:20:52.744
+total pressure falls with
+losses, and each component is
+
+280
+00:20:52.784 --> 00:20:56.885
+a tau and a pi, with tau lambda
+as the key cycle parameter.
+
+281
+00:20:56.935 --> 00:20:59.639
+Write both forms of the
+compressor and turbine
+
+282
+00:20:59.679 --> 00:21:02.741
+relations, polytropic and
+isentropic, the fuel ratio
+
+283
+00:21:02.781 --> 00:21:06.770
+formula, and the reminder that
+the power balance gives tau t.
+
+284
+00:21:06.820 --> 00:21:10.061
+Write the convergent nozzle
+check with its two critical
+
+285
+00:21:10.101 --> 00:21:14.090
+ratios, and the mass flow parameter
+formula for sizing areas.
+
+286
+00:21:14.140 --> 00:21:18.687
+And the thrust, T S F C and efficiency
+formulas, including the quick
+
+287
+00:21:18.727 --> 00:21:23.731
+check that the overall efficiency
+is v zero over h P R times T S F C.
+
+288
+00:21:23.781 --> 00:21:27.728
+In part two we apply all of it to
+the turbofan of exercise 1 A, to
+
+289
+00:21:27.768 --> 00:21:32.340
+its static version 1 B, and to the
+propfan and open rotor conversions.

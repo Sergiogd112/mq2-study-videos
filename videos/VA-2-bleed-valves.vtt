@@ -1,0 +1,1664 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:05.582
+Welcome to part two, where we open
+every valve of the A320 engine bleed.
+
+2
+00:00:05.632 --> 00:00:10.426
+This is where the exam questions live:
+each statement in the quiz tests one
+
+3
+00:00:10.466 --> 00:00:15.324
+number or one cause and effect, so we
+will go valve by valve, then summarise
+
+4
+00:00:15.364 --> 00:00:21.191
+every way the bleed can be shut, and
+finish by answering the 2020 questions.
+
+5
+00:00:22.841 --> 00:00:27.325
+This deck figure is the map for the
+whole lecture, so let us follow the air.
+
+6
+00:00:27.375 --> 00:00:31.960
+Air leaves the intermediate port,
+stage 5, through the intermediate
+
+7
+00:00:32.000 --> 00:00:36.850
+pressure check valve, the IPCV; the
+high pressure port, stage 9, has
+
+8
+00:00:36.890 --> 00:00:42.725
+its own valve, the high pressure
+valve, HPV, which regulates to 36 psi.
+
+9
+00:00:42.775 --> 00:00:47.167
+Both join at the pressure regulating
+valve, the PRV, which regulates
+
+10
+00:00:47.207 --> 00:00:52.106
+to 44 psi and is commanded through
+a sense line from the temperature
+
+11
+00:00:52.146 --> 00:00:56.664
+limiting thermostat, the TLT; a
+transferred pressure transmitter, P t,
+
+12
+00:00:56.704 --> 00:01:01.550
+measures before it and a regulated
+pressure transmitter, P r, after it.
+
+13
+00:01:01.600 --> 00:01:05.966
+Downstream, the overpressure valve,
+the OPV, which is spring-loaded
+
+14
+00:01:06.006 --> 00:01:10.563
+open, protects against a PRV failure;
+then the precooler cools the air
+
+15
+00:01:10.603 --> 00:01:15.615
+before it goes to the users, and a
+branch goes to the engine start valve.
+
+16
+00:01:15.665 --> 00:01:19.695
+On the cold side, fan air passes
+the fan air valve, the FAV,
+
+17
+00:01:19.735 --> 00:01:24.160
+spring-loaded closed, through the
+precooler and overboard; the FAV
+
+18
+00:01:24.200 --> 00:01:29.343
+is driven pneumatically by the
+temperature control thermostat, the TCT.
+
+19
+00:01:29.393 --> 00:01:34.041
+The TLT carries a solenoid commanded
+by the BMC on CFM engines, or
+
+20
+00:01:34.081 --> 00:01:39.249
+by the engine control on V2500
+engines, and a temperature sensor
+
+21
+00:01:39.289 --> 00:01:44.522
+after the precooler, plus the valve
+position switches, report to the BMC.
+
+22
+00:01:46.172 --> 00:01:48.549
+Before the details, memorise this table,
+
+23
+00:01:48.589 --> 00:01:52.142
+because half of the true or
+false statements test it.
+
+24
+00:01:52.192 --> 00:01:55.486
+The intermediate check valve
+simply lets air flow outwards
+
+25
+00:01:55.526 --> 00:01:59.670
+from stage 5 when its pressure
+exceeds the downstream pressure.
+
+26
+00:01:59.720 --> 00:02:04.852
+The high pressure valve is spring-loaded
+closed, regulates to 36 psi
+
+27
+00:02:04.892 --> 00:02:11.076
+plus or minus 4, and shuts completely
+when stage 5 alone exceeds 36 psi.
+
+28
+00:02:11.126 --> 00:02:14.879
+The pressure regulating valve
+is also spring-loaded closed;
+
+29
+00:02:14.919 --> 00:02:19.058
+with as little as 8 psi it opens
+fully, and it regulates to
+
+30
+00:02:19.098 --> 00:02:24.526
+44 psi plus or minus 4, under the
+control of the TLT sense line.
+
+31
+00:02:24.576 --> 00:02:28.247
+The overpressure valve is the
+odd one: spring-loaded open,
+
+32
+00:02:28.287 --> 00:02:33.564
+it starts to close at about 74
+psi and is fully closed at 90.
+
+33
+00:02:33.614 --> 00:02:36.974
+The fan air valve is spring-loaded
+closed and opens only as the
+
+34
+00:02:37.014 --> 00:02:42.114
+temperature control thermostat sends it
+air, when the bleed exceeds 200 degrees.
+
+35
+00:02:42.164 --> 00:02:46.221
+The crossbleed valve is electric,
+with two motors, and the
+
+36
+00:02:46.261 --> 00:02:50.389
+APU bleed valve is solenoid
+controlled; so with no bleed,
+
+37
+00:02:50.429 --> 00:02:55.935
+the HPV, the PRV and the FAV are
+closed and only the OPV is open.
+
+38
+00:02:57.585 --> 00:03:01.213
+This plot answers the classic
+question of which valve regulates
+
+39
+00:03:01.253 --> 00:03:05.621
+at which engine power, using the
+stage 5 pressure as the variable.
+
+40
+00:03:05.671 --> 00:03:11.322
+At idle, when stage 5 gives less
+than 36 psi, the higher pressure air
+
+41
+00:03:11.362 --> 00:03:17.568
+from stage 9 holds the IPCV closed,
+the HPV regulates to 36 psi, and the
+
+42
+00:03:17.608 --> 00:03:24.829
+PRV, below its 44 psi reference, stays
+fully open, so the system gets 36 psi.
+
+43
+00:03:24.879 --> 00:03:30.897
+Between 36 and 44 psi, stage 5 alone
+exceeds the HPV reference, so the
+
+44
+00:03:30.937 --> 00:03:35.717
+HPV shuts completely and the air
+comes from stage 5 through the check
+
+45
+00:03:35.757 --> 00:03:41.448
+valve, still with the PRV fully open:
+the system gets whatever stage 5 gives.
+
+46
+00:03:41.498 --> 00:03:45.557
+Above 44 psi, typical of
+cruise, the PRV takes
+
+47
+00:03:45.597 --> 00:03:50.045
+over and regulates to
+44 psi plus or minus 4.
+
+48
+00:03:50.095 --> 00:03:54.304
+Above that line are the
+protections: the BMC closes the PRV
+
+49
+00:03:54.344 --> 00:03:59.160
+electrically if the regulated
+pressure exceeds 57 psi, and if
+
+50
+00:03:59.200 --> 00:04:05.283
+even that fails, the overpressure
+valve closes between 74 and 90 psi.
+
+51
+00:04:05.333 --> 00:04:08.884
+And remember the obvious case
+the notes point out: if even
+
+52
+00:04:08.924 --> 00:04:13.342
+stage 9 cannot reach 36 psi,
+the valves simply pass the air
+
+53
+00:04:13.382 --> 00:04:17.757
+they receive, since a valve can
+reduce pressure but never add it.
+
+54
+00:04:19.407 --> 00:04:23.106
+Let us practise the regimes as
+an exam would ask; after each
+
+55
+00:04:23.146 --> 00:04:27.547
+question, pause the video and
+answer before the solution appears.
+
+56
+00:04:27.597 --> 00:04:32.961
+First, idle, with 25 psi at
+stage 5 and 60 psi at stage 9:
+
+57
+00:04:33.001 --> 00:04:36.609
+what are the check valve,
+the HPV, the PRV and the
+
+58
+00:04:36.649 --> 00:04:41.322
+overpressure valve doing, and what
+pressure does the system get?
+
+59
+00:04:41.372 --> 00:04:46.052
+The stage 9 air holds the check
+valve shut, the HPV regulates
+
+60
+00:04:46.092 --> 00:04:51.630
+to 36 psi, the PRV, below its
+44 psi reference, is fully
+
+61
+00:04:51.670 --> 00:04:57.384
+open, and the overpressure valve
+is open: the system gets 36 psi.
+
+62
+00:04:57.434 --> 00:05:01.174
+Second, climb, with 40 psi at stage 5.
+
+63
+00:05:01.224 --> 00:05:05.556
+The HPV closes completely, the
+check valve opens, the PRV
+
+64
+00:05:05.596 --> 00:05:10.676
+is still fully open, and the
+system simply gets about 40 psi.
+
+65
+00:05:10.726 --> 00:05:15.070
+Third, cruise, with 100 psi at stage 5.
+
+66
+00:05:15.120 --> 00:05:21.124
+The HPV stays closed and the PRV
+regulates to 44 psi plus or minus 4.
+
+67
+00:05:21.174 --> 00:05:25.634
+Fourth, in cruise the PRV's
+regulating element fails high.
+
+68
+00:05:25.684 --> 00:05:29.053
+The pressure rises, and
+when the regulated pressure
+
+69
+00:05:29.093 --> 00:05:33.465
+transmitter reads 57 psi,
+the BMC energises the TLT
+
+70
+00:05:33.505 --> 00:05:39.269
+solenoid, which vents the sense line and
+closes the PRV, and with it the HPV.
+
+71
+00:05:39.319 --> 00:05:42.885
+Fifth, and the TLT solenoid fails as well.
+
+72
+00:05:42.935 --> 00:05:46.684
+Then the last barrier is the
+overpressure valve, which starts
+
+73
+00:05:46.724 --> 00:05:51.280
+closing at 74 psi and is fully
+closed at 90, so downstream
+
+74
+00:05:51.320 --> 00:05:54.696
+pressure never exceeds that
+band; the method is always:
+
+75
+00:05:54.736 --> 00:06:00.863
+compare stage 5 with 36 and 44 psi,
+then apply the protections in order.
+
+76
+00:06:02.513 --> 00:06:07.391
+Now the PRV from the inside, as the
+notes describe the deck figure.
+
+77
+00:06:07.441 --> 00:06:11.493
+The butterfly is linked through a
+rod and a crank to a piston that
+
+78
+00:06:11.533 --> 00:06:15.212
+separates two chambers: chamber
+C, the opening and reference
+
+79
+00:06:15.252 --> 00:06:20.004
+chamber, and chamber D, the closing
+chamber, which also holds a spring.
+
+80
+00:06:20.054 --> 00:06:24.441
+With as little as 8 psi upstream,
+air pressurises chamber C and
+
+81
+00:06:24.481 --> 00:06:28.482
+pushes the piston up, opening the
+butterfly completely; part of
+
+82
+00:06:28.522 --> 00:06:32.978
+that air also reaches chamber E
+and the sense line to the TLT.
+
+83
+00:06:33.028 --> 00:06:35.455
+A calibrated regulator element keeps the
+
+84
+00:06:35.495 --> 00:06:39.299
+pressure in chamber C at
+the 44 psi reference.
+
+85
+00:06:39.349 --> 00:06:42.996
+A tap downstream of the butterfly
+feeds a small funnel valve:
+
+86
+00:06:43.036 --> 00:06:47.347
+while the downstream pressure is
+below 44 psi it stays seated,
+
+87
+00:06:47.387 --> 00:06:51.638
+but above 44 it lifts, vents to
+atmosphere and fills chamber D,
+
+88
+00:06:51.678 --> 00:06:55.324
+so the piston moves down and the
+butterfly partly closes; the
+
+89
+00:06:55.364 --> 00:06:59.703
+pressure falls, the funnel seats
+again, and the butterfly reopens.
+
+90
+00:06:59.753 --> 00:07:03.421
+So the butterfly oscillates
+quickly around the 44 psi
+
+91
+00:07:03.461 --> 00:07:08.520
+position, which is why the specification
+is 44 plus or minus 4 psi.
+
+92
+00:07:08.570 --> 00:07:12.548
+To close the PRV deliberately,
+the sense line to the TLT is
+
+93
+00:07:12.588 --> 00:07:16.757
+depressurised: chamber E then lets
+a small ball uncover an orifice
+
+94
+00:07:16.797 --> 00:07:20.775
+that vents chamber C, and the
+spring closes the butterfly; as a
+
+95
+00:07:20.815 --> 00:07:27.287
+last thermal protection, a fuse melts
+at 450 degrees and vents the same line.
+
+96
+00:07:28.937 --> 00:07:31.455
+The high pressure valve works on the same
+
+97
+00:07:31.495 --> 00:07:35.650
+principle as the PRV, with
+a reference of 36 psi.
+
+98
+00:07:35.700 --> 00:07:39.044
+It is spring-loaded closed,
+opens fully once more than
+
+99
+00:07:39.084 --> 00:07:42.617
+8 psi reaches it, and
+regulates when the stage 9
+
+100
+00:07:42.657 --> 00:07:48.147
+pressure exceeds 36 psi, again
+hunting to 36 plus or minus 4.
+
+101
+00:07:48.197 --> 00:07:53.377
+When stage 5 delivers more than 36
+psi on its own, the check valve
+
+102
+00:07:53.417 --> 00:07:58.597
+opens, the pressure downstream of
+the HPV butterfly exceeds 36, fills
+
+103
+00:07:58.637 --> 00:08:04.604
+its closing chamber, and the HPV closes
+completely: stage 9 is no longer needed.
+
+104
+00:08:04.654 --> 00:08:08.817
+The key link: chamber C of the
+PRV is piped to chamber E of
+
+105
+00:08:08.857 --> 00:08:12.951
+the HPV, so when the PRV is
+closed by depressurising its
+
+106
+00:08:12.991 --> 00:08:17.751
+sense line, the HPV loses its
+opening pressure and closes too.
+
+107
+00:08:17.801 --> 00:08:21.882
+But not the other way round: in
+cruise the HPV is closed while
+
+108
+00:08:21.922 --> 00:08:26.650
+the PRV regulates, so a closed
+HPV says nothing about the PRV.
+
+109
+00:08:28.300 --> 00:08:32.502
+Because the PRV and the HPV
+close together, the exam
+
+110
+00:08:32.542 --> 00:08:37.741
+loves to ask when the PRV closes,
+so here is the complete map.
+
+111
+00:08:37.791 --> 00:08:41.607
+Manually, the crew closes
+it by setting the ENG BLEED
+
+112
+00:08:41.647 --> 00:08:44.913
+pushbutton to OFF, or by
+pushing the engine fire
+
+113
+00:08:44.953 --> 00:08:50.331
+pushbutton; both energise the TLT
+solenoid, which vents the sense line.
+
+114
+00:08:50.381 --> 00:08:54.009
+Automatically, the BMC
+energises the same solenoid on
+
+115
+00:08:54.049 --> 00:08:58.611
+five conditions: more than 57
+psi after the PRV, read by
+
+116
+00:08:58.651 --> 00:09:04.014
+the regulated pressure
+transmitter; more than 257 degrees
+
+117
+00:09:04.054 --> 00:09:07.616
+after the precooler, read by
+the temperature sensor; a
+
+118
+00:09:07.656 --> 00:09:11.217
+leak detected by the loops;
+the start sequence of that
+
+119
+00:09:11.257 --> 00:09:16.343
+engine; and APU bleed selected,
+which is how the APU gets priority.
+
+120
+00:09:16.393 --> 00:09:20.566
+Pneumatically, inside the TLT, with
+no electrical signal: a reverse
+
+121
+00:09:20.606 --> 00:09:24.841
+flow, detected by the pressure
+difference across the PRV, closes it,
+
+122
+00:09:24.881 --> 00:09:31.681
+while an over-temperature of about
+235 to 245 degrees only bleeds
+
+123
+00:09:31.721 --> 00:09:36.468
+the sense line partly, so the PRV
+throttles back rather than shutting.
+
+124
+00:09:36.518 --> 00:09:41.701
+And the PRV itself closes with no upstream
+pressure, below 8 psi, because its
+
+125
+00:09:41.741 --> 00:09:47.990
+spring closes it, and as a last resort
+its thermal fuse melts at 450 degrees.
+
+126
+00:09:49.640 --> 00:09:53.749
+Temperature protection works as a
+ladder of independent devices, each
+
+127
+00:09:53.789 --> 00:09:58.408
+a step further from normal, and an
+exam question can start at any step.
+
+128
+00:09:58.458 --> 00:10:03.013
+In normal operation the TCT and the
+fan air valve hold the air leaving the
+
+129
+00:10:03.053 --> 00:10:08.664
+precooler at 200 degrees plus or minus
+15, continuously and pneumatically.
+
+130
+00:10:08.714 --> 00:10:12.693
+If the bleed heats up anyway,
+for example because the TCT has
+
+131
+00:10:12.733 --> 00:10:19.964
+failed, around 235 to 245 degrees
+the TLT probe partly bleeds the
+
+132
+00:10:20.004 --> 00:10:24.947
+PRV sense line and the PRV throttles
+back, limiting the temperature.
+
+133
+00:10:24.997 --> 00:10:30.409
+At 257 degrees the temperature
+sensor tells the BMC,
+
+134
+00:10:30.449 --> 00:10:34.463
+which energises the TLT
+solenoid: the PRV, and with it
+
+135
+00:10:34.503 --> 00:10:38.907
+the HPV, close completely,
+and an ECAM caution appears.
+
+136
+00:10:38.957 --> 00:10:44.553
+And if everything else fails, at
+450 degrees the PRV's thermal fuse
+
+137
+00:10:44.593 --> 00:10:49.234
+melts and vents the sense line,
+closing the valve as a last resort.
+
+138
+00:10:49.284 --> 00:10:52.940
+So for a failed TCT the
+answer is: TLT limitation
+
+139
+00:10:52.980 --> 00:11:00.164
+first, then BMC closure at
+257, then the fuse at 450.
+
+140
+00:11:01.814 --> 00:11:04.879
+The TLT is the element
+that commands the PRV,
+
+141
+00:11:04.919 --> 00:11:08.120
+and its operation is a
+classic open question.
+
+142
+00:11:08.170 --> 00:11:10.541
+It has a regulator body and a thermostatic
+
+143
+00:11:10.581 --> 00:11:13.628
+probe inserted in the
+duct after the precooler.
+
+144
+00:11:13.678 --> 00:11:17.738
+The probe is an outer tube, made
+of a metal that expands more and
+
+145
+00:11:17.778 --> 00:11:21.837
+faster, welded at its tip to an
+inner rod; when the air heats up,
+
+146
+00:11:21.877 --> 00:11:26.579
+the tube lengthens and pulls the
+rod, which opens a small vent valve.
+
+147
+00:11:26.629 --> 00:11:32.764
+Between about 235 and 245
+degrees this vent bleeds the PRV
+
+148
+00:11:32.804 --> 00:11:36.963
+sense line and the PRV throttles
+back, limiting the temperature.
+
+149
+00:11:37.013 --> 00:11:43.460
+At 257 degrees the BMC energises the
+solenoid on top of the TLT, whose
+
+150
+00:11:43.500 --> 00:11:49.542
+magnetic force lifts its valve, vents the
+sense line completely, and closes the PRV.
+
+151
+00:11:49.592 --> 00:11:52.446
+Reverse flow is detected
+without electricity: a
+
+152
+00:11:52.486 --> 00:11:55.341
+diaphragm separates a
+tap from before the PRV
+
+153
+00:11:55.381 --> 00:11:58.296
+and a tap from after the
+precooler; normally the
+
+154
+00:11:58.336 --> 00:12:01.067
+upstream pressure wins,
+but if the downstream
+
+155
+00:12:01.107 --> 00:12:04.023
+pressure is higher the
+diaphragm moves, lets air
+
+156
+00:12:04.063 --> 00:12:06.917
+into the solenoid valve
+chamber and pushes that
+
+157
+00:12:06.957 --> 00:12:10.817
+valve open, venting the sense
+line and closing the PRV.
+
+158
+00:12:12.467 --> 00:12:14.455
+Downstream of the PRV comes the
+
+159
+00:12:14.495 --> 00:12:17.856
+overpressure valve, the
+last pressure protection.
+
+160
+00:12:17.906 --> 00:12:21.629
+Its butterfly is spring-loaded
+open, the opposite of the other
+
+161
+00:12:21.669 --> 00:12:25.965
+valves, and it only closes when
+the PRV has failed to regulate.
+
+162
+00:12:26.015 --> 00:12:30.141
+Upstream air passes a filter and acts
+on two spring-loaded pistons: at
+
+163
+00:12:30.181 --> 00:12:34.842
+about 74 psi the springs start to
+yield and the butterfly begins to
+
+164
+00:12:34.882 --> 00:12:42.433
+close, and at 90 psi it is fully closed;
+the deck quotes 73.8 to 89.9 psi.
+
+165
+00:12:42.483 --> 00:12:45.067
+The higher the pressure,
+the faster it closes,
+
+166
+00:12:45.107 --> 00:12:48.081
+and when the pressure
+recovers it opens again.
+
+167
+00:12:48.131 --> 00:12:51.962
+Then comes the precooler, installed
+in the pylon: a bundle of metal
+
+168
+00:12:52.002 --> 00:12:56.064
+tubes carrying the hot bleed air,
+with cold fan air flowing around them
+
+169
+00:12:56.104 --> 00:13:00.787
+and then dumped overboard, so the two
+streams exchange heat but never mass.
+
+170
+00:13:02.437 --> 00:13:05.991
+The temperature loop is the
+other favourite question, and it
+
+171
+00:13:06.031 --> 00:13:10.334
+has two parts: the thermostat that
+senses and the valve that acts.
+
+172
+00:13:10.384 --> 00:13:13.643
+The temperature control
+thermostat, the TCT, has a
+
+173
+00:13:13.683 --> 00:13:17.005
+probe in the duct after the
+precooler, built like the
+
+174
+00:13:17.045 --> 00:13:21.392
+TLT probe: an outer tube that
+expands and drags an inner rod.
+
+175
+00:13:21.442 --> 00:13:26.067
+Below 200 degrees the probe's vent
+is closed, the air that enters
+
+176
+00:13:26.107 --> 00:13:30.094
+the TCT fills its own chamber
+A, the diaphragm compresses the
+
+177
+00:13:30.134 --> 00:13:35.085
+spring and closes the needle valve,
+so no air goes to the fan air valve.
+
+178
+00:13:35.135 --> 00:13:39.612
+At 200 degrees or more, the rod
+opens the air vent, chamber A
+
+179
+00:13:39.652 --> 00:13:43.606
+empties, the needle valve opens,
+and regulated air flows down
+
+180
+00:13:43.646 --> 00:13:47.796
+the signal line to the fan air
+valve; the further the rod moves,
+
+181
+00:13:47.836 --> 00:13:52.703
+the more air it sends, so the action
+is proportional, not on and off.
+
+182
+00:13:54.353 --> 00:13:56.948
+Now the valve that the thermostat drives,
+
+183
+00:13:56.988 --> 00:14:00.101
+the fan air valve, shown
+on this deck page.
+
+184
+00:14:00.151 --> 00:14:05.215
+It is a butterfly spring-loaded closed;
+the signal air from the TCT pressurises
+
+185
+00:14:05.255 --> 00:14:10.066
+the chamber of its actuator, overcomes
+the spring and opens it, while a small
+
+186
+00:14:10.106 --> 00:14:15.560
+bleed hole lets some air escape so that
+it can close again when the signal falls.
+
+187
+00:14:15.610 --> 00:14:18.815
+The hotter the bleed, the
+more air the TCT sends, the
+
+188
+00:14:18.855 --> 00:14:21.707
+wider the valve opens, the
+more fan air cools the
+
+189
+00:14:21.747 --> 00:14:26.641
+precooler, and the loop settles
+at 200 degrees plus or minus 15.
+
+190
+00:14:26.691 --> 00:14:31.280
+Notice who is in the loop: the TCT,
+the FAV, the sense line and the
+
+191
+00:14:31.320 --> 00:14:37.211
+precooler, and nobody else; the BMC reads
+the temperature but does not regulate it.
+
+192
+00:14:38.861 --> 00:14:42.880
+Last valve: the crossbleed,
+with its two electric motors.
+
+193
+00:14:42.930 --> 00:14:45.924
+In AUTO the rule to remember
+is that the crossbleed
+
+194
+00:14:45.964 --> 00:14:49.468
+valve has the same position
+as the APU bleed valve.
+
+195
+00:14:49.518 --> 00:14:52.683
+More precisely, when either
+BMC receives the signal
+
+196
+00:14:52.723 --> 00:14:55.585
+that the APU bleed valve
+is open, with no leak
+
+197
+00:14:55.625 --> 00:14:58.608
+detected in the pneumatic
+ducts and no engine fire
+
+198
+00:14:58.648 --> 00:15:03.231
+pushbutton operated, it commands
+motor number 1 and the valve opens.
+
+199
+00:15:03.281 --> 00:15:07.242
+If a leak is detected during an
+engine start sequence, the valve
+
+200
+00:15:07.282 --> 00:15:11.758
+stays open until the sequence ends,
+so the start can be completed.
+
+201
+00:15:11.808 --> 00:15:15.169
+When the BMCs receive the
+signal that the APU bleed valve
+
+202
+00:15:15.209 --> 00:15:19.182
+has closed, they command motor 1
+to close the crossbleed valve.
+
+203
+00:15:19.232 --> 00:15:23.493
+In OPEN or SHUT, motor number 2
+drives the valve to that fixed
+
+204
+00:15:23.533 --> 00:15:27.794
+position, regardless of the APU
+bleed valve; and remember that
+
+205
+00:15:27.834 --> 00:15:32.296
+with APU air and the crossbleed
+open, APU air flows towards the
+
+206
+00:15:32.336 --> 00:15:36.328
+engines, the engine PRVs are
+closed pneumatically by their
+
+207
+00:15:36.368 --> 00:15:40.293
+TLTs, which sense the reverse
+flow, and electrically by the
+
+208
+00:15:40.333 --> 00:15:45.925
+BMCs, because APU bleed is selected,
+so the APU has priority twice over.
+
+209
+00:15:47.575 --> 00:15:50.333
+Here are five scenarios
+to test the whole logic;
+
+210
+00:15:50.373 --> 00:15:53.579
+pause after each question
+and predict the answer.
+
+211
+00:15:53.629 --> 00:15:56.811
+One: an engine 2 bleed
+fault in cruise, with the
+
+212
+00:15:56.851 --> 00:16:01.131
+selector in AUTO and the APU
+off; what happens to pack 2?
+
+213
+00:16:01.181 --> 00:16:04.481
+The crossbleed valve follows
+the closed APU valve and
+
+214
+00:16:04.521 --> 00:16:07.639
+stays shut, so pack 2 loses
+its air until the crew
+
+215
+00:16:07.679 --> 00:16:12.038
+selects the crossbleed OPEN, and
+engine 1 then feeds both sides.
+
+216
+00:16:12.088 --> 00:16:15.909
+Two: the crew pushes the
+engine 1 fire pushbutton.
+
+217
+00:16:15.959 --> 00:16:20.126
+That energises the TLT solenoid,
+which closes PRV 1 and,
+
+218
+00:16:20.166 --> 00:16:24.264
+through the link, HPV 1, and
+in AUTO the crossbleed valve
+
+219
+00:16:24.304 --> 00:16:28.453
+cannot open because a fire
+pushbutton has been operated.
+
+220
+00:16:28.503 --> 00:16:32.000
+Three: a leak is detected
+on the left side.
+
+221
+00:16:32.050 --> 00:16:36.822
+The leak loops alert BMC 1, which
+closes PRV 1, and in AUTO the
+
+222
+00:16:36.862 --> 00:16:42.024
+crossbleed stays shut so that the
+leak is isolated from the right side.
+
+223
+00:16:42.074 --> 00:16:46.151
+Four: both engine bleeds
+are lost below 20 000 feet.
+
+224
+00:16:46.201 --> 00:16:50.838
+The crew selects APU BLEED, the APU
+bleed valve opens and, in AUTO,
+
+225
+00:16:50.878 --> 00:16:55.839
+the crossbleed valve follows it, so
+both sides are fed from the APU.
+
+226
+00:16:55.889 --> 00:16:59.072
+Five: starting engine 2 with the APU.
+
+227
+00:16:59.122 --> 00:17:03.762
+The crossbleed is open because it
+follows the APU valve, start valve 2 is
+
+228
+00:17:03.802 --> 00:17:09.015
+open, and the start sequence keeps PRV
+2 closed until the engine is running.
+
+229
+00:17:10.665 --> 00:17:14.173
+Now the 2020 quiz,
+starting with question 1.
+
+230
+00:17:14.223 --> 00:17:16.879
+The worry is that the
+APU feeds only the left
+
+231
+00:17:16.919 --> 00:17:20.367
+side, while engine 2's
+starter is on the right side.
+
+232
+00:17:20.417 --> 00:17:24.559
+But in AUTO the crossbleed valve
+follows the APU bleed valve, so
+
+233
+00:17:24.599 --> 00:17:29.068
+as soon as the APU bleed valve
+opens, the crossbleed opens too.
+
+234
+00:17:29.118 --> 00:17:33.059
+APU air therefore reaches
+both start valves, and during
+
+235
+00:17:33.099 --> 00:17:37.850
+each start sequence the BMC
+keeps that engine's PRV closed.
+
+236
+00:17:37.900 --> 00:17:41.682
+So the answer is c, yes; option
+a states a true fact, that the
+
+237
+00:17:41.722 --> 00:17:45.072
+crossbleed follows the APU
+valve, but draws the wrong
+
+238
+00:17:45.112 --> 00:17:50.023
+conclusion from it, which is exactly
+the kind of trap these questions set.
+
+239
+00:17:51.673 --> 00:17:55.819
+Question 2 asks for the false statements
+about the high pressure valve.
+
+240
+00:17:55.869 --> 00:18:00.454
+Statement a is false: once
+stage 5 alone exceeds 36 psi
+
+241
+00:18:00.494 --> 00:18:05.333
+the HPV is closed, so it is
+certainly not opening at 44.
+
+242
+00:18:05.383 --> 00:18:08.315
+Statement b is false for the same reason:
+
+243
+00:18:08.355 --> 00:18:13.198
+stage 5 reaching 36 psi
+is what closes the HPV.
+
+244
+00:18:13.248 --> 00:18:17.616
+Statement c is true, through
+the link we saw: reverse flow
+
+245
+00:18:17.656 --> 00:18:22.783
+makes the TLT vent the PRV sense
+line, the PRV closes, and the
+
+246
+00:18:22.823 --> 00:18:28.645
+PRV's chamber C is what keeps the
+HPV open, so the HPV closes too.
+
+247
+00:18:28.695 --> 00:18:34.192
+Statement d is false: at idle with
+stage 5 below 36 psi the HPV is the
+
+248
+00:18:34.232 --> 00:18:38.818
+valve regulating, so it is open; it
+is closed whenever stage 5 alone
+
+249
+00:18:38.858 --> 00:18:45.136
+exceeds its 36 psi reference, whether the
+PRV is then fully open or regulating.
+
+250
+00:18:45.186 --> 00:18:48.439
+So the false statements are a, b and d.
+
+251
+00:18:50.089 --> 00:18:55.001
+Question 3 mixes the two temperature
+devices, and each statement is a trap.
+
+252
+00:18:55.051 --> 00:19:01.362
+Statement a is wrong as a command:
+the BMC never drives the TCT; 257
+
+253
+00:19:01.402 --> 00:19:06.125
+degrees is the threshold at which
+the BMC closes the PRV through the
+
+254
+00:19:06.165 --> 00:19:10.889
+TLT solenoid; read as a time sequence
+it is defensible, since once the
+
+255
+00:19:10.929 --> 00:19:16.439
+PRV closes the air cools and the probe
+eventually closes, so a is debatable.
+
+256
+00:19:16.489 --> 00:19:20.060
+Statement b is wrong as a cause
+and effect: the TCT probe
+
+257
+00:19:20.100 --> 00:19:24.528
+follows only the temperature,
+and 57 psi read by the regulated
+
+258
+00:19:24.568 --> 00:19:28.446
+pressure transmitter is one of
+the PRV closure conditions; the
+
+259
+00:19:28.486 --> 00:19:31.996
+probe could happen to be open
+at that moment if the air is
+
+260
+00:19:32.036 --> 00:19:38.201
+above 200 degrees, but not because of
+the 57 psi, so b is at best ambiguous.
+
+261
+00:19:38.251 --> 00:19:42.550
+Statement c is wrong: when the
+probe is closed, below 200
+
+262
+00:19:42.590 --> 00:19:46.556
+degrees, chamber A stays full,
+the needle valve is shut, the
+
+263
+00:19:46.596 --> 00:19:51.685
+TCT sends no air, and the fan air
+valve is held closed by its spring.
+
+264
+00:19:51.735 --> 00:19:56.335
+Statement d is wrong: reverse flow is
+detected by the TLT and acts on the
+
+265
+00:19:56.375 --> 00:20:00.850
+PRV; nothing in that logic commands
+the fan air valve fully open, which
+
+266
+00:20:00.890 --> 00:20:05.365
+keeps being modulated by the TCT
+according to the temperature, and with
+
+267
+00:20:05.405 --> 00:20:10.394
+the hot bleed stopped the temperature
+tends to fall and the valve to close.
+
+268
+00:20:10.444 --> 00:20:13.892
+So, on the strict cause-and-effect
+reading, none of the
+
+269
+00:20:13.932 --> 00:20:17.569
+four statements is correct,
+with a and b debatable if read
+
+270
+00:20:17.609 --> 00:20:21.247
+as sequences in time; there is
+no official key, so justify
+
+271
+00:20:21.287 --> 00:20:25.504
+each answer exactly like this,
+which is what earns the marks.
+
+272
+00:20:27.154 --> 00:20:29.626
+The older papers also
+contain open questions
+
+273
+00:20:29.666 --> 00:20:33.042
+on the A320, and you
+now have every answer.
+
+274
+00:20:33.092 --> 00:20:37.421
+For the conditions of the electrical
+closure of the PRV, list the
+
+275
+00:20:37.461 --> 00:20:40.942
+two manual ones, the bleed
+pushbutton off and the fire
+
+276
+00:20:40.982 --> 00:20:45.833
+pushbutton, and the five automatic
+ones commanded by the BMC: 57
+
+277
+00:20:45.873 --> 00:20:53.005
+psi, 257 degrees, a leak, the engine
+start sequence and APU bleed selection.
+
+278
+00:20:53.055 --> 00:20:56.344
+To explain the TLT under
+reverse flow, describe the
+
+279
+00:20:56.384 --> 00:21:00.114
+diaphragm between the tap before
+the PRV and the tap after
+
+280
+00:21:00.154 --> 00:21:03.757
+the precooler, and how a higher
+downstream pressure pushes
+
+281
+00:21:03.797 --> 00:21:08.544
+it and opens the solenoid valve
+pneumatically, venting the sense line.
+
+282
+00:21:08.594 --> 00:21:12.883
+To explain the TCT, describe the
+probe after the precooler, the vent
+
+283
+00:21:12.923 --> 00:21:17.644
+that opens at 200 degrees, chamber
+A and the needle valve, the signal
+
+284
+00:21:17.684 --> 00:21:23.167
+line to the fan air valve, and the
+200 plus or minus 15 degree result.
+
+285
+00:21:23.217 --> 00:21:27.698
+A 2011 question gives you AUTO,
+no engine fire pushbutton and
+
+286
+00:21:27.738 --> 00:21:31.639
+no leak, and asks for the four
+remaining conditions: they are
+
+287
+00:21:31.679 --> 00:21:35.838
+the APU side of the chain, APU
+BLEED selected, the APU fire
+
+288
+00:21:35.878 --> 00:21:40.036
+pushbutton not operated, no APU
+shut-down signal, and the APU
+
+289
+00:21:40.076 --> 00:21:44.946
+speed stabilised at 95 %, so
+that the APU bleed valve opens
+
+290
+00:21:44.986 --> 00:21:49.341
+and the crossbleed valve, which
+follows it in AUTO, opens too.
+
+291
+00:21:49.391 --> 00:21:53.182
+And whenever you can, add a quick
+sketch of the circuit with its
+
+292
+00:21:53.222 --> 00:21:57.763
+valves in order: it shows the examiner
+you understand the whole chain.
+
+293
+00:21:59.413 --> 00:22:03.341
+The 2012 to 2013 paper has
+a multiple-choice question
+
+294
+00:22:03.381 --> 00:22:07.101
+on the A320 crossbleed valve
+that is fully in scope.
+
+295
+00:22:07.151 --> 00:22:10.491
+Statement a is the deck's own
+AUTO rule, the crossbleed
+
+296
+00:22:10.531 --> 00:22:14.117
+valve has the same position
+as the APU bleed valve, so in
+
+297
+00:22:14.157 --> 00:22:18.379
+that context it is correct,
+although in OPEN or SHUT it is not.
+
+298
+00:22:18.429 --> 00:22:22.925
+Statement b is incorrect: the BMCs
+act through motor number 1, while
+
+299
+00:22:22.965 --> 00:22:27.789
+motor number 2 is the one used by
+the manual OPEN and SHUT positions.
+
+300
+00:22:27.839 --> 00:22:31.980
+Statement c is incorrect: the
+automatic opening conditions are the
+
+301
+00:22:32.020 --> 00:22:36.225
+APU bleed valve open, no engine
+fire pushbutton and no leak, with
+
+302
+00:22:36.265 --> 00:22:40.406
+leaks tolerated during any engine
+start; the statement's exception
+
+303
+00:22:40.446 --> 00:22:44.778
+for the left engine start is invented,
+and the APU shut-down signal
+
+304
+00:22:44.818 --> 00:22:50.236
+acts on the APU bleed valve through the
+ECB, not directly on the crossbleed.
+
+305
+00:22:50.286 --> 00:22:56.371
+Statement d is incorrect: the TLT commands
+the PRV, never the crossbleed valve.
+
+306
+00:22:56.421 --> 00:23:00.419
+So the intended answer is
+option 3, b, c and d incorrect;
+
+307
+00:23:00.459 --> 00:23:04.192
+only if you read always as
+including the manual positions
+
+308
+00:23:04.232 --> 00:23:08.950
+would you choose option 5, and
+in that case say so in one line.
+
+309
+00:23:10.600 --> 00:23:16.314
+Fire protection connects both systems
+of this exam, so it deserves one slide.
+
+310
+00:23:16.364 --> 00:23:20.133
+On the overhead panel there are
+three fire pushbuttons, ENG
+
+311
+00:23:20.173 --> 00:23:24.702
+1 FIRE, ENG 2 FIRE and APU FIRE,
+each protected by a guard.
+
+312
+00:23:24.752 --> 00:23:28.195
+When a fire is detected, the
+corresponding pushbutton lights
+
+313
+00:23:28.235 --> 00:23:31.852
+red and a chime sounds; the crew
+lifts the guard and pushes the
+
+314
+00:23:31.892 --> 00:23:36.073
+button, which silences the aural
+warning while the light stays on.
+
+315
+00:23:36.123 --> 00:23:39.600
+Then they discharge the
+extinguishing agent: the APU has
+
+316
+00:23:39.640 --> 00:23:42.935
+one bottle that floods its
+compartment, and each engine
+
+317
+00:23:42.975 --> 00:23:47.085
+has two agents, discharged one
+after the other for redundancy.
+
+318
+00:23:47.135 --> 00:23:50.497
+Pushing an engine fire
+pushbutton energises that
+
+319
+00:23:50.537 --> 00:23:54.325
+engine's TLT solenoid, so
+its PRV, and with it its
+
+320
+00:23:54.365 --> 00:23:58.897
+HPV, close, and in AUTO the
+crossbleed valve cannot open.
+
+321
+00:23:58.947 --> 00:24:03.268
+On the hydraulic side, the same
+pushbutton closes the fire valve of the
+
+322
+00:24:03.308 --> 00:24:08.388
+system driven by that engine, Green
+for engine 1 and Yellow for engine 2.
+
+323
+00:24:08.438 --> 00:24:12.296
+And the APU FIRE pushbutton is
+one of the conditions the BMC
+
+324
+00:24:12.336 --> 00:24:17.193
+checks before allowing APU bleed, so
+the APU bleed valve stays closed.
+
+325
+00:24:18.843 --> 00:24:21.557
+Here is the whole of
+part two as one table of
+
+326
+00:24:21.597 --> 00:24:25.068
+numbers, worth copying from
+memory before the exam.
+
+327
+00:24:25.118 --> 00:24:29.528
+36 psi for the high pressure
+valve and 44 psi for the
+
+328
+00:24:29.568 --> 00:24:33.368
+pressure regulating valve,
+both plus or minus 4; 57
+
+329
+00:24:33.408 --> 00:24:41.048
+psi and 257 degrees for the
+BMC closure, 235 to 245
+
+330
+00:24:41.088 --> 00:24:46.436
+degrees for the TLT probe and
+450 degrees for the PRV fuse.
+
+331
+00:24:46.486 --> 00:24:50.946
+74 to 90 psi for the
+overpressure valve, 200 plus or
+
+332
+00:24:50.986 --> 00:24:54.677
+minus 15 degrees for the
+temperature loop, 50 psi for
+
+333
+00:24:54.717 --> 00:24:59.212
+the hydraulic reservoirs and
+20 000 feet for the APU bleed.
+
+334
+00:24:59.262 --> 00:25:02.335
+In part three we move to
+the hydraulic system, which
+
+335
+00:25:02.375 --> 00:25:06.137
+uses some of this bleed air
+to pressurise its reservoirs.

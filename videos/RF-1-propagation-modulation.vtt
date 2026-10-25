@@ -1,0 +1,1326 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:03.487
+Welcome to the first of
+three lectures for exam
+
+2
+00:00:03.527 --> 00:00:06.929
+1 of Sistemes de
+Radiofreqüència i Comunicació.
+
+3
+00:00:06.979 --> 00:00:09.867
+This part covers the
+radio spectrum, how radio
+
+4
+00:00:09.907 --> 00:00:12.987
+waves propagate, analogue
+and digital modulation,
+
+5
+00:00:13.027 --> 00:00:16.687
+and the architectures of
+transmitters and receivers.
+
+6
+00:00:16.737 --> 00:00:20.929
+Part two covers decibels, noise,
+linearity, sensitivity and dynamic
+
+7
+00:00:20.969 --> 00:00:26.247
+range, and part three covers transmission
+lines, the Smith chart and matching.
+
+8
+00:00:26.297 --> 00:00:30.236
+Every worked problem has been
+recomputed from scratch, and where the
+
+9
+00:00:30.276 --> 00:00:35.308
+slides or last year's solutions give a
+number, the video says whether it agrees.
+
+10
+00:00:36.958 --> 00:00:39.247
+First, the rules of the game.
+
+11
+00:00:39.297 --> 00:00:43.603
+According to the course calendar,
+Unit 1, radio-frequency propagation,
+
+12
+00:00:43.643 --> 00:00:48.070
+was taught in the first three weeks
+and Unit 2, transmission lines, from
+
+13
+00:00:48.110 --> 00:00:53.892
+week four, so exam 1 covers both, and
+it is worth 35 % of the final mark.
+
+14
+00:00:53.942 --> 00:00:56.672
+The solved exam 1 that
+your classmates shared
+
+15
+00:00:56.712 --> 00:00:59.772
+has ten short problems,
+roughly one per topic.
+
+16
+00:00:59.822 --> 00:01:03.929
+They were: a noise-figure cascade,
+the local oscillator of a
+
+17
+00:01:03.969 --> 00:01:08.282
+superheterodyne, the ratio between
+day and night maximum usable
+
+18
+00:01:08.322 --> 00:01:12.705
+frequencies, the input impedance
+of a line, a VSWR, a coaxial
+
+19
+00:01:12.745 --> 00:01:17.127
+cable from a datasheet, a cascade
+intercept point, a return-loss
+
+20
+00:01:17.167 --> 00:01:23.253
+and cable-loss check, an FM bandwidth, and
+a compression and noise-floor question.
+
+21
+00:01:23.303 --> 00:01:26.483
+None of them needs long
+algebra: the skill is choosing
+
+22
+00:01:26.523 --> 00:01:29.346
+the right formula and
+converting quickly between
+
+23
+00:01:29.386 --> 00:01:33.672
+decibels and linear units, which
+is exactly what we will practise.
+
+24
+00:01:35.322 --> 00:01:38.674
+The electromagnetic spectrum
+used for radio is divided
+
+25
+00:01:38.714 --> 00:01:42.580
+by the I T U into bands, each
+one a decade of frequency.
+
+26
+00:01:42.630 --> 00:01:48.607
+Low frequency goes from 30 to 300
+kHz, medium frequency up to 3 MHz,
+
+27
+00:01:48.647 --> 00:01:54.070
+high frequency up to 30 MHz, very
+high frequency up to 300 MHz,
+
+28
+00:01:54.110 --> 00:02:00.047
+ultra high frequency up to 3 GHz and
+super high frequency up to 30 GHz.
+
+29
+00:02:00.097 --> 00:02:04.278
+Aviation uses almost all of them:
+non-directional beacons sit between
+
+30
+00:02:04.318 --> 00:02:11.681
+190 and 535 kHz, long-range voice
+over the oceans uses HF, between 2
+
+31
+00:02:11.721 --> 00:02:20.207
+and 30 MHz, and the familiar VHF
+voice band runs from 118 to 137 MHz.
+
+32
+00:02:20.257 --> 00:02:25.830
+Just below it, from 108 to
+118 MHz, are the VOR and
+
+33
+00:02:25.870 --> 00:02:30.917
+the ILS localizer, with the
+glide slope near 330 MHz.
+
+34
+00:02:30.967 --> 00:02:35.117
+Around 1 GHz, the L band holds
+the DME, the secondary radar at
+
+35
+00:02:35.157 --> 00:02:43.904
+1030 and 1090 MHz and GPS at
+1575 MHz, and higher up come the
+
+36
+00:02:43.944 --> 00:02:50.055
+radio altimeter at 4.3 GHz and
+the weather radar near 9.4 GHz.
+
+37
+00:02:51.705 --> 00:02:56.107
+The first formula of the course links
+wavelength, frequency and the medium.
+
+38
+00:02:56.157 --> 00:03:00.329
+The wavelength is the speed of light
+divided by the frequency and by the
+
+39
+00:03:00.369 --> 00:03:05.575
+square root of the effective permittivity,
+because waves slow down in a dielectric.
+
+40
+00:03:05.625 --> 00:03:08.384
+In air the permittivity is one, so 3 times
+
+41
+00:03:08.424 --> 00:03:13.277
+ten to the 8 over ten
+to the 8 gives 3.00 m.
+
+42
+00:03:13.327 --> 00:03:17.472
+In a polyethylene cable, with a
+permittivity of 2.3, the square
+
+43
+00:03:17.512 --> 00:03:23.274
+root is 1.517, and the wavelength
+shrinks to 1.98 m: this is why
+
+44
+00:03:23.314 --> 00:03:27.458
+a quarter-wave cable section is
+shorter than a quarter-wave antenna.
+
+45
+00:03:27.508 --> 00:03:34.325
+And in water, with a permittivity of
+80.4, the wavelength is only 0.335 m.
+
+46
+00:03:35.975 --> 00:03:39.913
+Radio waves travel through an
+atmosphere with distinct layers.
+
+47
+00:03:39.963 --> 00:03:44.061
+The troposphere, from the
+ground to about 10 to 12 km, is
+
+48
+00:03:44.101 --> 00:03:47.372
+where the weather is, and it
+bends VHF waves slightly,
+
+49
+00:03:47.412 --> 00:03:51.191
+extending their range a little
+beyond the optical horizon.
+
+50
+00:03:51.241 --> 00:03:56.844
+Above the stratosphere, from
+50 to 80 km up to 400 or 500
+
+51
+00:03:56.884 --> 00:04:00.354
+km, the ionosphere is ionised
+by solar radiation, so its
+
+52
+00:04:00.394 --> 00:04:04.757
+properties change between day and
+night and with solar activity.
+
+53
+00:04:04.807 --> 00:04:08.308
+The D layer, present only in
+daylight, absorbs the lower
+
+54
+00:04:08.348 --> 00:04:12.482
+frequencies below about 4
+MHz, while the E, F1 and F2
+
+55
+00:04:12.522 --> 00:04:17.742
+layers reflect waves up to about
+5, 10 and 30 MHz respectively.
+
+56
+00:04:17.792 --> 00:04:20.557
+At night the D layer disappears
+and the other layers
+
+57
+00:04:20.597 --> 00:04:24.075
+weaken, which is why the usable
+frequencies drop at night.
+
+58
+00:04:25.725 --> 00:04:30.161
+There are four ways for a radio wave to
+get from the transmitter to the receiver.
+
+59
+00:04:30.211 --> 00:04:33.679
+The ground or surface wave follows
+the curvature of the Earth,
+
+60
+00:04:33.719 --> 00:04:38.260
+from about 20 kHz up to 50 MHz;
+its losses grow with frequency
+
+61
+00:04:38.300 --> 00:04:41.711
+and are larger over land than
+over sea, and they are smallest
+
+62
+00:04:41.751 --> 00:04:46.061
+with vertical polarisation, which is
+why beacon antennas are vertical.
+
+63
+00:04:46.111 --> 00:04:51.511
+Above about 50 MHz the ground wave dies
+quickly and communication relies on the
+
+64
+00:04:51.551 --> 00:04:56.724
+space wave: a direct, line-of-sight ray,
+plus a ray reflected from the ground.
+
+65
+00:04:56.774 --> 00:05:00.024
+In the HF band, the ionosphere
+can reflect the sky
+
+66
+00:05:00.064 --> 00:05:02.928
+wave back to Earth, so
+a single hop can cover
+
+67
+00:05:02.968 --> 00:05:07.318
+thousands of kilometres, which
+is how oceanic HF voice works.
+
+68
+00:05:07.368 --> 00:05:11.002
+Finally, tropospheric waves
+are scattered or ducted in the
+
+69
+00:05:11.042 --> 00:05:15.763
+lower atmosphere, occasionally
+carrying VHF far beyond the horizon.
+
+70
+00:05:17.413 --> 00:05:21.478
+This is a ground-wave problem
+with an empirical range formula.
+
+71
+00:05:21.528 --> 00:05:25.338
+The square root of 5 000 watts is 70.7.
+
+72
+00:05:25.388 --> 00:05:30.475
+Over sea the range is
+3 times that, 212 nmi.
+
+73
+00:05:30.525 --> 00:05:35.658
+Over land it is only 2
+times that, 141 nmi.
+
+74
+00:05:35.708 --> 00:05:40.115
+So the difference is 70.7 nmi,
+a third of the sea range,
+
+75
+00:05:40.155 --> 00:05:44.301
+because the ground wave loses more
+energy over poorly conducting land.
+
+76
+00:05:45.951 --> 00:05:49.982
+Above 50 MHz, the range is
+set by the radio horizon.
+
+77
+00:05:50.032 --> 00:05:54.291
+VHF voice, VOR and DME all
+need line of sight between the
+
+78
+00:05:54.331 --> 00:05:58.776
+antennas, so the curvature of
+the Earth limits the distance.
+
+79
+00:05:58.826 --> 00:06:03.323
+Binns gives the practical formula:
+the range in nautical miles is 1.23
+
+80
+00:06:03.363 --> 00:06:07.396
+times the sum of the square roots
+of the two antenna heights in feet.
+
+81
+00:06:07.446 --> 00:06:10.021
+Because of the square
+roots, the range grows
+
+82
+00:06:10.061 --> 00:06:13.740
+slowly: flying four times
+higher only doubles the range.
+
+83
+00:06:13.790 --> 00:06:17.388
+The trap is in the units: the
+heights must be in feet and the
+
+84
+00:06:17.428 --> 00:06:23.683
+result is in nautical miles, so convert
+metres first, dividing by 0.3048.
+
+85
+00:06:25.333 --> 00:06:27.286
+Two quick applications.
+
+86
+00:06:27.336 --> 00:06:30.304
+For part a, the ground
+antenna is 10 m high,
+
+87
+00:06:30.344 --> 00:06:35.569
+that is 32.8 ft, whose
+square root is 5.73.
+
+88
+00:06:35.619 --> 00:06:41.358
+Then the square root of the aircraft
+height is 125 over 1.23 minus
+
+89
+00:06:41.398 --> 00:06:50.005
+5.73, which is 95.9, so the aircraft
+must fly at about 9 200 ft, 2.8 km.
+
+90
+00:06:50.055 --> 00:06:53.394
+For part b the receiver is
+at ground level, so only the
+
+91
+00:06:53.434 --> 00:06:57.264
+aircraft height counts: convert
+each altitude to feet, take the
+
+92
+00:06:57.304 --> 00:07:04.105
+square root, multiply by 1.23, and
+multiply by 1.852 to get kilometres.
+
+93
+00:07:04.155 --> 00:07:13.712
+At 150 m the range is 27 nmi, about 50
+km, and at 300 m it is about 72 km.
+
+94
+00:07:13.762 --> 00:07:24.790
+At 1 500 m it reaches 160 km, at
+3 000 m 226 km and at 5 000 m 292
+
+95
+00:07:24.830 --> 00:07:29.205
+km: the plot is a square-root curve,
+steep at first and then flattening.
+
+96
+00:07:30.855 --> 00:07:36.371
+For sky waves, the key quantity is the
+electron density of the ionosphere.
+
+97
+00:07:36.421 --> 00:07:40.704
+A wave sent straight up is reflected
+only if its frequency is below the
+
+98
+00:07:40.744 --> 00:07:45.270
+critical frequency, fc, equal to 9
+times the square root of the electron
+
+99
+00:07:45.310 --> 00:07:49.983
+density, with fc in hertz and the
+density in electrons per cubic metre.
+
+100
+00:07:50.033 --> 00:07:54.039
+Last year's solution used the same
+formula in friendlier units: fc in
+
+101
+00:07:54.079 --> 00:07:58.437
+megahertz equals 9 times ten to the
+minus 3 times the square root of
+
+102
+00:07:58.477 --> 00:08:03.108
+the density in electrons per cubic
+centimetre; both give the same number.
+
+103
+00:08:03.158 --> 00:08:06.266
+A wave that hits the layer
+obliquely, leaving the
+
+104
+00:08:06.306 --> 00:08:08.965
+ground at an elevation angle theta, can be
+
+105
+00:08:09.005 --> 00:08:11.985
+reflected up to a higher
+frequency, the maximum
+
+106
+00:08:12.025 --> 00:08:16.488
+usable frequency, approximately
+fc divided by the sine of theta.
+
+107
+00:08:16.538 --> 00:08:21.142
+Below the MUF there is also a lowest
+usable frequency, the LUF, set by
+
+108
+00:08:21.182 --> 00:08:25.862
+absorption in the D layer, so the
+usable window lies between the two.
+
+109
+00:08:25.912 --> 00:08:30.328
+The MUF by day is roughly twice the
+MUF by night, and in practice one
+
+110
+00:08:30.368 --> 00:08:36.456
+works at the optimum working frequency,
+85 % of the MUF, for a safety margin.
+
+111
+00:08:38.106 --> 00:08:41.683
+Both sky-wave problems use
+the same two formulas.
+
+112
+00:08:41.733 --> 00:08:45.354
+Convert the density first: 5
+times ten to the 5 per cubic
+
+113
+00:08:45.394 --> 00:08:48.957
+centimetre is 5 times ten to
+the 11 per cubic metre, so
+
+114
+00:08:48.997 --> 00:08:54.227
+the critical frequency is 9
+times its square root, 6.36 MHz.
+
+115
+00:08:54.277 --> 00:08:59.626
+In part a, the sine of the
+angle is 6.36 over 24.58,
+
+116
+00:08:59.666 --> 00:09:05.285
+which is 0.259, so the elevation
+angle is 15.0 degrees.
+
+117
+00:09:05.335 --> 00:09:08.870
+In part b, assume a single hop
+with the reflection midway, and
+
+118
+00:09:08.910 --> 00:09:15.269
+a flat Earth: half of 1 300
+statute miles is 1 046 km, so the
+
+119
+00:09:15.309 --> 00:09:22.578
+tangent of the elevation is 350
+over 1 046, giving 18.5 degrees.
+
+120
+00:09:22.628 --> 00:09:29.181
+Then the MUF is 6.36 over the
+sine of 18.5 degrees, 20.1 MHz,
+
+121
+00:09:29.221 --> 00:09:35.273
+and the optimum working frequency
+is 85 % of that, 17.1 MHz.
+
+122
+00:09:35.323 --> 00:09:39.940
+If the miles are read as nautical
+miles, the angle is 16.2 degrees
+
+123
+00:09:39.980 --> 00:09:45.576
+and the OWF 19.4 MHz, so always
+state your assumption on the exam.
+
+124
+00:09:47.226 --> 00:09:50.067
+This came up in last year's
+exam, with the densities
+
+125
+00:09:50.107 --> 00:09:53.393
+read from a graph of electron
+density against height.
+
+126
+00:09:53.443 --> 00:09:55.500
+Use the critical-frequency formula in
+
+127
+00:09:55.540 --> 00:09:58.611
+megahertz with the density
+per cubic centimetre.
+
+128
+00:09:58.661 --> 00:10:02.685
+By day, 9 times ten to the minus
+3 times the square root of ten to
+
+129
+00:10:02.725 --> 00:10:09.866
+the 5 is 2.85 MHz; by night, with 2
+times ten to the 4, it is 1.27 MHz.
+
+130
+00:10:09.916 --> 00:10:12.204
+Dividing by the sine of 20 degrees, the
+
+131
+00:10:12.244 --> 00:10:17.627
+MUF is 8.32 MHz by day
+and 3.72 MHz by night.
+
+132
+00:10:17.677 --> 00:10:22.296
+The ratio is the square root of the
+density ratio, the square root of 5,
+
+133
+00:10:22.336 --> 00:10:27.950
+which is 2.24, consistent with the rule
+that the day MUF is about twice the
+
+134
+00:10:27.990 --> 00:10:33.248
+night MUF; notice that the angle cancels,
+so the ratio needs no trigonometry.
+
+135
+00:10:34.898 --> 00:10:38.753
+Obstacles and discontinuities modify
+propagation in four ways, and
+
+136
+00:10:38.793 --> 00:10:43.038
+the size of the obstacle relative
+to the wavelength decides which.
+
+137
+00:10:43.088 --> 00:10:46.246
+Reflection happens when a
+wave meets a flat object much
+
+138
+00:10:46.286 --> 00:10:50.067
+larger than the wavelength,
+such as the ground or a hangar.
+
+139
+00:10:50.117 --> 00:10:53.356
+Refraction happens when a wave
+passes from one medium into
+
+140
+00:10:53.396 --> 00:10:57.816
+another and changes direction, as in
+the troposphere and the ionosphere.
+
+141
+00:10:57.866 --> 00:11:00.632
+Diffraction happens when
+a wave meets an edge and
+
+142
+00:11:00.672 --> 00:11:03.209
+bends around it, following
+the profile of the
+
+143
+00:11:03.249 --> 00:11:06.692
+discontinuity, which gives
+some coverage behind hills.
+
+144
+00:11:06.742 --> 00:11:10.738
+Scattering happens when the obstacles
+are smaller than the wavelength, like
+
+145
+00:11:10.778 --> 00:11:15.648
+raindrops for radar waves, which fragment
+and re-radiate the wave in all directions.
+
+146
+00:11:17.298 --> 00:11:21.698
+The slides finish propagation with a
+graph of atmospheric absorption against
+
+147
+00:11:21.738 --> 00:11:26.762
+frequency, and a question: which bands
+would you choose for secure applications?
+
+148
+00:11:26.812 --> 00:11:30.306
+The absorption has peaks where
+water vapour and oxygen molecules
+
+149
+00:11:30.346 --> 00:11:38.041
+resonate: water at 22 and 183 GHz,
+and oxygen at 60 and 119 GHz.
+
+150
+00:11:38.091 --> 00:11:42.211
+Between the peaks there are
+windows, such as 35 and 94
+
+151
+00:11:42.251 --> 00:11:45.952
+GHz, where millimetre-wave
+links and radars can reach far.
+
+152
+00:11:46.002 --> 00:11:49.527
+For a secure link you want the
+opposite: work at an absorption
+
+153
+00:11:49.567 --> 00:11:53.839
+peak, especially the 60 GHz oxygen
+line, where the signal dies out
+
+154
+00:11:53.879 --> 00:11:58.311
+within a few kilometres, so an
+eavesdropper far away cannot receive it.
+
+155
+00:11:59.961 --> 00:12:03.271
+Now the systems that send
+and receive the waves.
+
+156
+00:12:03.321 --> 00:12:07.081
+A transmitter is the system that
+generates the signal, a receiver
+
+157
+00:12:07.121 --> 00:12:10.646
+recovers the wanted signal from
+a wide spectrum full of other
+
+158
+00:12:10.686 --> 00:12:15.420
+transmitters, interference and noise,
+and a transceiver is both in one box.
+
+159
+00:12:15.470 --> 00:12:18.440
+The information starts as
+a baseband signal, whose
+
+160
+00:12:18.480 --> 00:12:21.390
+spectrum is concentrated
+near zero frequency; the
+
+161
+00:12:21.430 --> 00:12:24.761
+modulator converts it into a
+band-pass signal around the
+
+162
+00:12:24.801 --> 00:12:29.485
+carrier, which is then upconverted
+and amplified by the power amplifier.
+
+163
+00:12:29.535 --> 00:12:32.936
+At the other end, a low-noise
+amplifier, more amplifiers,
+
+164
+00:12:32.976 --> 00:12:36.135
+downconversion and a demodulator
+recover the baseband
+
+165
+00:12:36.175 --> 00:12:39.455
+signal with as little noise
+and distortion as possible;
+
+166
+00:12:39.495 --> 00:12:43.527
+we will see in part two why the
+first amplifier matters most.
+
+167
+00:12:45.177 --> 00:12:49.382
+Any modulated carrier can be
+written as an amplitude A of t
+
+168
+00:12:49.422 --> 00:12:53.124
+times the cosine of omega
+C t plus a phase phi of t:
+
+169
+00:12:53.164 --> 00:12:58.623
+amplitude modulation varies A, frequency
+and phase modulation vary phi.
+
+170
+00:12:58.673 --> 00:13:03.369
+In AM the envelope is the carrier
+amplitude times one plus m times the
+
+171
+00:13:03.409 --> 00:13:08.105
+message, where the modulation index
+m is the message amplitude over the
+
+172
+00:13:08.145 --> 00:13:13.698
+carrier amplitude, between zero and one;
+watch the envelope deepen as m grows.
+
+173
+00:13:13.748 --> 00:13:17.319
+In the spectrum, the carrier
+is accompanied by a lower and
+
+174
+00:13:17.359 --> 00:13:20.494
+an upper sideband, mirror
+images of the message, so
+
+175
+00:13:20.534 --> 00:13:24.930
+double-sideband AM occupies twice
+the highest message frequency.
+
+176
+00:13:24.980 --> 00:13:30.011
+In the slide example, an audio
+signal from 20 Hz to 30 kHz on a 100
+
+177
+00:13:30.051 --> 00:13:35.743
+kHz carrier needs 60 kHz, and each
+sideband is 29.98 kHz wide: the
+
+178
+00:13:35.783 --> 00:13:44.730
+lower one runs from 70 to 99.98 kHz and
+the upper one from 100.02 to 130 kHz.
+
+179
+00:13:46.380 --> 00:13:48.813
+In frequency modulation
+the amplitude stays
+
+180
+00:13:48.853 --> 00:13:51.401
+constant and the phase
+is the integral of the
+
+181
+00:13:51.441 --> 00:13:55.241
+message, so the instantaneous
+frequency follows the message.
+
+182
+00:13:55.291 --> 00:13:59.372
+The peak frequency excursion is
+the deviation, delta f, and the
+
+183
+00:13:59.412 --> 00:14:04.604
+modulation index m f is the deviation
+divided by the modulating frequency.
+
+184
+00:14:04.654 --> 00:14:08.830
+The bandwidth that contains
+about 98 % of the power is
+
+185
+00:14:08.870 --> 00:14:12.083
+given by Carson's rule: twice
+the sum of the deviation
+
+186
+00:14:12.123 --> 00:14:16.207
+and the modulating frequency, or
+twice f m times m f plus one.
+
+187
+00:14:16.257 --> 00:14:19.889
+The spectrum is a set of lines
+spaced f m apart around the
+
+188
+00:14:19.929 --> 00:14:23.497
+carrier, with amplitudes given
+by Bessel functions of the
+
+189
+00:14:23.537 --> 00:14:27.938
+index, and Carson's band, shaded,
+contains the significant ones.
+
+190
+00:14:29.588 --> 00:14:31.575
+Two quick FM problems.
+
+191
+00:14:31.625 --> 00:14:34.545
+In part a the deviation
+is the index times the
+
+192
+00:14:34.585 --> 00:14:38.988
+modulating frequency, 5
+times 10, which is 50 kHz.
+
+193
+00:14:39.038 --> 00:14:46.153
+Carson's rule gives twice 50 plus 10,
+that is 120 kHz, centred on 250 MHz,
+
+194
+00:14:46.193 --> 00:14:51.613
+with spectral lines every 10 kHz whose
+heights follow the Bessel functions of 5.
+
+195
+00:14:51.663 --> 00:14:54.840
+In last year's exam the
+index was one, so the
+
+196
+00:14:54.880 --> 00:14:59.304
+deviation equals the
+modulating frequency, 10 kHz.
+
+197
+00:14:59.354 --> 00:15:02.219
+And the bandwidth is 2 times 10 times one
+
+198
+00:15:02.259 --> 00:15:06.241
+plus one, 40 kHz, as both
+solved copies found.
+
+199
+00:15:07.891 --> 00:15:09.570
+With a digital message the three
+
+200
+00:15:09.610 --> 00:15:12.699
+parameters of the carrier
+give three basic keyings.
+
+201
+00:15:12.749 --> 00:15:17.638
+In amplitude shift keying a one sends
+the carrier and a zero sends nothing.
+
+202
+00:15:17.688 --> 00:15:22.740
+In frequency shift keying a one and a zero
+are sent at two different frequencies.
+
+203
+00:15:22.790 --> 00:15:28.644
+In phase shift keying the phase jumps
+by 180 degrees between the two symbols.
+
+204
+00:15:28.694 --> 00:15:32.673
+The modulators on the slides are
+simple switches or multipliers,
+
+205
+00:15:32.713 --> 00:15:36.819
+and the demodulators are an envelope
+detector for ASK, a pair of
+
+206
+00:15:36.859 --> 00:15:41.919
+filters for FSK and a coherent
+multiplication with the carrier for PSK.
+
+207
+00:15:43.569 --> 00:15:47.012
+A band is the whole range of
+spectrum a standard may use, a
+
+208
+00:15:47.052 --> 00:15:50.496
+channel is the bandwidth of a
+single user, and multiplexing
+
+209
+00:15:50.536 --> 00:15:54.310
+lets several signals share one
+medium without interfering.
+
+210
+00:15:54.360 --> 00:15:58.498
+In frequency-division multiplexing
+each user is given its own frequency
+
+211
+00:15:58.538 --> 00:16:03.301
+slot, with guard bands between them so
+that real filters can separate them.
+
+212
+00:16:03.351 --> 00:16:06.196
+In time-division multiplexing
+users take turns,
+
+213
+00:16:06.236 --> 00:16:09.715
+each one using the whole
+band during its time slot.
+
+214
+00:16:09.765 --> 00:16:13.428
+In the slide problem each
+signal carries 6 MHz of video
+
+215
+00:16:13.468 --> 00:16:17.249
+and needs a 4 MHz guard band,
+so each channel occupies a
+
+216
+00:16:17.289 --> 00:16:21.400
+10 MHz slot, but only if each
+channel is single-sideband.
+
+217
+00:16:21.450 --> 00:16:28.987
+With the upper sideband, a carrier at 700
+MHz puts the video from 700 to 706 MHz,
+
+218
+00:16:29.027 --> 00:16:36.854
+the guard band takes it to 710, the next
+carrier is at 710, and so on up to 790
+
+219
+00:16:36.894 --> 00:16:43.795
+MHz; the slide's figure marks its carriers
+at the slot centres, 705, 715 and so
+
+220
+00:16:43.835 --> 00:16:48.827
+on, which is only schematic, although for
+a hand sketch 6 MHz blocks centred on
+
+221
+00:16:48.867 --> 00:16:57.083
+those carriers, 702 to 708 MHz with 4 MHz
+guards, match the professor's own figure.
+
+222
+00:16:57.133 --> 00:17:00.535
+With double sideband each
+channel would occupy 12 MHz
+
+223
+00:17:00.575 --> 00:17:04.530
+and need a spacing of 16 MHz,
+so state your assumption.
+
+224
+00:17:04.580 --> 00:17:08.851
+Either way the ten channels
+fill 700 to 800 MHz, and the
+
+225
+00:17:08.891 --> 00:17:14.183
+10 GHz upconverter moves the
+multiplex to 10.7 to 10.8 GHz.
+
+226
+00:17:15.833 --> 00:17:18.328
+In a direct-conversion
+transmitter the carrier
+
+227
+00:17:18.368 --> 00:17:20.972
+frequency equals the
+local-oscillator frequency,
+
+228
+00:17:21.012 --> 00:17:24.612
+and modulation and upconversion
+happen in the same circuit.
+
+229
+00:17:24.662 --> 00:17:29.014
+It is usually built with in-phase and
+quadrature branches: the bit stream
+
+230
+00:17:29.054 --> 00:17:33.225
+is divided into pairs of bits, one
+modulating a cosine and the other a
+
+231
+00:17:33.265 --> 00:17:38.248
+sine of the same carrier, which increases
+robustness and spectral efficiency.
+
+232
+00:17:38.298 --> 00:17:41.706
+A two-step transmitter instead
+modulates at an intermediate
+
+233
+00:17:41.746 --> 00:17:45.602
+frequency and then upconverts,
+which makes filtering easier.
+
+234
+00:17:45.652 --> 00:17:49.375
+This quadrature idea is
+quadrature amplitude modulation,
+
+235
+00:17:49.415 --> 00:17:53.407
+QAM: two carriers 90 degrees
+apart, and with the right
+
+236
+00:17:53.447 --> 00:17:58.367
+baseband signals it can generate
+AM, FM or digital constellations.
+
+237
+00:18:00.017 --> 00:18:03.399
+The workhorse receiver is
+the superheterodyne: a mixer
+
+238
+00:18:03.439 --> 00:18:06.949
+multiplies the incoming signal
+by a local oscillator and
+
+239
+00:18:06.989 --> 00:18:11.268
+produces the difference frequency,
+the intermediate frequency.
+
+240
+00:18:11.318 --> 00:18:15.434
+Tuning is done by moving the local
+oscillator, while all the selective,
+
+241
+00:18:15.474 --> 00:18:19.239
+high-gain filtering is done at a
+fixed IF, which gives excellent
+
+242
+00:18:19.279 --> 00:18:24.254
+sensitivity and selectivity; the price
+is more circuitry and power consumption.
+
+243
+00:18:24.304 --> 00:18:28.232
+Its weakness is the image: a
+signal on the other side of the
+
+244
+00:18:28.272 --> 00:18:32.723
+local oscillator, at the same
+distance, also produces the IF.
+
+245
+00:18:32.773 --> 00:18:37.146
+So the RF filter before the mixer must
+reject the image frequency, which
+
+246
+00:18:37.186 --> 00:18:41.888
+is why the slides list the problem of
+the image among the design issues.
+
+247
+00:18:43.538 --> 00:18:46.825
+In last year's exam the
+receiver question was short.
+
+248
+00:18:46.875 --> 00:18:49.453
+The architecture is the
+superheterodyne, which
+
+249
+00:18:49.493 --> 00:18:54.737
+converts every channel to the
+same fixed IF of 455 kHz.
+
+250
+00:18:54.787 --> 00:18:58.207
+With the local oscillator above
+the signal, its frequency is
+
+251
+00:18:58.247 --> 00:19:05.749
+5.5 plus 0.455, which is 5.955 MHz,
+the answer in the solved copy.
+
+252
+00:19:05.799 --> 00:19:10.643
+The image is then on the other
+side of the oscillator, at 5.955
+
+253
+00:19:10.683 --> 00:19:17.213
+plus 0.455, which is 6.41 MHz,
+and the RF filter must remove it.
+
+254
+00:19:17.263 --> 00:19:23.115
+One of the solved copies also gives
+the low-side choice, 5.045 MHz, whose
+
+255
+00:19:23.155 --> 00:19:29.397
+image would be at 4.59 MHz; either is
+correct if you say which one you chose.
+
+256
+00:19:31.047 --> 00:19:36.082
+To summarise part one: the wavelength is
+c over f times the square root of the
+
+257
+00:19:36.122 --> 00:19:41.741
+permittivity, and aviation uses bands from
+kilohertz beacons to gigahertz radars.
+
+258
+00:19:41.791 --> 00:19:45.327
+Low frequencies travel as
+ground waves, VHF and above
+
+259
+00:19:45.367 --> 00:19:48.772
+as space waves limited by
+the radio horizon, with the
+
+260
+00:19:48.812 --> 00:19:53.972
+1.23 rule in feet and nautical
+miles, and HF as sky waves.
+
+261
+00:19:54.022 --> 00:19:58.444
+For sky waves, the critical frequency
+is 9 times the root of the electron
+
+262
+00:19:58.484 --> 00:20:04.647
+density, the MUF is fc over the sine of
+the elevation, and you work at 85 % of it.
+
+263
+00:20:04.697 --> 00:20:07.734
+AM needs twice the highest
+message frequency, FM
+
+264
+00:20:07.774 --> 00:20:11.119
+follows Carson's rule, and
+the superheterodyne converts
+
+265
+00:20:11.159 --> 00:20:15.264
+everything to a fixed IF, at
+the cost of an image frequency.
+
+266
+00:20:15.314 --> 00:20:19.148
+In part two we turn to the
+numbers that dominate the exam:
+
+267
+00:20:19.188 --> 00:20:24.348
+decibels, noise figure, intercept
+points, sensitivity and dynamic range.

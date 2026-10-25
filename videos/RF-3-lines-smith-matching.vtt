@@ -1,0 +1,1733 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:05.861
+Welcome to part three, the second
+unit of exam 1: transmission lines.
+
+2
+00:00:05.911 --> 00:00:09.495
+Last year, four of the ten
+problems came from here:
+
+3
+00:00:09.535 --> 00:00:13.119
+the input impedance of a
+line, a VSWR, a coaxial
+
+4
+00:00:13.159 --> 00:00:17.488
+cable from a datasheet, and
+return loss with cable loss.
+
+5
+00:00:17.538 --> 00:00:20.998
+We build the theory from the
+line model, then solve every
+
+6
+00:00:21.038 --> 00:00:24.498
+example and problem on the
+slides, learn to use the Smith
+
+7
+00:00:24.538 --> 00:00:28.511
+chart, and finish with S-parameters
+and impedance matching.
+
+8
+00:00:30.161 --> 00:00:33.700
+A transmission line is a physical
+medium that carries electrical
+
+9
+00:00:33.740 --> 00:00:37.837
+energy, in which the voltage and
+the current vary along its length.
+
+10
+00:00:37.887 --> 00:00:41.560
+What matters is the length compared
+with the guided wavelength, the
+
+11
+00:00:41.600 --> 00:00:46.050
+speed of light over f times the square
+root of the effective permittivity.
+
+12
+00:00:46.100 --> 00:00:49.562
+If the line is much shorter than
+a wavelength, all points see the
+
+13
+00:00:49.602 --> 00:00:53.009
+same voltage at the same time and
+ordinary circuit theory works;
+
+14
+00:00:53.049 --> 00:00:56.564
+once it is a sizeable fraction of
+a wavelength, as a rule of thumb
+
+15
+00:00:56.604 --> 00:01:01.102
+more than a tenth, we must treat it as
+a line with waves travelling along it.
+
+16
+00:01:01.152 --> 00:01:04.620
+For example, one metre of
+polyethylene coaxial cable is half a
+
+17
+00:01:04.660 --> 00:01:09.373
+wavelength long at 99 MHz, so it is
+a transmission line there, but at
+
+18
+00:01:09.413 --> 00:01:14.912
+50 kHz it is about a four-thousandth of a
+wavelength and behaves as a simple wire.
+
+19
+00:01:16.562 --> 00:01:19.954
+A short piece of line is
+modelled by four parameters per
+
+20
+00:01:19.994 --> 00:01:23.570
+unit length: a series resistance
+R for the conductor losses
+
+21
+00:01:23.610 --> 00:01:27.883
+and a series inductance L, both
+in the direction of the current.
+
+22
+00:01:27.933 --> 00:01:30.626
+And a shunt conductance
+G for the losses in the
+
+23
+00:01:30.666 --> 00:01:34.796
+dielectric, and a shunt capacitance
+C between the two conductors.
+
+24
+00:01:34.846 --> 00:01:38.667
+Solving the circuit equations
+for a chain of these pieces, the
+
+25
+00:01:38.707 --> 00:01:42.839
+voltage along the line is the sum
+of a forward wave, V plus times e
+
+26
+00:01:42.879 --> 00:01:46.949
+to the minus gamma x, and a reflected
+wave, V minus times e to the
+
+27
+00:01:46.989 --> 00:01:52.321
+plus gamma x; the current has the same
+two waves with a minus sign between them.
+
+28
+00:01:52.371 --> 00:01:56.822
+Gamma, the propagation constant,
+is the square root of R plus j
+
+29
+00:01:56.862 --> 00:02:00.886
+omega L times G plus j omega
+C, with real part alpha, the
+
+30
+00:02:00.926 --> 00:02:05.519
+attenuation, and imaginary part
+beta, the phase constant; and the
+
+31
+00:02:05.559 --> 00:02:10.082
+characteristic impedance Z zero,
+the ratio of voltage to current
+
+32
+00:02:10.122 --> 00:02:16.104
+in a single wave, is the square root of
+R plus j omega L over G plus j omega C.
+
+33
+00:02:17.754 --> 00:02:20.726
+In most problems the
+line is lossless, R and
+
+34
+00:02:20.766 --> 00:02:24.059
+G are zero, and everything
+becomes simpler.
+
+35
+00:02:24.109 --> 00:02:26.943
+The characteristic impedance
+is the square root
+
+36
+00:02:26.983 --> 00:02:31.124
+of L over C, a real number
+such as 50 or 75 ohms.
+
+37
+00:02:31.174 --> 00:02:34.077
+The propagation constant
+is purely imaginary, j
+
+38
+00:02:34.117 --> 00:02:37.333
+beta, with beta equal to
+omega times the square root
+
+39
+00:02:37.373 --> 00:02:41.230
+of L C, which is also two pi
+over the guided wavelength.
+
+40
+00:02:41.280 --> 00:02:44.509
+The phase velocity is f
+times lambda g, omega
+
+41
+00:02:44.549 --> 00:02:48.677
+over beta, which is one over
+the square root of L C.
+
+42
+00:02:48.727 --> 00:02:52.955
+The waves travel without
+attenuation, only changing phase.
+
+43
+00:02:53.005 --> 00:02:56.986
+Combining the two formulas gives
+a result we will use for coaxial
+
+44
+00:02:57.026 --> 00:03:02.201
+cables: Z zero is one over the phase
+velocity times the capacitance per metre.
+
+45
+00:03:03.851 --> 00:03:06.083
+When the line ends in a load different
+
+46
+00:03:06.123 --> 00:03:09.043
+from Z zero, part of
+the wave is reflected.
+
+47
+00:03:09.093 --> 00:03:13.308
+The reflection coefficient is the
+ratio of the reflected to the
+
+48
+00:03:13.348 --> 00:03:18.696
+forward wave, and at the load it is Z
+L minus Z zero over Z L plus Z zero.
+
+49
+00:03:18.746 --> 00:03:21.536
+If the load equals Z
+zero, the coefficient is
+
+50
+00:03:21.576 --> 00:03:25.133
+zero and nothing is reflected:
+the load is matched.
+
+51
+00:03:25.183 --> 00:03:30.720
+Looking into a line of length l terminated
+in Z L, the input impedance is Z
+
+52
+00:03:30.760 --> 00:03:36.298
+zero times Z L plus j Z zero tan beta
+l, over Z zero plus j Z L tan beta l;
+
+53
+00:03:36.338 --> 00:03:42.414
+since the tangent repeats every half
+wavelength, so does the input impedance.
+
+54
+00:03:42.464 --> 00:03:45.374
+Moving back from the load
+towards the generator, the
+
+55
+00:03:45.414 --> 00:03:48.438
+reflection coefficient keeps
+its modulus and its phase
+
+56
+00:03:48.478 --> 00:03:52.857
+decreases by twice beta l, a fact
+that is the basis of the Smith chart.
+
+57
+00:03:52.907 --> 00:03:56.708
+For power, the reflected power
+is the modulus of gamma squared
+
+58
+00:03:56.748 --> 00:04:00.488
+times the incident power, and
+the load receives the rest, one
+
+59
+00:04:00.528 --> 00:04:05.029
+minus gamma squared; maximum power
+is delivered when gamma is zero.
+
+60
+00:04:06.679 --> 00:04:10.553
+The forward and reflected waves
+interfere and create a standing-wave
+
+61
+00:04:10.593 --> 00:04:15.203
+pattern along the line; watch the three
+cases, with the load on the right.
+
+62
+00:04:15.253 --> 00:04:18.311
+With a matched load there
+is only the forward wave,
+
+63
+00:04:18.351 --> 00:04:21.860
+and the envelope of the
+voltage, in orange, is flat.
+
+64
+00:04:21.910 --> 00:04:26.064
+With a partial reflection, here gamma
+equal to one half, the envelope
+
+65
+00:04:26.104 --> 00:04:31.072
+swings between a maximum of one plus
+gamma and a minimum of one minus gamma.
+
+66
+00:04:31.122 --> 00:04:34.667
+The voltage standing-wave
+ratio, SWR, is the maximum
+
+67
+00:04:34.707 --> 00:04:38.385
+over the minimum, one plus
+the modulus of gamma over one
+
+68
+00:04:38.425 --> 00:04:44.417
+minus the modulus of gamma;
+here 1.5 over 0.5, which is 3.
+
+69
+00:04:44.467 --> 00:04:49.219
+Inverting it, the modulus of
+gamma is SWR minus one over SWR
+
+70
+00:04:49.259 --> 00:04:54.175
+plus one, the formula you need
+in almost every exam question.
+
+71
+00:04:54.225 --> 00:04:58.056
+With a short or an open circuit
+everything is reflected, the
+
+72
+00:04:58.096 --> 00:05:02.185
+minima are true zeros and the
+SWR is infinite, while a matched
+
+73
+00:05:02.225 --> 00:05:07.543
+line has an SWR of one; the maxima and
+minima repeat every half wavelength.
+
+74
+00:05:09.193 --> 00:05:12.179
+The slides ask you to discuss
+the special cases of the
+
+75
+00:05:12.219 --> 00:05:15.650
+input impedance formula, and
+they are worth memorising.
+
+76
+00:05:15.700 --> 00:05:19.565
+At low frequency beta l is almost
+zero, the tangent vanishes
+
+77
+00:05:19.605 --> 00:05:24.119
+and the input impedance is just
+the load: the line is invisible.
+
+78
+00:05:24.169 --> 00:05:28.397
+A matched line shows Z zero at
+its input whatever its length.
+
+79
+00:05:28.447 --> 00:05:32.402
+A short-circuited line gives
+j Z zero tan beta l, and an
+
+80
+00:05:32.442 --> 00:05:36.397
+open line minus j Z zero
+cotangent beta l: both are pure
+
+81
+00:05:36.437 --> 00:05:41.138
+reactances, which is how stubs
+make inductors and capacitors.
+
+82
+00:05:41.188 --> 00:05:45.021
+A half-wavelength line
+repeats the load exactly.
+
+83
+00:05:45.071 --> 00:05:48.447
+And a quarter-wavelength line
+inverts it, Z zero squared
+
+84
+00:05:48.487 --> 00:05:51.862
+over Z L, so a short becomes
+an open and an open becomes
+
+85
+00:05:51.902 --> 00:05:55.789
+a short; we will use this in
+the quarter-wave transformer.
+
+86
+00:05:57.439 --> 00:06:01.365
+This question looks hard but is a
+one-liner once you see the trick.
+
+87
+00:06:01.415 --> 00:06:04.628
+Beta l is two pi over
+lambda times an eighth of a
+
+88
+00:06:04.668 --> 00:06:08.745
+wavelength plus n halves, which
+is pi over 4 plus n pi; the
+
+89
+00:06:08.785 --> 00:06:13.584
+n pi does not change the tangent,
+so tan beta l is one for every n.
+
+90
+00:06:13.634 --> 00:06:19.543
+Substituting, the numerator is j Z zero
+plus j Z zero, twice j Z zero, and the
+
+91
+00:06:19.583 --> 00:06:26.035
+denominator is Z zero plus j times j Z
+zero, which is Z zero minus Z zero, zero.
+
+92
+00:06:26.085 --> 00:06:28.419
+So the input impedance is infinite: the
+
+93
+00:06:28.459 --> 00:06:31.671
+line looks like an open
+circuit, whatever n is.
+
+94
+00:06:31.721 --> 00:06:35.912
+You can confirm it with the reflection
+coefficient: for Z L equal to
+
+95
+00:06:35.952 --> 00:06:40.143
+j Z zero, gamma at the load is j
+minus one over j plus one, which is
+
+96
+00:06:40.183 --> 00:06:43.938
+j, and moving an eighth of a
+wavelength towards the generator
+
+97
+00:06:43.978 --> 00:06:49.056
+rotates it by 90 degrees clockwise,
+to plus one, the open-circuit point.
+
+98
+00:06:50.706 --> 00:06:53.378
+This is the worked example on the slides.
+
+99
+00:06:53.428 --> 00:06:59.596
+Z L minus Z zero is minus 35 plus
+j 20, and Z L plus Z zero is 115
+
+100
+00:06:59.636 --> 00:07:08.639
+plus j 20, so the modulus of gamma
+is 40.3 over 116.7, which is 0.345.
+
+101
+00:07:08.689 --> 00:07:14.958
+The SWR is 1.345 over
+0.655, 2.06; the slide
+
+102
+00:07:14.998 --> 00:07:20.638
+rounds gamma to 0.35 and
+gets 2.07, both are fine.
+
+103
+00:07:20.688 --> 00:07:24.980
+The electrical length
+is 2 pi times 0.3, 0.6
+
+104
+00:07:25.020 --> 00:07:30.755
+pi, 108 degrees, whose
+tangent is minus 3.078.
+
+105
+00:07:30.805 --> 00:07:34.965
+Substituting in the input impedance
+formula, the numerator is 40 minus j
+
+106
+00:07:35.005 --> 00:07:46.165
+210.83, the denominator 136.55 minus j
+123.11, and the result is 69.71 minus
+
+107
+00:07:46.205 --> 00:07:52.100
+j 52.95 ohms: a complex division that you
+must be able to do on the calculator.
+
+108
+00:07:53.750 --> 00:07:56.689
+Now the problem left
+for you on the slides.
+
+109
+00:07:56.739 --> 00:08:02.579
+Gamma at the load is minus 60 minus
+j 80 over 140 minus j 80, which
+
+110
+00:08:02.619 --> 00:08:11.299
+is minus 0.08 minus j 0.62, a modulus
+of 0.620 at minus 97.1 degrees.
+
+111
+00:08:11.349 --> 00:08:15.251
+The line is 0.7 wavelengths
+long, which is the same
+
+112
+00:08:15.291 --> 00:08:18.700
+as 0.2, because everything
+repeats every half
+
+113
+00:08:18.740 --> 00:08:24.633
+wavelength; twice beta l is
+4 pi times 0.7, 504 degrees.
+
+114
+00:08:24.683 --> 00:08:27.444
+Gamma at the input has
+the same modulus, and its
+
+115
+00:08:27.484 --> 00:08:33.630
+angle decreases by 504
+degrees: minus 97.1 minus 504
+
+116
+00:08:33.670 --> 00:08:40.439
+is minus 601.1, which is the
+same as plus 118.9 degrees.
+
+117
+00:08:40.489 --> 00:08:44.072
+Converting back, the input
+impedance is 100 times one
+
+118
+00:08:44.112 --> 00:08:49.060
+plus gamma over one minus
+gamma, 31.0 plus j 54.8
+
+119
+00:08:49.100 --> 00:08:52.716
+ohms: the capacitive load
+looks inductive at the input.
+
+120
+00:08:52.766 --> 00:09:01.220
+And the SWR is 1.62 over 0.38, 4.27, the
+same everywhere on the lossless line.
+
+121
+00:09:02.870 --> 00:09:06.861
+Datasheets of microwave components
+specify three things: the
+
+122
+00:09:06.901 --> 00:09:10.825
+SWR over the operating band,
+the insertion loss, which is
+
+123
+00:09:10.865 --> 00:09:14.318
+the loss in transmission,
+and the return loss, which
+
+124
+00:09:14.358 --> 00:09:19.277
+measures the input mismatch; both
+losses are positive numbers in dB.
+
+125
+00:09:19.327 --> 00:09:25.939
+For an SWR of 1.5, the modulus of
+gamma is 0.5 over 2.5, which is
+
+126
+00:09:25.979 --> 00:09:32.982
+0.2, so the reflected power is 0.2
+squared, 4 % of the incident power.
+
+127
+00:09:33.032 --> 00:09:37.973
+An insertion loss of 0.5 dB means
+the output power is ten to the
+
+128
+00:09:38.013 --> 00:09:45.653
+minus 0.05 times the input, 0.891,
+so 89 % of the power gets through.
+
+129
+00:09:45.703 --> 00:09:51.406
+The return loss is minus
+20 log of 0.2, 13.98 dB.
+
+130
+00:09:51.456 --> 00:09:56.789
+So of the input power, 89 % comes
+out, 4 % is reflected at the input,
+
+131
+00:09:56.829 --> 00:10:01.918
+and the remaining 7 % is lost in the
+circuit and in the output mismatch.
+
+132
+00:10:03.568 --> 00:10:07.185
+The slides ask you to fill this
+table and judge the matching of
+
+133
+00:10:07.225 --> 00:10:11.580
+a coaxial antenna system with a
+limit of 10 % reflected power.
+
+134
+00:10:11.630 --> 00:10:17.441
+For each SWR, the modulus of gamma is
+SWR minus one over SWR plus one, the
+
+135
+00:10:17.481 --> 00:10:23.463
+return loss is minus 20 log of it, and
+the reflected power is its square.
+
+136
+00:10:23.513 --> 00:10:28.425
+An SWR of 1.2 reflects less
+than one percent, 1.5 reflects
+
+137
+00:10:28.465 --> 00:10:33.952
+4 %, 2 reflects 11 % and 3
+reflects a quarter of the power.
+
+138
+00:10:34.002 --> 00:10:39.454
+The 10 % limit corresponds to a
+gamma of the square root of 0.1,
+
+139
+00:10:39.494 --> 00:10:46.555
+0.316, an SWR of 1.92 and a return
+loss of 10 dB, so an SWR of
+
+140
+00:10:46.595 --> 00:10:52.370
+1.5 is a good match and an SWR of
+2 is just outside the criterion.
+
+141
+00:10:54.020 --> 00:10:57.958
+Three of last year's problems
+were quick specification checks.
+
+142
+00:10:58.008 --> 00:11:02.135
+In problem 5, a VSWR of
+1.5 gives a gamma of
+
+143
+00:11:02.175 --> 00:11:07.170
+0.2, and the reflected
+power is its square, 4 %.
+
+144
+00:11:07.220 --> 00:11:12.670
+In problem 8, a return loss of 21 dB
+means the modulus of gamma is ten to
+
+145
+00:11:12.710 --> 00:11:20.178
+the minus 21 over 20, 0.089, which
+meets the requirement of less than 0.1.
+
+146
+00:11:20.228 --> 00:11:25.789
+And 300 feet of cable at 6.3 dB
+per hundred feet loses 3 times
+
+147
+00:11:25.829 --> 00:11:32.792
+6.3, 18.9 dB, below the 20 dB limit,
+so both specifications are met.
+
+148
+00:11:32.842 --> 00:11:36.845
+The other solved copy also has
+a matched-load question: the
+
+149
+00:11:36.885 --> 00:11:40.889
+load equals the characteristic
+impedance, so gamma is zero,
+
+150
+00:11:40.929 --> 00:11:45.870
+the SWR is one and no power is
+reflected, whatever the frequency.
+
+151
+00:11:47.520 --> 00:11:49.839
+The coaxial cable is
+the line you will meet
+
+152
+00:11:49.879 --> 00:11:52.862
+most in aircraft, from
+the radio to the antenna.
+
+153
+00:11:52.912 --> 00:11:56.660
+Its characteristic impedance
+depends only on the ratio of the
+
+154
+00:11:56.700 --> 00:12:01.875
+outer to the inner diameter and
+on the dielectric: 138 over
+
+155
+00:12:01.915 --> 00:12:06.115
+the square root of epsilon r,
+times the logarithm of D over d.
+
+156
+00:12:06.165 --> 00:12:10.921
+The velocity factor is the phase velocity
+over the speed of light, one over
+
+157
+00:12:10.961 --> 00:12:18.090
+the square root of epsilon r: 66 % for
+solid polyethylene and 69 % for PTFE.
+
+158
+00:12:18.140 --> 00:12:22.476
+The capacitance per metre
+is 24.12 epsilon r over the
+
+159
+00:12:22.516 --> 00:12:25.952
+logarithm of D over d picofarads
+per metre, which can also
+
+160
+00:12:25.992 --> 00:12:32.457
+be written 3326 times the square
+root of epsilon r over Z zero.
+
+161
+00:12:32.507 --> 00:12:36.097
+Combining them, the characteristic
+impedance is one over the
+
+162
+00:12:36.137 --> 00:12:39.545
+phase velocity times the
+capacitance, so a datasheet that
+
+163
+00:12:39.585 --> 00:12:43.747
+gives the velocity factor and the
+capacitance gives you Z zero.
+
+164
+00:12:43.797 --> 00:12:49.231
+For the LMR-400 cable in
+the brochure, 84 % and 78.4
+
+165
+00:12:49.271 --> 00:12:53.644
+picofarads per metre give 50.6
+ohms: it is a 50 ohm cable.
+
+166
+00:12:53.694 --> 00:12:57.678
+The same glossary also gives
+the attenuation in dB per 100
+
+167
+00:12:57.718 --> 00:13:01.642
+m as a conductor term,
+1.43 R over Z zero, plus a
+
+168
+00:13:01.682 --> 00:13:06.154
+dielectric term, 9.15 root
+epsilon r times the frequency in
+
+169
+00:13:06.194 --> 00:13:09.386
+megahertz times the loss
+factor F, so loss grows with
+
+170
+00:13:09.426 --> 00:13:14.837
+frequency, which is why datasheets quote
+dB per 100 feet at each frequency.
+
+171
+00:13:16.487 --> 00:13:18.544
+Two coaxial problems.
+
+172
+00:13:18.594 --> 00:13:21.481
+For part a, invert the
+impedance formula: D is d
+
+173
+00:13:21.521 --> 00:13:26.688
+times ten to the power Z zero
+root epsilon r over 138.
+
+174
+00:13:26.738 --> 00:13:37.386
+In air, 50 ohms needs ten to the 0.362, so
+D is 2.99 mm, and 75 ohms needs 4.54 mm.
+
+175
+00:13:37.436 --> 00:13:40.311
+With polyethylene the
+exponent grows by the root of
+
+176
+00:13:40.351 --> 00:13:46.084
+2.3, and the diameters
+become 4.61 and 8.67 mm: a
+
+177
+00:13:46.124 --> 00:13:49.732
+dielectric makes the cable
+fatter for the same impedance.
+
+178
+00:13:49.782 --> 00:13:54.409
+For last year's exam problem, the
+velocity factor of 85 % means
+
+179
+00:13:54.449 --> 00:14:00.153
+the square root of epsilon r is
+one over 0.85, 1.176, and the
+
+180
+00:14:00.193 --> 00:14:09.997
+capacitance formula gives 3326
+times 1.176 over 78.4, 49.9 ohms.
+
+181
+00:14:10.047 --> 00:14:13.303
+The shortcut, one over the
+phase velocity times the
+
+182
+00:14:13.343 --> 00:14:18.733
+capacitance, gives 50.0 ohms, the
+answer of the first solved copy.
+
+183
+00:14:18.783 --> 00:14:23.637
+The other copy had a variant with
+the inductance instead, 0.20
+
+184
+00:14:23.677 --> 00:14:27.896
+microhenries per metre: then Z zero
+is the square root of L over C,
+
+185
+00:14:27.936 --> 00:14:35.468
+50.5 ohms, and the velocity factor is one
+over c times the square root of L C, 0.84.
+
+186
+00:14:37.118 --> 00:14:40.870
+The slides close the line
+section with a comparison table.
+
+187
+00:14:40.920 --> 00:14:44.677
+Waveguides work from 1 to
+300 GHz and handle high
+
+188
+00:14:44.717 --> 00:14:48.410
+power with very low loss, but
+they are bulky and expensive.
+
+189
+00:14:48.460 --> 00:14:51.784
+Coaxial cables work up
+to about 50 GHz, are
+
+190
+00:14:51.824 --> 00:14:56.508
+shielded, and are made almost
+always at 50 or 75 ohms.
+
+191
+00:14:56.558 --> 00:15:00.627
+Planar lines, stripline,
+microstrip, coplanar waveguide and
+
+192
+00:15:00.667 --> 00:15:05.155
+slotline, are printed on circuit
+boards: small, cheap and easy to
+
+193
+00:15:05.195 --> 00:15:10.491
+connect to transistors, which is why
+every RF circuit board uses them.
+
+194
+00:15:10.541 --> 00:15:14.309
+In a microstrip part of the field
+travels in the air above the board,
+
+195
+00:15:14.349 --> 00:15:17.731
+so its effective permittivity
+lies between one and that of the
+
+196
+00:15:17.771 --> 00:15:22.315
+substrate, which is why the matching
+problems give you an epsilon effective.
+
+197
+00:15:23.965 --> 00:15:27.926
+The Smith chart is a graphical
+calculator for transmission lines.
+
+198
+00:15:27.976 --> 00:15:31.302
+It is a polar plot of the
+reflection coefficient, on
+
+199
+00:15:31.342 --> 00:15:34.862
+which a grid shows the
+normalised impedance, z equal to
+
+200
+00:15:34.902 --> 00:15:39.135
+Z over Z zero, which is one plus
+gamma over one minus gamma.
+
+201
+00:15:39.185 --> 00:15:41.638
+The circles are lines
+of constant normalised
+
+202
+00:15:41.678 --> 00:15:44.187
+resistance and the arcs
+are lines of constant
+
+203
+00:15:44.227 --> 00:15:48.486
+reactance: the upper half is inductive
+and the lower half capacitive.
+
+204
+00:15:48.536 --> 00:15:51.647
+The centre is the matched
+point, the left end of the axis
+
+205
+00:15:51.687 --> 00:15:55.132
+is the short circuit and the
+right end the open circuit.
+
+206
+00:15:55.182 --> 00:15:58.550
+Since moving along the line only
+changes the phase of gamma,
+
+207
+00:15:58.590 --> 00:16:01.787
+moving from the load towards
+the generator is a clockwise
+
+208
+00:16:01.827 --> 00:16:05.308
+rotation on a circle centred at
+the origin, and a full turn is
+
+209
+00:16:05.348 --> 00:16:10.184
+half a wavelength; the outer scale is
+graduated in wavelengths for this reason.
+
+210
+00:16:10.234 --> 00:16:13.086
+Where that circle crosses
+the right half of the
+
+211
+00:16:13.126 --> 00:16:16.552
+real axis, the value of
+r read there is the SWR.
+
+212
+00:16:16.602 --> 00:16:19.057
+And because a quarter
+wavelength inverts the
+
+213
+00:16:19.097 --> 00:16:21.835
+impedance, the normalised
+admittance is the point
+
+214
+00:16:21.875 --> 00:16:26.704
+diametrically opposite the
+impedance, a 180 degree rotation.
+
+215
+00:16:28.354 --> 00:16:32.071
+Now the example on the slides,
+step by step on the chart.
+
+216
+00:16:32.121 --> 00:16:37.615
+Normalise first: 100 plus j 50 over
+50 is 2 plus j 1, which we place
+
+217
+00:16:37.655 --> 00:16:42.249
+at the intersection of the r equals
+2 circle and the x equals 1 arc;
+
+218
+00:16:42.289 --> 00:16:49.782
+analytically gamma is one plus j over
+three plus j, 0.447 at 26.6 degrees.
+
+219
+00:16:49.832 --> 00:16:54.425
+Draw the circle of constant gamma through
+the load: it cuts the real axis on
+
+220
+00:16:54.465 --> 00:17:02.070
+the right at r equal to 2.62, so the SWR
+is 2.62, read as about 2.6 on the chart.
+
+221
+00:17:02.120 --> 00:17:05.104
+To find the input impedance,
+read the load on the
+
+222
+00:17:05.144 --> 00:17:09.732
+wavelengths-towards-generator
+scale, 0.213 lambda, which
+
+223
+00:17:09.772 --> 00:17:14.977
+the slide rounds to 0.214,
+add the line length, 0.2, and
+
+224
+00:17:15.017 --> 00:17:21.333
+stop at 0.413 lambda; the point
+reads 0.5 minus j 0.5, so Z
+
+225
+00:17:21.373 --> 00:17:29.684
+in is about 25 minus j 25 ohms, against
+24.8 minus j 24.6 from the formula.
+
+226
+00:17:29.734 --> 00:17:34.180
+Finally the admittance is the
+point opposite the load, 0.4
+
+227
+00:17:34.220 --> 00:17:38.666
+minus j 0.2, which de-normalised,
+divided by 50 ohms, is
+
+228
+00:17:38.706 --> 00:17:46.106
+0.008 minus j 0.004 siemens, that
+is 8 minus j 4 millisiemens.
+
+229
+00:17:47.756 --> 00:17:52.401
+This is the classic problem from Pozar's
+book that the slides leave for you.
+
+230
+00:17:52.451 --> 00:17:57.578
+The normalised load is 0.4 plus
+j 0.7, and gamma at the load
+
+231
+00:17:57.618 --> 00:18:05.990
+is minus 60 plus j 70 over 140
+plus j 70, 0.589 at 104 degrees.
+
+232
+00:18:06.040 --> 00:18:12.506
+The SWR is 1.589 over 0.411, 3.87, and the
+
+233
+00:18:12.546 --> 00:18:18.500
+return loss is minus 20
+log of 0.589, 4.6 dB.
+
+234
+00:18:18.550 --> 00:18:23.774
+Moving 0.3 wavelengths towards the
+generator rotates gamma clockwise by twice
+
+235
+00:18:23.814 --> 00:18:34.283
+360 times 0.3, 216 degrees, so gamma at
+the input is 0.589 at minus 112 degrees.
+
+236
+00:18:34.333 --> 00:18:39.868
+Converting back, Z in is 36.5
+minus j 61.1 ohms; on the
+
+237
+00:18:39.908 --> 00:18:46.281
+chart you read about 0.365
+minus j 0.611, Pozar's answer.
+
+238
+00:18:47.931 --> 00:18:51.787
+At high frequency impedance and
+admittance matrices are difficult to
+
+239
+00:18:51.827 --> 00:18:55.625
+measure directly, because they need
+ideal open or short circuits at
+
+240
+00:18:55.665 --> 00:18:59.406
+the ports, which are hard to realise,
+so we describe networks with
+
+241
+00:18:59.446 --> 00:19:03.978
+scattering parameters, which a vector
+network analyser measures directly.
+
+242
+00:19:04.028 --> 00:19:08.098
+At each port we define a normalised
+incident wave a and a reflected
+
+243
+00:19:08.138 --> 00:19:12.024
+wave b, the voltage waves divided
+by the square root of the port
+
+244
+00:19:12.064 --> 00:19:16.708
+impedance, and the scattering matrix
+relates them: b equals S times a.
+
+245
+00:19:16.758 --> 00:19:20.887
+Each parameter S i j is b i over
+a j, measured with all the other
+
+246
+00:19:20.927 --> 00:19:25.896
+ports terminated in matched loads, so
+that nothing comes back into them.
+
+247
+00:19:25.946 --> 00:19:29.353
+For a two-port, S one one and
+S two two are the reflection
+
+248
+00:19:29.393 --> 00:19:33.275
+coefficients at the input and the
+output, S two one is the forward
+
+249
+00:19:33.315 --> 00:19:38.359
+transmission, the gain of an amplifier,
+and S one two the reverse transmission.
+
+250
+00:19:38.409 --> 00:19:42.636
+That is why last year's exam gave
+the amplifier gains as S two one
+
+251
+00:19:42.676 --> 00:19:48.198
+equal to 10 dB, and why minus 20 log
+of S one one is the return loss.
+
+252
+00:19:49.848 --> 00:19:54.285
+Matching networks transform the
+load so that the line sees Z zero.
+
+253
+00:19:54.335 --> 00:19:58.514
+That delivers maximum power to the
+load, improves the signal-to-noise
+
+254
+00:19:58.554 --> 00:20:02.795
+ratio of a receiver when the antenna
+is matched to the LNA, and in a
+
+255
+00:20:02.835 --> 00:20:08.199
+transmitter minimises wasted power, saving
+battery and reducing radiation hazards.
+
+256
+00:20:08.249 --> 00:20:11.766
+The simplest network is the
+L-section, two reactive elements,
+
+257
+00:20:11.806 --> 00:20:16.122
+which is practical with lumped
+components up to about 1 GHz.
+
+258
+00:20:16.172 --> 00:20:19.460
+If the normalised load lies
+inside the r equals one
+
+259
+00:20:19.500 --> 00:20:22.657
+circle, that is if R L is
+larger than Z zero, the
+
+260
+00:20:22.697 --> 00:20:27.354
+element next to the load is in
+shunt and the second one in series.
+
+261
+00:20:27.404 --> 00:20:31.031
+If it lies outside, R L smaller
+than Z zero, the element
+
+262
+00:20:31.071 --> 00:20:35.219
+next to the load is in series
+and the second one in shunt.
+
+263
+00:20:35.269 --> 00:20:38.711
+Each case has two solutions;
+de-normalise the reactance
+
+264
+00:20:38.751 --> 00:20:42.255
+by multiplying by Z zero and
+the susceptance by dividing
+
+265
+00:20:42.295 --> 00:20:45.293
+by Z zero, and turn a
+positive reactance into an
+
+266
+00:20:45.333 --> 00:20:48.648
+inductor and a negative one
+into a capacitor, while a
+
+267
+00:20:48.688 --> 00:20:53.278
+positive susceptance is a capacitor
+and a negative one an inductor.
+
+268
+00:20:53.328 --> 00:20:55.726
+For real loads there is
+also the quarter-wave
+
+269
+00:20:55.766 --> 00:20:59.367
+transformer, which we will see
+after the L-section examples.
+
+270
+00:21:01.017 --> 00:21:05.640
+Now the L-section example from the
+slides, which comes from Pozar.
+
+271
+00:21:05.690 --> 00:21:09.675
+The normalised load is 2 minus
+j, inside the r equals one
+
+272
+00:21:09.715 --> 00:21:13.291
+circle, so the first element,
+next to the load, is in
+
+273
+00:21:13.331 --> 00:21:19.275
+shunt, and we work with
+admittances: y L is 0.4 plus j 0.2.
+
+274
+00:21:19.325 --> 00:21:23.832
+The susceptance comes from Pozar's
+formula, X L plus or minus root R L
+
+275
+00:21:23.872 --> 00:21:28.509
+over Z zero times root of R L squared
+plus X L squared minus Z zero R L,
+
+276
+00:21:28.549 --> 00:21:33.576
+all over R L squared plus X L squared,
+which here is minus 100 plus or
+
+277
+00:21:33.616 --> 00:21:42.736
+minus 244.9 over 50 000, so b is plus
+0.29 or minus 0.69; on the chart,
+
+278
+00:21:42.776 --> 00:21:50.272
+adding plus j 0.29 moves the point to
+0.4 plus j 0.49, on the circle that
+
+279
+00:21:50.312 --> 00:21:55.533
+maps to r equals one, z equal to
+one minus j 1.22, and the reactance
+
+280
+00:21:55.573 --> 00:22:01.250
+follows from X equals one over B plus X L
+Z zero over R L minus Z zero over B R L.
+
+281
+00:22:01.300 --> 00:22:05.607
+Then a series reactance of plus
+j 1.22 cancels the imaginary
+
+282
+00:22:05.647 --> 00:22:09.299
+part and lands at the centre;
+de-normalised, the shunt element
+
+283
+00:22:09.339 --> 00:22:13.705
+is a capacitor of 0.92 picofarads
+and the series element an
+
+284
+00:22:13.745 --> 00:22:20.168
+inductor of 38.8 nanohenries, or
+39.0 if you keep more decimals.
+
+285
+00:22:20.218 --> 00:22:24.750
+The second solution uses b equal
+to minus 0.69 and x equal to
+
+286
+00:22:24.790 --> 00:22:30.103
+minus 1.22: a shunt inductor of
+46.1 nanohenries and a series
+
+287
+00:22:30.143 --> 00:22:35.847
+capacitor of 2.61 picofarads, which is
+the answer printed on the next slide.
+
+288
+00:22:37.497 --> 00:22:39.927
+The second matching problem on the slides
+
+289
+00:22:39.967 --> 00:22:42.967
+has no printed solution,
+so let us solve it.
+
+290
+00:22:43.017 --> 00:22:48.563
+The normalised load is 0.5 plus
+j 0.3, outside the r equals one
+
+291
+00:22:48.603 --> 00:22:52.181
+circle, because R L is smaller
+than Z zero, so the series
+
+292
+00:22:52.221 --> 00:22:56.951
+element goes next to the load and
+the shunt element on the line side.
+
+293
+00:22:57.001 --> 00:23:01.590
+Pozar's formulas for this case give
+X equal to plus or minus the square
+
+294
+00:23:01.630 --> 00:23:06.807
+root of R L times Z zero minus R L,
+minus X L, that is plus or minus 25
+
+295
+00:23:06.847 --> 00:23:11.763
+minus 15, and B equal to plus or minus
+one over Z zero times the square
+
+296
+00:23:11.803 --> 00:23:17.761
+root of Z zero minus R L over R L,
+which is plus or minus 0.02 siemens.
+
+297
+00:23:17.811 --> 00:23:23.675
+Solution one: X is plus 10 ohms, an
+inductor of 0.80 nanohenries at 2
+
+298
+00:23:23.715 --> 00:23:30.700
+GHz, and B is plus 0.02 siemens, a
+shunt capacitor of 1.59 picofarads.
+
+299
+00:23:30.750 --> 00:23:35.776
+Solution two: X is minus 40
+ohms, a series capacitor of 1.99
+
+300
+00:23:35.816 --> 00:23:40.648
+picofarads, and B is minus 0.02
+siemens, a shunt inductor of
+
+301
+00:23:40.688 --> 00:23:46.494
+3.98 nanohenries; substituting
+back, both give exactly 50 ohms.
+
+302
+00:23:48.144 --> 00:23:51.695
+For a real load, a quarter-wavelength
+section of line does
+
+303
+00:23:51.735 --> 00:23:55.285
+the matching on its own, because
+it inverts the impedance:
+
+304
+00:23:55.325 --> 00:23:59.062
+the input impedance is Z one
+squared over Z L, and setting it
+
+305
+00:23:59.102 --> 00:24:03.599
+equal to Z zero gives Z one equal
+to the square root of Z zero Z L.
+
+306
+00:24:03.649 --> 00:24:10.547
+For a 10 ohm load on a 50 ohm line, Z one
+is the square root of 500, 22.36 ohms.
+
+307
+00:24:10.597 --> 00:24:14.765
+Its length is a quarter of the guided
+wavelength, 3 times ten to the 8
+
+308
+00:24:14.805 --> 00:24:21.466
+over 4 times 3 times ten to the 9
+times the square root of 4.6, 1.17 cm.
+
+309
+00:24:21.516 --> 00:24:24.681
+The match is perfect only
+at f zero; with a limit
+
+310
+00:24:24.721 --> 00:24:30.109
+of an SWR of 1.5, the maximum
+tolerable gamma is 0.2.
+
+311
+00:24:30.159 --> 00:24:35.290
+Plugging it into the bandwidth formula,
+the arc cosine of 0.2 over the root of
+
+312
+00:24:35.330 --> 00:24:42.769
+0.96, times twice the root of 500 over
+40, gives a fractional bandwidth of 0.29.
+
+313
+00:24:42.819 --> 00:24:48.954
+That is 29 %, from 2.56 to 3.44
+GHz, which the slides read
+
+314
+00:24:48.994 --> 00:24:53.838
+from their plot as 2.55 to
+3.42, as in the plot of gamma
+
+315
+00:24:53.878 --> 00:24:57.821
+against frequency, where the curve
+stays under the dashed limit.
+
+316
+00:24:59.471 --> 00:25:03.524
+The problem that follows on the
+slides uses the same three steps.
+
+317
+00:25:03.574 --> 00:25:10.391
+Z one is the square root of
+100 times 350, 187.1 ohms.
+
+318
+00:25:10.441 --> 00:25:18.697
+At 4 GHz with an effective permittivity of
+4.6, the quarter wavelength is 0.874 cm.
+
+319
+00:25:18.747 --> 00:25:22.395
+An SWR of 2 allows a gamma of one third.
+
+320
+00:25:22.445 --> 00:25:26.213
+The bandwidth formula then
+gives 0.71, a fractional
+
+321
+00:25:26.253 --> 00:25:30.135
+bandwidth of 71 %: much wider
+than before, because the
+
+322
+00:25:30.175 --> 00:25:34.219
+load is closer to the line impedance
+and the tolerance is looser.
+
+323
+00:25:35.869 --> 00:25:38.692
+Before the summary, the
+traps in this unit.
+
+324
+00:25:38.742 --> 00:25:41.509
+Beta l uses the guided wavelength, not the
+
+325
+00:25:41.549 --> 00:25:45.977
+free-space one, and everything
+repeats every half wavelength.
+
+326
+00:25:46.027 --> 00:25:50.314
+Gamma rotates by twice beta
+l, that is 720 degrees per
+
+327
+00:25:50.354 --> 00:25:54.051
+wavelength, clockwise when you
+move towards the generator.
+
+328
+00:25:54.101 --> 00:25:59.908
+From the SWR, gamma is SWR minus one
+over SWR plus one; the reflected power
+
+329
+00:25:59.948 --> 00:26:06.723
+fraction is gamma squared, and the return
+loss is minus 20 log of gamma, not 10 log.
+
+330
+00:26:06.773 --> 00:26:11.264
+On the Smith chart, normalise before
+you start and de-normalise at the
+
+331
+00:26:11.304 --> 00:26:16.120
+end, multiplying impedances by Z
+zero and dividing admittances by it.
+
+332
+00:26:16.170 --> 00:26:20.508
+For an L-section, check where the
+load is: inside the r equals one
+
+333
+00:26:20.548 --> 00:26:26.006
+circle, the shunt element goes at the
+load; outside, the series element does.
+
+334
+00:26:26.056 --> 00:26:29.906
+And for a coaxial cable from a
+datasheet, Z zero equals one over
+
+335
+00:26:29.946 --> 00:26:34.126
+the phase velocity times the
+capacitance is the quickest route.
+
+336
+00:26:35.776 --> 00:26:39.300
+To summarise part three: the
+reflection coefficient at the
+
+337
+00:26:39.340 --> 00:26:43.499
+load and the input impedance
+formula solve most line problems.
+
+338
+00:26:43.549 --> 00:26:48.344
+The SWR, the return loss and the
+insertion loss describe how good a
+
+339
+00:26:48.384 --> 00:26:55.392
+match is, and a reflected power of 10
+% corresponds to an SWR of about 1.9.
+
+340
+00:26:55.442 --> 00:26:58.845
+A coaxial cable's impedance
+follows from its diameters
+
+341
+00:26:58.885 --> 00:27:03.060
+and dielectric, or from its
+velocity factor and capacitance.
+
+342
+00:27:03.110 --> 00:27:06.877
+On the Smith chart, move clockwise
+towards the generator, half a
+
+343
+00:27:06.917 --> 00:27:11.193
+wavelength per turn, and find the
+admittance on the opposite side.
+
+344
+00:27:11.243 --> 00:27:14.912
+To match a load, use an L-section
+of two reactances, or a
+
+345
+00:27:14.952 --> 00:27:20.184
+quarter-wave transformer with Z one
+equal to the square root of Z zero Z L.
+
+346
+00:27:20.234 --> 00:27:23.889
+To prepare, redo last year's
+ten problems against the clock,
+
+347
+00:27:23.929 --> 00:27:27.338
+about six minutes each, then
+the problems on the slides,
+
+348
+00:27:27.378 --> 00:27:32.101
+checking every number against these
+three videos; good luck on Tuesday.
