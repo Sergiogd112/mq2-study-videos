@@ -2,12 +2,15 @@
 "use strict";
 
 /* Temperature → colour (cold blue … hot red). */
-function tempColor(T, lo = 220, hi = 1800) {
-  const u = clamp((T - lo) / (hi - lo), 0, 1);
+const TEMP_LUT = (() => {
   const stops = [[0, [59, 130, 246]], [0.3, [34, 197, 94]], [0.55, [234, 179, 8]], [0.8, [249, 115, 22]], [1, [220, 38, 38]]];
-  for (let i = 1; i < stops.length; i++) if (u <= stops[i][0]) { const [u0, c0] = stops[i - 1], [u1, c1] = stops[i], k = (u - u0) / (u1 - u0); return `rgb(${c0.map((c, j) => Math.round(lerp(c, c1[j], k))).join(",")})`; }
-  return "rgb(220,38,38)";
-}
+  return Array.from({ length: 64 }, (_, n) => {
+    const u = n / 63;
+    for (let i = 1; i < stops.length; i++) if (u <= stops[i][0]) { const [u0, c0] = stops[i - 1], [u1, c1] = stops[i], k = (u - u0) / (u1 - u0); return `rgb(${c0.map((c, j) => Math.round(lerp(c, c1[j], k))).join(",")})`; }
+    return "rgb(220,38,38)";
+  });
+})();
+function tempColor(T, lo = 220, hi = 1800) { return TEMP_LUT[Math.round(clamp((T - lo) / (hi - lo), 0, 1) * 63)]; }
 
 /* Engine helper: axisymmetric annulus between hub(x) and tip(x), mirrored about y = cy. */
 const Eng = {
@@ -22,7 +25,7 @@ const Eng = {
   },
   /* A rotating blade row: lines whose spacing shimmers to suggest rotation. Returns updater(t). */
   row(a, cy, x, rIn, rOut, o = {}) {
-    const n = o.n || 5, ls = [];
+    const n = o.n || 4, ls = [];
     for (const s of [-1, 1]) for (let k = 0; k < n; k++) ls.push([a.line(x, cy + s * rIn, x, cy + s * rOut, { color: o.color || C.metal, width: o.width || 3 }), k, s]);
     if (o.stator) return () => {};
     return (t) => ls.forEach(([l, k, s]) => { const ph = t * (o.speed || 6) + (k * TAU) / n; const dx = Math.sin(ph) * (o.chord || 5); a.set(l, { x1: x + dx * 0.4, x2: x - dx, opacity: 0.35 + 0.65 * Math.abs(Math.cos(ph)) }); });
@@ -63,7 +66,7 @@ fig("turbojet", {
     [["inlet", 55], ["compressor", 175], ["burner", 320], ["turbine", 415], ["nozzle", 505]].forEach(([n, x]) => a.text(x, cy + 104, n, { size: 12, weight: 600 }));
     const Ttx = (x) => x < 90 ? 390 : x < 260 ? lerp(390, 810, (x - 90) / 170) : x < 290 ? 810 : x < 360 ? lerp(810, 1800, (x - 290) / 70) : x < 380 ? 1800 : x < 450 ? lerp(1800, 1468, (x - 380) / 70) : 1468;
     const u = (x) => x < 90 ? 60 : x < 260 ? 45 : x < 380 ? 35 : x < 450 ? 70 : x < 560 ? 110 : 160;
-    const parts = Eng.particles(a, cy, 70, u, Ttx, (x, f) => x < 20 || x > 560 ? f * (x > 560 ? 36 : 60) : hub(x) + f * (tip(x) - hub(x)), 715);
+    const parts = Eng.particles(a, cy, 44, u, Ttx, (x, f) => x < 20 || x > 560 ? f * (x > 560 ? 36 : 60) : hub(x) + f * (tip(x) - hub(x)), 715);
     const pl = a.plot(40, 255, 560, 80, [0, 700], [0, 2000]);
     a.line(40, 335, 620, 335, { color: C.ink, width: 1 });
     [[12, 90, 390], [90, 262, 390], [262, 378, 810], [378, 452, 1800], [452, 560, 1468]].forEach(([x0, x1, T]) => { a.rect(x0 + 2, pl.Y(T), x1 - x0 - 4, 335 - pl.Y(T), { fill: tempColor(T), color: "none", opacity: 0.75 }); a.text((x0 + x1) / 2, pl.Y(T) - 8, `${T} K`, { size: 11, weight: 700 }); });
@@ -395,8 +398,8 @@ fig("turbofan", {
     [["fan", 92], ["LPC", 150], ["HPC", 245], ["burner", 340], ["HPT", 392], ["LPT", 440], ["core nozzle", 515]].forEach(([n, x]) => a.text(x, cy + 140, n, { size: 11, weight: 600 }));
     a.text(240, cy - 92, "bypass duct (α = 6)", { size: 12, color: C.blue });
     const Tc = (x) => x < 92 ? 245 : x < 180 ? lerp(268, 457, (x - 92) / 88) : x < 300 ? lerp(457, 771, (x - 180) / 120) : x < 325 ? 771 : x < 365 ? lerp(771, 1600, (x - 325) / 40) : x < 404 ? lerp(1600, 1340, (x - 365) / 39) : x < 470 ? lerp(1340, 1046, (x - 404) / 66) : 1046;
-    const core = Eng.particles(a, cy, 50, (x) => (x < 92 ? 60 : x < 300 ? 45 : x < 370 ? 35 : x < 470 ? 70 : 120), Tc, (x, f) => (x < 92 ? f * 60 : x > 545 ? f * 38 : hub(x) + f * (tip(x) - hub(x))), 715);
-    const by = Eng.particles(a, cy, 60, (x) => (x < 92 ? 60 : 75), (x) => (x < 92 ? 245 : 268), (x, f) => (x < 92 ? 62 + f * 55 : x < 340 ? split(x) + 4 + f * (nac(x) - split(x) - 8) : 76 + f * 28 - (x - 340) * 0.02), 715, { r: 2.4 });
+    const core = Eng.particles(a, cy, 34, (x) => (x < 92 ? 60 : x < 300 ? 45 : x < 370 ? 35 : x < 470 ? 70 : 120), Tc, (x, f) => (x < 92 ? f * 60 : x > 545 ? f * 38 : hub(x) + f * (tip(x) - hub(x))), 715);
+    const by = Eng.particles(a, cy, 36, (x) => (x < 92 ? 60 : 75), (x) => (x < 92 ? 245 : 268), (x, f) => (x < 92 ? 62 + f * 55 : x < 340 ? split(x) + 4 + f * (nac(x) - split(x) - 8) : 76 + f * 28 - (x - 340) * 0.02), 715, { r: 2.4 });
     a.loop((t, dt) => {
       rows.forEach((r) => r(t)); core(t, dt); by(t, dt);
       flames.forEach((f, i) => { const s = i ? 1 : -1, w = 5 + 2.5 * Math.sin(t * 13 + i); a.set(f, { d: `M314,${cy + s * 38} Q${336 + 8 * Math.sin(t * 9)},${cy + s * (38 - w)} ${362},${cy + s * 38} Q336,${cy + s * (38 + w)} 314,${cy + s * 38} z` }); });

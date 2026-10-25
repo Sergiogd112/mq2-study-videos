@@ -17,7 +17,7 @@ const fmt = (x, n = 1) => (Math.abs(x) >= 1e4 ? x.toFixed(0) : x.toFixed(n)).rep
 function fig(name, spec) { FIGS[name] = spec; }
 
 /* Build the drawing API for one figure. */
-function makeApi(holder, spec) {
+function makeApi(holder, spec, rec) {
   const svg = document.createElementNS(NS, "svg");
   svg.setAttribute("viewBox", `0 0 ${spec.w || 640} ${spec.h || 320}`);
   svg.setAttribute("role", "img");
@@ -39,7 +39,8 @@ function makeApi(holder, spec) {
       (parent || cur).appendChild(e);
       return e;
     },
-    set(e, attrs) { for (const k in attrs) e.setAttribute(k, attrs[k]); return e; },
+    /* Attribute writes are cached per element: unchanged values cost nothing (most frames change only a few). */
+    set(e, attrs) { const c = e._c || (e._c = {}); for (const k in attrs) { const v = attrs[k]; if (c[k] !== v) { c[k] = v; e.setAttribute(k, v); } } return e; },
     g(attrs = {}, parent) { return api.el("g", attrs, parent); },
     within(group, fn) { const prev = cur; cur = group; fn(); cur = prev; return group; },
     marker(color) {
@@ -72,8 +73,10 @@ function makeApi(holder, spec) {
       return t;
     },
     setText(t, str) {
-      while (t.firstChild) t.removeChild(t.firstChild);
       str = String(str);
+      if (t._s === str) return t;
+      t._s = str;
+      while (t.firstChild) t.removeChild(t.firstChild);
       const parts = [];
       let buf = "", i = 0;
       while (i < str.length) {
@@ -136,7 +139,7 @@ function makeApi(holder, spec) {
       const inp = document.createElement("input");
       Object.assign(inp, { type: "range", min, max, step, value });
       const out = document.createElement("output");
-      const upd = () => { out.textContent = show(+inp.value); cb(+inp.value); };
+      const upd = () => { out.textContent = show(+inp.value); cb(+inp.value); api.invalidate(); };
       inp.addEventListener("input", upd);
       wrap.append(name, inp, out);
       controls.appendChild(wrap);
@@ -150,7 +153,7 @@ function makeApi(holder, spec) {
         const b = document.createElement("button");
         b.type = "button";
         b.textContent = l;
-        b.addEventListener("click", () => { bs.forEach((x) => x.classList.remove("on")); b.classList.add("on"); cb(i, l); });
+        b.addEventListener("click", () => { bs.forEach((x) => x.classList.remove("on")); b.classList.add("on"); cb(i, l); api.invalidate(); });
         wrap.appendChild(b);
         return b;
       });
@@ -160,57 +163,88 @@ function makeApi(holder, spec) {
     },
     note(str) { const p = document.createElement("div"); p.className = "fig-readout"; p.textContent = str; controls.appendChild(p); return p; },
     loop(fn) { frames.push(fn); },
+    /* Ask for one redraw even while paused (sliders, buttons, toggles). */
+    invalidate() { if (rec) { rec.dirty = true; Anim.kick(); } },
   };
+  svg.addEventListener("click", () => api.invalidate());
   return { api, frames, svg };
 }
 
-/* Animation manager: one rAF loop, figures run only while visible; click a figure to pause it. */
+/* Animation manager: one rAF loop at most 30 fps that runs only while a visible figure is playing or needs a redraw.
+   Reduced motion pauses everything on a representative frame; the preference is followed live. */
 const Anim = (() => {
-  const live = new Set();
-  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let last = null;
+  const live = new Set(), all = new Set();
+  const mq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
+  const STEP = 1 / 30;
+  let raf = 0, last = null, acc = 0;
+  const wanted = () => { for (const f of live) if (!f.paused || f.dirty) return true; return false; };
+  const run = (f, dt) => { for (const fn of f.frames) fn(f.t, dt); };
   function tick(now) {
-    const dt = last === null ? 0 : Math.min(0.05, (now - last) / 1000);
+    raf = 0;
+    const dt = last === null ? STEP : Math.min(0.1, (now - last) / 1000);
     last = now;
-    for (const f of live) if (!f.paused) { f.t += dt; for (const fn of f.frames) fn(f.t, dt); }
-    requestAnimationFrame(tick);
+    acc += dt;
+    const due = acc >= STEP - 0.002;
+    for (const f of live) {
+      if (!f.paused && due) { f.t += acc; run(f, acc); f.dirty = false; }
+      else if (f.dirty) { run(f, 0); f.dirty = false; }
+    }
+    if (due) acc = 0;
+    if (wanted()) raf = requestAnimationFrame(tick); else last = null;
   }
-  requestAnimationFrame(tick);
+  const kick = () => { if (!raf && wanted()) raf = requestAnimationFrame(tick); };
   const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => {
-    for (const e of es) { const f = e.target._fig; if (!f) continue; e.isIntersecting ? live.add(f) : live.delete(f); }
+    for (const e of es) { const f = e.target._fig; if (!f) continue; if (e.isIntersecting) { live.add(f); f.dirty = true; } else live.delete(f); }
+    kick();
   }, { rootMargin: "100px" }) : null;
+  const setReduce = (r) => { for (const f of all) { f.paused = r; if (r) { f.t = Math.max(f.t, 6); f.dirty = true; } f.paint && f.paint(); } kick(); };
+  if (mq.addEventListener) mq.addEventListener("change", (e) => setReduce(e.matches));
+  document.addEventListener("visibilitychange", () => { last = null; kick(); });
   return {
+    kick,
     add(holder, f) {
       holder._fig = f;
-      f.paused = reduce;
-      if (reduce) f.t = 6; // show a representative, well-developed frame when motion is reduced
-      for (const fn of f.frames) fn(f.t, 0);
+      all.add(f);
+      f.paused = mq.matches;
+      if (mq.matches) f.t = 6; // show a representative, well-developed frame when motion is reduced
+      run(f, 0);
+      f.dirty = false;
       if (!f.frames.length) return;
       const badge = document.createElement("button");
       badge.type = "button";
       badge.className = "fig-play";
-      const paint = () => (badge.textContent = f.paused ? "▶ play" : "❚❚ pause");
-      badge.addEventListener("click", () => { f.paused = !f.paused; paint(); });
-      paint();
+      f.paint = () => (badge.textContent = f.paused ? "▶ play" : "❚❚ pause");
+      badge.addEventListener("click", () => { f.paused = !f.paused; f.paint(); kick(); });
+      f.paint();
       const ctl = holder.querySelector(".fig-controls");
       ctl ? ctl.prepend(badge) : holder.appendChild(badge);
-      io ? io.observe(holder) : live.add(f);
+      if (io) io.observe(holder); else { live.add(f); kick(); }
     },
   };
 })();
 
+function mountOne(node) {
+  const spec = FIGS[node.dataset.fig];
+  const holder = node.querySelector(".figbox");
+  if (!spec) { holder.textContent = `missing figure: ${node.dataset.fig}`; return; }
+  if (holder.dataset.done) return;
+  holder.dataset.done = 1;
+  holder.style.aspectRatio = "";
+  const rec = { frames: null, t: 0, paused: false, dirty: false };
+  const { api, frames } = makeApi(holder, spec, rec);
+  rec.frames = frames;
+  try { spec.init(api); } catch (e) { console.error("figure", node.dataset.fig, e); holder.insertAdjacentHTML("beforeend", `<p class="fig-err">figure error: ${e.message}</p>`); }
+  const cap = node.querySelector("figcaption");
+  if (cap && !cap.textContent.trim()) cap.innerHTML = `<b>${spec.title}.</b> ${spec.caption || ""}`;
+  Anim.add(holder, rec);
+}
+
+/* Figures are built only when they come within ~600 px of the viewport (their space is reserved in the HTML). */
 function mountFigures(root = document) {
-  root.querySelectorAll("figure.fig[data-fig]").forEach((node) => {
-    const spec = FIGS[node.dataset.fig];
-    const holder = node.querySelector(".figbox");
-    if (!spec || holder.dataset.done) { if (!spec) holder.textContent = `missing figure: ${node.dataset.fig}`; return; }
-    holder.dataset.done = 1;
-    const { api, frames } = makeApi(holder, spec);
-    try { spec.init(api); } catch (e) { console.error("figure", node.dataset.fig, e); holder.insertAdjacentHTML("beforeend", `<p class="fig-err">figure error: ${e.message}</p>`); }
-    const cap = node.querySelector("figcaption");
-    if (cap && !cap.textContent.trim()) cap.innerHTML = `<b>${spec.title}.</b> ${spec.caption || ""}`;
-    Anim.add(holder, { frames, t: 0, paused: false });
-  });
+  const nodes = [...root.querySelectorAll("figure.fig[data-fig]")];
+  if (!("IntersectionObserver" in window)) { nodes.forEach(mountOne); return; }
+  const lazy = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { lazy.unobserve(e.target); mountOne(e.target); } }), { rootMargin: "600px 0px" });
+  nodes.forEach((n) => lazy.observe(n));
 }
 
 /* Shared drawing pieces used by several subjects. */

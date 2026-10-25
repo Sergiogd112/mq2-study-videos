@@ -1,6 +1,14 @@
 /* RF figures: spectrum and propagation, modulation and receivers, noise and linearity, lines and matching. */
 "use strict";
 
+/* Travelling-wave helper: paths drawn once over three periods inside a clipped group that is only translated. */
+function travelGroup(a, p) {
+  const id = "tw" + Math.random().toString(36).slice(2, 7);
+  const cp = a.el("clipPath", { id }, a.el("defs", {})); a.el("rect", { x: p.x0, y: p.y0 - 30, width: p.w, height: p.h + 60 }, cp);
+  const outer = a.g({ "clip-path": `url(#${id})` }), inner = a.g({}, outer);
+  return { g: inner, shift: (s) => a.set(inner, { transform: `translate(${(((s % 1) + 1) % 1 * (p.X(1) - p.X(0))).toFixed(2)},0)` }) };
+}
+
 /* ------------------------------------------------------------------ propagation */
 fig("spectrum_bands", {
   title: "The radio spectrum and the aviation services", w: 700, h: 260,
@@ -115,34 +123,53 @@ fig("radio_horizon", {
 });
 
 fig("wave_effects", {
-  title: "Reflection, refraction, diffraction, scattering", w: 700, h: 230,
-  caption: "Reflection: obstacle much larger than λ. Refraction: the wave enters a medium with another index and bends. Diffraction: an edge re-radiates (Huygens) so the wave reaches the shadow behind a hill. Scattering: obstacles smaller than λ (rain drops) re-radiate in all directions.",
+  title: "Reflection, refraction, diffraction, scattering", w: 720, h: 250,
+  caption: "Rays (dashed) with moving wavefronts (perpendicular to the rays). Reflection: from an obstacle much larger than λ, angle of reflection = angle of incidence. Refraction: entering a slower medium (higher n) the fronts crowd together and the ray bends towards the normal. Diffraction: each point of the front at the edge re-radiates (Huygens), so circular wavelets reach the shadow behind the hill. Scattering: obstacles smaller than λ (rain drops) re-radiate in all directions.",
   init(a) {
-    const W = 170, titles = ["reflection", "refraction", "diffraction", "scattering"];
-    titles.forEach((n, i) => { a.rect(5 + i * 174, 10, W, 190, { r: 8, fill: "#f8fafc", color: C.soft, width: 1 }); a.text(5 + i * 174 + W / 2, 218, n, { size: 13, weight: 700 }); });
-    a.rect(140, 30, 14, 160, { fill: C.metal, color: "none" });
-    a.rect(179, 110, W, 90, { fill: "#dbeafe", color: "none" });
-    a.poly([[353 + 70, 200], [353 + 85, 100], [353 + 100, 200]], { fill: C.brown, color: "none" });
-    const drops = [[620, 70], [600, 120], [640, 150], [580, 90]]; drops.forEach(([x, y]) => a.circle(x, y, 4, { fill: C.blue, color: "none" }));
-    const g = a.g();
+    const W = 170, H = 200, Y0 = 10, X = (i) => 8 + i * 178;
+    const panel = (i) => { const id = "we" + i + Math.random().toString(36).slice(2, 6); const d = a.el("defs", {}); const cpth = a.el("clipPath", { id }, d); a.el("rect", { x: X(i), y: Y0, width: W, height: H, rx: 8 }, cpth); a.rect(X(i), Y0, W, H, { r: 8, fill: "#f8fafc", color: C.soft, width: 1 }); a.text(X(i) + W / 2, Y0 + H + 22, ["reflection", "refraction", "diffraction", "scattering"][i], { size: 13, weight: 700 }); return a.g({ "clip-path": `url(#${id})` }); };
+    const seg = (g, n, col, w = 2.5) => Array.from({ length: n }, () => a.line(0, 0, 0, 0, { color: col, width: w, parent: g }));
+    const front = (l, cxp, cyp, dir, half) => { const nx = -dir[1], ny = dir[0]; a.set(l, { x1: cxp - nx * half, y1: cyp - ny * half, x2: cxp + nx * half, y2: cyp + ny * half }); };
+    // 1 reflection: ground plane, incidence 45°
+    const g1 = panel(0), x0 = X(0), gy = Y0 + 160, hit = [x0 + W / 2, gy];
+    a.rect(x0, gy, W, 40, { fill: C.metal, color: "none", parent: g1 }); a.text(x0 + W / 2, gy + 22, "large obstacle (≫ λ)", { size: 10, color: C.bg, parent: g1 });
+    const inc = [x0 + 10, gy - (hit[0] - x0 - 10)], ref = [x0 + W - 10, gy - (x0 + W - 10 - hit[0])];
+    a.path(`M${inc[0]},${inc[1]} L${hit[0]},${hit[1]} L${ref[0]},${ref[1]}`, { color: C.mid, width: 1.2, dash: "4 4", parent: g1 });
+    a.line(hit[0], gy, hit[0], gy - 70, { color: C.soft, width: 1, dash: "2 3", parent: g1 });
+    a.text(hit[0] - 14, gy - 40, "θi", { size: 11, color: C.blue, parent: g1 }); a.text(hit[0] + 14, gy - 40, "θr", { size: 11, color: C.orange, parent: g1 });
+    const f1 = seg(g1, 4, C.blue), f1r = seg(g1, 4, C.orange);
+    // 2 refraction: n1 = 1 above, n2 = 1.6 below, θi = 50°
+    const g2 = panel(1), x1 = X(1), iy = Y0 + 95, hp = [x1 + 70, iy], ti = rad(50), tt = Math.asin(Math.sin(ti) / 1.6);
+    a.rect(x1, iy, W, H, { fill: "#dbeafe", color: "none", parent: g2 }); a.line(x1, iy, x1 + W, iy, { color: C.ink, width: 1.5, parent: g2 });
+    a.text(x1 + W - 8, iy - 8, "n₁", { size: 12, anchor: "end", parent: g2 }); a.text(x1 + W - 8, iy + 16, "n₂ > n₁", { size: 12, anchor: "end", parent: g2 });
+    a.line(hp[0], iy - 80, hp[0], iy + 90, { color: C.soft, width: 1, dash: "2 3", parent: g2 });
+    const dI = [Math.sin(ti), Math.cos(ti)], dT = [Math.sin(tt), Math.cos(tt)];
+    a.path(`M${hp[0] - dI[0] * 140},${iy - dI[1] * 140} L${hp[0]},${iy} L${hp[0] + dT[0] * 140},${iy + dT[1] * 140}`, { color: C.mid, width: 1.2, dash: "4 4", parent: g2 });
+    const f2 = seg(g2, 4, C.blue), f2t = seg(g2, 6, C.purple);
+    // 3 diffraction: knife-edge hill
+    const g3 = panel(2), x2 = X(2), tip = [x2 + 80, Y0 + 95];
+    a.poly([[tip[0] - 30, Y0 + H], tip, [tip[0] + 30, Y0 + H]], { fill: C.brown, color: "none", parent: g3 });
+    a.text(tip[0] + 50, Y0 + H - 12, "shadow", { size: 10, color: C.mid, parent: g3 });
+    const f3 = Array.from({ length: 5 }, () => a.path("", { color: C.blue, width: 2.5, parent: g3 }));
+    // 4 scattering: drops smaller than λ
+    const g4 = panel(3), x3 = X(3), drops = [[x3 + 80, Y0 + 60], [x3 + 110, Y0 + 120], [x3 + 70, Y0 + 160], [x3 + 135, Y0 + 75]];
+    drops.forEach(([x, y]) => a.circle(x, y, 4, { fill: C.blue, color: "none", parent: g4 }));
+    const f4 = seg(g4, 3, C.blue), rings = drops.map(() => Array.from({ length: 3 }, () => a.circle(0, 0, 1, { color: C.sky, width: 1.5, parent: g4 })));
+    const lam = 34;
     a.loop((t) => {
-      while (g.firstChild) g.removeChild(g.firstChild);
-      a.within(g, () => {
-        for (let k = 0; k < 4; k++) {
-          const u = ((t * 0.5 + k / 4) % 1);
-          // reflection: plane fronts moving right, reflected moving left
-          const xr = 20 + u * 240;
-          if (xr < 140) a.line(xr, 40, xr, 180, { color: C.blue, width: 2, opacity: 0.8 }); else a.line(280 - xr, 40, 280 - xr, 180, { color: C.orange, width: 2, opacity: 0.8 });
-          // refraction: oblique fronts, slower and turned below the interface
-          const xf = 185 + u * 150;
-          a.line(xf, 30, xf - 50, 110, { color: C.blue, width: 2 }); a.line(xf - 50, 110, xf - 50 - 30 * 0.7, 190, { color: C.purple, width: 2 });
-          // diffraction: plane fronts left of the hill, arcs behind its tip
-          const xd = 365 + u * 150;
-          if (xd < 438) a.line(xd, 25, xd, 195, { color: C.blue, width: 2 }); else { const r = xd - 438; a.path(`M${438},${100 - r} A${r},${r} 0 0 1 ${438 + r},${100}`, { color: C.blue, width: 2 }); a.line(438, 100 - r, 438, 25, { color: C.blue, width: 2 }); }
-          // scattering: circles from each drop
-          drops.forEach(([x, y], j) => a.circle(x, y, 4 + ((t * 25 + j * 8 + k * 12) % 48), { color: C.blue, width: 1.3, opacity: 1 - (((t * 25 + j * 8 + k * 12) % 48) / 48) }));
-        }
-      });
+      const ph = (t * 22) % lam;
+      // reflection: fronts along the incident ray up to the hit point, then along the reflected ray
+      const Li = Math.hypot(hit[0] - inc[0], hit[1] - inc[1]), di = [(hit[0] - inc[0]) / Li, (hit[1] - inc[1]) / Li], dr = [(ref[0] - hit[0]) / Li, (ref[1] - hit[1]) / Li];
+      f1.forEach((l, k) => { const s = ph + k * lam; front(l, inc[0] + di[0] * s, inc[1] + di[1] * s, di, 22); a.set(l, { opacity: s < Li ? 1 : 0 }); });
+      f1r.forEach((l, k) => { const s = ph + k * lam; front(l, hit[0] + dr[0] * s, hit[1] + dr[1] * s, dr, 22); a.set(l, { opacity: s < Li ? 1 : 0 }); });
+      // refraction: same frequency, wavelength / 1.6 below
+      f2.forEach((l, k) => { const s = 140 - (ph + k * lam); front(l, hp[0] - dI[0] * s, iy - dI[1] * s, dI, 30); a.set(l, { opacity: s > 0 ? 1 : 0 }); });
+      f2t.forEach((l, k) => { const s = (ph + k * lam) / 1.6; front(l, hp[0] + dT[0] * s, iy + dT[1] * s, dT, 30); });
+      // diffraction: plane fronts above the edge, circular wavelets (centred on the edge) behind it
+      f3.forEach((p, k) => { const x = x2 + ((ph + k * lam) * 1.0) + 4; let d = `M${x},${Y0}`; if (x <= tip[0]) d += ` L${x},${Y0 + H}`; else { const r = x - tip[0]; d += ` L${x},${tip[1]} A${r},${r} 0 0 1 ${tip[0] + r * Math.cos(rad(80))},${tip[1] + r * Math.sin(rad(80))}`; } a.set(p, { d }); });
+      // scattering: incoming plane fronts, rings from every drop
+      f4.forEach((l, k) => { const x = x3 + ph + k * lam * 1.6; a.set(l, { x1: x, y1: Y0, x2: x, y2: Y0 + H }); });
+      rings.forEach((rs, j) => rs.forEach((c, k) => { const r = ((t * 20 + k * 18 + j * 7) % 54) + 4; a.set(c, { cx: drops[j][0], cy: drops[j][1], r, opacity: 1 - r / 58 }); }));
     });
   },
 });
@@ -192,7 +219,8 @@ fig("am_wave", {
   init(a) {
     const p = a.plot(30, 20, 420, 220, [0, 2], [-2.2, 2.2]);
     a.line(30, p.Y(0), 450, p.Y(0), { color: C.soft, width: 1 });
-    const car = a.path("", { color: C.blue, width: 1.4 }), env = a.path("", { color: C.orange, width: 2.5 }), env2 = a.path("", { color: C.orange, width: 2.5 });
+    const tg = travelGroup(a, p);
+    const car = a.path("", { color: C.blue, width: 1.4, parent: tg.g }), env = a.path("", { color: C.orange, width: 2.5, parent: tg.g }), env2 = a.path("", { color: C.orange, width: 2.5, parent: tg.g });
     const sp = a.plot(490, 40, 170, 180, [-3, 3], [0, 1.2]);
     sp.axes("f", "", { yAt: -3 });
     const L = [a.line(0, 0, 0, 0, { color: C.ink, width: 5 }), a.line(0, 0, 0, 0, { color: C.green, width: 5 }), a.line(0, 0, 0, 0, { color: C.green, width: 5 })];
@@ -206,10 +234,15 @@ fig("am_wave", {
       a.set(L[2], { x1: sp.X(1.6), x2: sp.X(1.6), y1: sp.Y(0), y2: sp.Y(m / 2) });
       a.setText(warn, m > 1 ? "m > 1: over-modulation, envelope distorted" : "");
     }, (v) => v.toFixed(2));
+    let drawnM = null;
     a.loop((t) => {
-      const msg = (x) => 1 + m * Math.cos(TAU * (x - t * 0.3));
-      a.set(car, { d: p.d((x) => msg(x) * Math.cos(TAU * 18 * x), 0, 2, 1400) });
-      a.set(env, { d: p.d((x) => Math.abs(msg(x)), 0, 2) }); a.set(env2, { d: p.d((x) => -Math.abs(msg(x)), 0, 2) });
+      if (drawnM !== m) { // geometry depends only on m; the wave then just travels (period 1 = one message period)
+        drawnM = m;
+        const msg = (x) => 1 + m * Math.cos(TAU * x);
+        a.set(car, { d: p.d((x) => msg(x) * Math.cos(TAU * 18 * x), -1, 2, 1300) });
+        a.set(env, { d: p.d((x) => Math.abs(msg(x)), -1, 2, 300) }); a.set(env2, { d: p.d((x) => -Math.abs(msg(x)), -1, 2, 300) });
+      }
+      tg.shift(t * 0.3);
     });
   },
 });
@@ -219,7 +252,8 @@ fig("fm_wave", {
   caption: "Constant amplitude; the instantaneous frequency swings ±Δf with the message. The spectrum has lines at f_C ± n·f_m with amplitudes J_n(m_f) (Bessel functions); Carson's rule B = 2(Δf + f_m) = 2f_m(m_f + 1) contains about 98 % of the power. m_f = 5 at f_m = 10 kHz gives 120 kHz (Module 1 problem).",
   init(a) {
     const p = a.plot(30, 20, 620, 90, [0, 2], [-1.3, 1.3]);
-    const w = a.path("", { color: C.blue, width: 1.4 }), msg = a.path("", { color: C.orange, width: 2, dash: "5 4" });
+    const tg = travelGroup(a, p);
+    const w = a.path("", { color: C.blue, width: 1.4, parent: tg.g }), msg = a.path("", { color: C.orange, width: 2, dash: "5 4", parent: tg.g });
     const sp = a.plot(40, 150, 600, 120, [-12, 12], [0, 1.05]);
     sp.axes("(f − f_C) / f_m", "|J_n(m_f)|", { yAt: 0 });
     const bars = Array.from({ length: 25 }, (_, i) => a.line(sp.X(i - 12), sp.Y(0), sp.X(i - 12), sp.Y(0), { color: C.blue, width: 6 }));
@@ -233,13 +267,14 @@ fig("fm_wave", {
       a.set(car, { x: sp.X(-(mf + 1)), width: sp.X(mf + 1) - sp.X(-(mf + 1)) });
       a.setText(read, `f_m = 10 kHz: Δf = ${(mf * 10).toFixed(0)} kHz, B = 2(Δf + f_m) = ${(2 * (mf * 10 + 10)).toFixed(0)} kHz`);
     }, (v) => v.toFixed(1));
+    let drawnMf = null;
     a.loop((t) => {
-      const ph = t * 0.3;
-      a.set(msg, { d: p.d((x) => Math.cos(TAU * (x - ph)), 0, 2) });
-      // x_FM = cos(2π f_C x + m_f sin(2π f_m (x − ph))) with f_m = 1, f_C = 14 per display unit: f_inst = f_C + m_f f_m cos(…)
-      let d = "";
-      for (let i = 0; i <= 1400; i++) { const x = (2 * i) / 1400; d += (i ? "L" : "M") + p.X(x).toFixed(1) + "," + p.Y(Math.cos(TAU * 14 * x + mf * Math.sin(TAU * (x - ph)))).toFixed(1); }
-      a.set(w, { d });
+      if (drawnMf !== mf) { // x_FM = cos(2π f_C x + m_f sin(2π f_m x)), f_m = 1, f_C = 14 per unit; it then travels
+        drawnMf = mf;
+        a.set(msg, { d: p.d((x) => Math.cos(TAU * x), -1, 2, 300) });
+        a.set(w, { d: p.d((x) => Math.cos(TAU * 14 * x + mf * Math.sin(TAU * x)), -1, 2, 1300) });
+      }
+      tg.shift(t * 0.3);
     });
   },
 });
@@ -596,51 +631,71 @@ fig("line_types", {
 });
 
 fig("smith_chart", {
-  title: "The Smith chart: rotating towards the generator", w: 680, h: 400,
-  caption: "Γ-plane with circles of constant r and arcs of constant x (normalised z = Z/Z₀). Moving a length l from the load towards the generator turns Γ CLOCKWISE by 2βl = 720°·l/λ on the |Γ| circle; one full turn is λ/2. The SWR is the r where the circle crosses the right half of the real axis.",
+  title: "The Smith chart: rotating towards the generator", w: 760, h: 480,
+  caption: "Γ-plane with circles of constant normalised resistance r and arcs of constant normalised reactance x (z = Z/Z₀); upper half inductive, lower half capacitive. Moving a length l from the load towards the generator turns Γ CLOCKWISE by 2βl = 720°·l/λ on its |Γ| circle (one turn = λ/2); the outer scale reads that position in wavelengths towards the generator (WTG). The SWR is the r where the circle crosses the right half of the real axis; the admittance y is the point diametrically opposite z.",
   init(a) {
-    const cx = 210, cy = 200, R = 175;
+    const cx = 245, cy = 240, R = 190;
     const P = (g) => [cx + R * g[0], cy - R * g[1]];
-    const clipId = "c" + Math.random().toString(36).slice(2, 7);
-    const cp = a.el("clipPath", { id: clipId }); a.el("circle", { cx, cy, r: R }, cp);
+    const clipId = "smc" + Math.random().toString(36).slice(2, 7);
+    const defs = a.el("defs", {}); const cp = a.el("clipPath", { id: clipId }, defs); a.el("circle", { cx, cy, r: R }, cp);
+    // background FIRST, then the grid on top of it
+    a.circle(cx, cy, R, { fill: "#fffdf2", color: "none" });
     const grid = a.g({ "clip-path": `url(#${clipId})` });
-    a.circle(cx, cy, R, { fill: "#fffef5", color: C.ink, width: 2 });
+    const RS = [0.2, 0.5, 1, 2, 5], XS = [0.2, 0.5, 1, 2, 5];
     a.within(grid, () => {
-      [0.2, 0.5, 1, 2, 5].forEach((r) => a.circle(cx + (R * r) / (1 + r), cy, R / (1 + r), { color: r === 1 ? C.orange : C.soft, width: r === 1 ? 1.6 : 1.1 }));
-      [0.2, 0.5, 1, 2, 5].forEach((x) => [1, -1].forEach((s) => a.circle(cx + R, cy - (s * R) / x, R / x, { color: x === 1 ? C.teal : C.soft, width: x === 1 ? 1.6 : 1.1 })));
-      a.line(cx - R, cy, cx + R, cy, { color: C.mid, width: 1.2 });
+      [0.1, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1.5, 3, 4, 10].forEach((r) => a.circle(cx + (R * r) / (1 + r), cy, R / (1 + r), { color: "#e7dcc0", width: 0.8 }));
+      [0.1, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1.5, 3, 4, 10].forEach((x) => [1, -1].forEach((sg) => a.circle(cx + R, cy - (sg * R) / x, R / x, { color: "#d6e9e6", width: 0.8 })));
+      RS.forEach((r) => a.circle(cx + (R * r) / (1 + r), cy, R / (1 + r), { color: r === 1 ? C.orange : "#b9a46a", width: r === 1 ? 1.8 : 1.2 }));
+      XS.forEach((x) => [1, -1].forEach((sg) => a.circle(cx + R, cy - (sg * R) / x, R / x, { color: x === 1 ? C.teal : "#7fb8b0", width: x === 1 ? 1.8 : 1.2 })));
+      a.line(cx - R, cy, cx + R, cy, { color: "#8a7a4a", width: 1.4 });
     });
-    [[0.2, "0.2"], [0.5, "0.5"], [1, "1"], [2, "2"], [5, "5"]].forEach(([r, s]) => a.text(cx + (R * (r - 1)) / (r + 1) + 2, cy + 11, s, { size: 9, color: C.mid, anchor: "start" }));
-    a.text(cx - R - 6, cy, "short", { size: 11, anchor: "end", color: C.mid }); a.text(cx + R + 6, cy, "open", { size: 11, anchor: "start", color: C.mid });
-    a.text(cx, cy - R - 10, "+jx inductive", { size: 11, color: C.teal }); a.text(cx, cy + R + 14, "−jx capacitive", { size: 11, color: C.teal });
-    const circ = a.circle(cx, cy, 1, { color: C.purple, width: 1.6, dash: "5 4" });
-    const arc = a.path("", { color: C.purple, width: 3.5 });
+    a.circle(cx, cy, R, { color: C.ink, width: 2.2 });
+    // r labels on the real axis, x labels at the rim
+    RS.concat([0]).forEach((r) => { const gx = (r - 1) / (r + 1); a.text(cx + R * gx + 3, cy - 6, r === 0 ? "0" : String(r), { size: 10, color: "#7a6a3a", anchor: "start" }); });
+    XS.forEach((x) => [1, -1].forEach((sg) => { const xx = sg * x, d = xx * xx + 1, g = [(xx * xx - 1) / d, (2 * xx) / d]; const k = 1.06; a.text(cx + R * g[0] * k, cy - R * g[1] * k, (sg > 0 ? "+j" : "−j") + x, { size: 10, color: C.teal }); }));
+    // outer WTG scale: angle of Γ = 180° − 720°·d
+    for (let i = 0; i < 50; i++) {
+      const d = i / 100, ang = rad(180 - 720 * d), big = i % 5 === 0;
+      a.line(cx + (R + 3) * Math.cos(ang), cy - (R + 3) * Math.sin(ang), cx + (R + (big ? 11 : 7)) * Math.cos(ang), cy - (R + (big ? 11 : 7)) * Math.sin(ang), { color: C.mid, width: 1 });
+      if (big) a.text(cx + (R + 22) * Math.cos(ang), cy - (R + 22) * Math.sin(ang), d.toFixed(2), { size: 9.5, color: C.mid });
+    }
+    a.text(cx - R - 40, cy - 16, "short", { size: 11, color: C.mid }); a.text(cx + R + 40, cy - 16, "open", { size: 11, color: C.mid });
+    a.text(cx, 14, "wavelengths towards generator →  (clockwise)", { size: 11, color: C.mid });
+    a.text(cx, cy - R * 0.62, "inductive (+jx)", { size: 11, color: C.teal, weight: 600 }); a.text(cx, cy + R * 0.62, "capacitive (−jx)", { size: 11, color: C.teal, weight: 600 });
+    const circ = a.circle(cx, cy, 1, { color: C.purple, width: 1.8, dash: "6 4" });
+    const arc = a.path("", { color: C.purple, width: 4 });
+    const ptY = a.circle(0, 0, 5, { fill: C.bg, color: C.green, width: 2.5 }), labY = a.text(0, 0, "y_L", { size: 12, weight: 700, color: C.green });
     const ptL = a.circle(0, 0, 6, { fill: C.blue, color: C.bg }), pt = a.circle(0, 0, 7, { fill: C.red, color: C.bg });
-    const lab = a.text(0, 0, "z_L", { size: 12, weight: 700, color: C.blue });
-    const out = [0, 1, 2, 3, 4].map((i) => a.text(420, 60 + i * 26, "", { size: 14, anchor: "start", weight: i === 3 ? 700 : 400 }));
+    const lab = a.text(0, 0, "z_L", { size: 13, weight: 700, color: C.blue });
+    const out = [0, 1, 2, 3, 4, 5].map((i) => a.text(480, 60 + i * 28, "", { size: 14, anchor: "start", weight: i === 4 ? 700 : 400 }));
     const cases = { "50 Ω, 100 + j50, 0.2λ": [2, 1, 0.2, 50], "Pozar: 100 Ω, 40 + j70, 0.3λ": [0.4, 0.7, 0.3, 100], "exam 4: jZ₀ at λ/8": [0, 1, 0.125, 1] };
     let cur = null;
     const g2z = ([gr, gi]) => { const dr = (1 - gr) ** 2 + gi * gi; return [(1 - gr * gr - gi * gi) / dr, (2 * gi) / dr]; };
+    const wtg = (ang) => ((((Math.PI - ang) / (4 * Math.PI)) % 0.5) + 0.5) % 0.5;
+    const fz = (z, Z0) => (!isFinite(z[0]) || Math.abs(z[0]) > 1e3 ? "∞ (open)" : `${z[0].toFixed(3)} ${z[1] >= 0 ? "+" : "−"} j${Math.abs(z[1]).toFixed(3)}`);
     a.buttons(Object.keys(cases), (i, k) => {
       const [r, x, l, Z0] = cases[k];
       const dr = (r + 1) ** 2 + x * x, g = [(r * r + x * x - 1) / dr, (2 * x) / dr], m = Math.hypot(...g), ang = Math.atan2(g[1], g[0]);
-      cur = { g, m, ang, l, Z0, r, x };
+      cur = { g, m, ang, l, Z0 };
       a.set(circ, { r: R * m });
-      a.set(ptL, { cx: P(g)[0], cy: P(g)[1] }); a.set(lab, { x: P(g)[0] + 14, y: P(g)[1] - 12 });
+      a.set(ptL, { cx: P(g)[0], cy: P(g)[1] }); a.set(lab, { x: P(g)[0] + 16, y: P(g)[1] - 12 });
+      const gy = [-g[0], -g[1]]; a.set(ptY, { cx: P(gy)[0], cy: P(gy)[1] }); a.set(labY, { x: P(gy)[0] - 16, y: P(gy)[1] + 14 });
+      const y = g2z(gy);
       a.setText(out[0], `z_L = ${r} ${x >= 0 ? "+" : "−"} j${Math.abs(x)}  (Z₀ = ${Z0 === 1 ? "Z₀" : Z0 + " Ω"})`);
-      a.setText(out[1], `Γ_L = ${m.toFixed(3)} ∠ ${deg(ang).toFixed(1)}°`);
+      a.setText(out[1], `Γ_L = ${m.toFixed(3)} ∠ ${deg(ang).toFixed(1)}°,  WTG ${wtg(ang).toFixed(3)} λ`);
       a.setText(out[2], `SWR = ${m > 0.999 ? "∞" : ((1 + m) / (1 - m)).toFixed(2)}`);
+      a.setText(out[3], `y_L (opposite point) = ${fz(y)}`);
     });
     a.loop((t) => {
       if (!cur) return;
-      const u = Math.min(1, (t % 7) / 5), l = u * cur.l, a2 = cur.ang - 4 * Math.PI * l;
+      const u = Math.min(1, (t % 8) / 6), l = u * cur.l, a2 = cur.ang - 4 * Math.PI * l;
       const g = [cur.m * Math.cos(a2), cur.m * Math.sin(a2)];
       a.set(pt, { cx: P(g)[0], cy: P(g)[1] });
       let d = ""; for (let k = 0; k <= 60; k++) { const aa = cur.ang - (4 * Math.PI * l * k) / 60; const q = P([cur.m * Math.cos(aa), cur.m * Math.sin(aa)]); d += (k ? "L" : "M") + q[0].toFixed(1) + "," + q[1].toFixed(1); }
       a.set(arc, { d });
       const z = g2z(g);
-      a.setText(out[3], `after ${l.toFixed(3)} λ: z = ${Math.abs(z[0]) > 1e3 || !isFinite(z[0]) ? "∞ (open)" : `${z[0].toFixed(3)} ${z[1] >= 0 ? "+" : "−"} j${Math.abs(z[1]).toFixed(3)}`}`);
-      a.setText(out[4], cur.Z0 > 1 && isFinite(z[0]) && Math.abs(z[0]) < 1e3 ? `Z = ${(z[0] * cur.Z0).toFixed(1)} ${z[1] >= 0 ? "+" : "−"} j${Math.abs(z[1] * cur.Z0).toFixed(1)} Ω` : "");
+      a.setText(out[4], `after ${l.toFixed(3)} λ: z = ${fz(z)}`);
+      a.setText(out[5], `WTG ${wtg(a2).toFixed(3)} λ` + (cur.Z0 > 1 && isFinite(z[0]) && Math.abs(z[0]) < 1e3 ? ` · Z = ${(z[0] * cur.Z0).toFixed(1)} ${z[1] >= 0 ? "+" : "−"} j${Math.abs(z[1] * cur.Z0).toFixed(1)} Ω` : ""));
     });
   },
 });

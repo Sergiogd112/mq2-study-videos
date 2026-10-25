@@ -46,7 +46,7 @@ ol.chapters a.now .ct { color: #dbeafe; }
 
 article.notes { min-width: 0; max-width: 980px; }
 .toggles { font-size: 0.88rem; color: var(--mid); display: flex; gap: 1.2rem; }
-section.note { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1.1rem; margin: 0.9rem 0; scroll-margin-top: 3.6rem; }
+section.note { content-visibility: auto; contain-intrinsic-size: auto 650px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1.1rem; margin: 0.9rem 0; scroll-margin-top: 3.6rem; }
 section.note.now { border-color: var(--blue); box-shadow: 0 0 0 2px var(--blue-l); }
 section.note header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; }
 section.note h3 { margin: 0; font-size: 1.15rem; }
@@ -101,8 +101,38 @@ figure.fig figcaption { font-size: 0.86rem; color: #4b5563; margin-top: 0.35rem;
 .fig-play { font: inherit; font-size: 0.72rem; border: 1px solid var(--line); background: rgba(255,255,255,.9); border-radius: 6px; padding: 0.05rem 0.4rem; cursor: pointer; color: var(--mid); }
 .fig-err { color: #b91c1c; }
 
+.to-player { display: none; }
 @media (max-width: 960px) {
+  .to-player:not([hidden]) { display: block; position: fixed; right: 12px; bottom: 14px; z-index: 20; font: inherit; font-size: 0.95rem;
+    padding: 0.6rem 0.9rem; border-radius: 999px; border: none; background: var(--blue); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+  .speed button, .seek, .fig-buttons button, .fig-play { min-height: 40px; padding: 0.3rem 0.7rem; font-size: 0.9rem; }
+  ol.chapters a { padding: 0.55rem 0.7rem; }
+  .fig-slider input { width: 11rem; height: 28px; }
   main.lecture { grid-template-columns: 1fr; }
   aside.player { position: static; max-height: none; }
   ol.chapters { max-height: 14rem; }
+}
+
+/* native dark theme; figures keep a light canvas so the drawings stay legible */
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e5e7eb; --mid: #9ca3af; --line: #374151; --bg: #0f172a; --card: #111827; --blue-l: #1e293b; --yellow-l: #292524; }
+  body { color: var(--ink); background: var(--bg); }
+  a { color: #93c5fd; }
+  th { background: #1f2937; }
+  .ans { background: #052e1f; border-color: #065f46; }
+  .ans b { color: #6ee7b7; }
+  .drill details p { color: #6ee7b7; }
+  details.narr p { color: #d1d5db; }
+  .eqbox { background: #0b1220; border-color: #1e3a8a; }
+  .eqbox h4 { color: #93c5fd; }
+  .tile b { color: var(--ink); }
+  .statement { border-left-color: #ca8a04; }
+  .speed button, .seek { background: #1f2937; color: var(--ink); border-color: var(--line); }
+  .seek { color: #93c5fd; }
+  ol.chapters a.now .ct { color: #dbeafe; }
+  .vcard img { background: #1f2937; }
+  figure.fig { background: #ffffff; border-color: #374151; color: #1f2937; }
+  figure.fig figcaption, figure.fig .fig-controls, figure.fig code { color: #374151; }
+  figure.fig .fig-buttons button, figure.fig .fig-play { background: #fff; color: #1f2937; border-color: #d1d5db; }
+  figure.fig .fig-buttons button.on { background: #2563eb; color: #fff; border-color: #2563eb; }
 }

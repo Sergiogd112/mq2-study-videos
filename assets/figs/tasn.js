@@ -49,7 +49,7 @@ fig("globe", {
     a.circle(cx, cy, R, { fill: "#eff6ff", color: C.blue, width: 2 });
     const grid = a.g();
     const P = (lat, lon, lon0) => {
-      const x = Math.cos(lat) * Math.sin(lon - lon0), y1 = Math.sin(lat), z = Math.cos(lat) * Math.cos(lon - lon0);
+      const cl = Math.cos(lat), x = cl * Math.sin(lon - lon0), y1 = Math.sin(lat), z = cl * Math.cos(lon - lon0);
       const y = y1 * Math.cos(tilt) - z * Math.sin(tilt), zz = y1 * Math.sin(tilt) + z * Math.cos(tilt);
       return [cx + R * x, cy - R * y, zz];
     };
@@ -70,10 +70,11 @@ fig("globe", {
     a.text(pt.X(60) - 8, pt.Y(0.5) + 16, "60°: ½ nmi", { size: 12, color: C.orange, anchor: "end" });
     a.circle(pt.X(60), pt.Y(0.5), 4, { fill: C.orange, color: "none" });
     const latP = rad(41.4), lonP = rad(2.2);
+    const MER_LAT = Array.from({ length: 37 }, (_, k) => rad(-90 + k * 5)), PAR_LON = Array.from({ length: 61 }, (_, k) => rad(k * 6));
     a.loop((t) => {
       const lon0 = rad(-40) + Math.sin(t * 0.35) * rad(55);
-      mer.forEach((m, i) => { const lon = rad(i * 30); a.set(m, { d: seg(Array.from({ length: 73 }, (_, k) => P(rad(-90 + k * 2.5), lon, lon0))) }); });
-      par.forEach((m, i) => { const lat = rad([-60, -30, 0, 30, 60][i]); a.set(m, { d: seg(Array.from({ length: 121 }, (_, k) => P(lat, rad(k * 3), lon0))) }); });
+      mer.forEach((m, i) => { const lon = rad(i * 30); a.set(m, { d: seg(MER_LAT.map((la) => P(la, lon, lon0))) }); });
+      par.forEach((m, i) => { const lat = rad([-60, -30, 0, 30, 60][i]); a.set(m, { d: seg(PAR_LON.map((lo) => P(lat, lo, lon0))) }); });
       a.set(latArc, { d: seg(Array.from({ length: 30 }, (_, k) => P((latP * k) / 29, lonP, lon0))) });
       const [x, y, z] = P(latP, lonP, lon0);
       a.set(dot, { cx: x, cy: y, opacity: z > 0 ? 1 : 0.2 });
@@ -359,7 +360,8 @@ fig("phasor", {
       a.set(vec, { x2: x, y2: y });
       a.set(dot, { cx: pl.X(s), cy: pl.Y(st.A * Math.cos(th)) });
       a.set(proj, { x1: x, y1: y, x2: pl.X(s), y2: y });
-      a.set(ghost, { d: pl.d((u) => st.A * Math.cos(TAU * u + st.ph), 0, 2, 300) });
+      const key = st.A + ":" + st.ph;
+      if (ghost._k !== key) { ghost._k = key; a.set(ghost, { d: pl.d((u) => st.A * Math.cos(TAU * u + st.ph), 0, 2, 300) }); }
       a.set(tr, { d: pl.d((u) => st.A * Math.cos(TAU * u + st.ph), 0, s, 300) });
     });
   },
@@ -378,9 +380,13 @@ fig("fourier_square", {
     const bars = Array.from({ length: 13 }, (_, k) => { const n = 2 * k + 1; const h = 2 / Math.PI / n; /* two-sided |c_n| */ return a.line(sp.X(n), sp.Y(0), sp.X(n), sp.Y(h), { color: C.soft, width: 5 }); });
     a.text(650, 275, "harmonic n", { size: 12, anchor: "end", color: C.mid });
     const lab = a.text(60, 12, "", { size: 14, weight: 700, color: C.blue, anchor: "start" });
+    const cache = {};
+    let lastK = 0;
     a.loop((t) => {
       const K = 1 + (Math.floor(t / 0.9) % 13);
-      a.set(sum, { d: pl.d((x) => { let s = 0; for (let k = 1; k <= K; k++) s += Math.sin(TAU * (2 * k - 1) * x) / (2 * k - 1); return (4 / Math.PI) * s; }, 0, 2, 800) });
+      if (K === lastK) return;
+      lastK = K;
+      a.set(sum, { d: cache[K] || (cache[K] = pl.d((x) => { let s = 0; for (let k = 1; k <= K; k++) s += Math.sin(TAU * (2 * k - 1) * x) / (2 * k - 1); return (4 / Math.PI) * s; }, 0, 2, 500)) });
       bars.forEach((b, k) => a.set(b, { stroke: k < K ? C.blue : C.soft }));
       a.setText(lab, `${K} harmonic${K > 1 ? "s" : ""} (up to n = ${2 * K - 1})`);
     });
@@ -705,17 +711,16 @@ fig("keying", {
       FSK: (x, b) => Math.sin(TAU * (b ? 6 : 3) * x),
       PSK: (x, b) => Math.sin(TAU * 4 * x + Math.PI * (1 - b)),
     };
-    const paths = Object.keys(sig).map((n, r) => { a.text(20, 70 + r * 80, n, { size: 15, weight: 700, anchor: "start" }); return a.path("", { color: [C.blue, C.teal, C.orange][r], width: 2 }); });
-    const cur = a.line(0, 30, 0, 270, { color: C.red, width: 1.5 });
-    a.loop((t) => {
-      const end = ((t * 0.9) % 5.6);
-      Object.values(sig).forEach((f, r) => {
-        let d = "";
-        for (let i = 0; i <= Math.min(5, end) * 120; i++) { const x = i / 120, b = bits[Math.min(4, Math.floor(x))]; d += (d ? "L" : "M") + (x0 + x * bw).toFixed(1) + "," + (70 + r * 80 - 25 * f(x, b)).toFixed(1); }
-        a.set(paths[r], { d });
-      });
-      a.set(cur, { x1: x0 + Math.min(5, end) * bw, x2: x0 + Math.min(5, end) * bw });
+    const clipId = "kc" + Math.random().toString(36).slice(2, 7);
+    const cp = a.el("clipPath", { id: clipId }, a.el("defs", {})), clipRect = a.el("rect", { x: x0, y: 0, width: 0, height: 280 }, cp);
+    const gg = a.g({ "clip-path": `url(#${clipId})` });
+    Object.entries(sig).forEach(([n, f], r) => {
+      a.text(20, 70 + r * 80, n, { size: 15, weight: 700, anchor: "start" });
+      let d = ""; for (let i2 = 0; i2 <= 600; i2++) { const x = i2 / 120, bb = bits[Math.min(4, Math.floor(x))]; d += (d ? "L" : "M") + (x0 + x * bw).toFixed(1) + "," + (70 + r * 80 - 25 * f(x, bb)).toFixed(1); }
+      a.path(d, { color: [C.blue, C.teal, C.orange][r], width: 2, parent: gg });
     });
+    const cur = a.line(0, 30, 0, 270, { color: C.red, width: 1.5 });
+    a.loop((t) => { const xe = x0 + Math.min(5, (t * 0.9) % 5.6) * bw; a.set(clipRect, { width: (xe - x0).toFixed(1) }); a.set(cur, { x1: xe.toFixed(1), x2: xe.toFixed(1) }); });
   },
 });
 
@@ -959,19 +964,22 @@ fig("dipole_radiation", {
   init(a) {
     const cx = 200, cy = 150;
     a.line(cx, cy - 40, cx, cy - 4, { width: 4 }); a.line(cx, cy + 4, cx, cy + 40, { width: 4 });
-    const rings = Array.from({ length: 4 }, () => Array.from({ length: 36 }, () => a.set(a.path("", { color: C.blue, width: 3.5 }), { "stroke-linecap": "butt" })));
+    // each ring = 36 unit-radius arc segments with fixed opacity sin²θ, built once; per frame only the group's scale/opacity change
+    const rings = Array.from({ length: 4 }, () => {
+      const g = a.g();
+      for (let k = 0; k < 36; k++) {
+        const t0 = (k / 36) * TAU, t1 = ((k + 1) / 36) * TAU, th = (t0 + t1) / 2;
+        a.el("path", { d: `M${Math.sin(t0).toFixed(4)},${(-Math.cos(t0)).toFixed(4)} A1,1 0 0 1 ${Math.sin(t1).toFixed(4)},${(-Math.cos(t1)).toFixed(4)}`, fill: "none", stroke: C.blue, "stroke-width": 3.5, "stroke-linecap": "butt", "vector-effect": "non-scaling-stroke", opacity: (Math.sin(th) ** 2).toFixed(3) }, g);
+      }
+      return g;
+    });
     const pc = [520, 150], pr = 110;
     a.circle(...pc, pr, { color: C.soft, width: 1 }); a.circle(...pc, pr / 2, { color: C.faint, width: 1 });
     a.line(pc[0], pc[1] - pr - 10, pc[0], pc[1] + pr + 10, { color: C.mid, width: 1, dash: "3 3" });
     a.path(Array.from({ length: 181 }, (_, i) => { const th = rad(i * 2), r = pr * Math.sin(th) ** 2; return (i ? "L" : "M") + (pc[0] + r * Math.sin(th)) + "," + (pc[1] - r * Math.cos(th)); }).join(""), { color: C.orange, width: 3, fill: "#ffedd5" });
     a.text(pc[0], 20, "pattern t(θ) = sin²θ", { size: 14, weight: 700 });
     a.text(pc[0] + 8, pc[1] - pr - 4, "θ = 0 (axis): null", { size: 11, anchor: "start", color: C.mid });
-    a.loop((t) => {
-      rings.forEach((segs, j) => {
-        const r = ((t * 40 + j * 40) % 160) + 45;
-        segs.forEach((p, k) => { const t0 = (k / 36) * TAU, t1 = ((k + 1) / 36) * TAU, th = (t0 + t1) / 2; a.set(p, { d: `M${cx + r * Math.sin(t0)},${cy - r * Math.cos(t0)} A${r},${r} 0 0 1 ${cx + r * Math.sin(t1)},${cy - r * Math.cos(t1)}`, opacity: (Math.sin(th) ** 2) * (1 - (r - 45) / 160) }); });
-      });
-    });
+    a.loop((t) => rings.forEach((g, j) => { const r = ((t * 40 + j * 40) % 160) + 45; a.set(g, { transform: `translate(${cx},${cy}) scale(${r.toFixed(1)})`, opacity: (1 - (r - 45) / 160).toFixed(3) }); }));
   },
 });
 
