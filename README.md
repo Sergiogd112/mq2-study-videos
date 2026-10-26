@@ -8,6 +8,9 @@ vehicles (VA: pneumatic and hydraulic systems). Each video has a page with chapt
 notes that follow it chapter by chapter: bullet points, worked solutions, key equations in LaTeX, interactive
 and animated figures, and the full narration.
 
+Each exam also has a formula sheet (`formulas-<subject>.html`): LaTeX on the web, a two-page A4 PDF and an
+ASCII plain-text export in `sheets/`.
+
 Unofficial study material prepared by a student for exam revision. The narration is synthetic. Numbers were
 checked against the course solutions where they exist, but the course material and the lecturers are the
 reference. The figures in the notes are original schematic drawings; some slides in the videos reproduce

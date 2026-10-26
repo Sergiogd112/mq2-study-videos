@@ -142,3 +142,51 @@ figure.fig figcaption { font-size: 0.86rem; color: #4b5563; margin-top: 0.35rem;
   figure.fig .fig-buttons button, figure.fig .fig-play { background: #fff; color: #1f2937; border-color: #d1d5db; }
   figure.fig .fig-buttons button.on { background: #2563eb; color: #fff; border-color: #2563eb; }
 }
+
+/* formula sheets: two-column cards on the web; html.pdf is the compact A4 print layout (PDF export and Ctrl+P) */
+main.sheet { max-width: 1500px; margin: 0 auto; padding: 1.2rem 1.2rem 3rem; }
+main.sheet h1 small { display: block; font-size: 1rem; font-weight: 400; color: var(--mid); margin-top: 0.2rem; }
+.dl { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin: 0.6rem 0 1rem; }
+.btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0.35rem 0.9rem; border-radius: 8px; background: var(--blue); color: #fff !important; text-decoration: none; font-weight: 600; }
+.printhead { display: none; }
+.cols { column-count: 2; column-gap: 1.2rem; }
+section.sh { break-inside: auto; margin: 0 0 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.2rem 0.9rem 0.6rem; }
+.keep { break-inside: avoid; }
+section.sh h2 { break-inside: avoid; font-size: 1.05rem; margin: 0.6rem 0 0.3rem; color: var(--blue); break-after: avoid; }
+.fm { break-inside: avoid; border-bottom: 1px dashed var(--line); padding: 0.15rem 0; }
+.fm:last-child { border-bottom: none; }
+.fm .katex-display { margin: 0.35rem 0; overflow: hidden; }
+.fn { font-size: 0.82rem; color: var(--mid); margin: -0.15rem 0 0.3rem; }
+p.nt { font-size: 0.9rem; margin: 0.4rem 0; break-inside: avoid; }
+table.st { border-collapse: collapse; width: 100%; font-size: 0.84rem; margin: 0.4rem 0; break-inside: avoid; }
+table.st th, table.st td { border: 1px solid var(--line); padding: 0.2rem 0.4rem; text-align: left; vertical-align: top; }
+table.st th { background: var(--blue-l); }
+.sheets { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.8rem; margin: 0.6rem 0 1.4rem; }
+.scard { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.7rem 0.9rem; }
+.scard b { display: block; margin-bottom: 0.15rem; }
+.scard .small { display: block; margin-bottom: 0.4rem; }
+.scard a { margin-right: 0.8rem; }
+@media (max-width: 1000px) { .cols { column-count: 1; } }
+
+@page { size: A4; margin: 9mm; }
+html.pdf { background: #fff; }
+html.pdf body { background: #fff; color: #111; --ink: #111; --mid: #555; --line: #c8ccd2; --blue: #1d4ed8; --blue-l: #e8eefc; --card: #fff; }
+html.pdf header.top, html.pdf .dl, html.pdf .lead, html.pdf .disclaimer, html.pdf main.sheet h1 { display: none; }
+html.pdf main.sheet { width: 192mm; max-width: none; margin: 0; padding: 0; font-size: var(--pf, 8.4pt); line-height: 1.28; }
+html.pdf .printhead { display: block; font-size: 0.95em; font-weight: 600; margin: 0 0 1.2mm; padding-bottom: 0.8mm; border-bottom: 0.6pt solid #1d4ed8; color: #1d4ed8; }
+html.pdf .cols { column-count: 2; column-gap: 4.5mm; column-rule: 0.4pt solid #d5d9df; }
+html.pdf section.sh { border: none; border-radius: 0; padding: 0; margin: 0 0 1.6mm; background: none; }
+html.pdf section.sh h2 { font-size: 1.12em; margin: 0.6mm 0 0.6mm; padding: 0.3mm 1.2mm; background: #e8eefc; color: #1d4ed8; border-radius: 1mm; }
+html.pdf .fm { padding: 0.15mm 0; border-bottom: 0.3pt dashed #d5d9df; }
+html.pdf .fm .katex-display { margin: 0.5mm 0; }
+html.pdf .katex { font-size: 1.08em; }
+html.pdf .fn { font-size: 0.9em; margin: 0 0 0.4mm; color: #555; }
+html.pdf p.nt { font-size: 1em; margin: 0.6mm 0; }
+html.pdf table.st { font-size: 0.92em; margin: 0.6mm 0; }
+html.pdf table.st th, html.pdf table.st td { padding: 0.2mm 0.8mm; border-color: #c8ccd2; }
+html.pdf table.st th { background: #e8eefc; }
+@media print { header.top, .dl { display: none; } }
+@media (prefers-color-scheme: dark) {
+  section.sh h2 { color: #93c5fd; }
+  table.st th { background: #1f2937; }
+}

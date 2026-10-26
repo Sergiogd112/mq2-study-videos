@@ -1,0 +1,124 @@
+MQ2 PARTIAL EXAMS - RF FORMULA SHEET
+====================================
+220307 Sistemes de RF i Comunicacio
+Propagation, modulation, noise, linearity, lines and matching
+
+Scope: Exam 1: Unit 1 (RF propagation, modulation, noise, linearity) and Unit 2 (transmission lines,
+Smith chart, matching).
+Rules: Short problems, about one per topic: choose the formula, convert dB <-> linear correctly.
+Exam: Tue 3 Nov 2026, 15:00, TR5 2.3
+Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-rf.html
+
+Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
+~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
+Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
+beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+
+1. SPECTRUM AND PROPAGATION
+---------------------------
+* lambda = c / (f sqrt(eps_eff)),  c = 3e8 m/s
+  Band    | Range                  | Aviation use
+  --------+------------------------+-----------------------------------
+  LF / MF | 30-300 kHz / 0.3-3 MHz | NDB
+  HF      | 3-30 MHz               | oceanic voice (sky wave)
+  VHF     | 30-300 MHz             | VOR/ILS 108-118, voice 118-137 MHz
+  UHF     | 0.3-3 GHz              | DME, SSR, GPS (L band)
+  SHF     | 3-30 GHz               | radars
+- Ground wave 20 kHz-50 MHz (follows the Earth, less loss over sea, vertical pol.); space wave > 50
+  MHz (line of sight + ground reflection); sky wave HF (ionosphere). Ionosphere: D absorbs (day
+  only); E, F1, F2 reflect up to about 5, 10, 30 MHz.
+* NDB range [nmi] ~ 3 sqrt(P [W]) over sea, 2 sqrt(P [W]) over land
+* radio horizon: d [nmi] = 1.23 (sqrt(H_T [ft]) + sqrt(H_R [ft])),  1 ft = 0.3048 m
+    (4x higher -> 2x farther)
+* critical frequency: fc [Hz] = 9 sqrt(N [e/m^3]);  fc [MHz] = 9e-3 sqrt(N [e/cm^3])
+* MUF = fc / sin(theta) (theta = elevation);  OWF = 0.85 MUF;  MUF_day/MUF_night = sqrt(N_day/N_night) ~ 2
+    (LUF: lowest usable, set by D-layer absorption)
+- Reflection: obstacle >> lambda. Refraction: change of medium. Diffraction: edges (behind hills).
+  Scattering: obstacles << lambda (rain). Absorption peaks: H2O 22 and 183 GHz, O2 60 and 119 GHz
+  (60 GHz: secure short links); windows 35 and 94 GHz.
+
+2. MODULATION AND RECEIVERS
+---------------------------
+* AM: x_AM = A_C [1 + m x(t)] cos(2 pi f_C t),  m = A_m / A_C,  0 < m < 1
+* tone: carrier + two sidebands of m A_C / 2 at f_C -+ f_m;  B_DSB = 2 f_m (highest message frequency)
+* FM: x_FM = A_C cos[2 pi f_C t + k_f int x dt];  m_f = delta_f / f_m
+* Carson (98 % of the power): B_FM = 2 (delta_f + f_m) = 2 f_m (m_f + 1);  lines at f_C + n f_m with J_n(m_f)
+- ASK: '1' carrier, '0' nothing. FSK: f1 / f2. PSK: '0' shifts the phase 180 deg. FDM: frequency
+  slots (channel + guard band); TDM: time slots on the whole band. I/Q: bit pairs on cos and sin of
+  one carrier.
+* superhet: f_IF = |f_RF - f_LO|;  image on the other side of the LO: f_im = f_LO +- f_IF
+    (high-side LO: f_im = f_RF + 2 f_IF; low-side: f_im = f_RF - 2 f_IF; the RF filter must reject
+    it)
+
+3. DECIBELS
+-----------
+* G [dB] = 10 log(P2/P1);  dBm = dBW + 30;  dBuV = dBV + 120
+* voltages: 20 log(V2/V1) only across equal impedances; else 20 log(V2 sqrt(Z1) / (V1 sqrt(Z2)))
+- dB + dB = dB; dBm + dB = dBm; NEVER dBm + dBm: 30 dBm + 30 dBm = 2 W = 33 dBm. Cascade gain: G_T
+  [dB] = sum G_i - sum L_j.
+
+4. NOISE
+--------
+* V_n,rms = sqrt(4 k T B R);  available noise power N = k T B;  k = 1.38e-23 J/K
+* k T0 = 4.0e-21 W/Hz = -204 dBW/Hz = -174 dBm/Hz   (T0 = 290 K)
+* F = SNR_in / SNR_out >= 1;  NF = 10 log F;  Te = T0 (F - 1);  F = 1 + Te/T0;  N_o = k B G (T0 + Te)
+* Friis (LINEAR): F_T = F1 + (F2 - 1)/G1 + (F3 - 1)/(G1 G2) + ...
+    (passive lossy part at T0 with loss L: G = 1/L, F = L (NF [dB] = L [dB]))
+* output noise floor: N_o [dBm] = -174 + NF + 10 log B + G
+* sensitivity: P_min = k T0 B F SNR_min  ->  P_min [dBm] = -174 + NF + 10 log B + SNR_min
+    (improve it with a lower NF (LNA first), a narrower B, a more robust modulation)
+
+5. LINEARITY AND DYNAMIC RANGE
+------------------------------
+* v_o = a0 + a1 v_i + a2 v_i^2 + a3 v_i^3 + ...;  fundamental gain a1 + (3/4) a3 A^2 (compression if a3 < 0)
+- One tone: harmonics 2f0, 3f0 (filterable). Two tones: IM3 at 2f1 - f2 and 2f2 - f1, IN band. IM3
+  grows 3 dB per dB of input.
+* OIP3 = IIP3 + G;   1 dB CP ~ IIP3 - 9.6 dB
+* P_IM3,in = 3 P_in - 2 IIP3;   C/IM3 = 2 (IIP3 - P_in)   (dB, dBm)
+* cascade (LINEAR, mW, input-referred): 1/IIP3_T = 1/IIP3_1 + G1/IIP3_2 + G1 G2/IIP3_3 + ...
+    (convert OIP3 to IIP3 first; the dominant term is often a LATE stage)
+* DR_o = 1dBCP_o - N_o;   DR_i = 1dBCP_i - P_min;   1dBCP_i = 1dBCP_o - (G - 1)
+
+6. TRANSMISSION LINES
+---------------------
+* lambda_g = c / (f sqrt(eps_eff));  treat as a transmission line if l > ~ lambda_g/10
+* V(x) = V+ e^{-gamma x} + V- e^{gamma x};  gamma = sqrt((R + jwL)(G + jwC)) = alpha + j beta;  Z0 = sqrt((R + jwL)/(G + jwC))
+* lossless: Z0 = sqrt(L/C);  beta = w sqrt(LC) = 2 pi / lambda_g;  vp = 1/sqrt(LC);  Z0 = 1/(vp C) = L vp
+* Gamma_L = (Z_L - Z0)/(Z_L + Z0);   Gamma(-l) = Gamma_L e^{-j 2 beta l}
+* Z_in = Z0 (Z_L + j Z0 tan(beta l)) / (Z0 + j Z_L tan(beta l))   (repeats every lambda_g/2)
+* short: j Z0 tan(beta l);  open: -j Z0 cot(beta l);  lambda/4: Z0^2 / Z_L;  lambda/2: Z_L
+* SWR = Vmax/Vmin = (1 + |Gam|)/(1 - |Gam|);   |Gam| = (SWR - 1)/(SWR + 1)
+* P_r = |Gam|^2 P_in;  P_t = (1 - |Gam|^2) P_in;  RL = -20 log|Gam|;  IL = -10 log(P_t/P_in)
+    (SWR 1.5 -> |Gam| = 0.2, 4 % reflected, RL 14 dB; 10 % reflected = SWR 1.92 = RL 10 dB)
+
+7. COAXIAL CABLE
+----------------
+* Z0 = (138 / sqrt(eps_r)) log10(D/d)  (D outer, d inner);  VF = vp/c = 1/sqrt(eps_r)
+    (PE eps_r 2.3 -> VF 66 %; PTFE 2.1 -> 69 %)
+* C = 24.12 eps_r / log10(D/d) = 3326 sqrt(eps_r) / Z0  [pF/m];   Z0 = 1/(vp C) (quickest from a datasheet)
+* A = 1.43 R / Z0 + 9.15 sqrt(eps_r) f F  [dB/100 m];  R = 25.4 (1/d + 1/D) sqrt(f)
+    (d, D in mm; f in MHz; F = tan(delta))
+
+8. SMITH CHART AND S-PARAMETERS
+-------------------------------
+* z = Z/Z0 = (1 + Gam)/(1 - Gam);   Gam = (z - 1)/(z + 1);   y = 1/z = point opposite z (rotate lambda/4)
+- Centre: matched. Left: short (Gam = -1). Right: open (Gam = +1). Upper half inductive, lower
+  capacitive. Towards the generator: CLOCKWISE on the |Gam| circle, one turn = lambda_g/2 (2 beta l
+  = 720 deg per lambda). SWR = r where the circle cuts the right real axis. Normalise before, de-
+  normalise after.
+* [b1; b2] = [S11 S12; S21 S22] [a1; a2];  S_ij = b_i / a_j with all other ports matched (a_k = 0)
+    (a = V+/sqrt(Z0), b = V-/sqrt(Z0); RL = -20 log|S11|; gain or IL from |S21|^2)
+
+9. MATCHING
+-----------
+* R_L > Z0 (inside r = 1): shunt B at the load, then series X:
+      B = (X_L +- sqrt(R_L/Z0) sqrt(R_L^2 + X_L^2 - Z0 R_L)) / (R_L^2 + X_L^2)
+      X = 1/B + X_L Z0 / R_L - Z0 / (B R_L)
+* R_L < Z0 (outside r = 1): series X at the load, then shunt B:
+      X = +- sqrt(R_L (Z0 - R_L)) - X_L;    B = +- (1/Z0) sqrt((Z0 - R_L)/R_L)
+* X > 0: L = X/w;  X < 0: C = 1/(w|X|);   B > 0: C = B/w;  B < 0: L = 1/(w|B|)
+* quarter-wave transformer (real loads): Z1 = sqrt(Z0 Z_L), l = lambda_g/4;
+      bandwidth: df/f0 = 2 - (4/pi) acos[ Gm / sqrt(1 - Gm^2) * 2 sqrt(Z0 Z_L) / |Z_L - Z0| ]
+
+Unofficial revision sheet prepared by a student from the course material and the study videos; the
+course documents and the lecturers are the reference.

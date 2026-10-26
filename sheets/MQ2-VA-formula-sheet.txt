@@ -1,0 +1,146 @@
+MQ2 PARTIAL EXAMS - VA FORMULA SHEET
+====================================
+220306 Vehicles Aeroespacials
+A320 pneumatic (ATA 36) and hydraulic up to Green (ATA 29): numbers and logic
+
+Scope: Pneumatic system (whole deck) and hydraulic system up to the Green system included. The quiz
+tests one number or one cause and effect per statement, so this sheet is mostly numbers, defaults
+and logic.
+Rules: Quiz format: circle the true (or false) statements; older papers ask to explain the TLT, TCT
+or the crossbleed.
+Exam: Thu 5 Nov 2026, 15:00, TR5 2.3
+Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-va.html
+
+Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
+~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
+Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
+beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+
+1. PNEUMATIC: SOURCES, USERS, CONVENTIONS
+-----------------------------------------
+  Item                        | Value
+  ----------------------------+--------------------------------------------------------------------------------------
+  Engine bleed (high stages)  | 50-410 psi, 180-540 C (idle -> cruise)
+  Regulated bleed (reference) | 44 psi (PRV), 200 C (precooler loop)
+  Bleed ports                 | IP = HP stage 5 (normal, via IPCV); HP = HP stage 9 (idle, via HPV)
+  APU bleed                   | ground and flight up to 20 000 ft; feeds the LEFT side; valve opens at 95 % APU speed
+  Ground cart                 | lower LEFT fuselage connector, two-flap check valve; feeds the LEFT side
+  Hydraulic reservoirs        | 50 psi, from HP stage 8 of ENGINE 1 (deck drawing says 9: wrong)
+  MEL deferral                | B 3 days, C 10 days, D 120 days
+  Numbering                   | odd = left (1), even = right (2)
+- Users: packs and pressurisation (ATA 21), engine start, wing anti-ice (from slat 3, piccolo duct)
+  and engine anti-ice (ATA 30), hydraulic reservoirs (ATA 29), potable water (ATA 38), aft cargo
+  heating (engine 1).
+
+2. ENGINE BLEED VALVES
+----------------------
+  Valve           | Without pressure    | Numbers                                                     | Commanded by
+  ----------------+---------------------+-------------------------------------------------------------+-------------------------------------
+  IPCV (stage 5)  | check valve         | opens when stage 5 > downstream                             | pressure difference
+  HPV (stage 9)   | spring CLOSED       | >8 psi opens; regulates 36 +- 4 psi; CLOSED if stage 5 > 36 | pneumatic, slaved to PRV chamber C
+  PRV             | spring CLOSED       | >=8 psi fully open; regulates 44 +- 4 psi; fuse 450 C       | TLT sense line (solenoid: BMC / EEC)
+  OPV             | spring OPEN         | starts closing 74 psi, closed 90 psi (deck 73.8-89.9)       | own pistons
+  FAV (fan air)   | spring CLOSED       | loop holds 200 +- 15 C                                      | TCT signal air
+  X-BLEED         | electric, 2 motors  | AUTO: same position as the APU bleed valve                  | motor 1 BMCs (AUTO), motor 2 manual
+  APU bleed valve | solenoid controlled | + check valve against reverse flow                          | BMC via ECB
+- No bleed at all: HPV, PRV and FAV closed, only the OPV open. PRV closed => HPV closed, NOT the
+  reverse (cruise: HPV closed while the PRV regulates). Valves can only reduce pressure, never add
+  it.
+
+3. WHO REGULATES AT EACH POWER (STAGE-5 PRESSURE P5)
+----------------------------------------------------
+  p5                     | IPCV                    | HPV               | PRV                  | System gets
+  -----------------------+-------------------------+-------------------+----------------------+----------------------
+  < 36 psi (idle)        | closed (stage 9 higher) | regulates 36 +- 4 | fully open           | 36 psi
+  36-44 psi              | open                    | fully CLOSED      | fully open           | p5
+  > 44 psi (cruise)      | open                    | closed            | regulates 44 +- 4    | 44 psi
+  PRV fails high         |                         |                   | BMC closes at 57 psi | 0 (bleed off)
+  ... and solenoid fails |                         |                   |                      | OPV limits: 74-90 psi
+
+4. CLOSING THE PRV (AND WITH IT THE HPV)
+----------------------------------------
+- Manual: ENG BLEED pb OFF, ENG FIRE pb pushed (both energise the TLT solenoid).
+- BMC (electrical, TLT solenoid): > 57 psi after the PRV (Pr transmitter); > 257 C after the
+  precooler; leak detected; engine START sequence of that engine; APU BLEED selected (APU priority).
+- Pneumatic, inside the TLT: REVERSE flow (diaphragm: before-PRV vs after-precooler taps) -> closes;
+  over-temperature 235-245 C -> partial venting, PRV THROTTLES (does not shut).
+- PRV itself: upstream < 8 psi -> spring closes it; thermal fuse melts at 450 C.
+
+5. TEMPERATURE LADDER AFTER THE PRECOOLER
+-----------------------------------------
+  Temperature | Device                                    | Action
+  ------------+-------------------------------------------+----------------------------------------------
+  200 +- 15 C | TCT + FAV (pneumatic, continuous)         | fan air through the precooler regulates
+  235-245 C   | TLT probe                                 | bleeds the PRV sense line: PRV throttles back
+  257 C       | temperature sensor -> BMC -> TLT solenoid | PRV + HPV closed, ECAM caution
+  450 C       | PRV thermal fuse                          | vents the sense line: last resort
+- TCT: probe after the precooler (tube expands more than the inner rod). T < 200 C: vent closed,
+  chamber A full, needle valve closed, NO air to the FAV (FAV closed). T >= 200 C: vent opens,
+  needle valve opens, air to the FAV: proportional. Temperature is controlled ONLY by TCT, FAV,
+  sense line and precooler (not by the BMC).
+- Precooler (in the pylon): hot bleed inside the tubes, fan air outside then overboard: heat
+  exchange, no mixing.
+
+6. CROSSBLEED, APU AND ENGINE START
+-----------------------------------
+- X-BLEED AUTO opens (motor 1, either BMC) if: APU bleed valve OPEN + no ENG FIRE pb + no leak (a
+  leak during a start sequence is tolerated until the sequence ends). APU valve closes -> X-BLEED
+  closes. OPEN/SHUT: motor 2, fixed, independent of the APU.
+- APU bleed valve opens if: APU BLEED pb ON, APU FIRE pb not pushed, no APU-duct leak (tolerated on
+  ground until engines start), no APU shut-down signal, APU speed stabilised at 95 %. APU BLEED ON
+  closes both engine PRVs.
+- Start with APU air: APU BLEED ON -> APU valve and (AUTO) X-BLEED open -> START valve -> air
+  starter -> N2, N1. During its start the engine's PRV is held closed.
+- ENG FIRE pb: TLT solenoid -> PRV + HPV of that engine closed, X-BLEED (AUTO) cannot open;
+  hydraulic fire valve closes (ENG 1 Green, ENG 2 Yellow). APU FIRE pb: BMC refuses APU bleed. Two
+  agents per engine, one for the APU.
+
+7. COCKPIT AND COMPUTERS
+------------------------
+- Overhead: ENG BLEED dark = normal, white OFF, amber FAULT; APU BLEED blue ON; X-BLEED
+  AUTO/OPEN/SHUT. Dark cockpit: a light = abnormal or non-standard.
+- ECAM: class 1 RED (immediate action), class 2 AMBER (no immediate action), class 3 maintenance
+  only (MCDU). BMC 1/2 identical; SDAC -> FWC (alerts) + DMC (displays); CFDIU faults; EIU <- ECU;
+  ECB (APU).
+
+8. HYDRAULIC: THREE SYSTEMS
+---------------------------
+  System           | Pumps                                    | Notes
+  -----------------+------------------------------------------+--------------------------------------------------------------------
+  GREEN (main)     | EDP on ENG 1                             | most users, biggest reservoir; fills ALL reservoirs (service panel)
+  YELLOW           | EDP on ENG 2 + electric pump + hand pump | hand pump: cargo doors without power
+  BLUE (emergency) | electric pump + RAT                      | RAT also drives the CSM/G
+- All 3000 psi, fully independent (own reservoir, pumps, pipes). PTU = hydraulic motor + pump on one
+  shaft: transfers POWER Green <-> Yellow (no fluid) when dp > 500 psi, pb AUTO. PTU inhibited
+  during engine start and cargo-door operation with the Yellow electric pump (and pb OFF).
+- Ailerons: Blue + Green. Elevators: left Green + Blue, right Blue + Yellow. Green users: gear and
+  doors, nose-wheel steering, normal brakes, reverser ENG 1, flap/slat motors, THS, rudder, yaw
+  damper, spoilers, aileron, elevator. Yellow: alternate brakes, reverser ENG 2, cargo doors. Blue:
+  emergency generator, slats.
+
+9. HYDRAULIC NUMBERS (GREEN)
+----------------------------
+  Item                     | Value
+  -------------------------+-------------------------------------------------------------------------
+  System pressure          | 3000 psi (EDP variable displacement, swashplate)
+  PTU threshold            | dp > 500 psi
+  Reservoir air            | 50 psi (3.5 bar); LO AIR PRESS < 22 psi (Green, Yellow), < 30 psi (Blue)
+  Green reservoir          | 18 l max, 14 l normal, LOW LEVEL at 3 l (capacitive sensor)
+  Pump LO pressure         | < 1740 psi
+  Manifold pressure switch | 1450 psi (to ELAC, SEC, FAC, BSCU, ECAM): normal brakes lost below
+  Relief valve             | opens 3500 psi, closes 3200 psi
+  Filters                  | HP and case drain clog at 87 psi dp; return filter 29 psi
+  Accumulator              | N2 1885 psi at 20 C, 1 l (steel + Kevlar)
+  Pipe band number         | 1 Green, 2 Blue, 3 Yellow; black dots = pressure line
+* accumulator (isothermal N2, ABSOLUTE pressures = gauge + 14.7 psi): p V = p0 V0;
+      V_fluid = V0 (1 - p0,abs/p_abs) = 1 (1 - 1899.7/3014.7) = 0.37 l
+- Priority valve: low pressure -> cuts heavy users (gear, doors, steering, flap/slat motors) to keep
+  the primary flight controls. Leak-measurement valve: normally OPEN, isolates the primary flight
+  control users (tail: THS motor, rudder, yaw damper; each wing: aileron servo, spoilers 1 and 5)
+  for internal-leak tests.
+- Fire valve: LH pylon, electric motor, closed by ENG 1 FIRE pb. ECAM HYD: pump in line green =
+  delivering; LO amber < 1740 psi; system label amber when low; RAT automatic on electrical loss or
+  RAT MAN ON (guarded).
+
+Unofficial revision sheet prepared by a student from the course material and the study videos; the
+course documents and the lecturers are the reference.

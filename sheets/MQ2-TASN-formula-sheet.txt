@@ -1,0 +1,130 @@
+MQ2 PARTIAL EXAMS - TASN FORMULA SHEET
+======================================
+220309 Transport Aeri i Sistemes de Navegacio
+Air navigation, signals, data and antennas
+
+Scope: Sistemes de Navegacio part (Barlabe): navigation up to A/D and D/A conversion; passband
+signals excluded.
+Rules: The partial allows a scientific calculator only (no tables, no formula sheet): use this to
+revise and to rewrite from memory.
+Exam: Thu 29 Oct 2026, 15:00, TR5 2.3
+Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-tasn.html
+
+Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
+~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
+Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
+beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+
+1. EARTH, UNITS AND ANGLES
+--------------------------
+* 1 nmi = 1852 m ~ 1 minute of great-circle arc;  1 deg = 60 nmi;  1 kt = 1 nmi/h
+* along a meridian: d [nmi] = dLat [arc minutes];  along a parallel: d [nmi] = dLon [arc minutes] * cos(lat)
+* drift = track - heading;  true = magnetic + D
+    (D > 0 if magnetic north is EAST of true north; runways and VOR radials are magnetic)
+- Angles clockwise from north, three digits (090 = east, 270 = west). Heading: where the nose
+  points. Track: path over the ground. Bearing: direction of an object from north; relative bearing:
+  from the aircraft axis. Radial: direction away from the beacon.
+- Loxodrome (rhumb line): constant heading, straight on Mercator. Orthodrome (great circle):
+  shortest, about straight on Lambert.
+
+2. WIND TRIANGLE
+----------------
+* V_ground = V_air + V_wind;   wind TO = wind FROM + 180 deg
+    (air vector: heading and TAS; ground vector: track and GS)
+* Vx = V*sin(theta) (east);  Vy = V*cos(theta) (north);  theta = atan2(Vx, Vy)
+    (fix the quadrant from the signs of Vx and Vy)
+* sine law: a/sin(A) = b/sin(B) = c/sin(C);   cosine law: c^2 = a^2 + b^2 - 2ab*cos(C)
+* WCA = asin( Vw*sin(theta_w,to - theta_trk) / TAS );   heading = track - WCA
+    (heading to fly for a desired track: crab INTO the wind)
+* GS = TAS*cos(WCA) + Vw*cos(theta_w,to - theta_trk)
+* interception: (V_I t)^2 = d^2 + (V_T t)^2 - 2 d V_T t cos(gamma);   sin(alpha) = (V_T/V_I) sin(gamma)
+    (gamma: angle between the target track and the line of sight; alpha: lead angle)
+* speed = distance / time (convert minutes to hours)
+
+3. SIGNALS
+----------
+* mean <x> = (1/T0) int x dt;  Pm = (1/T0) int x^2 dt;  rms = sqrt(Pm);  E = int x^2 dt (all time)
+* A cos(2 pi f0 t): mean 0, Pm = A^2/2, rms = A/sqrt(2)
+* A cos(2 pi f0 t + phi) = (A/2) e^{+j(2 pi f0 t + phi)} + (A/2) e^{-j(2 pi f0 t + phi)}
+    (two-sided spectrum: two lines of A/2 at +f0 and -f0)
+* -A cos(x) = A cos(x + 180 deg);   A sin(x) = A cos(x - 90 deg)
+* Fourier series: x = sum c_n e^{j 2 pi n f0 t};  c_n = (1/T0) int x e^{-j 2 pi n f0 t} dt;  c_0 = mean;  Parseval: Pm = sum |c_n|^2
+* square wave +-1: x(t) = (4/pi) sum_k sin((2k-1) 2 pi f0 t) / (2k-1)   (odd harmonics only)
+* pulse train (A, tau, T): c_n = (A tau/T) sinc(n tau/T);  sinc(x) = sin(pi x)/(pi x)
+    (lines every 1/T, first zero of the envelope at f = 1/tau, mean = A tau/T)
+* rect pulse A*rect(t/tau) <-> A tau sinc(f tau);   Rayleigh: E = int |x|^2 dt = int |X(f)|^2 df
+* DFT: X_k = sum_{n=0}^{N-1} x_n e^{-j 2 pi k n / N}
+    (FFT = fast algorithm for the DFT, about N log2 N operations instead of N^2)
+
+4. SYSTEMS AND MODULATION
+-------------------------
+* LTI: Y(f) = X(f) H(f);  y = x * h = int x(l) h(t-l) dl;  h(t) = inverse FT of H(f)  (delta in -> h out)
+* ideal low-pass, gain K, bandwidth B: h(t) = 2 B K sinc(2 B t)  (shifted by t0 if delayed)
+* no distortion: y = K x(t - t0) <=> H = K e^{-j 2 pi f t0};  phase delay tp = -arg(H)/(2 pi f);  group delay tg = -(1/2pi) d arg(H)/df
+- |H| not flat -> amplitude distortion; phase not linear in f -> phase distortion (both linear, can
+  be equalised). Bandwidth: range where |H| is flat, usually to -3 dB.
+* DSB: x(t) cos(2 pi f0 t) <-> (1/2)[X(f - f0) + X(f + f0)]   (band [-B, B] -> width 2B around +-f0)
+* cos^2(w0 t) = 1/2 + (1/2) cos(2 w0 t)
+    (non-linear systems create NEW frequencies: harmonics n*f0, intermodulation +-k f1 +- l f2)
+- Needed bandwidth: voice 300-3400 Hz (3.1 kHz), video 5 MHz, digital r symbols/s needs at least r/2
+  Hz.
+
+5. NOISE, DECIBELS, CAPACITY
+----------------------------
+* N = k T B, k = 1.38e-23 J/K (T in kelvin, B in Hz);  at 290 K: N [dBm] = -174 + 10 log10(B)
+* G [dB] = 10 log(P2/P1);  P [dBm] = 10 log(P / 1 mW);  S/N [dB] = S [dBm] - N [dBm]
+- x2 = 3 dB, x4 = 6 dB, x10 = 10 dB.  0 dBm = 1 mW, 30 dBm = 1 W, -30 dBm = 1 uW, -60 dBm = 1 nW,
+  -90 dBm = 1 pW. Free space: doubling the distance costs 6 dB (S/N 20 dB -> 14 dB).
+* Hartley-Shannon: C = B log2(1 + S/N) [bit/s]   (S/N linear!)
+    (e.g. 25 kHz, 30 dB: C = 249.2 kbit/s)
+
+6. DATA TRANSMISSION AND A/D
+----------------------------
+* r_s,max = 2B [baud];  r_b = r_s log2(M) = n r_s [bit/s];  M = 2^n levels
+- Same S/N and baud: more levels -> more errors. Error probability: PSK < FSK < ASK. Binary
+  synchronous r_b = r_s; asynchronous r_b < r_s (start/stop); M-ary r_b > r_s.
+* block code of minimum distance d: detects d-1 errors, corrects floor((d-1)/2)
+    (parity: detects 1, corrects 0;  Hamming (7,4): d = 3, corrects 1)
+- Line codes: NRZ/RZ, unipolar/bipolar. AMI: no DC, but long zero runs lose sync; HDB3 replaces 4
+  zeros; Manchester: transition mid-bit, no DC, easy sync, more bandwidth.
+- A/D: anti-aliasing filter -> sampler (Ts = 1/fs) -> quantizer -> coder. D/A: decoder + low-pass
+  filter.
+* sampled spectrum: Xs(f) = fs sum_k X(f - k fs);   Nyquist: fs >= 2W (overlap = aliasing)
+* L = 2^N levels;  step = Vpp / 2^N;  Tb = Ts / N;  r_b = fs * N
+* voice: 8 kHz x 8 bit = 64 kbit/s (256 levels);  CD: 44.1 kHz, 16 bit;  SQNR ~ 6.02 N + 1.76 dB
+    (SQNR is the standard full-scale-sine result, not in the course notes)
+
+7. WAVES AND PROPAGATION
+------------------------
+* lambda = c/f;  eta = sqrt(mu/eps) = 377 ohm in vacuum;  vp = 1/sqrt(mu eps);  k = w/vp;  n = sqrt(eps_r)
+* reflection: theta_r = theta_i;   Snell: n1 sin(theta_i) = n2 sin(theta_t)   (angles from the NORMAL)
+- Polarization (tip of E): components in phase -> linear; 90 deg apart -> elliptical; 90 deg and
+  equal amplitude -> circular. Diffraction: wave bends round obstacles (Huygens).
+
+8. ANTENNAS AND LINK BUDGET
+---------------------------
+* Friis: P_L = P_T D_T D_R (lambda / (4 pi R))^2 * prod(c_i)    (LINEAR units: W, m;  0 < c_i <= 1)
+* power density S = P_T D_T / (4 pi R^2);  P_L = S A_ef;  A_ef = lambda^2 D / (4 pi)
+* P_L [dBm] = P_T [dBm] + D_T + D_R - L_fs + sum c_i [dB]  (c_i <= 0 dB, ADDED);  L_fs = 20 log(4 pi R / lambda)
+* R_max = (lambda/4pi) sqrt(P_T D_T D_R / P_L,min);   R = (lambda/4pi) 10^(L_fs/20)
+* dish of diameter d with 70 % aperture efficiency: A_ef = 0.7 pi d^2 / 4  ->  d = sqrt(4 A_ef / (0.7 pi))
+* normalised pattern t = D(theta,phi)/D;  G = e D;  NLPS = 0 dB - (largest secondary lobe)
+    (beamwidth at -3 dB and between nulls; front-to-back: main lobe vs lobe at 180 deg)
+* Z_ant = R_rad + R_ohm + jX_ant;  V_ant = l_ef E (open circuit);  A_ef = eta l_ef^2 / (4 R_ant), eta = 377 ohm
+- Isotropic: equal in all space (ideal). Omnidirectional: equal in one plane. Reciprocity: same
+  pattern in Tx and Rx. Dipole lambda/2, monopole lambda/4: at 127.5 MHz lambda = 2.35 m -> 1.18 m /
+  59 cm.
+
+9. DEFINITIONS ASKED AGAIN AND AGAIN
+------------------------------------
+  Term                                | Meaning
+  ------------------------------------+-----------------------------------------------------------------
+  Simplex / half-duplex / full-duplex | one way / both ways, one at a time (pilot-ATC) / both at once
+  Point to point / broadcast / radar  | 1 Tx to 1 Rx / few Tx, many Rx (NDB, GPS) / Tx and Rx together
+  Topologies                          | bus, ring, star, tree (bus of buses), hybrid
+  Telecommunication (ITU)             | transmission of information by electromagnetic means
+  Modem                               | converts low-pass digital to band-pass digital and back
+  Crosstalk                           | one line's information leaks into another line of the same cable
+
+Unofficial revision sheet prepared by a student from the course material and the study videos; the
+course documents and the lecturers are the reference.
