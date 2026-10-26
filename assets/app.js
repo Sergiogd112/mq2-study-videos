@@ -12,6 +12,14 @@
   const behavior = () => (reduceMotion && reduceMotion.matches ? "auto" : "smooth");
   let cur = -1;
 
+  /* Jump to a section instantly, then re-align once: lazily built figures and content-visibility estimates can change
+     the layout while a smooth scroll is in flight, which made long smooth scrolls land far from the target. */
+  const goTo = (el) => {
+    el.scrollIntoView({ block: "start" });
+    const y = window.scrollY;
+    setTimeout(() => { if (Math.abs(window.scrollY - y) < 2) el.scrollIntoView({ block: "start" }); }, 400);
+  };
+
   /* The video uses preload="none": nothing is downloaded until the reader asks for it. A seek requested before the
      metadata exists is kept and applied as soon as it arrives. */
   let pending = null;
@@ -26,7 +34,7 @@
     el.addEventListener("click", (e) => {
       e.preventDefault();
       seek(+el.dataset.t);
-      if (el.closest(".chapters")) document.getElementById(el.getAttribute("href").slice(1)).scrollIntoView({ behavior: behavior(), block: "start" });
+      if (el.closest(".chapters")) goTo(document.getElementById(el.getAttribute("href").slice(1)));
     }));
 
   /* Keep the current chapter visible inside the chapter list only: never scroll the page for it. */
@@ -42,7 +50,7 @@
     notes[i].classList.add("now");
     chap[i].classList.add("now");
     revealInList(chap[i]);
-    if (follow && follow.checked && !vid.paused) notes[i].scrollIntoView({ behavior: behavior(), block: "start" });
+    if (follow && follow.checked && !vid.paused) goTo(notes[i]);
   };
   vid.addEventListener("timeupdate", () => {
     const t = vid.currentTime;

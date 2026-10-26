@@ -16,6 +16,14 @@ const fmt = (x, n = 1) => (Math.abs(x) >= 1e4 ? x.toFixed(0) : x.toFixed(n)).rep
 
 function fig(name, spec) { FIGS[name] = spec; }
 
+/* Text on the white figure canvas uses darker shades of the light diagram colours (≥ 4.5:1 contrast);
+   strokes and fills keep the original colours. */
+const TEXT_INK = {
+  [C.amber]: "#b45309", [C.orange]: "#c2410c", [C.yellow]: "#a16207", [C.green]: "#15803d", [C.teal]: "#0f766e",
+  [C.sky]: "#0369a1", [C.lime]: "#15803d", [C.cold]: "#1d4ed8", [C.hot]: "#c2410c", [C.metal]: "#4b5563",
+  [C.soft]: "#6b7280", [C.steel]: "#4b5563", [C.rose]: "#be123c",
+};
+
 /* Build the drawing API for one figure. */
 function makeApi(holder, spec, rec) {
   const svg = document.createElementNS(NS, "svg");
@@ -40,7 +48,7 @@ function makeApi(holder, spec, rec) {
       return e;
     },
     /* Attribute writes are cached per element: unchanged values cost nothing (most frames change only a few). */
-    set(e, attrs) { const c = e._c || (e._c = {}); for (const k in attrs) { const v = attrs[k]; if (c[k] !== v) { c[k] = v; e.setAttribute(k, v); } } return e; },
+    set(e, attrs) { const c = e._c || (e._c = {}); for (const k in attrs) { let v = attrs[k]; if (k === "fill" && e.tagName === "text" && TEXT_INK[v]) v = TEXT_INK[v]; if (c[k] !== v) { c[k] = v; e.setAttribute(k, v); } } return e; },
     g(attrs = {}, parent) { return api.el("g", attrs, parent); },
     within(group, fn) { const prev = cur; cur = group; fn(); cur = prev; return group; },
     marker(color) {
@@ -68,7 +76,7 @@ function makeApi(holder, spec, rec) {
     },
     /* Text with light markup: x_1, x_{12}, x^2, x^{-1}. */
     text(x, y, str, o = {}) {
-      const t = api.el("text", { x, y, "font-size": o.size || 15, "text-anchor": o.anchor || "middle", fill: o.color || C.ink, "font-weight": o.weight, "font-style": o.italic ? "italic" : undefined, "dominant-baseline": o.base || "middle", transform: o.rotate ? `rotate(${o.rotate} ${x} ${y})` : undefined, opacity: o.opacity }, o.parent);
+      const t = api.el("text", { x, y, "font-size": o.size || 15, "text-anchor": o.anchor || "middle", fill: TEXT_INK[o.color] || o.color || C.ink, "font-weight": o.weight, "font-style": o.italic ? "italic" : undefined, "dominant-baseline": o.base || "middle", transform: o.rotate ? `rotate(${o.rotate} ${x} ${y})` : undefined, opacity: o.opacity }, o.parent);
       api.setText(t, str);
       return t;
     },

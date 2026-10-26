@@ -1,7 +1,7 @@
 /* VA figures: A320 pneumatic (ATA 36) and hydraulic up to the Green system (ATA 29). */
 "use strict";
 
-const ECAM = { bg: "#0b1220", green: "#22c55e", amber: "#f59e0b", white: "#e5e7eb", cyan: "#22d3ee", blue: "#60a5fa" };
+const ECAM = { bg: "#0b1220", green: "#22c55e", amber: "#fbbf24", white: "#e5e7eb", cyan: "#22d3ee", blue: "#60a5fa" };
 
 /* Valve symbol: circle with a bar in line (open) or across (closed). */
 function valveSym(a, x, y, r, horizontal = true, col = C.ink) {
