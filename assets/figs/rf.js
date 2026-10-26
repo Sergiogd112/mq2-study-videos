@@ -519,20 +519,54 @@ fig("tline_wave", {
 });
 
 fig("rlgc_ladder", {
-  title: "The RLGC model: a line is a ladder of tiny sections", w: 680, h: 230,
-  caption: "Each Δz of line has series R·Δz (conductor loss) and L·Δz, and shunt G·Δz (dielectric loss) and C·Δz. Cascading infinitely many gives the telegrapher's equations; lossless (R = G = 0): Z₀ = √(L/C), v_p = 1/√(LC).",
+  title: "The RLGC model: a line is a ladder of tiny sections", w: 700, h: 360,
+  caption: "Each Δz of line has series R·Δz (conductor loss) and L·Δz, and shunt G·Δz (dielectric loss) and C·Δz, with R, L, G, C per unit length. A wave v, i ∝ cos(ωt − βz) travels to the right. Ladder: the current (purple) flows along the upper conductor and returns along the lower one, the voltage (red + and −) sits across each shunt pair, and the current drawn through C·Δz and G·Δz is why i differs from one section to the next. Below, the same wave on the real line (side view): the electric field E (red) runs from the + to the − conductor and stores the energy modelled by C; the magnetic field H (blue, ⊗ into the page, ⊙ out of it) circles the currents and stores the energy modelled by L. E and H stay in phase and S = E × H always points along +z: the power travels with the wave. Letting Δz → 0 gives the telegrapher's equations and Z₀ = √((R + jωL)/(G + jωC)); lossless (R = G = 0): Z₀ = √(L/C), v_p = 1/√(LC). Δz is drawn long for clarity: the model needs Δz ≪ λ.",
   init(a) {
-    const top = 60, bot = 180;
-    for (let k = 0; k < 3; k++) {
-      const x = 40 + k * 205;
+    const top = 60, bot = 180, z0 = 40, z1 = 655, lam = 600;
+    const secs = [0, 1, 2].map((k) => z0 + k * 205);
+    secs.forEach((x) => {
       Parts.resistor(a, x, top, x + 60, "RΔz"); Parts.inductor(a, x + 60, top, x + 130, "LΔz"); a.line(x + 130, top, x + 205, top);
-      a.line(x + 150, top, x + 150, top + 30); Parts.resistorV(a, x + 150, top + 30, bot - 10, ""); a.text(x + 132, top + 70, "GΔz", { size: 13, anchor: "end" });
-      a.line(x + 185, top, x + 185, top + 30); Parts.capacitorV(a, x + 185, top + 30, bot - 10, "CΔz"); a.line(x + 150, bot - 10, x + 150, bot); a.line(x + 185, bot - 10, x + 185, bot);
+      a.line(x + 145, top, x + 145, top + 30); Parts.resistorV(a, x + 145, top + 30, bot - 10, ""); a.text(x + 129, top + 70, "GΔz", { size: 13, anchor: "end" });
+      a.line(x + 190, top, x + 190, top + 30); Parts.capacitorV(a, x + 190, top + 30, bot - 10, "CΔz"); a.line(x + 145, bot - 10, x + 145, bot); a.line(x + 190, bot - 10, x + 190, bot);
       a.line(x, bot, x + 205, bot);
-      a.line(x, 205, x + 205, 205, { color: C.mid, width: 1, arrow: true, arrow2: true }); a.text(x + 102, 220, "Δz", { size: 12, color: C.mid });
-    }
-    const f = Parts.flowDots(a, [[30, top], [655, top]], { color: C.orange, gap: 26, speed: 60 });
-    a.loop((t) => f(t));
+      a.line(x, 212, x + 205, 212, { color: C.mid, width: 1, arrow: true, arrow2: true }); a.text(x + 102, 226, "Δz", { size: 12, color: C.mid });
+    });
+    [top, bot].forEach((y) => { a.circle(z0, y, 3.5, { fill: C.bg }); a.text(z1 + 13, y, "⋯", { size: 16, color: C.mid }); });
+    const arr = (color) => a.line(0, 0, 0, 0, { color, width: 2.2, arrow: true });
+    const iTop = secs.map(() => arr(C.purple)), iBot = secs.map(() => arr(C.purple));
+    const plus = secs.map((x) => a.text(x + 167, 100, "", { size: 20, weight: 700, color: C.red }));
+    const minus = secs.map((x) => a.text(x + 167, 160, "", { size: 20, weight: 700, color: C.red }));
+    // the physical line, side view: E between the conductors, H through the page
+    const ya = 262, yb = 332, ym = (ya + yb) / 2;
+    a.text(z0, 246, "the same wave on the line (side view)", { size: 12, color: C.mid, anchor: "start" });
+    a.rect(z0, ya - 8, z1 - z0, 8, { fill: C.steel, color: C.metal, width: 1 }); a.rect(z0, yb, z1 - z0, 8, { fill: C.steel, color: C.metal, width: 1 });
+    a.text(z0 - 8, ym - 12, "E", { size: 14, weight: 700, color: C.red, anchor: "end" }); a.text(z0 - 8, ym + 12, "H", { size: 14, weight: 700, color: C.blue, anchor: "end" });
+    a.text(z1 + 4, 246, "S = E × H →", { size: 12, weight: 700, color: C.ink, anchor: "end" });
+    const eX = Array.from({ length: 16 }, (_, k) => z0 + 20 + k * 40), hX = eX.slice(0, -1).map((x) => x + 20);
+    const eArr = eX.map(() => arr(C.red));
+    const hSym = hX.map((x) => ({ ring: a.circle(x, ym, 0, { color: C.blue, width: 1.8 }), dot: a.circle(x, ym, 0, { fill: C.blue, color: "none" }),
+      c1: a.line(0, 0, 0, 0, { color: C.blue, width: 1.8 }), c2: a.line(0, 0, 0, 0, { color: C.blue, width: 1.8 }) }));
+    const along = (el, cx, y, s, half) => (Math.abs(s) < 0.28 ? a.set(el, { opacity: 0 }) : a.set(el, { opacity: 1, x1: cx - half * s, x2: cx + half * s, y1: y, y2: y }));
+    let alpha = 0;
+    a.buttons(["lossless", "lossy (R, G > 0)"], (i) => { alpha = i ? Math.log(2.5) / (z1 - z0) : 0; });
+    a.loop((t) => {
+      const v = (x) => Math.exp(-alpha * (x - z0)) * Math.cos(t * 2.2 - (TAU * (x - z0)) / lam);  // i = v/Z0: same shape, in phase
+      secs.forEach((x, k) => {
+        along(iTop[k], x + 65, top + 18, v(x + 65), 30);
+        along(iBot[k], x + 65, bot + 13, -v(x + 65), 30);
+        const s = v(x + 167), o = Math.min(1, Math.abs(s) * 1.4).toFixed(2);
+        a.setText(plus[k], s >= 0 ? "+" : "−"); a.setText(minus[k], s >= 0 ? "−" : "+");
+        a.set(plus[k], { opacity: o }); a.set(minus[k], { opacity: o });
+      });
+      // v > 0: upper conductor positive, E points down; i > 0 (upper current along +z): H into the page between the conductors
+      eX.forEach((x, k) => { const s = v(x); if (Math.abs(s) < 0.15) a.set(eArr[k], { opacity: 0 }); else a.set(eArr[k], { opacity: 1, x1: x, x2: x, y1: ym - 30 * s, y2: ym + 30 * s }); });
+      hX.forEach((x, k) => {
+        const s = v(x), r = Math.abs(s) < 0.15 ? 0 : 3 + 5 * Math.abs(s), q = r * 0.6, h = hSym[k];
+        a.set(h.ring, { r: r.toFixed(2) }); a.set(h.dot, { r: s > 0 || !r ? 0 : (r * 0.35).toFixed(2) });
+        const cross = s > 0 && r > 0;
+        a.set(h.c1, { opacity: cross ? 1 : 0, x1: x - q, y1: ym - q, x2: x + q, y2: ym + q }); a.set(h.c2, { opacity: cross ? 1 : 0, x1: x - q, y1: ym + q, x2: x + q, y2: ym - q });
+      });
+    });
   },
 });
 
