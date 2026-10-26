@@ -127,7 +127,7 @@ fig("rhumb_gc", {
 });
 
 fig("heading_track", {
-  title: "Heading, track and drift (problem 1.1)", w: 640, h: 330,
+  title: "Heading, track and drift (problem 1.1)", w: 640, h: 345,
   caption: "The nose points along the heading (045) but the wind from 360 pushes the aircraft, so it moves along the track (054): the aircraft flies crabbed. Drift is the angle between heading and track.",
   init(a) {
     const cx = 200, cy = 175, R = 140;
@@ -339,13 +339,13 @@ fig("topologies", {
 
 fig("phasor", {
   title: "A rotating phasor draws a cosine", w: 680, h: 260,
-  caption: "A cos(2πf₀t + φ) is the real part of the phasor A e^{j(2πf₀t + φ)}: a vector of length A turning at f₀. Its projection on the real axis traces the cosine.",
+  caption: "A cos(2πf₀t + φ) is the real part of the phasor A e^{j(2πf₀t + φ)}: a vector of length A turning counter-clockwise at f₀. Its projection on the real axis traces the cosine. The complex plane is drawn turned by 90° (real axis UP, imaginary axis to the LEFT) so that the real part is the height of the tip and lines up with the plot.",
   init(a) {
     // complex plane drawn with the real axis pointing UP, so the height of the tip is Re{·} = x(t)
     const cx = 130, cy = 130, R = 90;
     a.circle(cx, cy, R, { color: C.soft });
-    a.line(cx - R - 15, cy, cx + R + 15, cy, { color: C.mid, width: 1 }); a.line(cx, cy - R - 15, cx, cy + R + 15, { color: C.mid, width: 1 });
-    a.text(cx + 14, cy - R - 12, "Re", { size: 12, color: C.mid }); a.text(cx - R - 14, cy - 10, "Im", { size: 12, color: C.mid });
+    a.arrow(cx + R + 15, cy, cx - R - 18, cy, C.mid, 1.2); a.arrow(cx, cy + R + 15, cx, cy - R - 18, C.mid, 1.2);  // +Im to the left, +Re up
+    a.text(cx + 8, cy - R - 14, "Re", { size: 12, color: C.mid, anchor: "start" }); a.text(cx - R - 16, cy - 12, "Im", { size: 12, color: C.mid });
     const vec = a.arrow(cx, cy, cx, cy - R, C.blue, 3.5), proj = a.line(0, 0, 0, 0, { color: C.orange, width: 1.5, dash: "4 3" });
     const pl = a.plot(270, 40, 380, 180, [0, 2], [-1.2, 1.2]);
     pl.axes("t (periods)", "x(t)", { xAt: 0 });
@@ -588,7 +588,7 @@ fig("shannon", {
   caption: "C = B log₂(1 + S/N). Capacity grows linearly with bandwidth only if S/N stays fixed; with white noise N = kTB grows with B too, so doubling B gives less than double C (ex. 3.10).",
   init(a) {
     const p = a.plot(60, 30, 330, 200, [0, 40], [0, 14]);
-    p.axes("S/N (dB)", "C/B (bit/s/Hz)", {});
+    p.axes("S/N (dB)", "C/B (bit/s/Hz)", { below: true });
     p.curve((x) => Math.log2(1 + 10 ** (x / 10)), { color: C.blue, width: 3 });
     for (let k = 0; k <= 40; k += 10) a.text(p.X(k), p.Y(0) + 16, k, { size: 11, color: C.mid });
     for (let k = 0; k <= 14; k += 2) a.text(p.X(0) - 8, p.Y(k), k, { size: 11, color: C.mid, anchor: "end" });
@@ -740,7 +740,7 @@ fig("ad_chain", {
       const ws = [[35, 155], [195, 315], [355, 475], [515, 635]];
       ws.forEach(([p, q], i) => {
         let d = "";
-        if (i === 0) for (let x = p; x <= q; x++) d += (d ? "L" : "M") + x + "," + (170 - 40 * (sig((x - p) / 120 + ph) + 0.15 * Math.sin(x * 1.7))).toFixed(1);
+        if (i === 0) for (let x = p; x <= q; x++) d += (d ? "L" : "M") + x + "," + (170 - 40 * sig((x - p) / 120 + ph)).toFixed(1);  // the LPF output: smooth, nothing above W
         else if (i === 1) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = sig(k / 12 + ph); d += `M${x},170 L${x},${(170 - 40 * v).toFixed(1)}`; }
         else if (i === 2) for (let k = 0; k < 12; k++) { const x = p + k * 10, v = qv(qi(sig(k / 12 + ph))); d += `M${x},${(170 - 40 * v).toFixed(1)} L${x + 10},${(170 - 40 * v).toFixed(1)}`; }
         else for (let k = 0; k < 36; k++) { const w = 10 / 3, x = p + k * w, v = (qi(sig(Math.floor(k / 3) / 12 + ph)) >> (2 - (k % 3))) & 1; d += (d ? "L" : "M") + x.toFixed(1) + "," + (185 - v * 30) + " L" + (x + w).toFixed(1) + "," + (185 - v * 30); } /* 3 bits per sample: T_b = T_s/3 */
@@ -753,7 +753,7 @@ fig("ad_chain", {
 
 fig("sampling", {
   title: "Sampling and aliasing", w: 680, h: 320,
-  caption: "Sampling at f_s repeats the spectrum every f_s. If the signal frequency f exceeds f_s/2 the samples are indistinguishable from a lower 'alias' frequency (orange) and the original cannot be recovered: sample at f_s ≥ 2W.",
+  caption: "Sampling at f_s repeats the spectrum every f_s: below, the original line (blue) and its copies at k·f_s ± f (purple); dashed lines mark f_s/2, 3f_s/2 … If the signal frequency f exceeds f_s/2 a copy lands below f_s/2 and the samples are indistinguishable from that lower 'alias' frequency (orange, in both plots): the original cannot be recovered. Sample at f_s ≥ 2W.",
   init(a) {
     const p = a.plot(40, 30, 600, 150, [0, 1], [-1.3, 1.3]);
     a.line(40, p.Y(0), 640, p.Y(0), { color: C.soft, width: 1 });
@@ -764,6 +764,7 @@ fig("sampling", {
     a.text(650, 305, "frequency (Hz)", { size: 11, anchor: "end", color: C.mid });
     const lines = Array.from({ length: 40 }, () => a.line(0, 0, 0, 0, { color: C.blue, width: 3 }));
     const fsL = Array.from({ length: 4 }, () => a.line(0, 0, 0, 0, { color: C.soft, width: 1, dash: "3 3" }));
+    const nyq = a.text(0, 222, "f_s/2", { size: 11, color: C.mid });
     const read = a.text(630, 22, "", { size: 14, anchor: "end", weight: 700 });
     const st = { f: 3, fs: 10 };
     const upd = () => {
@@ -775,8 +776,9 @@ fig("sampling", {
       let i = 0;
       lines.forEach((l) => a.set(l, { opacity: 0 }));
       const kmin = Math.floor(-f / fs) - 1, kmax = Math.ceil((40 + f) / fs) + 1; // every replica that can land in 0–40 Hz
-      for (let k = kmin; k <= kmax; k++) for (const s of [-1, 1]) { const fr = k * fs + s * f; if (fr >= 0 && fr <= 40 && i < lines.length) { const orig = k === 0 && s === 1; a.set(lines[i], { x1: sp.X(fr), x2: sp.X(fr), y1: sp.Y(0), y2: sp.Y(orig ? 1 : 0.7), stroke: orig ? C.blue : C.purple, opacity: 1 }); i++; } }
+      for (let k = kmin; k <= kmax; k++) for (const s of [-1, 1]) { const fr = k * fs + s * f; if (fr >= 0 && fr <= 40 && i < lines.length) { const orig = k === 0 && s === 1; a.set(lines[i], { x1: sp.X(fr), x2: sp.X(fr), y1: sp.Y(0), y2: sp.Y(orig ? 1 : 0.7), stroke: orig ? C.blue : f > fs / 2 && fr <= fs / 2 ? C.orange : C.purple, opacity: 1 }); i++; } }
       fsL.forEach((l, k) => a.set(l, { x1: sp.X((k + 0.5) * fs), x2: sp.X((k + 0.5) * fs), y1: 230, y2: 290, opacity: (k + 0.5) * fs <= 40 ? 1 : 0 }));
+      a.set(nyq, { x: sp.X(fs / 2) });
       a.setText(read, f > fs / 2 ? `f = ${f} Hz > f_s/2: alias at ${fa.toFixed(1)} Hz` : `f = ${f} Hz ≤ f_s/2 = ${fs / 2}: no aliasing`);
     };
     a.slider("signal f (Hz)", 0.5, 18, 0.5, 3, (v) => { st.f = v; upd(); });
@@ -796,7 +798,7 @@ fig("quantizer", {
     a.text(40, 207, "error x − x_q (same amplitude units as the signal, full scale ±1)", { size: 12, anchor: "start", color: C.mid });
     const err = a.path("", { color: C.red, width: 1.6 });
     const read = a.text(636, 30, "", { size: 14, anchor: "end", weight: 700 });
-    const sig = (t) => 0.95 * Math.sin(TAU * t) * Math.cos(TAU * 0.3 * t) + 0.04;
+    const sig = (t) => 0.98 * Math.sin(TAU * t);  // a full-scale sine, the case the SQNR formula is for
     a.slider("bits N", 1, 6, 1, 3, (N) => {
       const L = 2 ** N, D = 2 / L;
       while (lv.firstChild) lv.removeChild(lv.firstChild);
@@ -814,23 +816,24 @@ fig("quantizer", {
 /* ------------------------------------------------------------------ propagation */
 fig("plane_wave", {
   title: "A plane electromagnetic wave", w: 680, h: 280,
-  caption: "E (red) and H (blue) are perpendicular to each other and to the direction of propagation k; their ratio is the intrinsic impedance η = √(μ/ε) (377 Ω in vacuum). The pattern travels at v = 1/√(με).",
+  caption: "E (red) and H (blue) are perpendicular to each other and to the direction of propagation k, and IN PHASE: both peak at the same z. Here E points up and H towards you (drawn down-left), so E × H points along k. Their ratio is the intrinsic impedance η = √(μ/ε) (377 Ω in vacuum); the pattern travels at v = 1/√(με).",
   init(a) {
-    const ox = 60, oy = 150, L = 560;
-    const iso = (z, y, x) => [ox + z + x * 0.55, oy - y - x * 0.35];
+    const ox = 100, oy = 140, L = 520, A = 80;
+    // oblique view: z to the right, y up, x out of the page drawn down-left (shallow enough that the H curve never folds back)
+    const iso = (z, y, x) => [ox + z - x * 0.42, oy - y + x * 0.3];
     a.arrow(...iso(0, 0, 0), ...iso(L + 30, 0, 0), C.ink, 2); a.text(...iso(L + 40, 10, 0), "k", { size: 16, weight: 700 });
-    a.arrow(...iso(0, 0, 0), ...iso(0, 110, 0), C.red, 1.5); a.text(...iso(-12, 112, 0), "E", { size: 15, color: C.red, weight: 700 });
-    a.arrow(...iso(0, 0, 0), ...iso(0, 0, 120), C.blue, 1.5); a.text(...iso(-14, 0, 128), "H", { size: 15, color: C.blue, weight: 700 });
+    a.arrow(...iso(0, 0, 0), ...iso(0, 105, 0), C.red, 1.5); a.text(...iso(-12, 108, 0), "E", { size: 15, color: C.red, weight: 700 });
+    a.arrow(...iso(0, 0, 0), ...iso(0, 0, 100), C.blue, 1.5); a.text(...iso(-10, -16, 100), "H (towards you)", { size: 13, color: C.blue, weight: 700, anchor: "start", halo: true, front: true });
     const Ev = Array.from({ length: 40 }, () => a.line(0, 0, 0, 0, { color: C.red, width: 1.4, opacity: 0.7 }));
     const Hv = Array.from({ length: 40 }, () => a.line(0, 0, 0, 0, { color: C.blue, width: 1.4, opacity: 0.7 }));
     const Ec = a.path("", { color: C.red, width: 2.5 }), Hc = a.path("", { color: C.blue, width: 2.5 });
     a.loop((t) => {
-      const ph = t * 3;
+      const ph = t * 3, v = (z) => Math.sin(z / 45 - ph);  // E and H: the same phase
       let de = "", dh = "";
-      for (let i = 0; i <= 200; i++) { const z = (i / 200) * L, v = Math.sin(z / 45 - ph); const [x1, y1] = iso(z, 90 * v, 0), [x2, y2] = iso(z, 0, 90 * v); de += (i ? "L" : "M") + x1.toFixed(1) + "," + y1.toFixed(1); dh += (i ? "L" : "M") + x2.toFixed(1) + "," + y2.toFixed(1); }
+      for (let i = 0; i <= 200; i++) { const z = (i / 200) * L; const [x1, y1] = iso(z, A * v(z), 0), [x2, y2] = iso(z, 0, A * v(z)); de += (i ? "L" : "M") + x1.toFixed(1) + "," + y1.toFixed(1); dh += (i ? "L" : "M") + x2.toFixed(1) + "," + y2.toFixed(1); }
       a.set(Ec, { d: de }); a.set(Hc, { d: dh });
-      Ev.forEach((l, i) => { const z = (i / 40) * L, v = Math.sin(z / 45 - ph); const [x0, y0] = iso(z, 0, 0), [x1, y1] = iso(z, 90 * v, 0); a.set(l, { x1: x0, y1: y0, x2: x1, y2: y1 }); });
-      Hv.forEach((l, i) => { const z = (i / 40) * L, v = Math.sin(z / 45 - ph); const [x0, y0] = iso(z, 0, 0), [x1, y1] = iso(z, 0, 90 * v); a.set(l, { x1: x0, y1: y0, x2: x1, y2: y1 }); });
+      Ev.forEach((l, i) => { const z = (i / 40) * L; const [x0, y0] = iso(z, 0, 0), [x1, y1] = iso(z, A * v(z), 0); a.set(l, { x1: x0, y1: y0, x2: x1, y2: y1 }); });
+      Hv.forEach((l, i) => { const z = (i / 40) * L; const [x0, y0] = iso(z, 0, 0), [x1, y1] = iso(z, 0, A * v(z)); a.set(l, { x1: x0, y1: y0, x2: x1, y2: y1 }); });
     });
   },
 });
@@ -1058,13 +1061,13 @@ fig("antenna_circuit", {
     a.text(42, 66, "E", { size: 13, color: C.red, anchor: "start", weight: 700 });
     a.arrow(85, 90, 130, 90, C.ink, 2); a.text(108, 76, "≡", { size: 20 });
     const y0 = 70, y1 = 200;
-    Parts.source(a, 170, 135, 20); a.text(170, 175, "V_ant = l_ef E", { size: 13 });
+    Parts.source(a, 170, 135, 20); a.text(150, 178, "V_ant = l_ef E", { size: 13, anchor: "end" });
     a.line(170, 115, 170, y0); a.line(170, 155, 170, y1);
     Parts.resistor(a, 170, y0, 270, "R_rad"); Parts.resistor(a, 270, y0, 360, "R_Ω"); Parts.inductor(a, 360, y0, 450, "jX_ant");
     a.line(450, y0, 540, y0); a.line(170, y1, 540, y1);
     Parts.resistorV(a, 540, y0, y1, "Z_L (receiver)");
     a.rect(160, 40, 300, 60, { dash: "5 4", color: C.blue, width: 1.5 }); a.text(310, 30, "Z_ant = R_rad + R_Ω + jX_ant", { size: 13, color: C.blue, weight: 700 });
-    const f = Parts.flowDots(a, [[170, y0], [540, y0], [540, y1], [170, y1], [170, y0]], { color: C.orange, gap: 30, speed: 50 });
+    const f = Parts.flowDots(a, [[170, y0], [540, y0], [540, y1], [170, y1], [170, y0]], { color: C.orange, gap: 30, ac: 22 });  // AC: the charges oscillate
     a.loop((t) => f(t));
   },
 });

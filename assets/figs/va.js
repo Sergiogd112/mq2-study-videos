@@ -70,13 +70,13 @@ fig("engine_bleed", {
   init(a) {
     a.rect(30, 230, 260, 90, { r: 10, fill: "#e2e8f0", color: C.mid }); a.text(160, 300, "HP compressor", { size: 13, weight: 700 });
     for (let k = 0; k < 9; k++) a.line(45 + k * 28, 240, 45 + k * 28, 280, { color: C.metal, width: 3 });
-    a.text(101, 222, "stage 5 (IP)", { size: 12 }); a.text(269, 222, "stage 9 (HP)", { size: 12 });
+    a.text(101, 222, "stage 5 (IP)", { size: 12, halo: true, front: true }); a.text(269, 222, "stage 9 (HP)", { size: 12, halo: true, front: true });
     const dIP = a.path("M101,230 L101,150 L330,150", { color: C.soft, width: 8 }), dHP = a.path("M269,230 L269,190 L330,190 L330,150", { color: C.soft, width: 8 });
     const dJ = a.path("M330,150 L640,150 L640,60", { color: C.soft, width: 8 });
     const vIP = valveSym(a, 101, 185, 12, false), vHP = valveSym(a, 300, 190, 12, true), vPRV = valveSym(a, 400, 150, 13, true), vOPV = valveSym(a, 480, 150, 13, true);
     a.text(80, 185, "IPCV", { size: 11, anchor: "end" }); a.text(300, 172, "HPV 36", { size: 11 }); a.text(400, 128, "PRV 44", { size: 11, weight: 700 }); a.text(480, 128, "OPV", { size: 11 });
     a.rect(540, 125, 60, 50, { r: 6, fill: "#e0f2fe", color: C.blue }); a.text(570, 150, "PCE", { size: 11 }); a.text(570, 190, "precooler", { size: 10, color: C.mid });
-    a.text(650, 54, "to the manifold", { size: 11, anchor: "start" });
+    a.text(716, 54, "to the manifold", { size: 11, anchor: "end" });
     const pTxt = { p5: a.text(101, 336, "", { size: 12, color: C.purple, weight: 700 }), p9: a.text(269, 336, "", { size: 12, color: C.purple, weight: 700 }), out: a.text(650, 100, "", { size: 16, weight: 700, anchor: "start" }) };
     const flows = { ip: Parts.flowDots(a, [[101, 230], [101, 150], [330, 150]], { color: C.orange, gap: 22, speed: 50 }), hp: Parts.flowDots(a, [[269, 230], [269, 190], [330, 190], [330, 150]], { color: C.red, gap: 22, speed: 50 }), j: Parts.flowDots(a, [[330, 150], [640, 150], [640, 60]], { color: C.orange, gap: 22, speed: 60 }) };
     const notes = [a.note(""), a.note("")];
@@ -154,8 +154,9 @@ fig("prv_closure", {
     a.path("M360,40 L420,40 Q470,170 420,300 L360,300 Q400,170 360,40 z", { fill: "#f8fafc", color: C.ink }); a.text(405, 170, "OR", { size: 16, weight: 700 });
     for (let k = 0; k < 10; k++) a.line(330, 50 + k * 26, 372 + Math.sin((k / 9) * Math.PI) * 12, 50 + k * 26, { color: C.soft, width: 1 });
     a.line(462, 170, 520, 170, { width: 2.5, arrow: true });
+    [[140, 22], [220, 18]].forEach(([y, r]) => { a.line(530, y, 570 - r, y, { color: C.steel, width: 8 }); a.line(570 + r, y, 604, y, { color: C.steel, width: 8 }); });  // pipe stubs
     const vP = valveSym(a, 570, 140, 22, true), vH = valveSym(a, 570, 220, 18, true);
-    a.text(610, 140, "PRV", { size: 15, weight: 700, anchor: "start" }); a.text(605, 220, "HPV (slaved)", { size: 13, anchor: "start" });
+    a.text(612, 140, "PRV", { size: 15, weight: 700, anchor: "start" }); a.text(612, 220, "HPV (slaved)", { size: 13, anchor: "start" });
     const out = a.text(570, 290, "", { size: 15, weight: 700 });
     const upd = () => { const closed = Object.values(state).some(Boolean); vP(!closed, closed ? C.red : C.green); vH(!closed, closed ? C.red : C.green); a.setText(out, closed ? "PRV + HPV CLOSED" : "PRV regulating 44 psi"); a.set(out, { fill: closed ? C.red : C.green }); };
     upd();
@@ -269,9 +270,11 @@ fig("xbleed_logic", {
     items1.forEach(([k, l]) => { svgToggle(a, 30, y + 14, l, s[k], (v) => { s[k] = v; upd(); }); y += 26; });
     y += 18; a.text(20, y, "crossbleed (AUTO) conditions", { size: 13, weight: 700, anchor: "start", color: C.blue }); y += 4;
     items2.forEach(([k, l]) => { svgToggle(a, 30, y + 14, l, s[k], (v) => { s[k] = v; upd(); }); y += 26; });
+    // pipe stubs so the symbol reads: bar along the pipe = open, across = shut
+    [90, 240].forEach((y) => { a.line(418, y, 446, y, { color: C.steel, width: 8 }); a.line(494, y, 508, y, { color: C.steel, width: 8 }); });
     const vA = valveSym(a, 470, 90, 24, true), vX = valveSym(a, 470, 240, 24, true);
-    a.text(510, 90, "APU bleed valve", { size: 14, weight: 700, anchor: "start" }); a.text(510, 240, "X-BLEED valve", { size: 14, weight: 700, anchor: "start" });
-    const tA = a.text(510, 114, "", { size: 12, anchor: "start" }), tX = a.text(510, 264, "", { size: 12, anchor: "start" }), why2 = a.note("");
+    a.text(516, 90, "APU bleed valve", { size: 14, weight: 700, anchor: "start" }); a.text(516, 240, "X-BLEED valve", { size: 14, weight: 700, anchor: "start" });
+    const tA = a.text(516, 114, "", { size: 12, anchor: "start" }), tX = a.text(516, 264, "", { size: 12, anchor: "start" }), why2 = a.note("");
     a.path("M470,114 L470,216", { color: C.mid, width: 1.5, dash: "4 4" }); a.text(478, 165, "AUTO: follows", { size: 11, anchor: "start", color: C.mid });
     const upd = () => {
       const apu = s.apuSel && s.apu95 && !s.apuFire && !s.apuShut && !s.apuLeak;
@@ -639,17 +642,18 @@ fig("priority_valve", {
   init(a) {
     a.rect(140, 90, 360, 60, { r: 8, fill: "#f8fafc", color: C.ink });
     const spool = a.rect(0, 96, 120, 48, { r: 6, fill: C.steel, color: C.ink }); const spr = a.path("", { color: C.ink, width: 2 });
-    a.path("M40,120 L140,120", { color: C.green, width: 10 }); a.text(40, 108, "Green supply", { size: 12, anchor: "start" });
-    a.path("M320,150 L320,230", { color: C.green, width: 10 }); a.text(330, 236, "heavy users: gear, doors, NWS, slat/flap motors", { size: 12, anchor: "start" });
+    a.path("M40,120 L140,120", { color: C.green, width: 10 }); a.text(40, 142, "Green supply", { size: 12, anchor: "start" });
+    // the heavy-user port sits between the supply end and the spool: open when pressure pushes the spool right, covered as it slides left
+    a.path("M200,150 L200,230", { color: C.green, width: 10 }); a.text(210, 236, "heavy users: gear, doors, NWS, slat/flap motors", { size: 12, anchor: "start" });
     a.path("M90,120 L90,40 L620,40", { color: C.green, width: 8 }); a.text(620, 30, "primary flight controls (always)", { size: 12, anchor: "end", weight: 700 });
-    const heavy = Parts.flowDots(a, [[320, 150], [320, 230]], { color: C.green, gap: 18, speed: 50 });
-    const pfc = Parts.flowDots(a, [[90, 120], [90, 40], [620, 40]], { color: C.green, gap: 22, speed: 60 });
+    const heavy = Parts.flowDots(a, [[200, 150], [200, 230]], { color: "#065f46", gap: 18, speed: 50 });
+    const pfc = Parts.flowDots(a, [[90, 120], [90, 40], [620, 40]], { color: "#065f46", gap: 22, speed: 60 });
     const out = a.text(600, 130, "", { size: 15, weight: 700 });
     let open = 1;
     a.text(360, 252, "illustrative opening law: the course gives no thresholds for this valve", { size: 11, color: C.mid });
     a.slider("Green pressure (relative to normal)", 0.2, 1, 0.01, 1, (v) => {
       open = clamp((v - 0.45) / 0.25, 0, 1);
-      const x = 200 + open * 120 - 60; a.set(spool, { x });
+      const x = 160 + open * 100; a.set(spool, { x });  // open = 1: spool face at 260, port at 200 clear; open = 0: spool over the port
       let d = `M${x + 120},120`; for (let k = 0; k < 8; k++) d += ` L${x + 120 + ((500 - x - 120) * (k + 0.5)) / 8},${k % 2 ? 136 : 104}`; d += " L500,120"; a.set(spr, { d });
       heavy.show(open > 0.05);
       a.setText(out, open > 0.95 ? "all users fed" : open > 0.05 ? "heavy users throttled" : "heavy users CUT"); a.set(out, { fill: open > 0.95 ? C.green : open > 0.05 ? C.amber : C.red });

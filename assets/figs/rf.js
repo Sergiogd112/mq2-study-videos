@@ -207,8 +207,8 @@ fig("txrx_chain", {
     a.text(380, y2 + 32, "LNA", { size: 12, color: C.blue });
     a.circle(470, y2 + 50, 12, { fill: C.bg }); a.text(470, y2 + 50, "LO", { size: 10 }); a.line(470, y2 + 38, 470, y2 + 16);
     [[398, 454], [486, 525], [605, 615]].forEach(([p, q]) => a.arrow(p, y2, q, y2, C.ink, 1.6));
-    const f1 = Parts.flowDots(a, [[20, y1], [400, y1], [400, y1 - 40]], { color: C.orange, gap: 40, speed: 70 });
-    const f2 = Parts.flowDots(a, [[300, y2 - 40], [300, y2], [690, y2]], { color: C.blue, gap: 40, speed: 70 });
+    const f1 = Parts.flowDots(a, [[20, y1], [400, y1], [400, y1 - 40]], { color: C.orange, gap: 40, speed: 70, under: true });
+    const f2 = Parts.flowDots(a, [[300, y2 - 40], [300, y2], [690, y2]], { color: C.blue, gap: 40, speed: 70, under: true });
     a.loop((t) => { f1(t); f2(t); });
   },
 });
@@ -298,7 +298,7 @@ fig("fdm_tdm", {
 
 fig("iq_modulator", {
   title: "I/Q modulation (QPSK)", w: 680, h: 280,
-  caption: "The bit stream is split into pairs: one bit drives the in-phase carrier cos ω_Ct, the other the quadrature carrier −sin ω_Ct (the same LO shifted +90°): I cos ω_Ct − Q sin ω_Ct = A cos(ω_Ct + φ) with φ = atan2(Q, I). Their sum is a carrier whose phase takes four values: the four points of the constellation.",
+  caption: "The bit stream is split into pairs: one bit drives the in-phase carrier cos ω_C t, the other the quadrature carrier −sin ω_C t (the same LO shifted +90°): I cos ω_C t − Q sin ω_C t = A cos(ω_C t + φ) with φ = atan2(Q, I). Their sum is a carrier whose phase takes four values: the four points of the constellation.",
   init(a) {
     Parts.box(a, 60, 140, 80, 44, "bits →\npairs");
     Parts.mixer(a, 200, 80, 16); Parts.mixer(a, 200, 200, 16);
@@ -451,15 +451,15 @@ fig("intermod", {
     p.axes("frequency", "output (dBm)", {});
     for (let d = -80; d <= 0; d += 20) a.text(36, p.Y(d), d, { size: 10, anchor: "end", color: C.mid });
     const f1 = 1.0, f2 = 1.1;
-    const comps = [[f1, 1, "f₁"], [f2, 1, "f₂"], [2 * f1 - f2, 3, "2f₁−f₂"], [2 * f2 - f1, 3, "2f₂−f₁"], [2 * f1, 2, "2f₁"], [f1 + f2, 2, "f₁+f₂"], [2 * f2, 2, "2f₂"], [3 * f1, 3, "3f₁"], [3 * f2, 3, ""], [f2 - f1, 2, "f₂−f₁"]];
+    const comps = [[f1, 1, "f₁"], [f2, 1, "f₂"], [2 * f1 - f2, 3, "2f₁−f₂"], [2 * f2 - f1, 3, "2f₂−f₁"], [2 * f1, 2, "2f₁"], [f1 + f2, 2, "f₁+f₂"], [2 * f2, 2, "2f₂"], [3 * f1, 3, "3f₁"], [2 * f1 + f2, 3, ""], [f1 + 2 * f2, 3, ""], [3 * f2, 3, "3f₂"], [f2 - f1, 2, "f₂−f₁"]];
     const L = comps.map(([f, o, n]) => [a.line(p.X(f), p.Y(-90), p.X(f), p.Y(-90), { color: o === 1 ? C.blue : o === 3 && f < 1.5 ? C.red : C.mid, width: 5 }), a.text(p.X(f), 0, n, { size: 10, color: o === 3 && f < 1.5 ? C.red : C.mid }), o]);
     a.rect(p.X(0.85), 30, p.X(1.25) - p.X(0.85), 200, { fill: C.blue, color: "none", opacity: 0.07 });
-    a.text(p.X(1.05), 222, "receiver band", { size: 11, color: C.blue });
+    a.text(p.X(1.05), 248, "receiver band", { size: 11, color: C.blue });
     const read = a.note("");
     a.slider("input level per tone (dBm)", -40, 0, 1, -20, (pin) => {
       const G = 20, IIP3 = 5, IIP2 = 25;
       L.forEach(([l, t, o]) => { const lvl = o === 1 ? pin + G : o === 3 ? 3 * pin - 2 * IIP3 + G : 2 * pin - IIP2 + G; a.set(l, { y2: p.Y(Math.max(-90, lvl)) }); a.set(t, { y: p.Y(Math.max(-90, lvl)) - 10 }); });
-      read.textContent = `G = 20 dB, IIP3 = +5 dBm: wanted ${pin + G} dBm, IM3 ${3 * pin - 2 * IIP3 + G} dBm → C/IM3 = 2(IIP3 − P_in) = ${2 * (IIP3 - pin)} dB`;
+      read.innerHTML = richHTML(`G = 20 dB, IIP3 = +5 dBm: wanted ${pin + G} dBm, IM3 ${3 * pin - 2 * IIP3 + G} dBm → C/IM3 = 2(IIP3 − P_in) = ${2 * (IIP3 - pin)} dB`);
     });
   },
 });
@@ -469,7 +469,7 @@ fig("ip3_plot", {
   caption: "Exam problem 10 amplifier: G = 13 dB, output 1 dB CP = 20 dBm (so input 1 dB CP = 8 dBm), IIP3 ≈ 8 + 9.6 = 17.6 dBm, OIP3 = 30.6 dBm. The fundamental has slope 1 and compresses; IM3 has slope 3; their straight-line extensions cross at IP3, which the real device never reaches.",
   init(a) {
     const p = a.plot(60, 20, 560, 260, [-30, 25], [-60, 40]);
-    p.axes("P_in (dBm)", "P_out (dBm)", {});
+    p.axes("P_in (dBm)", "P_out (dBm)", { below: true });
     for (let d = -30; d <= 25; d += 10) a.text(p.X(d), 296, d, { size: 10, color: C.mid });
     for (let d = -60; d <= 40; d += 20) a.text(56, p.Y(d), d, { size: 10, color: C.mid, anchor: "end" });
     const G = 13, IIP3 = 17.6, Pc = 13.87;
@@ -477,16 +477,16 @@ fig("ip3_plot", {
     const im3 = (x) => 3 * x - 2 * IIP3 + G;
     p.curve((x) => x + G, { color: C.blue, width: 1.5, dash: "5 4" });
     p.curve(fund, { color: C.blue, width: 3 });
-    p.curve((x) => im3(x), { color: C.red, width: 1.5, dash: "5 4" });
-    p.curve((x) => im3(x) - 10 * Math.log10(1 + 10 ** ((x - Pc) / 10)) * 3, { color: C.red, width: 3, b: 25 });
+    p.curve((x) => im3(x), { color: C.red, width: 1.5, dash: "5 4", a: -12.4 });  // start where IM3 enters the plot (−60 dBm)
+    p.curve((x) => im3(x) - 10 * Math.log10(1 + 10 ** ((x - Pc) / 10)) * 3, { color: C.red, width: 3, a: -12.4, b: 25 });
     a.circle(p.X(IIP3), p.Y(IIP3 + G), 7, { color: C.ink, width: 2.5 }); a.text(p.X(IIP3) - 10, p.Y(IIP3 + G) - 14, "IP3 (17.6, 30.6)", { size: 12, weight: 700, anchor: "end" });
-    a.circle(p.X(8), p.Y(fund(8)), 6, { fill: C.orange, color: "none" }); a.text(p.X(8) + 10, p.Y(fund(8)) + 16, "1 dB CP (8, 20)", { size: 12, color: C.orange, weight: 700, anchor: "start" });
+    a.circle(p.X(8), p.Y(fund(8)), 6, { fill: C.orange, color: "none" }); a.text(p.X(8) - 10, p.Y(fund(8)) - 14, "1 dB CP (8, 20)", { size: 12, color: C.orange, weight: 700, anchor: "end" });
     a.text(p.X(-20), p.Y(-20 + G) - 14, "fundamental, slope 1", { size: 12, color: C.blue });
     a.text(p.X(-6), p.Y(im3(-6)) + 18, "IM3, slope 3", { size: 12, color: C.red, anchor: "start" });
     const mk = a.line(0, 0, 0, 0, { color: C.green, width: 3, arrow: true, arrow2: true });
     const lab = a.text(0, 0, "", { size: 12, color: C.green, weight: 700, anchor: "start" });
     a.loop((t) => {
-      const x = -25 + ((t * 4) % 30);
+      const x = -12 + ((t * 2.5) % 17);  // keep both ends of the arrow inside the plot
       a.set(mk, { x1: p.X(x), x2: p.X(x), y1: p.Y(fund(x)), y2: p.Y(im3(x)) });
       a.set(lab, { x: p.X(x) + 8, y: p.Y((fund(x) + im3(x)) / 2) }); a.setText(lab, `C/IM3 = ${(2 * (IIP3 - x)).toFixed(0)} dB`);
     });
@@ -786,31 +786,40 @@ fig("lsection", {
 });
 
 fig("quarterwave", {
-  title: "Quarter-wave transformer and its bandwidth", w: 680, h: 320,
-  caption: "A λ/4 section of Z₁ = √(Z₀Z_L) makes Z_in = Z₁²/Z_L = Z₀ at f₀ only. Off f₀ the section is no longer λ/4 and |Γ| grows; the band where SWR stays under the limit (shaded) is the fractional bandwidth. Example: 10 → 50 Ω gives 29 % for SWR ≤ 1.5.",
+  title: "Quarter-wave transformer and its bandwidth", w: 680, h: 330,
+  caption: "A λ/4 section of Z₁ = √(Z₀Z_L) makes Z_in = Z₁²/Z_L = Z₀ at f₀ only. Off f₀ the section is no longer λ/4 and |Γ| grows; the band where SWR stays under the limit (shaded) is the fractional bandwidth. The cursor sweeps the frequency and reads the section's electrical length. Example: a 10 Ω load on a 50 Ω line gives 29 % for SWR ≤ 1.5.",
   init(a) {
-    a.rect(30, 30, 150, 14, { fill: C.steel, color: C.metal }); a.text(105, 22, "Z₀", { size: 13, weight: 700 });
-    const sec = a.rect(180, 26, 140, 22, { fill: "#fde68a", color: C.amber }); const z1t = a.text(250, 18, "", { size: 13, weight: 700 }); a.text(250, 62, "λ/4 at f₀", { size: 11, color: C.mid });
+    a.rect(30, 30, 150, 14, { fill: C.steel, color: C.metal }); const z0t = a.text(105, 22, "", { size: 13, weight: 700 });
+    a.rect(180, 26, 140, 22, { fill: "#fde68a", color: C.amber }); const z1t = a.text(250, 18, "", { size: 13, weight: 700 }); const lt = a.text(250, 62, "", { size: 11, color: C.mid });
     Parts.resistor(a, 320, 37, 400, ""); const zlt = a.text(360, 18, "", { size: 13, weight: 700 });
     const p = a.plot(60, 90, 560, 180, [0, 2], [0, 1]);
-    p.axes("f / f₀", "|Γ_in|", {});
+    p.axes("f / f₀", "|Γ_in|", { below: true });
     for (let k = 0; k <= 4; k++) a.text(p.X(k / 2), 286, (k / 2).toFixed(1), { size: 10, color: C.mid });
     const band = a.rect(0, 90, 0, 180, { fill: C.green, color: "none", opacity: 0.12 });
     const lim = a.line(60, 0, 620, 0, { color: C.red, dash: "5 4", width: 1.5 });
     const curve = a.path("", { color: C.blue, width: 3 });
     const read = a.text(610, 110, "", { size: 14, anchor: "end", weight: 700 });
+    const cur = a.line(0, 90, 0, 270, { color: C.ink, width: 1, dash: "3 3" }), dot = a.circle(0, 0, 5, { fill: C.orange, color: C.bg });
+    const cread = a.text(610, 134, "", { size: 13, anchor: "end" });
     const cases = [[50, 10, 1.5], [100, 350, 2]];
-    a.buttons(["10 → 50 Ω, SWR ≤ 1.5", "350 → 100 Ω, SWR ≤ 2"], (i) => {
-      const [Z0, ZL, swr] = cases[i], Z1 = Math.sqrt(Z0 * ZL), Gm = (swr - 1) / (swr + 1);
-      a.setText(z1t, `Z₁ = ${Z1.toFixed(2)} Ω`); a.setText(zlt, `Z_L = ${ZL} Ω`);
-      const G = (fr) => { const t = Math.tan((Math.PI / 2) * fr); const nr = ZL, ni = Z1 * t, dr = Z1, di = ZL * t; const dd = dr * dr + di * di; const zr = (Z1 * (nr * dr + ni * di)) / dd, zi = (Z1 * (ni * dr - nr * di)) / dd; return Math.hypot(zr - Z0, zi) / Math.hypot(zr + Z0, zi); };
+    let G = () => 0, Gm = 0;
+    a.buttons(["Z_L = 10 Ω on 50 Ω, SWR ≤ 1.5", "Z_L = 350 Ω on 100 Ω, SWR ≤ 2"], (i) => {
+      const [Z0, ZL, swr] = cases[i], Z1 = Math.sqrt(Z0 * ZL);
+      Gm = (swr - 1) / (swr + 1);
+      a.setText(z0t, `Z₀ = ${Z0} Ω`); a.setText(z1t, `Z₁ = ${Z1.toFixed(2)} Ω`); a.setText(zlt, `Z_L = ${ZL} Ω`);
+      G = (fr) => { const t = Math.tan((Math.PI / 2) * fr); const nr = ZL, ni = Z1 * t, dr = Z1, di = ZL * t; const dd = dr * dr + di * di; const zr = (Z1 * (nr * dr + ni * di)) / dd, zi = (Z1 * (ni * dr - nr * di)) / dd; return Math.hypot(zr - Z0, zi) / Math.hypot(zr + Z0, zi); };
       a.set(curve, { d: p.d(G, 0.001, 1.999, 600) });
       a.set(lim, { y1: p.Y(Gm), y2: p.Y(Gm) });
       const bw = 2 - (4 / Math.PI) * Math.acos((Gm / Math.sqrt(1 - Gm * Gm)) * ((2 * Math.sqrt(Z0 * ZL)) / Math.abs(ZL - Z0)));
       a.set(band, { x: p.X(1 - bw / 2), width: p.X(1 + bw / 2) - p.X(1 - bw / 2) });
       a.setText(read, `Γ_m = ${Gm.toFixed(3)} · Δf/f₀ = ${(bw * 100).toFixed(0)} %`);
     });
-    const dots = Parts.flowDots(a, [[30, 37], [320, 37]], { color: C.orange, gap: 30, speed: 50 });
-    a.loop((t) => dots(t));
+    a.loop((t) => {
+      const fr = 1 + 0.8 * Math.sin(t * 0.5), g = G(fr), swr = (1 + g) / (1 - g);
+      a.set(cur, { x1: p.X(fr), x2: p.X(fr) }); a.set(dot, { cx: p.X(fr), cy: p.Y(g) });
+      a.setText(lt, `l = ${(fr / 4).toFixed(3)} λ at this f (λ/4 at f₀)`);
+      a.setText(cread, `f/f₀ = ${fr.toFixed(2)}: |Γ| = ${g.toFixed(3)}, SWR = ${swr.toFixed(2)} ${g <= Gm + 1e-9 ? "✓" : "✗"}`);
+      a.set(cread, { fill: g <= Gm + 1e-9 ? C.green : C.red });
+    });
   },
 });

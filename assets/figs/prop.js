@@ -121,7 +121,7 @@ fig("mfp_curve", {
   init(a) {
     const MFP = (g, M) => Math.sqrt(g) * M * (1 + ((g - 1) / 2) * M * M) ** (-(g + 1) / (2 * (g - 1)));
     const p = a.plot(50, 20, 360, 220, [0, 3], [0, 0.75]);
-    p.axes("M", "MFP", {});
+    p.axes("M", "MFP", { below: true });
     for (let k = 0; k <= 3; k++) a.text(p.X(k), 256, k, { size: 11, color: C.mid });
     p.curve((M) => MFP(1.4, M), { color: C.blue, width: 3 });
     p.curve((M) => MFP(1.3, M), { color: C.orange, width: 2.5, dash: "6 4" });
@@ -151,7 +151,7 @@ fig("axial_stage", {
   caption: "Unwrapped mean-line view. The rotor blades (blue) move at U and add swirl (work: cp ΔTt = U(v₂ − v₁)); the stator vanes (grey) are fixed and remove the swirl, diffusing the flow. The rotor diffuses the RELATIVE velocity (V₂R < V₁R) and the stator the ABSOLUTE velocity (V₃ < V₂); that diffusion is what limits the pressure rise per stage.",
   init(a) {
     const yR = 90, yS = 190, s = 70;
-    a.text(20, yR, "rotor", { size: 14, weight: 700, anchor: "start", color: C.blue }); a.text(20, yS, "stator", { size: 14, weight: 700, anchor: "start", color: C.mid });
+    a.text(20, yR, "rotor", { size: 14, weight: 700, anchor: "start", color: C.blue, halo: true, front: true }); a.text(20, yS, "stator", { size: 14, weight: 700, anchor: "start", color: C.mid, halo: true, front: true });
     // lean = −1: leading edge faces flow with swirl AGAINST U (rotor, relative frame V_R = V − U);
     // lean = +1: leading edge faces flow with swirl ALONG U (stator, absolute frame). Both turn the flow towards axial.
     const blade = (x, y, lean, col) => a.path(`M${x - lean * 12},${y - 28} Q${x + lean * 10},${y} ${x + lean * 12},${y + 28}`, { color: col, width: 7 });
@@ -173,7 +173,7 @@ fig("poly_eff", {
   caption: "With the same small-stage (polytropic) efficiency e, a compressor's isentropic efficiency FALLS as π grows, while a turbine's RISES as it expands more (reheat): ηc = (π^ε − 1)/(π^{ε/e} − 1), ηt = (1 − π_t^{ε·e})/(1 − π_t^{ε}), ε = (γ−1)/γ. Use e to compare designs of different pressure ratio.",
   init(a) {
     const p = a.plot(60, 20, 560, 210, [1, 40], [0.78, 0.96]);
-    p.axes("π_c, or 1/π_t", "η", {});
+    p.axes("π_c, or 1/π_t", "η", { below: true });
     for (const k of [1, 10, 20, 30, 40]) a.text(p.X(k), 246, k, { size: 11, color: C.mid });
     for (const k of [0.8, 0.85, 0.9, 0.95]) a.text(56, p.Y(k), k.toFixed(2), { size: 11, color: C.mid, anchor: "end" });
     const cc = a.path("", { color: C.blue, width: 3 }), tc = a.path("", { color: C.red, width: 3 }), el = a.line(0, 0, 0, 0, { color: C.mid, dash: "5 4", width: 1.5 });
@@ -220,7 +220,7 @@ fig("turbine_stage", {
   caption: "The stator (nozzle) turns and ACCELERATES the hot gas to a large swirl angle α₂ in the direction of blade motion U; the rotor blades take that swirl out and the shaft gets cp ΔTt = U(v₂ + v₃). The flow accelerates in both rows (favourable pressure gradient), so one turbine stage can drive several compressor stages. Blades are cooled with compressor air.",
   init(a) {
     const yS = 90, yR = 200, s = 74;
-    a.text(20, yS, "nozzle (stator)", { size: 13, weight: 700, anchor: "start", color: C.mid }); a.text(20, yR, "rotor", { size: 13, weight: 700, anchor: "start", color: C.red });
+    a.text(20, yS, "nozzle (stator)", { size: 13, weight: 700, anchor: "start", color: C.mid, halo: true, front: true }); a.text(20, yR, "rotor", { size: 13, weight: 700, anchor: "start", color: C.red, halo: true, front: true });
     const vane = (x, y, col, k) => a.path(`M${x},${y - 32} C${x + 4},${y - 5} ${x - 10 * k},${y + 20} ${x - 40 * k},${y + 32}`, { color: col, width: 9 });
     for (let k = 1; k < 10; k++) vane(k * s - 40, yS, C.mid, -1);
     const rot = a.g();
@@ -278,10 +278,10 @@ fig("thrust_cv", {
     a.path("M200,90 L500,95 L560,120 L560,180 L500,205 L200,210 L180,180 L180,120 z", { fill: "#e2e8f0", color: C.mid });
     a.text(370, 150, "engine", { size: 14, weight: 700 });
     a.arrow(60, 150, 170, 150, C.blue, 5); a.text(110, 130, "ṁ0 v0 in", { size: 13, color: C.blue, weight: 700 });
-    a.arrow(565, 150, 660, 150, C.red, 7); a.text(612, 128, "ṁ9 v9 out", { size: 13, color: C.red, weight: 700 });
+    a.arrow(565, 150, 660, 150, C.red, 7); a.text(612, 116, "ṁ9 v9 out", { size: 13, color: C.red, weight: 700, halo: true });
     a.text(585, 205, "(P9 − P0) A9", { size: 13, color: C.orange, weight: 700 });
     for (const y of [125, 175]) a.arrow(600, y, 570, y, C.orange, 2);
-    a.arrow(470, 250, 300, 250, C.green, 5); a.text(385, 268, "F (on the engine, forward)", { size: 13, color: C.green, weight: 700 });
+    a.arrow(470, 250, 300, 250, C.green, 5); a.text(385, 280, "F (on the engine, forward)", { size: 13, color: C.green, weight: 700 });
     const fin = Parts.flowDots(a, [[40, 150], [180, 150]], { color: C.blue, gap: 18, speed: 70 }), fout = Parts.flowDots(a, [[560, 150], [668, 150]], { color: C.red, gap: 18, speed: 150 });
     a.loop((t) => { fin(t); fout(t); });
   },
@@ -292,7 +292,7 @@ fig("etap_tradeoff", {
   caption: "For one matched stream ηP = 2/(1 + v9/v0). The same thrust F = ṁ(v9 − v0) can come from a small, fast jet (turbojet, low ηP) or a large, slow one (turbofan, propeller, high ηP); the kinetic energy wasted in the jet is ½ṁ(v9 − v0)².",
   init(a) {
     const p = a.plot(60, 20, 300, 220, [1, 5], [0, 1]);
-    p.axes("v9 / v0", "ηP", {});
+    p.axes("v9 / v0", "ηP", { below: true });
     for (const k of [1, 2, 3, 4, 5]) a.text(p.X(k), 256, k, { size: 11, color: C.mid });
     for (const k of [0, 0.5, 1]) a.text(56, p.Y(k), k, { size: 11, color: C.mid, anchor: "end" });
     p.curve((x) => 2 / (1 + x), { color: C.blue, width: 3 });
@@ -317,7 +317,7 @@ fig("etap_tradeoff", {
 
 fig("brayton_ts", {
   title: "T–s diagram of the 1A turbofan (cruise)", w: 680, h: 340,
-  caption: "Station values of exercise 1A (totals, plus the static exit states 9 and 19). Entropy is computed as cp ln(T/T₀) − R ln(P/P₀). Real compression and expansion lean to the right of the vertical ideal lines; the burner loses 10 % of Pt; the bypass stream 13 → 19 is a separate branch.",
+  caption: "Station values of exercise 1A (totals, plus the static exit states 9 and 19). Entropy is computed as cp ln(T/T₀) − R ln(P/P₀). Real compression and expansion lean to the right (entropy grows; an ideal, isentropic process would be vertical); the burner adds heat along a nearly constant-pressure curve and loses 10 % of Pt; the bypass stream 13 → 19 is a separate branch. The cold end, where 0, 2, 13 and 19 crowd together, is magnified in the inset.",
   init(a) {
     const cold = [1004.5, 287], hot = [1239, 285.9];
     const S = ([cp, R], T, P) => cp * Math.log(T / 216.8) - R * Math.log(P / 0.2273);
@@ -328,12 +328,32 @@ fig("brayton_ts", {
     p.axes("s − s₀ (J/kg/K)", "T (K)", {});
     for (const T of [200, 500, 1000, 1500]) a.text(66, p.Y(T), T, { size: 11, color: C.mid, anchor: "end" });
     [[0.2273, "P₀"], [10.39, "Pt3"]].forEach(([P, n]) => { a.path(p.d((s) => 216.8 * Math.exp((s + 287 * Math.log(P / 0.2273)) / 1004.5), p.x0 === 70 ? Math.min(...xs) - 40 : 0, Math.max(...xs) + 60, 200), { color: C.soft, width: 1.2, dash: "4 4" }); });
-    a.path(pts.map((q, i) => (i ? "L" : "M") + p.X(q[1]) + "," + p.Y(q[2])).join(""), { color: C.red, width: 2.5 });
+    // burner t3 → t4: heat addition at (nearly) constant pressure is an exponential T(s), not a straight line
+    const seg = (q0, q1) => (q0[0] === "t3" ? Array.from({ length: 30 }, (_, k) => { const w = (k + 1) / 30; return [lerp(q0[1], q1[1], w), q0[2] * (q1[2] / q0[2]) ** w]; }) : [[q1[1], q1[2]]]);
+    const path = (P, X, Y) => "M" + X(P[0][1]) + "," + Y(P[0][2]) + P.slice(1).map((q, i) => seg(P[i], q).map(([s, T]) => "L" + X(s).toFixed(1) + "," + Y(T).toFixed(1)).join("")).join("");
+    a.path(path(pts, p.X, p.Y), { color: C.red, width: 2.5 });
     a.path(fan.map((q, i) => (i ? "L" : "M") + p.X(q[1]) + "," + p.Y(q[2])).join(""), { color: C.blue, width: 2.5, dash: "6 4" });
-    pts.concat([fan[1]]).forEach(([n, s, T]) => { a.circle(p.X(s), p.Y(T), 4, { fill: C.ink, color: "none" }); a.text(p.X(s) + 8, p.Y(T) - 8, n, { size: 12, weight: 700, anchor: "start" }); });
+    const crowd = ["0", "t0", "t2", "t13", "19"];
+    pts.concat([fan[1]]).forEach(([n, s, T]) => { a.circle(p.X(s), p.Y(T), 4, { fill: C.ink, color: "none" }); if (!crowd.includes(n)) a.text(p.X(s) + 8, p.Y(T) - 8, n, { size: 12, weight: 700, anchor: "start" }); });
+    // inset: the cold end magnified (s from −15 to 110 J/kg/K, T from 200 to 480 K)
+    const bx = 82, by = 24, bw = 186, bh = 100, sr = [-15, 110], Tr = [200, 480];
+    const IX = (s) => bx + ((s - sr[0]) / (sr[1] - sr[0])) * bw, IY = (T) => by + bh - ((T - Tr[0]) / (Tr[1] - Tr[0])) * bh;
+    a.rect(p.X(sr[0]), p.Y(Tr[1]), p.X(sr[1]) - p.X(sr[0]), p.Y(Tr[0]) - p.Y(Tr[1]), { color: C.mid, width: 1, dash: "3 2" });
+    a.line(p.X(sr[1]), p.Y(Tr[1]), bx + bw, by + bh, { color: C.soft, width: 1 });
+    a.rect(bx, by, bw, bh, { fill: C.bg, color: C.mid, width: 1 });
+    const clipId = "bts" + Math.random().toString(36).slice(2, 7);
+    const cp = a.el("clipPath", { id: clipId }, a.el("defs", {})); a.el("rect", { x: bx, y: by, width: bw, height: bh }, cp);
+    const ins = a.g({ "clip-path": `url(#${clipId})` });
+    a.within(ins, () => {
+      a.path(path(pts, IX, IY), { color: C.red, width: 2 });
+      a.path(fan.map((q, i) => (i ? "L" : "M") + IX(q[1]) + "," + IY(q[2])).join(""), { color: C.blue, width: 2, dash: "5 3" });
+    });
+    const off = { 0: [-7, 3, "end"], t0: [-6, -8, "end"], t2: [7, 10, "start"], t13: [-6, -8, "end"], 19: [7, 4, "start"], t25: [-6, -6, "end"] };
+    pts.concat([fan[1]]).forEach(([n, s, T]) => { if (!(n in off)) return; const [dx, dy, an] = off[n]; a.circle(IX(s), IY(T), 3.5, { fill: C.ink, color: "none" }); a.text(IX(s) + dx, IY(T) + dy, n, { size: 11, weight: 700, anchor: an }); });
+    a.text(bx + 5, by + 10, "cold end (zoom)", { size: 10, color: C.mid, anchor: "start" });
     const dot = a.circle(0, 0, 7, { fill: C.orange, color: C.bg });
-    a.text(110, 40, "core: 0 → 9", { size: 12, color: C.red, weight: 700, anchor: "start" }); a.text(110, 60, "bypass: 13 → 19", { size: 12, color: C.blue, weight: 700, anchor: "start" });
-    a.loop((t) => { const u = (t * 0.12) % 1, k = u * (pts.length - 1), i = Math.floor(k), f = k - i, q0 = pts[i], q1 = pts[Math.min(i + 1, pts.length - 1)]; a.set(dot, { cx: p.X(lerp(q0[1], q1[1], f)), cy: p.Y(lerp(q0[2], q1[2], f)) }); });
+    a.text(440, 262, "core: 0 → 9", { size: 12, color: C.red, weight: 700, anchor: "start" }); a.text(440, 282, "bypass: 13 → 19", { size: 12, color: C.blue, weight: 700, anchor: "start" });
+    a.loop((t) => { const u = (t * 0.12) % 1, k = u * (pts.length - 1), i = Math.floor(k), f = k - i, q0 = pts[i], q1 = pts[Math.min(i + 1, pts.length - 1)]; const T = q0[0] === "t3" ? q0[2] * (q1[2] / q0[2]) ** f : lerp(q0[2], q1[2], f); a.set(dot, { cx: p.X(lerp(q0[1], q1[1], f)), cy: p.Y(T) }); });
   },
 });
 
@@ -342,7 +362,7 @@ fig("pic_trend", {
   caption: "Ideal turbojet (γ = 1.4, cp = 1004 J/(kg K), hPR = 42.8 MJ/kg). Specific thrust peaks at τc = √τλ/τr; TSFC keeps falling to much higher πc, so real engines sit between. Raise M₀: the optimum πc falls towards 1, the ramjet.",
   init(a) {
     const p = a.plot(70, 20, 470, 250, [0, Math.log10(60)], [0, 1200]);
-    p.axes("πc (log)", "F/ṁ₀ (N·s/kg)", {});
+    p.axes("πc (log)", "F/ṁ₀ (N·s/kg)", { below: true });
     for (const k of [1, 2, 5, 10, 20, 40]) a.text(p.X(Math.log10(k)), 286, k, { size: 11, color: C.mid });
     for (const k of [0, 400, 800, 1200]) a.text(66, p.Y(k), k, { size: 11, color: C.mid, anchor: "end" });
     for (const k of [0, 20, 40, 60]) a.text(550, p.Y(k * 20), k, { size: 11, color: C.orange, anchor: "start" });
@@ -361,7 +381,7 @@ fig("pic_trend", {
       const tco = Math.sqrt(tl) / tr, pco = Math.max(1, tco ** 3.5);
       a.set(opt, { x1: p.X(Math.log10(pco)), x2: p.X(Math.log10(pco)), y1: p.Y(0), y2: p.Y(1200) });
       const [Fo, So] = perf(pco);
-      read.textContent = `τλ = ${tl.toFixed(2)}, τr = ${tr.toFixed(3)} → optimum πc = (√τλ/τr)^3.5 = ${pco.toFixed(1)}: F/ṁ₀ = ${Fo.toFixed(0)} N·s/kg, TSFC = ${So.toFixed(1)} mg/s/N`;
+      read.innerHTML = richHTML(`τλ = ${tl.toFixed(2)}, τr = ${tr.toFixed(3)} → optimum πc = (√τλ/τr)^3.5 = ${pco.toFixed(1)}: F/ṁ₀ = ${Fo.toFixed(0)} N·s/kg, TSFC = ${So.toFixed(1)} mg/s/N`);
     };
     a.slider("flight Mach M₀", 0, 3.5, 0.05, 2, (v) => { st.M0 = v; upd(); }, (v) => v.toFixed(2));
     a.slider("Tt4 (K)", 1200, 2000, 10, 1800, (v) => { st.Tt4 = v; upd(); });
@@ -425,7 +445,7 @@ fig("actuator_disc", {
       let up = "", dn = ""; for (let x = 0; x <= 700; x += 5) { up += (x ? "L" : "M") + x + "," + (cy - rad(x)).toFixed(1); dn = "L" + x + "," + (cy + rad(x)).toFixed(1) + dn; }
       a.set(tube, { d: up + dn.replace(/^L/, "L") + "z" });
       [[60, "v₀", 1], [xd + 40, "v_p = v₀(1 + a)", 1 + aa], [640, "v_e = v₀(1 + 2a)", 1 + 2 * aa]].forEach(([x, s, vv], i) => { a.set(lab[i], { x, y: cy - rad(x) - 12 }); a.setText(lab[i], s); });
-      out.textContent = `η_P = 1/(1 + a) = ${(1 / (1 + aa)).toFixed(3)} · tube area far downstream / disc = ${(1 + aa) / (1 + 2 * aa) < 1 ? ((1 + aa) / (1 + 2 * aa)).toFixed(3) : ""}`;
+      out.innerHTML = richHTML(`η_P = 1/(1 + a) = ${(1 / (1 + aa)).toFixed(3)} · tube area far downstream / disc = ${(1 + aa) / (1 + 2 * aa) < 1 ? ((1 + aa) / (1 + 2 * aa)).toFixed(3) : ""}`);
     }, (v) => v.toFixed(2));
     a.loop((t, dt) => ps.forEach((p) => { p.x += 70 * vel(p.x) * dt; if (p.x > 700) p.x = 0; a.set(p.c, { cx: p.x, cy: cy + p.f * rad(p.x) }); }));
   },
@@ -459,10 +479,10 @@ fig("open_rotor", {
     const cy = 150;
     a.path(`M60,${cy} Q90,${cy - 40} 160,${cy - 42} L560,${cy - 34} L640,${cy - 14} L640,${cy + 14} L560,${cy + 34} L160,${cy + 42} Q90,${cy + 40} 60,${cy} z`, { fill: "#e2e8f0", color: C.mid });
     a.text(300, cy + 4, "gas generator (core)", { size: 12 });
-    a.rect(470, cy - 40, 60, 80, { fill: "#fde68a", color: C.amber, opacity: 0.6 }); a.text(500, cy + 56, "gearbox / power turbine", { size: 10 });
+    a.rect(470, cy - 40, 60, 80, { fill: "#fde68a", color: C.amber, opacity: 0.6 }); a.text(500, cy + 56, "gearbox / power turbine", { size: 10, halo: true, front: true });
     const rowA = [0, 1, 2, 3, 4, 5].map(() => a.path("", { fill: C.blue, color: "none", opacity: 0.85 })), rowB = [0, 1, 2, 3, 4, 5].map(() => a.path("", { fill: C.orange, color: "none", opacity: 0.85 }));
     const air = Array.from({ length: 40 }, (_, i) => ({ x: (i * 17) % 700, f: ((i * 0.618) % 1) * 2 - 1, c: a.circle(0, 0, 2.4, { fill: C.blue, color: "none" }) }));
-    a.text(560, 30, "front row", { size: 12, color: C.blue, weight: 700 }); a.text(560, 50, "rear row (opposite rotation)", { size: 12, color: C.orange, weight: 700 });
+    a.text(560, 30, "front row", { size: 12, color: C.blue, weight: 700, halo: true, front: true }); a.text(560, 50, "rear row (opposite rotation)", { size: 12, color: C.orange, weight: 700, halo: true, front: true });
     const bl = (x, ph, sweep) => { const L = 130 * Math.cos(ph), w = 10 * Math.abs(Math.sin(ph)) + 2; return `M${x},${cy - Math.sign(L) * 30} Q${x + sweep * 0.5 * Math.abs(L) / 130},${cy - L * 0.6} ${x + sweep * Math.abs(L) / 130 + w},${cy - L} L${x + sweep * Math.abs(L) / 130 - w},${cy - L} Q${x - w},${cy - L * 0.6} ${x - 6},${cy - Math.sign(L) * 30} z`; };
     a.loop((t, dt) => {
       rowA.forEach((b, k) => a.set(b, { d: bl(500, t * 6 + (k * TAU) / 6, 20) }));
@@ -572,7 +592,7 @@ fig("cascade_geom", {
           }
         }
       });
-      out.textContent = `σ = c/s = ${st.sig.toFixed(2)} · Carter δ = (γ_i − γ_e)/(4√σ) = ${delta.toFixed(1)}° · turning (metal) = ${(st.gi - st.ge).toFixed(0)}°`;
+      out.innerHTML = richHTML(`σ = c/s = ${st.sig.toFixed(2)} · Carter δ = (γ_i − γ_e)/(4√σ) = ${delta.toFixed(1)}° · turning (metal) = ${(st.gi - st.ge).toFixed(0)}°`);
     };
     a.slider("solidity σ", 0.5, 2.5, 0.05, 1.2, (v) => { st.sig = v; draw(); }, (v) => v.toFixed(2));
     a.slider("inlet metal γ_i (°)", 20, 60, 1, 45, (v) => { st.gi = v; draw(); });
@@ -585,7 +605,7 @@ fig("free_vortex", {
   caption: "Free-vortex design (r·v = const, constant u) gives the same work at every radius, and the degree of reaction varies as R = 1 − (1 − R_m)(r_m/r)². Long compressor blades (low hub/tip ratio) can reach NEGATIVE reaction at the hub; keep the turbine hub above about −0.15.",
   init(a) {
     const p = a.plot(330, 30, 300, 220, [0.3, 1], [-0.6, 1]);
-    p.axes("r / r_tip", "R", { xAt: 0 });
+    p.axes("r / r_tip", "R", { xAt: 0, below: true });
     for (const k of [0.4, 0.6, 0.8, 1]) a.text(p.X(k), p.Y(0) + 14, k, { size: 11, color: C.mid });
     for (const k of [-0.5, 0, 0.5, 1]) a.text(326, p.Y(k), k, { size: 11, color: C.mid, anchor: "end" });
     const cur = a.path("", { color: C.blue, width: 3 }), neg = a.rect(0, 0, 0, 0, { fill: C.red, color: "none", opacity: 0.15 });
@@ -605,7 +625,7 @@ fig("free_vortex", {
         for (let k = 0; k <= 5; k++) { const r = st.ht + ((1 - st.ht) * k) / 5, v = (0.35 * rm) / r; a.arrow(140, y(r), 140 + v * 120, y(r), C.orange, 2); }
         a.text(200, y(1) - 14, "swirl v ∝ 1/r", { size: 12, color: C.orange }); a.text(90, y(st.ht) + 18, "hub", { size: 12 }); a.text(90, y(1) - 14, "tip", { size: 12 });
       });
-      out.textContent = `hub/tip = ${st.ht.toFixed(2)}, R at mean radius = ${st.Rm.toFixed(2)} → R_hub = ${Rh.toFixed(3)}${Rh < 0 ? " (negative!)" : ""}, R_tip = ${R(1).toFixed(3)}`;
+      out.innerHTML = richHTML(`hub/tip = ${st.ht.toFixed(2)}, R at mean radius = ${st.Rm.toFixed(2)} → R_hub = ${Rh.toFixed(3)}${Rh < 0 ? " (negative!)" : ""}, R_tip = ${R(1).toFixed(3)}`);
     };
     a.slider("R at mean radius", 0, 0.9, 0.05, 0.5, (v) => { st.Rm = v; draw(); });
     a.slider("hub/tip ratio", 0.35, 0.9, 0.01, 0.5, (v) => { st.ht = v; draw(); });
@@ -617,15 +637,15 @@ fig("multistage", {
   caption: "Every repeating stage adds the same ΔTt = 16.38 K, but the stage pressure ratio falls along the machine because the inlet temperature of each stage grows: πcs,i = (1 + ΔTt/Tt,i)^{γec/(γ−1)}. The overall πc = (1 + 9·16.38/306.53)^{3.38} = 3.77, not 1.192⁹.",
   init(a) {
     const Tt1 = 306.53, dT = 16.38, ex = 1.4 * 0.9647 / 0.4;
-    const p = a.plot(60, 30, 560, 200, [0.5, 9.5], [1.1, 1.2]);
+    const p = a.plot(60, 30, 560, 200, [0.5, 9.5], [0, 0.21]);  // bars of π − 1 from zero: an honest length
     const bars = [];
     for (let i = 1; i <= 9; i++) {
       const T = Tt1 + (i - 1) * dT, pis = (1 + dT / T) ** ex;
-      const b = a.rect(p.X(i) - 22, p.Y(pis), 44, p.Y(1.1) - p.Y(pis), { fill: tempColor(T, 280, 460), color: "none", opacity: 0.85 });
-      a.text(p.X(i), p.Y(pis) - 10, pis.toFixed(4), { size: 11, weight: 700 }); a.text(p.X(i), 246, `stage ${i}`, { size: 11, color: C.mid }); a.text(p.X(i), 262, `${T.toFixed(0)} K in`, { size: 10, color: C.mid });
+      const b = a.rect(p.X(i) - 22, p.Y(pis - 1), 44, p.Y(0) - p.Y(pis - 1), { fill: tempColor(T, 280, 460), color: "none", opacity: 0.85 });
+      a.text(p.X(i), p.Y(pis - 1) - 10, pis.toFixed(4), { size: 11, weight: 700 }); a.text(p.X(i), 246, `stage ${i}`, { size: 11, color: C.mid }); a.text(p.X(i), 262, `${T.toFixed(0)} K in`, { size: 10, color: C.mid });
       bars.push(b);
     }
-    a.line(60, 230, 630, 230, { width: 1.4 }); a.text(56, p.Y(1.2), "1.20", { size: 11, anchor: "end", color: C.mid }); a.text(56, p.Y(1.1), "1.10", { size: 11, anchor: "end", color: C.mid }); a.text(60, 18, "stage π", { size: 12, color: C.mid, anchor: "start" });
+    a.line(60, 230, 630, 230, { width: 1.4 }); [0, 0.1, 0.2].forEach((v) => a.text(56, p.Y(v), v.toFixed(2), { size: 11, anchor: "end", color: C.mid })); a.text(60, 18, "stage pressure rise π − 1 (bar labels: π)", { size: 12, color: C.mid, anchor: "start" });
     const hl = a.rect(0, 30, 52, 200, { color: C.ink, width: 2, r: 4 });
     a.loop((t) => a.set(hl, { x: p.X((Math.floor(t * 1.2) % 9) + 1) - 26 }));
   },
@@ -633,7 +653,7 @@ fig("multistage", {
 
 fig("stage_ts", {
   title: "Stage T–s diagrams with the exercise numbers", w: 680, h: 360,
-  caption: "Statics (●) and totals (○) are V²/(2cp) apart at the same entropy. In the rotor the RELATIVE total temperature is constant (t1R → t2R horizontal) while the absolute total rises (compressor) or falls (turbine) by the work ΔTt. Every row moves to the right: losses create entropy. Points computed from the 2A and 3A solutions with s = cp ln T − R ln P.",
+  caption: "Statics (●) and totals (○) are V²/(2cp) apart at the same entropy. In the rotor the RELATIVE total temperature is constant (t1R → t2R in the compressor, t2R → t3R in the turbine: horizontal) while the absolute total rises (compressor) or falls (turbine) by the work ΔTt. Every row moves to the right: losses create entropy. Points computed from the 2A and 3A solutions with s = cp ln T − R ln P.",
   init(a) {
     const g = a.g();
     const sets = {

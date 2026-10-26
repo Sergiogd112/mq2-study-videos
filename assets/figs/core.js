@@ -11,6 +11,10 @@ const C = {
 };
 const TAU = Math.PI * 2, rad = (d) => (d * Math.PI) / 180, deg = (r) => (r * 180) / Math.PI;
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+/* Plain labels with light markup (x_1, x_{12}, x^2, x^{-1}) -> HTML, for captions and control labels. */
+const richHTML = (s) => esc(s).replace(/\^\{([^{}]*)\}/g, "<sup>$1</sup>").replace(/_\{([^{}]*)\}/g, "<sub>$1</sub>")
+  .replace(/(?<=[\p{L}\p{N})′])_([\p{L}\p{N}]+)/gu, "<sub>$1</sub>").replace(/(?<=[\p{L}\p{N})])\^([\p{L}\p{N}]+)/gu, "<sup>$1</sup>");
 const lerp = (a, b, u) => a + (b - a) * u;
 const fmt = (x, n = 1) => (Math.abs(x) >= 1e4 ? x.toFixed(0) : x.toFixed(n)).replace("-", "−");
 
@@ -78,6 +82,9 @@ function makeApi(holder, spec, rec) {
     text(x, y, str, o = {}) {
       const t = api.el("text", { x, y, "font-size": o.size || 15, "text-anchor": o.anchor || "middle", fill: TEXT_INK[o.color] || o.color || C.ink, "font-weight": o.weight, "font-style": o.italic ? "italic" : undefined, "dominant-baseline": o.base || "middle", transform: o.rotate ? `rotate(${o.rotate} ${x} ${y})` : undefined, opacity: o.opacity }, o.parent);
       api.setText(t, str);
+      // o.halo: a white outline keeps a label legible where lines cross it; o.front: lift it above everything drawn later in init
+      if (o.halo) Object.entries({ stroke: C.bg, "stroke-width": 4, "stroke-linejoin": "round", "paint-order": "stroke" }).forEach(([k, v]) => t.setAttribute(k, v));
+      if (o.front) queueMicrotask(() => t.parentNode && t.parentNode.appendChild(t));
       return t;
     },
     setText(t, str) {
@@ -93,7 +100,7 @@ function makeApi(holder, spec, rec) {
           if (buf) parts.push([buf, 0]), (buf = "");
           let j = i + 1, body = "";
           if (str[j] === "{") { const k = str.indexOf("}", j); body = str.slice(j + 1, k < 0 ? str.length : k); j = k < 0 ? str.length : k + 1; }
-          else { while (j < str.length && /[A-Za-z0-9.αβγδεηθλμπρστφψωΔ′'*+−-]/.test(str[j]) && !(j > i + 1 && /[+−-]/.test(str[j]))) j++; body = str.slice(i + 1, j); }
+          else { while (j < str.length && /[A-Za-z0-9.αβγδεηθλμπρστφψωΔΩΓ′'*+−-]/.test(str[j]) && !(j > i + 1 && /[+−-]/.test(str[j]))) j++; body = str.slice(i + 1, j); }
           parts.push([body, ch === "_" ? 4 : -6]);
           i = j;
         } else { buf += ch; i++; }
@@ -122,7 +129,7 @@ function makeApi(holder, spec, rec) {
           const ax = oo.yAt === undefined ? x0 : P.X(oo.yAt);
           api.arrow(x0 - 4, ay, x0 + w + 12, ay, C.ink, 1.6);
           api.arrow(ax, y0 + h + 4, ax, y0 - 12, C.ink, 1.6);
-          api.text(x0 + w + 12, ay + 16, xl, { anchor: "end", size: 14, color: C.mid });
+          api.text(x0 + w + 12, ay + (oo.below ? 34 : 16), xl, { anchor: "end", size: 14, color: C.mid });  // below: under the tick labels
           api.text(ax + 8, y0 - 12, yl, { anchor: "start", size: 14, color: C.mid });
         },
         d(fn, a = xr[0], b = xr[1], n = 240) {
@@ -143,7 +150,7 @@ function makeApi(holder, spec, rec) {
       const wrap = document.createElement("label");
       wrap.className = "fig-slider";
       const name = document.createElement("span");
-      name.textContent = label;
+      name.innerHTML = richHTML(label);
       const inp = document.createElement("input");
       Object.assign(inp, { type: "range", min, max, step, value });
       const out = document.createElement("output");
@@ -160,7 +167,7 @@ function makeApi(holder, spec, rec) {
       const bs = labels.map((l, i) => {
         const b = document.createElement("button");
         b.type = "button";
-        b.textContent = l;
+        b.innerHTML = richHTML(l);
         b.addEventListener("click", () => { bs.forEach((x) => x.classList.remove("on")); b.classList.add("on"); cb(i, l); api.invalidate(); });
         wrap.appendChild(b);
         return b;
@@ -169,7 +176,7 @@ function makeApi(holder, spec, rec) {
       setTimeout(() => bs[start] && bs[start].click(), 0);
       return bs;
     },
-    note(str) { const p = document.createElement("div"); p.className = "fig-readout"; p.textContent = str; controls.appendChild(p); return p; },
+    note(str) { const p = document.createElement("div"); p.className = "fig-readout"; p.innerHTML = richHTML(str); controls.appendChild(p); return p; },
     loop(fn) { frames.push(fn); },
     /* Ask for one redraw even while paused (sliders, buttons, toggles). */
     invalidate() { if (rec) { rec.dirty = true; Anim.kick(); } },
@@ -245,7 +252,7 @@ function mountOne(node) {
   rec.frames = frames;
   try { spec.init(api); } catch (e) { console.error("figure", node.dataset.fig, e); holder.insertAdjacentHTML("beforeend", `<p class="fig-err">figure error: ${e.message}</p>`); }
   const cap = node.querySelector("figcaption");
-  if (cap && !cap.textContent.trim()) cap.innerHTML = `<b>${spec.title}.</b> ${spec.caption || ""}`;
+  if (cap && !cap.textContent.trim()) cap.innerHTML = `<b>${richHTML(spec.title)}${/[?!.]$/.test(spec.title) ? "" : "."}</b> ${richHTML(spec.caption || "")}`;
   Anim.add(holder, rec);
 }
 
@@ -328,8 +335,10 @@ const Parts = {
     for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push([pts[i - 1], pts[i], L, l]); L += l; }
     const n = o.n || Math.max(3, Math.round(L / (o.gap || 28)));
     const dots = Array.from({ length: n }, () => api.circle(0, 0, o.r || 3.2, { fill: o.color || C.blue, color: "none" }));
+    // o.under: draw the dots beneath everything already drawn (boxes and labels hide them); o.ac: oscillate by ±o.ac px (AC current) instead of streaming
+    if (o.under) { const par = dots[0].parentNode, ref = par.firstChild && par.firstChild.tagName === "defs" ? par.firstChild.nextSibling : par.firstChild; dots.forEach((d) => par.insertBefore(d, ref)); }
     const at = (s) => { s = ((s % L) + L) % L; for (const [a, b, l0, l] of segs) if (s <= l0 + l) { const u = (s - l0) / l; return [lerp(a[0], b[0], u), lerp(a[1], b[1], u)]; } return pts[pts.length - 1]; };
-    const upd = (t, speed = o.speed || 40) => dots.forEach((d, i) => { const [x, y] = at(t * speed + (i * L) / n); d.setAttribute("cx", x); d.setAttribute("cy", y); });
+    const upd = (t, speed = o.speed || 40) => dots.forEach((d, i) => { const [x, y] = at((o.ac ? o.ac * Math.sin(t * (o.w || 2.5)) : t * speed) + (i * L) / n); d.setAttribute("cx", x); d.setAttribute("cy", y); });
     upd(0);
     upd.dots = dots;
     upd.show = (v) => dots.forEach((d) => d.setAttribute("opacity", v ? 1 : 0));
