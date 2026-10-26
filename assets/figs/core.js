@@ -230,6 +230,8 @@ function mountOne(node) {
   if (holder.dataset.done) return;
   holder.dataset.done = 1;
   holder.style.aspectRatio = "";
+  const ph = node.querySelector(".ctl-ph");
+  if (ph) ph.remove();
   const rec = { frames: null, t: 0, paused: false, dirty: false };
   const { api, frames } = makeApi(holder, spec, rec);
   rec.frames = frames;

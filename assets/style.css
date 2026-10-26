@@ -24,7 +24,7 @@ main.index { max-width: 1180px; margin: 0 auto; padding: 1.5rem 1.2rem 3rem; }
 .vcard { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
   text-decoration: none; color: var(--ink); transition: transform .12s, box-shadow .12s; }
 .vcard:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15, 23, 42, .1); }
-.vcard img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #e2e8f0; }
+.vcard img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #e2e8f0; }
 .vcard .vt { padding: 0.6rem 0.8rem 0.1rem; font-weight: 650; }
 .vcard .vd { padding: 0 0.8rem 0.7rem; color: var(--mid); font-size: 0.88rem; }
 .disclaimer { margin-top: 3rem; font-size: 0.85rem; color: var(--mid); border-top: 1px solid var(--line); padding-top: 1rem; }
@@ -93,6 +93,7 @@ figure.fig { margin: 0.9rem 0 0.4rem; border: 1px solid var(--line); border-radi
 figure.fig figcaption { font-size: 0.86rem; color: #4b5563; margin-top: 0.35rem; }
 .fig-controls { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; align-items: center; font-size: 0.85rem; margin-top: 0.3rem; }
 .fig-controls:empty { display: none; }
+.ctl-ph { height: calc(var(--d) * 34px); }
 .fig-slider { display: flex; align-items: center; gap: 0.45rem; }
 .fig-slider input { width: 9.5rem; accent-color: var(--blue); }
 .fig-slider output { min-width: 3em; font-variant-numeric: tabular-nums; font-weight: 600; }
@@ -107,7 +108,12 @@ figure.fig figcaption { font-size: 0.86rem; color: #4b5563; margin-top: 0.35rem;
     padding: 0.6rem 0.9rem; border-radius: 999px; border: none; background: var(--blue); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
   .speed button, .seek, .fig-buttons button, .fig-play { min-height: 40px; padding: 0.3rem 0.7rem; font-size: 0.9rem; }
   ol.chapters a { padding: 0.55rem 0.7rem; }
-  .fig-slider input { width: 11rem; height: 28px; }
+  .fig-slider input { width: 11rem; height: 40px; }
+  .ctl-ph { height: calc(var(--m) * 46px); }
+  .toggles { flex-wrap: wrap; gap: 0.2rem 1rem; }
+  .toggles label { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 40px; }
+  .toggles input { width: 20px; height: 20px; }
+  details.narr summary { min-height: 36px; display: flex; align-items: center; }
   main.lecture { grid-template-columns: 1fr; }
   aside.player { position: static; max-height: none; }
   ol.chapters { max-height: 14rem; }
@@ -132,7 +138,7 @@ figure.fig figcaption { font-size: 0.86rem; color: #4b5563; margin-top: 0.35rem;
   ol.chapters a.now .ct { color: #dbeafe; }
   .vcard img { background: #1f2937; }
   figure.fig { background: #ffffff; border-color: #374151; color: #1f2937; }
-  figure.fig figcaption, figure.fig .fig-controls, figure.fig code { color: #374151; }
+  figure.fig figcaption, figure.fig .fig-controls, figure.fig code, figure.fig .fig-readout, figure.fig .fig-slider output { color: #1f2937; }
   figure.fig .fig-buttons button, figure.fig .fig-play { background: #fff; color: #1f2937; border-color: #d1d5db; }
   figure.fig .fig-buttons button.on { background: #2563eb; color: #fff; border-color: #2563eb; }
 }

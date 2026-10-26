@@ -68,7 +68,8 @@
   back.className = "to-player";
   back.textContent = "▲ video";
   back.hidden = true;
-  back.addEventListener("click", () => vid.scrollIntoView({ behavior: behavior(), block: "start" }));
+  const header = document.querySelector("header.top");
+  back.addEventListener("click", () => window.scrollTo({ top: vid.getBoundingClientRect().top + window.scrollY - (header ? header.offsetHeight : 0) - 8, behavior: behavior() }));
   document.body.appendChild(back);
   if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => (back.hidden = e.isIntersecting)).observe(vid);
 
