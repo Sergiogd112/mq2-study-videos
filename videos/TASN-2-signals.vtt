@@ -1,2133 +1,2133 @@
 WEBVTT
 
 1
-00:00:00.600 --> 00:00:04.929
+00:00:00.600 --> 00:00:04.832
 Welcome to part two: the fundamentals
 of telecommunication, following
 
 2
-00:00:04.969 --> 00:00:09.878
+00:00:04.872 --> 00:00:09.681
 Professor Barlabé's notes Introducció
 a la Telecomunicació, part one.
 
 3
-00:00:09.928 --> 00:00:12.871
+00:00:09.731 --> 00:00:12.483
 This is where most of the
 short theory questions of
 
 4
-00:00:12.911 --> 00:00:15.795
+00:00:12.523 --> 00:00:15.221
 the partial come from, so
 we will go definition by
 
 5
-00:00:15.835 --> 00:00:19.752
+00:00:15.261 --> 00:00:18.951
 definition, and solve every
 related exam question on the way.
 
 6
-00:00:19.802 --> 00:00:23.726
+00:00:19.001 --> 00:00:23.038
 The plan is: definitions and
 the general model, types of
 
 7
-00:00:23.766 --> 00:00:27.478
+00:00:23.078 --> 00:00:26.897
 signals and their characteristic
 values, services and
 
 8
-00:00:27.518 --> 00:00:31.725
+00:00:26.937 --> 00:00:31.265
 networks, then Fourier analysis,
 linear systems and filters,
 
 9
-00:00:31.765 --> 00:00:37.636
+00:00:31.305 --> 00:00:37.335
 modulation, distortion, noise, decibels,
 and finally the Shannon capacity law.
 
 10
-00:00:39.286 --> 00:00:43.189
+00:00:38.985 --> 00:00:42.915
 Etymologically telecommunication means
 communication at a distance, but
 
 11
-00:00:43.229 --> 00:00:47.798
+00:00:42.955 --> 00:00:47.554
 the course uses the definition of the
 International Telecommunication Union.
 
 12
-00:00:47.848 --> 00:00:52.243
+00:00:47.604 --> 00:00:52.133
 According to the I T U, telecommunication
 is any transmission and
 
 13
-00:00:52.283 --> 00:00:56.882
+00:00:52.173 --> 00:00:56.913
 reception of signs, signals, writing,
 images, sounds and information
 
 14
-00:00:56.922 --> 00:01:01.979
+00:00:56.953 --> 00:01:02.153
 of any kind by wire, radio, optical
 or other electromagnetic systems.
 
 15
-00:01:02.029 --> 00:01:05.870
+00:01:02.203 --> 00:01:06.097
 The key word is electromagnetic:
 an African talking drum or smoke
 
 16
-00:01:05.910 --> 00:01:10.797
+00:01:06.137 --> 00:01:11.087
 signals are communication at a distance,
 but they are not telecommunication.
 
 17
-00:01:10.847 --> 00:01:14.209
+00:01:11.137 --> 00:01:14.561
 Information is anything that
 increases our level of knowledge,
 
 18
-00:01:14.249 --> 00:01:18.221
+00:01:14.601 --> 00:01:18.639
 and the message is the physical
 manifestation of that information.
 
 19
-00:01:18.271 --> 00:01:20.917
+00:01:18.689 --> 00:01:21.359
 A signal is a physical
 magnitude whose value
 
 20
-00:01:20.957 --> 00:01:23.604
+00:01:21.399 --> 00:01:24.070
 carries information; if
 it is a voltage or a
 
 21
-00:01:23.644 --> 00:01:26.474
+00:01:24.110 --> 00:01:26.966
 current we call it an
 electrical signal, and we
 
 22
-00:01:26.514 --> 00:01:30.161
+00:01:27.006 --> 00:01:30.683
 model it mathematically as
 a function of time, x of t.
 
 23
-00:01:30.211 --> 00:01:34.508
+00:01:30.733 --> 00:01:34.959
 A system is a set of components with
 a purpose; for us it is a box that
 
 24
-00:01:34.548 --> 00:01:39.663
+00:01:34.999 --> 00:01:40.035
 receives an input signal x of t and
 delivers a different output signal y of t.
 
 25
-00:01:41.313 --> 00:01:44.985
+00:01:41.685 --> 00:01:45.367
 Every telecommunication system
 fits this block diagram: a
 
 26
-00:01:45.025 --> 00:01:49.477
+00:01:45.407 --> 00:01:49.871
 source, a transmitter, a channel,
 a receiver and a destination.
 
 27
-00:01:49.527 --> 00:01:53.000
+00:01:49.921 --> 00:01:53.353
 The channel is the physical
 medium: a transmission line
 
 28
-00:01:53.040 --> 00:01:56.513
+00:01:53.393 --> 00:01:56.825
 such as a two-wire cable, a
 coaxial cable or an optical
 
 29
-00:01:56.553 --> 00:02:00.027
+00:01:56.865 --> 00:02:00.296
 fibre, or the air and the
 vacuum for radio, and that is
 
 30
-00:02:00.067 --> 00:02:04.505
+00:02:00.336 --> 00:02:04.726
 the only big classification of
 telecommunication, line or radio.
 
 31
-00:02:04.555 --> 00:02:07.394
+00:02:04.776 --> 00:02:07.680
 The two main characteristics
 of a channel are its
 
 32
-00:02:07.434 --> 00:02:10.097
+00:02:07.720 --> 00:02:10.444
 attenuation and its
 bandwidth: every signal is
 
 33
-00:02:10.137 --> 00:02:14.600
+00:02:10.484 --> 00:02:15.041
 attenuated as it propagates, and the
 attenuation depends on frequency.
 
 34
-00:02:14.650 --> 00:02:18.585
+00:02:15.091 --> 00:02:18.976
 The transmitter conditions the signal
 for the channel: it modulates,
 
 35
-00:02:18.625 --> 00:02:23.243
+00:02:19.016 --> 00:02:23.579
 codes and encrypts it, and then amplifies
 it to overcome the attenuation.
 
 36
-00:02:23.293 --> 00:02:27.471
+00:02:23.629 --> 00:02:27.802
 The receiver gets a very weak signal,
 so it first amplifies it and then
 
 37
-00:02:27.511 --> 00:02:32.257
+00:02:27.842 --> 00:02:32.582
 undoes the transmitter's processing:
 it demodulates, decodes and decrypts.
 
 38
-00:02:33.907 --> 00:02:36.893
+00:02:34.232 --> 00:02:37.160
 Signals are first deterministic or random.
 
 39
-00:02:36.943 --> 00:02:41.394
+00:02:37.210 --> 00:02:41.677
 A deterministic signal is fully specified
 at every instant, like a cosine,
 
 40
-00:02:41.434 --> 00:02:46.639
+00:02:41.717 --> 00:02:46.941
 while a random signal can take one of
 several values with a certain probability.
 
 41
-00:02:46.689 --> 00:02:50.394
+00:02:46.991 --> 00:02:50.569
 Strictly speaking, any signal
 that carries information must
 
 42
-00:02:50.434 --> 00:02:54.139
+00:02:50.609 --> 00:02:54.188
 be random, because if I already
 know what you will say, you
 
 43
-00:02:54.179 --> 00:02:58.011
+00:02:54.228 --> 00:02:57.929
 are not giving me information;
 but random signals are hard to
 
 44
-00:02:58.051 --> 00:03:02.526
+00:02:57.969 --> 00:03:02.306
 handle, so we model them with
 deterministic ones whenever we can.
 
 45
-00:03:02.576 --> 00:03:05.961
+00:03:02.356 --> 00:03:05.761
 An analog signal is continuous
 in time and in value; a
 
 46
-00:03:06.001 --> 00:03:09.702
+00:03:05.801 --> 00:03:09.524
 discrete signal has any value
 but only at precise instants;
 
 47
-00:03:09.742 --> 00:03:14.594
+00:03:09.564 --> 00:03:14.444
 and a digital signal has only a finite
 set of values at those instants.
 
 48
-00:03:14.644 --> 00:03:19.104
+00:03:14.494 --> 00:03:19.162
 A periodic signal repeats
 identically every period T zero.
 
 49
-00:03:19.154 --> 00:03:23.118
+00:03:19.212 --> 00:03:23.105
 Converting analog to digital and
 back leaves a small difference, a
 
 50
-00:03:23.158 --> 00:03:27.121
+00:03:23.145 --> 00:03:27.037
 distortion, which can be made
 negligible; that is why today almost
 
 51
-00:03:27.161 --> 00:03:31.939
+00:03:27.077 --> 00:03:31.776
 everything is transmitted digitally,
 for a reason we will see with noise.
 
 52
-00:03:33.589 --> 00:03:35.919
+00:03:33.426 --> 00:03:35.654
 Next, the characteristic values of a
 
 53
-00:03:35.959 --> 00:03:39.337
+00:03:35.694 --> 00:03:38.943
 signal, which come up in
 almost every partial.
 
 54
-00:03:39.387 --> 00:03:42.624
+00:03:38.993 --> 00:03:42.292
 The peak value is the maximum
 absolute value, and the
 
 55
-00:03:42.664 --> 00:03:45.839
+00:03:42.332 --> 00:03:45.569
 mean value is the time
 average, which for a periodic
 
 56
-00:03:45.879 --> 00:03:50.001
+00:03:45.609 --> 00:03:49.803
 signal is the integral over one
 period divided by the period.
 
 57
-00:03:50.051 --> 00:03:53.279
+00:03:49.853 --> 00:03:53.281
 The instantaneous power is x
 squared, which is the power
 
 58
-00:03:53.319 --> 00:03:56.782
+00:03:53.321 --> 00:03:56.996
 dissipated in a one-ohm resistor;
 with another resistance it
 
 59
-00:03:56.822 --> 00:04:00.908
+00:03:57.036 --> 00:04:01.349
 is v squared over R for a voltage,
 or i squared R for a current.
 
 60
-00:04:00.958 --> 00:04:06.003
+00:04:01.399 --> 00:04:06.535
 The mean power is the average of the
 instantaneous power, the rms value is
 
 61
-00:04:06.043 --> 00:04:11.021
+00:04:06.575 --> 00:04:11.643
 its square root, and the energy is the
 integral of x squared over all time;
 
 62
-00:04:11.061 --> 00:04:16.830
+00:04:11.683 --> 00:04:17.550
 energy signals have finite energy, while
 periodic signals have finite mean power.
 
 63
-00:04:16.880 --> 00:04:21.498
+00:04:17.600 --> 00:04:22.245
 Two exam classics follow directly:
 in problem 3.1 the mean of A
 
 64
-00:04:21.538 --> 00:04:25.411
+00:04:22.285 --> 00:04:26.181
 cosine plus B sine at the same
 frequency is zero, because every
 
 65
-00:04:25.451 --> 00:04:30.007
+00:04:26.221 --> 00:04:30.803
 sinusoid averages to zero over a
 period, and in the 2016 partial
 
 66
-00:04:30.047 --> 00:04:35.179
+00:04:30.843 --> 00:04:36.003
 the mean of B over 2 plus A cosine is
 simply B over 2, the constant term.
 
 67
-00:04:36.829 --> 00:04:41.092
+00:04:37.653 --> 00:04:41.928
 Telecommunication services are
 classified by how they use the channel.
 
 68
-00:04:41.142 --> 00:04:44.601
+00:04:41.978 --> 00:04:45.431
 Simplex means one direction only,
 like television, or the link
 
 69
-00:04:44.641 --> 00:04:48.829
+00:04:45.471 --> 00:04:49.653
 that carries processed radar
 information to the controller's screen.
 
 70
-00:04:48.879 --> 00:04:52.256
+00:04:49.703 --> 00:04:53.006
 Half-duplex is bidirectional
 but not simultaneous, on the
 
 71
-00:04:52.296 --> 00:04:55.734
+00:04:53.046 --> 00:04:56.407
 same channel, and it needs a
 protocol to change direction:
 
 72
-00:04:55.774 --> 00:04:58.911
+00:04:56.447 --> 00:04:59.514
 this is the pilot talking
 with the controller, on one
 
 73
-00:04:58.951 --> 00:05:03.498
+00:04:59.554 --> 00:05:04.009
 frequency, never both at once, ending
 each message with the call sign.
 
 74
-00:05:03.548 --> 00:05:07.038
+00:05:04.059 --> 00:05:07.754
 Full-duplex is bidirectional
 and simultaneous, and it needs
 
 75
-00:05:07.078 --> 00:05:10.899
+00:05:07.794 --> 00:05:11.816
 two channels, one for each
 direction, as in the telephone.
 
 76
-00:05:10.949 --> 00:05:14.436
+00:05:11.866 --> 00:05:15.288
 The question 'what kind of
 communication is established between
 
 77
-00:05:14.476 --> 00:05:18.579
+00:05:15.328 --> 00:05:19.356
 pilot and controller' appeared in
 the 2016 partial and is on the
 
 78
-00:05:18.619 --> 00:05:22.665
+00:05:19.396 --> 00:05:23.373
 question sheet: the answer is
 half-duplex, and you should say why.
 
 79
-00:05:24.315 --> 00:05:29.030
+00:05:25.023 --> 00:05:29.692
 Services are also classified by where
 the transmitters and receivers are.
 
 80
-00:05:29.080 --> 00:05:32.069
+00:05:29.742 --> 00:05:32.720
 Point to point means a single
 transmitter and a single
 
 81
-00:05:32.109 --> 00:05:36.048
+00:05:32.760 --> 00:05:36.686
 receiver in different places, like
 a radio link or a phone call.
 
 82
-00:05:36.098 --> 00:05:40.036
+00:05:36.736 --> 00:05:40.714
 Broadcast, radiodifusió, means
 a few transmitters and many
 
 83
-00:05:40.076 --> 00:05:44.610
+00:05:40.754 --> 00:05:45.330
 receivers, like television, or
 a satellite navigation system.
 
 84
-00:05:44.660 --> 00:05:48.713
+00:05:45.380 --> 00:05:49.363
 In a radar, the transmitter and the
 receiver are in the same place.
 
 85
-00:05:48.763 --> 00:05:53.022
+00:05:49.413 --> 00:05:53.680
 Another repeated exam question asks
 whether an NDB with its ADF is
 
 86
-00:05:53.062 --> 00:05:56.952
+00:05:53.720 --> 00:05:57.617
 point to point, broadcast or radar:
 it is broadcast, because one
 
 87
-00:05:56.992 --> 00:06:01.640
+00:05:57.657 --> 00:06:02.314
 non-directional beacon radiates and
 any number of aircraft receive it.
 
 88
-00:06:03.290 --> 00:06:07.774
+00:06:03.964 --> 00:06:08.395
 You cannot wire every telephone to every
 other telephone, and not everybody talks
 
 89
-00:06:07.814 --> 00:06:12.743
+00:06:08.435 --> 00:06:13.312
 at once, so terminals are interconnected
 through networks with a few basic shapes.
 
 90
-00:06:12.793 --> 00:06:15.638
+00:06:13.362 --> 00:06:16.218
 In a bus, all terminals
 hang in parallel from
 
 91
-00:06:15.678 --> 00:06:18.913
+00:06:16.258 --> 00:06:19.505
 one single transmission
 line, as in Ethernet.
 
 92
-00:06:18.963 --> 00:06:23.806
+00:06:19.555 --> 00:06:24.317
 In a ring, the line closes on
 itself, as in IBM's token ring.
 
 93
-00:06:23.856 --> 00:06:27.407
+00:06:24.367 --> 00:06:27.890
 In a star, every terminal
 connects to one central point, a
 
 94
-00:06:27.447 --> 00:06:31.636
+00:06:27.930 --> 00:06:32.089
 hub in a local network or an
 exchange in the telephone system.
 
 95
-00:06:31.686 --> 00:06:34.783
+00:06:32.139 --> 00:06:35.215
 A tree is the intermediate
 case, a bus of buses, and
 
 96
-00:06:34.823 --> 00:06:38.824
+00:06:35.255 --> 00:06:39.229
 the figure of question 7
 of the 2022 partial, with
 
 97
-00:06:38.864 --> 00:06:42.532
+00:06:39.269 --> 00:06:42.915
 small buses hanging from a
 main bus, is exactly a tree.
 
 98
-00:06:42.582 --> 00:06:48.350
+00:06:42.965 --> 00:06:48.712
 The 2023 partial asked you to draw
 the three basic topologies, and the
 
 99
-00:06:48.390 --> 00:06:53.134
+00:06:48.752 --> 00:06:53.477
 notes list bus, ring, star, tree and
 hybrid, so to be safe sketch bus,
 
 100
-00:06:53.174 --> 00:06:58.512
+00:06:53.517 --> 00:06:58.837
 ring, star and tree, and remember that
 large networks use multiple stars.
 
 101
-00:07:00.162 --> 00:07:03.501
+00:07:00.487 --> 00:07:03.706
 Telecommunication problems
 are usually easier in the
 
 102
-00:07:03.541 --> 00:07:06.880
+00:07:03.746 --> 00:07:06.965
 frequency domain than in
 the time domain, and it all
 
 103
-00:07:06.920 --> 00:07:11.298
+00:07:07.005 --> 00:07:11.240
 starts with the sinusoid A cosine
 of two pi f zero t plus phi.
 
 104
-00:07:11.348 --> 00:07:15.682
+00:07:11.290 --> 00:07:15.519
 A is the amplitude, f zero the
 frequency, the inverse of the period,
 
 105
-00:07:15.722 --> 00:07:20.382
+00:07:15.559 --> 00:07:20.115
 and phi the phase, which shifts the
 peak away from the time origin.
 
 106
-00:07:20.432 --> 00:07:25.104
+00:07:20.165 --> 00:07:24.722
 Using Euler's formula, e to the j
 theta equals cosine theta plus j sine
 
 107
-00:07:25.144 --> 00:07:29.750
+00:07:24.762 --> 00:07:29.254
 theta, the sinusoid is the real part
 of a phasor: a vector of length A
 
 108
-00:07:29.790 --> 00:07:35.515
+00:07:29.294 --> 00:07:34.888
 rotating counter-clockwise in the complex
 plane at f zero revolutions per second.
 
 109
-00:07:35.565 --> 00:07:38.243
+00:07:34.938 --> 00:07:37.650
 Watch the projection
 of the rotating phasor
 
 110
-00:07:38.283 --> 00:07:41.604
+00:07:37.690 --> 00:07:41.047
 on the real axis: it
 traces exactly the cosine.
 
 111
-00:07:41.654 --> 00:07:44.579
+00:07:41.097 --> 00:07:44.168
 So the whole sinusoid is
 described by three numbers,
 
 112
-00:07:44.619 --> 00:07:47.487
+00:07:44.208 --> 00:07:47.219
 and we can draw it in an
 amplitude versus frequency
 
 113
-00:07:47.527 --> 00:07:50.955
+00:07:47.259 --> 00:07:50.839
 diagram: a single spectral
 line of height A at f zero.
 
 114
-00:07:51.005 --> 00:07:53.059
+00:07:50.889 --> 00:07:52.969
 That diagram is the spectrum of the
 
 115
-00:07:53.099 --> 00:07:56.081
+00:07:53.009 --> 00:07:56.023
 signal, its picture in
 the frequency domain.
 
 116
-00:07:57.731 --> 00:08:02.066
+00:07:57.673 --> 00:08:01.870
 Here is the example from the
 notes: w of t equals 7 minus 10
 
 117
-00:08:02.106 --> 00:08:08.379
+00:08:01.910 --> 00:08:07.996
 cosine of 40 pi t minus 60
 degrees, plus 4 sine of 120 pi t.
 
 118
-00:08:08.429 --> 00:08:12.691
+00:08:08.046 --> 00:08:12.436
 To read its spectrum, write
 every term as a positive cosine.
 
 119
-00:08:12.741 --> 00:08:18.246
+00:08:12.486 --> 00:08:17.724
 The 7 is a cosine at zero frequency,
 the DC term, with amplitude 7.
 
 120
-00:08:18.296 --> 00:08:22.742
+00:08:17.774 --> 00:08:22.124
 Minus 10 cosine becomes plus
 10 cosine with 180 degrees
 
 121
-00:08:22.782 --> 00:08:28.445
+00:08:22.164 --> 00:08:27.714
 added to the phase, so 10 at 20
 Hz with phase plus 120 degrees.
 
 122
-00:08:28.495 --> 00:08:30.884
+00:08:27.764 --> 00:08:30.157
 And a sine is a cosine delayed by 90
 
 123
-00:08:30.924 --> 00:08:35.161
+00:08:30.197 --> 00:08:34.441
 degrees, so 4 at 60 Hz with
 phase minus 90 degrees.
 
 124
-00:08:35.211 --> 00:08:40.901
+00:08:34.491 --> 00:08:40.236
 The spectrum is therefore three lines,
 at 0, 20 and 60 Hz, each with an
 
 125
-00:08:40.941 --> 00:08:46.544
+00:08:40.276 --> 00:08:45.929
 amplitude and a phase; notice also
 that the mean of w is 7, the DC term.
 
 126
-00:08:48.194 --> 00:08:52.763
+00:08:47.579 --> 00:08:52.137
 Any periodic signal can be decomposed
 into an infinite sum of sinusoids at
 
 127
-00:08:52.803 --> 00:08:58.261
+00:08:52.177 --> 00:08:57.623
 multiples of the fundamental frequency,
 the harmonics: this is the Fourier series.
 
 128
-00:08:58.311 --> 00:09:02.815
+00:08:57.673 --> 00:09:02.050
 In compact exponential form, x of
 t is the sum over n from minus
 
 129
-00:09:02.855 --> 00:09:07.287
+00:09:02.090 --> 00:09:06.398
 to plus infinity of c n times e
 to the j two pi n f zero t, and
 
 130
-00:09:07.327 --> 00:09:11.689
+00:09:06.438 --> 00:09:10.677
 each coefficient c n is the
 integral over one period of x of t
 
 131
-00:09:11.729 --> 00:09:16.622
+00:09:10.717 --> 00:09:15.484
 times e to the minus j two pi n
 f zero t, divided by the period.
 
 132
-00:09:16.672 --> 00:09:20.583
+00:09:15.534 --> 00:09:19.618
 Watch the square wave being
 rebuilt: the DC term plus the first
 
 133
-00:09:20.623 --> 00:09:25.788
+00:09:19.658 --> 00:09:25.033
 harmonic gives a rough sinusoid, and each
 new odd harmonic sharpens the edges.
 
 134
-00:09:25.838 --> 00:09:30.256
+00:09:25.083 --> 00:09:29.545
 The term for n equal to zero is the DC
 term, and it is just the mean value of
 
 135
-00:09:30.296 --> 00:09:34.486
+00:09:29.585 --> 00:09:33.817
 the signal: put n equal to zero in the
 coefficient formula and you get the
 
 136
-00:09:34.526 --> 00:09:40.421
+00:09:33.857 --> 00:09:39.806
 definition of the mean, which is exactly
 what the 2023 partial asked you to prove.
 
 137
-00:09:40.471 --> 00:09:43.202
+00:09:39.856 --> 00:09:42.347
 Parseval's theorem gives
 the mean power as the
 
 138
-00:09:43.242 --> 00:09:46.603
+00:09:42.387 --> 00:09:45.489
 sum of the squared magnitudes
 of the coefficients.
 
 139
-00:09:46.653 --> 00:09:50.386
+00:09:45.539 --> 00:09:49.335
 Because the sum runs over
 negative frequencies too, this is
 
 140
-00:09:50.426 --> 00:09:53.904
+00:09:49.375 --> 00:09:52.910
 a two-sided spectrum: a cosine
 of amplitude A shows two
 
 141
-00:09:53.944 --> 00:09:57.677
+00:09:52.950 --> 00:09:56.746
 lines of A over 2, at plus and
 minus f zero, which is why
 
 142
-00:09:57.717 --> 00:10:02.352
+00:09:56.786 --> 00:10:01.492
 the official answers draw weights
 of one half, as the FAQ explains.
 
 143
-00:10:04.002 --> 00:10:08.135
+00:10:03.142 --> 00:10:07.276
 The most important periodic signal
 in digital communication is
 
 144
-00:10:08.175 --> 00:10:12.699
+00:10:07.316 --> 00:10:11.840
 the train of rectangular pulses,
 of duration tau and period T.
 
 145
-00:10:12.749 --> 00:10:17.743
+00:10:11.890 --> 00:10:16.816
 Its spectrum has lines every one over
 T, whose heights follow the envelope A
 
 146
-00:10:17.783 --> 00:10:22.910
+00:10:16.856 --> 00:10:21.913
 tau over T times sinc of f tau, with A
 the pulse amplitude, where sinc of x is
 
 147
-00:10:22.950 --> 00:10:28.598
+00:10:21.953 --> 00:10:27.530
 sine of pi x divided by pi x; the first
 zero of the envelope is at one over tau.
 
 148
-00:10:28.648 --> 00:10:32.246
+00:10:27.580 --> 00:10:31.221
 The general lesson, shown in the
 notes, is that the more abrupt
 
 149
-00:10:32.286 --> 00:10:35.826
+00:10:31.261 --> 00:10:34.843
 the transitions in time, the
 wider the spectrum, which matters
 
 150
-00:10:35.866 --> 00:10:39.912
+00:10:34.883 --> 00:10:38.971
 a lot when we send digital pulses
 through band-limited channels.
 
 151
-00:10:39.962 --> 00:10:44.307
+00:10:39.021 --> 00:10:43.302
 Now watch what happens as the period
 grows: the lines get closer and
 
 152
-00:10:44.347 --> 00:10:49.015
+00:10:43.342 --> 00:10:47.940
 closer, and in the limit, when T goes
 to infinity, the signal is a single
 
 153
-00:10:49.055 --> 00:10:54.499
+00:10:47.980 --> 00:10:53.350
 pulse and the spectrum becomes continuous;
 that limit is the Fourier transform.
 
 154
-00:10:54.549 --> 00:11:00.184
+00:10:53.400 --> 00:10:59.028
 And problem 3.3 asks for the mean of this
 train: integrate A over one pulse and
 
 155
-00:11:00.224 --> 00:11:05.638
+00:10:59.068 --> 00:11:04.477
 divide by the period, which gives A tau
 over T, the DC line you see in the middle.
 
 156
-00:11:07.288 --> 00:11:09.788
+00:11:06.127 --> 00:11:08.557
 This derivation is short
 and appears in the
 
 157
-00:11:09.828 --> 00:11:13.130
+00:11:08.597 --> 00:11:11.818
 problem collection, so let
 us do it once properly.
 
 158
-00:11:13.180 --> 00:11:17.313
+00:11:11.868 --> 00:11:16.148
 By definition, the transform is
 the integral of x of t times e to
 
 159
-00:11:17.353 --> 00:11:21.615
+00:11:16.188 --> 00:11:20.602
 the minus j two pi f t; the pulse
 is 1 between minus tau over 2
 
 160
-00:11:21.655 --> 00:11:26.371
+00:11:20.642 --> 00:11:25.511
 and tau over 2, and zero elsewhere,
 so only that interval remains.
 
 161
-00:11:26.421 --> 00:11:30.532
+00:11:25.561 --> 00:11:29.637
 The integral of the exponential
 is immediate, as Barlabé
 
 162
-00:11:30.572 --> 00:11:34.401
+00:11:29.677 --> 00:11:33.473
 insists in the FAQ: you get
 e to the minus j two pi f t
 
 163
-00:11:34.441 --> 00:11:38.482
+00:11:33.513 --> 00:11:37.519
 divided by minus j two pi f,
 evaluated between the limits,
 
 164
-00:11:38.522 --> 00:11:44.360
+00:11:37.559 --> 00:11:43.350
 which is e to the j pi f tau minus e to
 the minus j pi f tau, over j two pi f.
 
 165
-00:11:44.410 --> 00:11:48.371
+00:11:43.400 --> 00:11:47.372
 Euler's formula says that the
 difference of the two exponentials is
 
 166
-00:11:48.411 --> 00:11:53.061
+00:11:47.412 --> 00:11:52.074
 two j times the sine, so the result
 is sine of pi f tau divided by pi f.
 
 167
-00:11:53.111 --> 00:11:57.806
+00:11:52.124 --> 00:11:56.847
 Multiplying and dividing by tau, we
 recognise tau times sinc of f tau,
 
 168
-00:11:57.846 --> 00:12:03.202
+00:11:56.887 --> 00:12:02.273
 the official answer, whose first zeros
 are at plus and minus one over tau.
 
 169
-00:12:03.252 --> 00:12:08.273
+00:12:02.323 --> 00:12:07.356
 And problem 3.4 is free once you have
 this: its v of t is a staircase,
 
 170
-00:12:08.313 --> 00:12:12.968
+00:12:07.396 --> 00:12:12.063
 height 2 inside tau 1 and height 1
 out to tau 2, which is exactly the
 
 171
-00:12:13.008 --> 00:12:16.993
+00:12:12.103 --> 00:12:16.098
 sum of two centred unit pulses,
 and the transform is linear, so it
 
 172
-00:12:17.033 --> 00:12:22.688
+00:12:16.138 --> 00:12:21.806
 becomes the sum of two sincs, tau 1 sinc
 of f tau 1 plus tau 2 sinc of f tau 2.
 
 173
-00:12:24.338 --> 00:12:28.613
+00:12:23.456 --> 00:12:27.707
 Two more items from the Fourier section
 of the notes complete the picture.
 
 174
-00:12:28.663 --> 00:12:32.190
+00:12:27.757 --> 00:12:31.317
 Rayleigh's theorem says that
 the energy of a signal can be
 
 175
-00:12:32.230 --> 00:12:36.004
+00:12:31.357 --> 00:12:35.165
 computed in either domain: the
 integral of x squared over time
 
 176
-00:12:36.044 --> 00:12:40.576
+00:12:35.205 --> 00:12:39.775
 equals the integral of the squared
 modulus of X of f over frequency.
 
 177
-00:12:40.626 --> 00:12:44.372
+00:12:39.825 --> 00:12:43.802
 So the squared modulus of the
 transform is the energy spectral
 
 178
-00:12:44.412 --> 00:12:48.279
+00:12:43.842 --> 00:12:47.948
 density, telling you how the energy
 is distributed in frequency;
 
 179
-00:12:48.319 --> 00:12:52.760
+00:12:47.988 --> 00:12:52.679
 Parseval's theorem is the same idea
 for periodic signals and power.
 
 180
-00:12:52.810 --> 00:12:56.663
+00:12:52.729 --> 00:12:56.643
 A computer cannot integrate a
 continuous signal, so it uses
 
 181
-00:12:56.703 --> 00:13:01.276
+00:12:56.683 --> 00:13:01.322
 the discrete Fourier transform,
 the DFT, defined on N samples.
 
 182
-00:13:01.326 --> 00:13:05.006
+00:13:01.372 --> 00:13:05.165
 The fast Fourier transform,
 the FFT, is not a different
 
 183
-00:13:05.046 --> 00:13:08.792
+00:13:05.205 --> 00:13:09.066
 transform but an efficient
 algorithm to compute the DFT,
 
 184
-00:13:08.832 --> 00:13:12.512
+00:13:09.106 --> 00:13:12.900
 needing about N log N operations
 instead of N squared: if
 
 185
-00:13:12.552 --> 00:13:17.732
+00:13:12.940 --> 00:13:18.266
 asked, the DFT is the definition and
 the FFT is the way to compute it.
 
 186
-00:13:19.382 --> 00:13:20.882
+00:13:19.916 --> 00:13:21.369
 Now systems.
 
 187
-00:13:20.932 --> 00:13:23.807
+00:13:21.419 --> 00:13:24.465
 A system is linear if it
 obeys superposition: the
 
 188
-00:13:23.847 --> 00:13:26.485
+00:13:24.505 --> 00:13:27.300
 response to a sum of
 inputs is the sum of the
 
 189
-00:13:26.525 --> 00:13:30.802
+00:13:27.340 --> 00:13:31.847
 responses, and its input-output
 characteristic is a straight line.
 
 190
-00:13:30.852 --> 00:13:35.845
+00:13:31.897 --> 00:13:36.738
 The fingerprint of linearity is that
 a sinusoid at f zero comes out as a
 
 191
-00:13:35.885 --> 00:13:41.198
+00:13:36.778 --> 00:13:41.941
 sinusoid at the same f zero, only
 with a different amplitude and phase.
 
 192
-00:13:41.248 --> 00:13:44.859
+00:13:41.991 --> 00:13:45.804
 A non-linear system has a curved
 characteristic, its output
 
 193
-00:13:44.899 --> 00:13:48.138
+00:13:45.844 --> 00:13:49.265
 shape depends on the input
 level, and new frequencies
 
 194
-00:13:48.178 --> 00:13:52.488
+00:13:49.305 --> 00:13:53.835
 appear at its output, as in an
 amplifier driven into saturation.
 
 195
-00:13:52.538 --> 00:13:55.873
+00:13:53.885 --> 00:13:57.281
 A linear and time-invariant
 system is characterised by
 
 196
-00:13:55.913 --> 00:13:59.436
+00:13:57.321 --> 00:14:00.909
 its transfer function H of f,
 the transform of the output
 
 197
-00:13:59.476 --> 00:14:02.686
+00:14:00.949 --> 00:14:04.218
 divided by the transform of
 the input, so the output
 
 198
-00:14:02.726 --> 00:14:06.061
+00:14:04.258 --> 00:14:07.654
 spectrum is simply the input
 spectrum multiplied by H;
 
 199
-00:14:06.101 --> 00:14:09.561
+00:14:07.694 --> 00:14:11.218
 and the range of frequencies
 where the response is flat,
 
 200
-00:14:09.601 --> 00:14:13.249
+00:14:11.258 --> 00:14:14.972
 usually down to the minus 3
 decibel, half-power points,
 
 201
-00:14:13.289 --> 00:14:17.826
+00:14:15.012 --> 00:14:19.626
 is the bandwidth, giving low-pass,
 band-pass and high-pass systems.
 
 202
-00:14:17.876 --> 00:14:21.836
+00:14:19.676 --> 00:14:23.644
 In the time domain the same system
 is described by its impulse
 
 203
-00:14:21.876 --> 00:14:25.836
+00:14:23.684 --> 00:14:27.652
 response h of t, the inverse
 transform of H, and the output is
 
 204
-00:14:25.876 --> 00:14:29.771
+00:14:27.692 --> 00:14:31.595
 the convolution of the input
 with h, an integral that is much
 
 205
-00:14:29.811 --> 00:14:34.805
+00:14:31.635 --> 00:14:36.640
 harder than a multiplication, which
 is exactly why we work in frequency.
 
 206
-00:14:36.455 --> 00:14:39.038
+00:14:38.290 --> 00:14:40.858
 The handwritten class
 notes introduce the Dirac
 
 207
-00:14:39.078 --> 00:14:43.168
+00:14:40.898 --> 00:14:44.967
 delta, and the 2023 partial
 asked about it directly.
 
 208
-00:14:43.218 --> 00:14:47.375
+00:14:45.017 --> 00:14:49.167
 The delta is the limit of a pulse of
 width tau and height one over tau
 
 209
-00:14:47.415 --> 00:14:51.692
+00:14:49.207 --> 00:14:53.476
 when tau goes to zero, and its defining
 property is sifting: integrating
 
 210
-00:14:51.732 --> 00:14:56.699
+00:14:53.516 --> 00:14:58.475
 a function times a delta at t zero picks
 the value of the function at t zero.
 
 211
-00:14:56.749 --> 00:15:02.184
+00:14:58.525 --> 00:15:03.902
 If the input is a delta, the convolution
 integral collapses to h of t.
 
 212
-00:15:02.234 --> 00:15:06.007
+00:15:03.952 --> 00:15:07.741
 So the output is the impulse
 response h A of t, the inverse
 
 213
-00:15:06.047 --> 00:15:09.563
+00:15:07.781 --> 00:15:11.310
 Fourier transform of the
 transfer function: that is the
 
 214
-00:15:09.603 --> 00:15:14.542
+00:15:11.350 --> 00:15:16.307
 answer to question 7, and the reason
 for the name impulse response.
 
 215
-00:15:14.592 --> 00:15:18.658
+00:15:16.357 --> 00:15:20.367
 Two more identities from the notes:
 convolving with a delta returns
 
 216
-00:15:18.698 --> 00:15:23.522
+00:15:20.407 --> 00:15:25.170
 the signal itself, and convolving with
 a delayed delta delays the signal.
 
 217
-00:15:23.572 --> 00:15:27.162
+00:15:25.220 --> 00:15:28.704
 Finally, with deltas we can
 transform periodic signals:
 
 218
-00:15:27.202 --> 00:15:30.659
+00:15:28.744 --> 00:15:32.099
 the transform of a cosine
 is two deltas of weight one
 
 219
-00:15:30.699 --> 00:15:35.009
+00:15:32.139 --> 00:15:36.333
 half at plus and minus f zero,
 the two-sided spectrum again.
 
 220
-00:15:36.659 --> 00:15:39.863
+00:15:37.983 --> 00:15:41.226
 This question appears in
 the collection, in 2016
 
 221
-00:15:39.903 --> 00:15:43.720
+00:15:41.266 --> 00:15:45.125
 and in 2022, so it is worth
 one minute of method.
 
 222
-00:15:43.770 --> 00:15:48.577
+00:15:45.175 --> 00:15:50.035
 The first input is a tone at W over
 2: its spectrum is two lines at
 
 223
-00:15:48.617 --> 00:15:53.745
+00:15:50.075 --> 00:15:55.254
 plus and minus W over 2, inside
 the pass band, where H equals one.
 
 224
-00:15:53.795 --> 00:15:58.161
+00:15:55.304 --> 00:15:59.734
 The second input is a tone at
 twice W: its lines are at plus
 
 225
-00:15:58.201 --> 00:16:02.957
+00:15:59.774 --> 00:16:04.594
 and minus two W, outside the
 pass band, where H equals zero.
 
 226
-00:16:03.007 --> 00:16:07.449
+00:16:04.644 --> 00:16:09.053
 Multiplying spectra, the first
 output spectrum equals the input
 
 227
-00:16:07.489 --> 00:16:12.749
+00:16:09.093 --> 00:16:14.316
 spectrum, so y 1 of t equals x 1
 of t: the tone passes unchanged.
 
 228
-00:16:12.799 --> 00:16:18.165
+00:16:14.366 --> 00:16:20.243
 The second output spectrum is zero, so
 y 2 of t is zero: the tone is blocked.
 
 229
-00:16:18.215 --> 00:16:22.803
+00:16:20.293 --> 00:16:24.659
 And in the 2022 version the input
 is the sum of both tones; the
 
 230
-00:16:22.843 --> 00:16:27.760
+00:16:24.699 --> 00:16:29.397
 filter is linear, so by superposition
 only the tone at B over 2 survives.
 
 231
-00:16:29.410 --> 00:16:31.698
+00:16:31.047 --> 00:16:33.430
 This is the mirror image
 of the rectangular
 
 232
-00:16:31.738 --> 00:16:35.716
+00:16:33.470 --> 00:16:37.596
 pulse, and it was worth one
 and a half points in 2022.
 
 233
-00:16:35.766 --> 00:16:39.610
+00:16:37.646 --> 00:16:41.479
 The impulse response is the
 inverse transform of H, which is
 
 234
-00:16:39.650 --> 00:16:44.208
+00:16:41.519 --> 00:16:46.065
 the integral of e to the plus j
 two pi f t between minus B and B.
 
 235
-00:16:44.258 --> 00:16:49.426
+00:16:46.115 --> 00:16:51.167
 The same algebra as before gives
 sine of two pi B t divided by pi t.
 
 236
-00:16:49.476 --> 00:16:52.999
+00:16:51.217 --> 00:16:54.748
 Written with the sinc function,
 h of t equals 2 B sinc
 
 237
-00:16:53.039 --> 00:16:56.561
+00:16:54.788 --> 00:16:58.318
 of 2 B t: a central peak of
 height 2 B at t equal to
 
 238
-00:16:56.601 --> 00:17:00.832
+00:16:58.358 --> 00:17:02.597
 zero, and zeros at every non-zero
 multiple of one over 2 B.
 
 239
-00:17:00.882 --> 00:17:04.443
+00:17:02.647 --> 00:17:06.170
 Remember the duality: a rectangle
 in time gives a sinc in
 
 240
-00:17:04.483 --> 00:17:07.917
+00:17:06.210 --> 00:17:09.608
 frequency, and a rectangle
 in frequency gives a sinc in
 
 241
-00:17:07.957 --> 00:17:11.455
+00:17:09.648 --> 00:17:13.109
 time; notice also that this
 ideal filter responds before
 
 242
-00:17:11.495 --> 00:17:15.698
+00:17:13.149 --> 00:17:17.312
 the impulse arrives, which is
 why it cannot be built exactly.
 
 243
-00:17:17.348 --> 00:17:20.709
+00:17:18.962 --> 00:17:22.250
 Again, spectra multiply, so
 the output occupies only the
 
 244
-00:17:20.749 --> 00:17:24.803
+00:17:22.290 --> 00:17:26.266
 frequencies that are both in the
 signal and in the pass band.
 
 245
-00:17:24.853 --> 00:17:30.521
+00:17:26.316 --> 00:17:31.926
 The signal occupies from zero up to W,
 and the filter passes from B 1 to B 2.
 
 246
-00:17:30.571 --> 00:17:35.206
+00:17:31.976 --> 00:17:36.456
 Since B 1 is below W and W is
 below B 2, the overlap goes
 
 247
-00:17:35.246 --> 00:17:40.731
+00:17:36.496 --> 00:17:41.811
 from B 1 to W, shown in orange,
 mirrored at negative frequencies.
 
 248
-00:17:40.781 --> 00:17:45.560
+00:17:41.861 --> 00:17:46.466
 So the output is a band-pass signal
 with bandwidth W minus B 1; draw it
 
 249
-00:17:45.600 --> 00:17:51.429
+00:17:46.506 --> 00:17:52.137
 exactly like this on the exam, with both
 the positive and negative frequency bands.
 
 250
-00:17:53.079 --> 00:17:56.425
+00:17:53.787 --> 00:17:57.184
 Problem 3.7 is the reverse
 situation, and the
 
 251
-00:17:56.465 --> 00:18:00.430
+00:17:57.224 --> 00:18:01.243
 collection asks you to draw the
 answer, not just give a number.
 
 252
-00:18:00.480 --> 00:18:05.749
+00:18:01.293 --> 00:18:06.562
 Spectra multiply: the output spectrum
 is X of f times H of f, so X survives
 
 253
-00:18:05.789 --> 00:18:11.732
+00:18:06.602 --> 00:18:12.545
 only where the filter equals one, that
 is between minus f zero and plus f zero.
 
 254
-00:18:11.782 --> 00:18:16.079
+00:18:12.595 --> 00:18:16.749
 The positive band runs from f
 zero minus B to f zero plus B,
 
 255
-00:18:16.119 --> 00:18:20.199
+00:18:16.789 --> 00:18:20.734
 so the filter cuts it exactly
 at its centre, and only the
 
 256
-00:18:20.239 --> 00:18:25.576
+00:18:20.774 --> 00:18:25.948
 inner half, from f zero minus B to
 f zero, survives, shown in orange.
 
 257
-00:18:25.626 --> 00:18:29.192
+00:18:25.998 --> 00:18:29.528
 By symmetry, at negative
 frequencies only the piece
 
 258
-00:18:29.232 --> 00:18:33.116
+00:18:29.568 --> 00:18:33.418
 from minus f zero to minus
 f zero plus B survives.
 
 259
-00:18:33.166 --> 00:18:38.057
+00:18:33.468 --> 00:18:38.306
 So draw each piece with the original
 sloping inner edge and flat top, ending in
 
 260
-00:18:38.097 --> 00:18:43.315
+00:18:38.346 --> 00:18:43.513
 a vertical wall at plus and minus f zero,
 exactly as in the official solution.
 
 261
-00:18:44.965 --> 00:18:49.093
+00:18:45.163 --> 00:18:49.122
 Modulation is the systematic
 alteration of a parameter of a carrier
 
 262
-00:18:49.133 --> 00:18:53.651
+00:18:49.162 --> 00:18:53.512
 signal according to the information
 carried by a modulating signal.
 
 263
-00:18:53.701 --> 00:18:57.613
+00:18:53.562 --> 00:18:57.565
 In telecommunications the carrier
 is a sinusoid, because it
 
 264
-00:18:57.653 --> 00:19:01.766
+00:18:57.605 --> 00:19:01.813
 occupies the least bandwidth,
 and it has only three parameters
 
 265
-00:19:01.806 --> 00:19:05.517
+00:19:01.853 --> 00:19:05.651
 to vary: the amplitude, giving
 amplitude modulation, the
 
 266
-00:19:05.557 --> 00:19:11.199
+00:19:05.691 --> 00:19:11.454
 frequency, giving frequency modulation,
 and the phase, giving phase modulation.
 
 267
-00:19:11.249 --> 00:19:15.800
+00:19:11.504 --> 00:19:16.136
 The simplest example, double-sideband
 amplitude modulation, shows the
 
 268
-00:19:15.840 --> 00:19:20.458
+00:19:16.176 --> 00:19:20.876
 essential effect, a translation of
 the spectrum: multiplying x of t by
 
 269
-00:19:20.498 --> 00:19:24.983
+00:19:20.916 --> 00:19:25.480
 a cosine at f zero gives one half
 of X of f minus f zero plus X of f
 
 270
-00:19:25.023 --> 00:19:29.441
+00:19:25.520 --> 00:19:30.016
 plus f zero; watch the baseband
 spectrum split and move to plus and
 
 271
-00:19:29.481 --> 00:19:34.099
+00:19:30.056 --> 00:19:34.756
 minus f zero, now occupying 2 B;
 frequency and phase modulation also
 
 272
-00:19:34.139 --> 00:19:40.078
+00:19:34.796 --> 00:19:40.833
 move the signal to the carrier, but their
 spectra and bandwidths follow other rules.
 
 273
-00:19:40.128 --> 00:19:43.871
+00:19:40.883 --> 00:19:44.774
 There are five reasons to modulate:
 first, to radiate efficiently: an
 
 274
-00:19:43.911 --> 00:19:47.380
+00:19:44.814 --> 00:19:48.419
 antenna must be comparable to the
 wavelength, and a voice signal
 
 275
-00:19:47.420 --> 00:19:54.891
+00:19:48.459 --> 00:19:56.223
 between 300 and 3 400 Hz has wavelengths
 from 1 000 km down to 88 km,
 
 276
-00:19:54.931 --> 00:20:01.585
+00:19:56.263 --> 00:20:03.164
 while at 130 MHz, in the aeronautical
 band, the wavelength is only 2.3 m.
 
 277
-00:20:01.635 --> 00:20:05.976
+00:20:03.214 --> 00:20:07.529
 Second, to avoid hardware limitations;
 third, to reduce noise and
 
 278
-00:20:06.016 --> 00:20:10.424
+00:20:07.569 --> 00:20:11.951
 interference, as frequency modulation
 does; fourth, to assign each
 
 279
-00:20:10.464 --> 00:20:15.801
+00:20:11.991 --> 00:20:17.299
 station its own band; and fifth, to
 multiplex many signals on one channel.
 
 280
-00:20:17.451 --> 00:20:19.461
+00:20:18.949 --> 00:20:20.921
 Distortion is any difference between the
 
 281
-00:20:19.501 --> 00:20:22.259
+00:20:20.961 --> 00:20:23.676
 shape of the output and
 the shape of the input.
 
 282
-00:20:22.309 --> 00:20:26.153
+00:20:23.726 --> 00:20:27.471
 A system does not distort if the
 output is the input scaled by a
 
 283
-00:20:26.193 --> 00:20:29.794
+00:20:27.511 --> 00:20:31.019
 constant K and delayed by t
 zero, which in frequency means a
 
 284
-00:20:29.834 --> 00:20:34.978
+00:20:31.059 --> 00:20:36.081
 transfer function of constant modulus and
 a phase that is a straight line in f.
 
 285
-00:20:35.028 --> 00:20:37.779
+00:20:36.131 --> 00:20:38.992
 If the modulus is not
 constant we have amplitude
 
 286
-00:20:37.819 --> 00:20:42.123
+00:20:39.032 --> 00:20:43.493
 distortion, and if the phase is not
 linear we have phase distortion.
 
 287
-00:20:42.173 --> 00:20:46.167
+00:20:43.543 --> 00:20:47.456
 Phase distortion is measured with the
 phase delay and the group delay; in a
 
 288
-00:20:46.207 --> 00:20:50.592
+00:20:47.496 --> 00:20:51.799
 distortionless system they are equal,
 and equal to the delay of the signal.
 
 289
-00:20:50.642 --> 00:20:54.330
+00:20:51.849 --> 00:20:55.631
 Linear distortion appears in linear
 systems and can be corrected:
 
 290
-00:20:54.370 --> 00:20:58.116
+00:20:55.671 --> 00:20:59.512
 the handwritten notes show an
 equalizer whose transfer function is
 
 291
-00:20:58.156 --> 00:21:02.521
+00:20:59.552 --> 00:21:04.018
 a constant divided by that of the
 amplifier, so their product is flat.
 
 292
-00:21:02.571 --> 00:21:07.138
+00:21:04.068 --> 00:21:08.841
 The bandwidth is the range where
 amplitude and phase distortion stay below
 
 293
-00:21:07.178 --> 00:21:13.426
+00:21:08.881 --> 00:21:15.409
 some limit, and it must fit the signal:
 about 5 MHz for video, 3.1 kHz for
 
 294
-00:21:13.466 --> 00:21:18.548
+00:21:15.449 --> 00:21:20.742
 voice, and at least r over 2 for a
 digital signal of r symbols per second.
 
 295
-00:21:20.198 --> 00:21:23.739
+00:21:22.392 --> 00:21:26.001
 Non-linear distortion is
 produced by non-linear systems;
 
 296
-00:21:23.779 --> 00:21:27.966
+00:21:26.041 --> 00:21:30.300
 it can be severe and it cannot
 be corrected with equalizers.
 
 297
-00:21:28.016 --> 00:21:30.838
+00:21:30.350 --> 00:21:33.164
 If a single tone enters,
 the output contains the
 
 298
-00:21:30.878 --> 00:21:33.640
+00:21:33.204 --> 00:21:35.959
 tone plus harmonics at
 integer multiples of its
 
 299
-00:21:33.680 --> 00:21:37.666
+00:21:35.999 --> 00:21:39.976
 frequency, and the total harmonic
 distortion summarises them.
 
 300
-00:21:37.716 --> 00:21:42.272
+00:21:40.026 --> 00:21:44.684
 If two close tones enter, besides
 their harmonics we get intermodulation
 
 301
-00:21:42.312 --> 00:21:46.931
+00:21:44.724 --> 00:21:49.448
 products at combinations plus or
 minus k f 1 plus or minus l f 2; the
 
 302
-00:21:46.971 --> 00:21:52.683
+00:21:49.488 --> 00:21:55.318
 third-order ones, like 2 f 1 minus f 2,
 fall right next to the wanted signals.
 
 303
-00:21:52.733 --> 00:21:57.791
+00:21:55.368 --> 00:22:00.179
 So in the 2023 partial, a 1 kHz
 tone entering an amplifier and
 
 304
-00:21:57.831 --> 00:22:01.810
+00:22:00.219 --> 00:22:04.002
 coming out with a 2 kHz tone
 is non-linear distortion, more
 
 305
-00:22:01.850 --> 00:22:05.348
+00:22:04.042 --> 00:22:07.369
 precisely harmonic distortion,
 because a frequency appeared
 
 306
-00:22:05.388 --> 00:22:10.057
+00:22:07.409 --> 00:22:11.868
 that was not at the input; a linear
 system can never create frequencies.
 
 307
-00:22:10.107 --> 00:22:15.489
+00:22:11.918 --> 00:22:17.296
 Problem 3.6 is the same idea with
 algebra: squaring a cosine gives one half
 
 308
-00:22:15.529 --> 00:22:20.039
+00:22:17.336 --> 00:22:21.842
 plus one half cosine of twice the
 frequency, so the output spectrum has a
 
 309
-00:22:20.079 --> 00:22:25.352
+00:22:21.882 --> 00:22:27.152
 line of one half at zero and lines of
 one quarter at plus and minus 2 f zero.
 
 310
-00:22:25.402 --> 00:22:27.674
+00:22:27.202 --> 00:22:29.426
 And a non-linear system has no transfer
 
 311
-00:22:27.714 --> 00:22:30.849
+00:22:29.466 --> 00:22:32.544
 function at all, which
 is the answer to part c.
 
 312
-00:22:32.499 --> 00:22:36.773
+00:22:34.194 --> 00:22:38.329
 Noise is an unwanted random
 signal that is always present.
 
 313
-00:22:36.823 --> 00:22:40.021
+00:22:38.379 --> 00:22:41.588
 Any resistor above absolute
 zero shows a random voltage
 
 314
-00:22:40.061 --> 00:22:43.436
+00:22:41.628 --> 00:22:45.014
 between its terminals, due to
 the thermal agitation of its
 
 315
-00:22:43.476 --> 00:22:46.851
+00:22:45.054 --> 00:22:48.440
 electrons: this is thermal
 noise, the most important kind,
 
 316
-00:22:46.891 --> 00:22:51.245
+00:22:48.480 --> 00:22:52.847
 and other noise sources are usually
 treated as if they were thermal.
 
 317
-00:22:51.295 --> 00:22:55.002
+00:22:52.897 --> 00:22:56.565
 Its spectrum is flat over the
 communication bands, hence the
 
 318
-00:22:55.042 --> 00:22:58.875
+00:22:56.605 --> 00:23:00.396
 name white noise, and its power
 is k T B: Boltzmann's constant
 
 319
-00:22:58.915 --> 00:23:03.638
+00:23:00.436 --> 00:23:05.112
 times the absolute temperature in
 kelvin times the bandwidth in hertz.
 
 320
-00:23:03.688 --> 00:23:09.328
+00:23:05.162 --> 00:23:10.954
 Careful with the constant: the notes
 and the 2023 exam print 1.37 times
 
 321
-00:23:09.368 --> 00:23:14.787
+00:23:10.994 --> 00:23:16.559
 ten to the minus 23 joules per kelvin,
 while the accepted value is 1.38;
 
 322
-00:23:14.827 --> 00:23:19.258
+00:23:16.599 --> 00:23:21.139
 use whatever the exam gives you, the
 difference is negligible in decibels.
 
 323
-00:23:19.308 --> 00:23:23.402
+00:23:21.189 --> 00:23:25.233
 Since noise cannot be removed, we
 live with it, and what matters
 
 324
-00:23:23.442 --> 00:23:27.341
+00:23:25.273 --> 00:23:29.125
 is the signal to noise ratio S
 over N: with a large ratio the
 
 325
-00:23:27.381 --> 00:23:30.893
+00:23:29.165 --> 00:23:32.635
 noise is imperceptible, with
 a small ratio it masks the
 
 326
-00:23:30.933 --> 00:23:36.191
+00:23:32.675 --> 00:23:37.874
 information, and in digital systems it
 raises the probability of bit errors.
 
 327
-00:23:37.841 --> 00:23:40.057
+00:23:39.524 --> 00:23:41.671
 Since you cannot bring
 a formula sheet, here
 
 328
-00:23:40.097 --> 00:23:42.754
+00:23:41.711 --> 00:23:44.298
 is the decibel toolkit
 you need in your head.
 
 329
-00:23:42.804 --> 00:23:45.748
+00:23:44.348 --> 00:23:47.239
 A ratio in decibels is
 10 times the base-ten
 
 330
-00:23:45.788 --> 00:23:49.461
+00:23:47.279 --> 00:23:50.886
 logarithm of the power ratio,
 so doubling is about 3
 
 331
-00:23:49.501 --> 00:23:54.891
+00:23:50.926 --> 00:23:56.227
 dB, four times is about 6 dB,
 and ten times is exactly 10 dB.
 
 332
-00:23:54.941 --> 00:23:59.311
+00:23:56.277 --> 00:24:00.668
 An absolute power in dBm is
 referred to one milliwatt: 0 dBm
 
 333
-00:23:59.351 --> 00:24:03.851
+00:24:00.708 --> 00:24:05.232
 is one milliwatt, 30 dBm is
 one watt, minus 30 dBm is one
 
 334
-00:24:03.891 --> 00:24:08.980
+00:24:05.272 --> 00:24:10.384
 microwatt, minus 60 is one nanowatt
 and minus 90 is one picowatt.
 
 335
-00:24:09.030 --> 00:24:13.839
+00:24:10.434 --> 00:24:15.251
 In decibels, products become sums,
 so a received power in dBm is the
 
 336
-00:24:13.879 --> 00:24:18.550
+00:24:15.291 --> 00:24:19.970
 transmitted power in dBm, plus both
 directivities in dB, minus the
 
 337
-00:24:18.590 --> 00:24:23.261
+00:24:20.010 --> 00:24:24.688
 free-space loss, plus the loss
 coefficients in dB, which are zero or
 
 338
-00:24:23.301 --> 00:24:28.595
+00:24:24.728 --> 00:24:30.031
 negative: a wall that attenuates
 5 dB is a coefficient of minus 5
 
 339
-00:24:28.635 --> 00:24:33.306
+00:24:30.071 --> 00:24:34.749
 dB, which you add, so never subtract
 a negative number; and a signal
 
 340
-00:24:33.346 --> 00:24:38.892
+00:24:34.789 --> 00:24:40.343
 to noise ratio in decibels is the
 signal in dBm minus the noise in dBm.
 
 341
-00:24:38.942 --> 00:24:42.599
+00:24:40.393 --> 00:24:44.039
 One more rule, from the antenna
 notes: in free space, doubling
 
 342
-00:24:42.639 --> 00:24:46.952
+00:24:44.079 --> 00:24:48.378
 the distance divides the power by
 four, minus 6 dB, and since the
 
 343
-00:24:46.992 --> 00:24:51.127
+00:24:48.418 --> 00:24:52.538
 noise does not change with
 distance, an S over N of 20 dB at
 
 344
-00:24:51.167 --> 00:24:57.241
+00:24:52.578 --> 00:24:58.634
 distance R becomes 14 dB at twice the
 distance, as in the 2022 partial.
 
 345
-00:24:57.291 --> 00:25:00.940
+00:24:58.684 --> 00:25:02.200
 But the Friis equation
 itself, as Barlabé stresses
 
 346
-00:25:00.980 --> 00:25:04.082
+00:25:02.240 --> 00:25:05.228
 in the FAQ, must be
 evaluated in linear units,
 
 347
-00:25:04.122 --> 00:25:08.229
+00:25:05.268 --> 00:25:09.240
 watts and metres, so convert
 every decibel value first.
 
 348
-00:25:09.879 --> 00:25:12.969
+00:25:10.890 --> 00:25:13.968
 Two quick noise questions
 from recent partials.
 
 349
-00:25:13.019 --> 00:25:16.801
+00:25:14.018 --> 00:25:17.783
 In 2022, noise power is
 proportional to the absolute
 
 350
-00:25:16.841 --> 00:25:20.328
+00:25:17.823 --> 00:25:21.296
 temperature, so convert to
 kelvin: 17 degrees Celsius
 
 351
-00:25:20.368 --> 00:25:26.148
+00:25:21.336 --> 00:25:27.091
 is 290 kelvin and 34 degrees
 Celsius is 307 kelvin;
 
 352
-00:25:26.188 --> 00:25:30.007
+00:25:27.131 --> 00:25:30.935
 doubling the Celsius temperature
 does not double the noise.
 
 353
-00:25:30.057 --> 00:25:36.565
+00:25:30.985 --> 00:25:37.855
 The ratio 307 over 290 is
 only plus 0.25 dB, so the
 
 354
-00:25:36.605 --> 00:25:43.445
+00:25:37.895 --> 00:25:45.093
 noise goes from minus 114
 to about minus 113.75 dBm.
 
 355
-00:25:43.495 --> 00:25:49.361
+00:25:45.143 --> 00:25:51.038
 In 2023, compute k T B: 1.37
 times ten to the minus 23, times
 
 356
-00:25:49.401 --> 00:25:56.116
+00:25:51.078 --> 00:25:57.823
 290, times 4 million, which is 1.59
 times ten to the minus 14 watts.
 
 357
-00:25:56.166 --> 00:26:02.786
+00:25:57.873 --> 00:26:04.841
 In dBm, divide by one milliwatt
 and take 10 log: minus 108 dBm.
 
 358
-00:26:02.836 --> 00:26:05.749
+00:26:04.891 --> 00:26:07.857
 The signal is 0 dBm,
 so the signal to noise
 
 359
-00:26:05.789 --> 00:26:11.614
+00:26:07.897 --> 00:26:13.820
 ratio is 0 minus minus
 108, which is 108 dB.
 
 360
-00:26:13.264 --> 00:26:16.227
+00:26:15.470 --> 00:26:18.564
 Here is the one fundamental
 advantage of digital
 
 361
-00:26:16.267 --> 00:26:19.745
+00:26:18.604 --> 00:26:22.217
 over analog, and it is a
 guaranteed exam question.
 
 362
-00:26:19.795 --> 00:26:23.628
+00:26:22.267 --> 00:26:25.889
 Along a channel the signal is
 attenuated but the noise is not,
 
 363
-00:26:23.668 --> 00:26:28.016
+00:26:25.929 --> 00:26:30.059
 so repeaters are installed every
 so often to amplify the signal.
 
 364
-00:26:28.066 --> 00:26:31.782
+00:26:30.109 --> 00:26:33.680
 The handwritten notes show the
 problem: an ideal amplifier
 
 365
-00:26:31.822 --> 00:26:35.733
+00:26:33.720 --> 00:26:37.477
 multiplies signal and noise by
 the same gain and keeps S over
 
 366
-00:26:35.773 --> 00:26:39.748
+00:26:37.517 --> 00:26:41.336
 N, but a real amplifier adds its
 own noise, so after every hop
 
 367
-00:26:39.788 --> 00:26:44.542
+00:26:41.376 --> 00:26:45.959
 the signal to noise ratio gets worse,
 and there is no way to fix it.
 
 368
-00:26:44.592 --> 00:26:48.597
+00:26:46.009 --> 00:26:50.211
 Watch the analog chain on the top
 row: after each hop the waveform is
 
 369
-00:26:48.637 --> 00:26:53.267
+00:26:50.251 --> 00:26:55.090
 noisier, which limits the maximum
 distance for a given transmitter power.
 
 370
-00:26:53.317 --> 00:26:57.624
+00:26:55.140 --> 00:26:59.339
 A digital signal, however, can only
 take a few known levels, so if the
 
 371
-00:26:57.664 --> 00:27:01.909
+00:26:59.379 --> 00:27:03.519
 noise is not excessive each repeater
 decides which level was sent and
 
 372
-00:27:01.949 --> 00:27:06.832
+00:27:03.559 --> 00:27:08.330
 rebuilds a clean signal: that is a
 regenerative repeater, the bottom row.
 
 373
-00:27:06.882 --> 00:27:09.961
+00:27:08.380 --> 00:27:11.494
 So in a digital system there
 is virtually no limit to the
 
 374
-00:27:10.001 --> 00:27:12.860
+00:27:11.534 --> 00:27:14.427
 distance, and that is the
 answer to 'what is the main
 
 375
-00:27:12.900 --> 00:27:17.298
+00:27:14.467 --> 00:27:18.912
 advantage of digital communication'
 and 'what is a regenerative repeater'.
 
 376
-00:27:18.948 --> 00:27:23.455
+00:27:20.562 --> 00:27:25.068
 The third limitation, after distortion
 and noise, is interference.
 
 377
-00:27:23.505 --> 00:27:27.638
+00:27:25.118 --> 00:27:29.308
 Interference is the contamination
 of an information signal by another
 
 378
-00:27:27.678 --> 00:27:32.504
+00:27:29.348 --> 00:27:34.234
 similar signal, normally of human
 origin, for example another transmitter.
 
 379
-00:27:32.554 --> 00:27:37.676
+00:27:34.284 --> 00:27:39.487
 It is frequent and often very hard to
 remove in radio, and less common on lines.
 
 380
-00:27:37.726 --> 00:27:41.792
+00:27:39.537 --> 00:27:43.451
 On lines, the typical form is
 crosstalk, diafonia: the conversation
 
 381
-00:27:41.832 --> 00:27:46.226
+00:27:43.491 --> 00:27:47.735
 on one pair of a cable is heard in
 the background of another pair.
 
 382
-00:27:46.276 --> 00:27:49.646
+00:27:47.785 --> 00:27:51.279
 It is caused by the partial
 capacitances between the conductors
 
 383
-00:27:49.686 --> 00:27:53.662
+00:27:51.319 --> 00:27:55.426
 in the cable and is avoided by a
 good choice of transmission lines.
 
 384
-00:27:55.312 --> 00:27:59.608
+00:27:57.076 --> 00:28:01.325
 The two main limitations of a
 telecommunication system are bandwidth and
 
 385
-00:27:59.648 --> 00:28:04.907
+00:28:01.365 --> 00:28:06.567
 noise, and Shannon combined them in
 1948 in the Hartley-Shannon law: the
 
 386
-00:28:04.947 --> 00:28:09.512
+00:28:06.607 --> 00:28:11.126
 capacity C equals B times the base-two
 logarithm of one plus S over N.
 
 387
-00:28:09.562 --> 00:28:13.066
+00:28:11.176 --> 00:28:14.771
 The capacity is the maximum
 amount of information per second
 
 388
-00:28:13.106 --> 00:28:16.432
+00:28:14.811 --> 00:28:18.223
 that the channel can carry:
 above it, errors are certain;
 
 389
-00:28:16.472 --> 00:28:20.779
+00:28:18.263 --> 00:28:22.672
 below it, error-free communication
 is possible, at least in theory.
 
 390
-00:28:20.829 --> 00:28:24.643
+00:28:22.722 --> 00:28:26.426
 Capacity is directly proportional
 to the bandwidth but grows only
 
 391
-00:28:24.683 --> 00:28:29.004
+00:28:26.466 --> 00:28:30.676
 logarithmically with the signal to
 noise ratio, as the curve shows.
 
 392
-00:28:29.054 --> 00:28:33.432
+00:28:30.726 --> 00:28:35.052
 For example, a 25 kHz aeronautical
 channel with an S over N of
 
 393
-00:28:33.472 --> 00:28:38.940
+00:28:35.092 --> 00:28:40.495
 30 dB, which is a ratio of 1 000,
 gives 25 000 times log base 2
 
 394
-00:28:38.980 --> 00:28:47.133
+00:28:40.535 --> 00:28:48.596
 of 1 001, which is 249.2 kbit/s,
 the answer to problem 3.11 c.
 
 395
-00:28:47.183 --> 00:28:51.808
+00:28:48.646 --> 00:28:53.512
 And the new 8.33 kHz
 channels of the 2023 partial
 
 396
-00:28:51.848 --> 00:28:56.496
+00:28:53.552 --> 00:28:58.423
 give 83.1 kbit/s at the
 same signal to noise ratio.
 
 397
-00:28:58.146 --> 00:29:01.468
+00:29:00.073 --> 00:29:03.558
 Three short capacity questions
 that keep coming back.
 
 398
-00:29:01.518 --> 00:29:06.245
+00:29:03.608 --> 00:29:08.210
 Problem 3.9: white noise power is
 proportional to the bandwidth,
 
 399
-00:29:06.285 --> 00:29:10.083
+00:29:08.250 --> 00:29:11.948
 so with the same signal power,
 dividing the bandwidth by three
 
 400
-00:29:10.123 --> 00:29:14.107
+00:29:11.988 --> 00:29:15.867
 divides the noise by three, and
 the signal to noise ratio becomes
 
 401
-00:29:14.147 --> 00:29:19.202
+00:29:15.907 --> 00:29:20.839
 3 A; Barlabé's FAQ says it bluntly,
 it is much simpler than it looks.
 
 402
-00:29:19.252 --> 00:29:25.033
+00:29:20.889 --> 00:29:26.505
 Problem 3.10, and question 7 of
 2016: if you double the bandwidth
 
 403
-00:29:25.073 --> 00:29:29.261
+00:29:26.545 --> 00:29:30.613
 you also double the noise, so the
 capacity becomes 2 B times log of
 
 404
-00:29:29.301 --> 00:29:33.940
+00:29:30.653 --> 00:29:35.171
 one plus S over 2 N, which is less
 than twice the original capacity.
 
 405
-00:29:33.990 --> 00:29:38.170
+00:29:35.221 --> 00:29:39.325
 With an S over N of 100, doubling
 the bandwidth multiplies
 
 406
-00:29:38.210 --> 00:29:44.115
+00:29:39.365 --> 00:29:45.164
 the capacity by 1.70 and tripling
 it by 2.30, so the capacity
 
 407
-00:29:44.155 --> 00:29:48.597
+00:29:45.204 --> 00:29:49.572
 increases but is not proportional;
 justify it exactly like this.
 
 408
-00:29:48.647 --> 00:29:53.126
+00:29:49.622 --> 00:29:54.024
 Problem 3.12: in a radio link
 the received signal falls
 
 409
-00:29:53.166 --> 00:29:56.741
+00:29:54.064 --> 00:29:57.578
 as one over R squared while
 the noise stays constant, so
 
 410
-00:29:56.781 --> 00:30:01.327
+00:29:57.618 --> 00:30:02.093
 the capacity is B log 2 of one
 plus K 1 over K 2 R squared.
 
 411
-00:30:01.377 --> 00:30:05.097
+00:30:02.143 --> 00:30:05.764
 When S over N is much larger than
 one, this becomes a constant
 
 412
-00:30:05.137 --> 00:30:09.099
+00:30:05.804 --> 00:30:09.662
 plus a constant times log 2 of
 one over R: every doubling of the
 
 413
-00:30:09.139 --> 00:30:13.673
+00:30:09.702 --> 00:30:14.126
 distance costs 2 B bits per second,
 which is the answer in the key.
 
 414
-00:30:15.323 --> 00:30:17.519
+00:30:15.776 --> 00:30:17.868
 Let us summarise part two.
 
 415
-00:30:17.569 --> 00:30:20.979
+00:30:17.918 --> 00:30:21.349
 You know the I T U definition,
 the general model with the
 
 416
-00:30:21.019 --> 00:30:24.490
+00:30:21.389 --> 00:30:24.882
 channel's attenuation and
 bandwidth, the duplex modes with
 
 417
-00:30:24.530 --> 00:30:28.995
+00:30:24.922 --> 00:30:29.413
 the pilot and controller as
 half-duplex, and the NDB as broadcast.
 
 418
-00:30:29.045 --> 00:30:33.757
+00:30:29.463 --> 00:30:34.164
 You can read and draw spectra, prove
 that the DC coefficient is the mean,
 
 419
-00:30:33.797 --> 00:30:38.124
+00:30:34.204 --> 00:30:38.520
 transform a rectangle into a sinc
 and back, push tones through ideal
 
 420
-00:30:38.164 --> 00:30:43.908
+00:30:38.560 --> 00:30:44.291
 filters, and say that a delta at the input
 gives the impulse response at the output.
 
 421
-00:30:43.958 --> 00:30:47.382
+00:30:44.341 --> 00:30:47.551
 You know that modulation
 translates the spectrum, that
 
 422
-00:30:47.422 --> 00:30:50.526
+00:30:47.591 --> 00:30:50.500
 linear distortion is
 correctable while non-linear
 
 423
-00:30:50.566 --> 00:30:54.311
+00:30:50.540 --> 00:30:54.051
 distortion creates new frequencies,
 that thermal noise is k
 
 424
-00:30:54.351 --> 00:30:59.320
+00:30:54.091 --> 00:30:58.774
 T B, and why regenerative repeaters
 make digital communication superior.
 
 425
-00:30:59.370 --> 00:31:02.044
+00:30:58.824 --> 00:31:01.418
 And you can use Shannon's
 law and explain why
 
 426
-00:31:02.084 --> 00:31:05.571
+00:31:01.458 --> 00:31:04.851
 doubling the bandwidth does
 not double the capacity.
 
 427
-00:31:05.621 --> 00:31:09.935
+00:31:04.901 --> 00:31:09.424
 In part three we finish with data
 transmission, coding, analogue to digital
 
 428
-00:31:09.975 --> 00:31:14.678
+00:31:09.464 --> 00:31:14.377
 conversion, propagation, polarization,
 antennas and the Friis link budget.

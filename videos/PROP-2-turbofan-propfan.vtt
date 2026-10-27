@@ -1,1321 +1,1321 @@
 WEBVTT
 
 1
-00:00:00.600 --> 00:00:03.044
+00:00:00.600 --> 00:00:03.016
 Welcome to part two, where the component
 
 2
-00:00:03.084 --> 00:00:06.105
+00:00:03.056 --> 00:00:06.047
 models of part one
 become complete engines.
 
 3
-00:00:06.155 --> 00:00:10.059
+00:00:06.097 --> 00:00:10.070
 We start with the separate-exhaust
 turbofan and its two-spool
 
 4
-00:00:10.099 --> 00:00:14.004
+00:00:10.110 --> 00:00:14.083
 power balance, then solve
 exercise 1 A, the C F M fifty-six
 
 5
-00:00:14.044 --> 00:00:18.533
+00:00:14.123 --> 00:00:18.684
 at cruise, and 1 B, the same
 engine at take-off, step by step.
 
 6
-00:00:18.583 --> 00:00:23.314
+00:00:18.734 --> 00:00:23.418
 Then we review propeller momentum theory
 and the turboprop, and finish with the two
 
 7
-00:00:23.354 --> 00:00:28.418
+00:00:23.458 --> 00:00:28.476
 conversions of the exercises: a propfan at
 cruise and an open rotor on the ground.
 
 8
-00:00:30.068 --> 00:00:34.534
+00:00:30.126 --> 00:00:34.838
 A separate-exhaust turbofan splits
 the inlet flow into a core stream and
 
 9
-00:00:34.574 --> 00:00:39.555
+00:00:34.878 --> 00:00:40.112
 a bypass, or secondary, stream, and
 the bypass ratio alpha is their ratio.
 
 10
-00:00:39.605 --> 00:00:43.412
+00:00:40.162 --> 00:00:44.022
 So the core flow is m dot zero
 over one plus alpha, and the
 
 11
-00:00:43.452 --> 00:00:47.583
+00:00:44.062 --> 00:00:48.245
 bypass flow is alpha times m
 dot zero over one plus alpha.
 
 12
-00:00:47.633 --> 00:00:52.196
+00:00:48.295 --> 00:00:52.995
 Fuel is referred to the core, so the
 fuel flow is f times the core flow, and
 
 13
-00:00:52.236 --> 00:00:56.859
+00:00:53.035 --> 00:00:57.798
 the T S F C carries a factor one plus
 alpha in the denominator: forgetting it
 
 14
-00:00:56.899 --> 00:01:01.973
+00:00:57.838 --> 00:01:03.053
 is, according to the manual, the most
 frequent error in turbofan calculations.
 
 15
-00:01:02.023 --> 00:01:05.903
+00:01:03.103 --> 00:01:07.037
 The turbofan has three design
 variables where the turbojet had two:
 
 16
-00:01:05.943 --> 00:01:09.355
+00:01:07.077 --> 00:01:10.537
 besides the compressor pressure
 ratio and T t four, the fan
 
 17
-00:01:09.395 --> 00:01:14.134
+00:01:10.577 --> 00:01:15.376
 pressure ratio and the bypass ratio,
 which are coupled through the turbine.
 
 18
-00:01:14.184 --> 00:01:19.874
+00:01:15.426 --> 00:01:21.006
 In exercise 1 A, with alpha equal to 6
 and a total flow of 170 kilograms per
 
 19
-00:01:19.914 --> 00:01:27.827
+00:01:21.046 --> 00:01:28.814
 second, the core receives 24.29 and the
 bypass 145.71 kilograms per second.
 
 20
-00:01:29.477 --> 00:01:31.832
+00:01:30.464 --> 00:01:32.893
 Real turbofans have two spools turning at
 
 21
-00:01:31.872 --> 00:01:35.435
+00:01:32.933 --> 00:01:36.596
 different speeds, and the
 exercises are posed that way.
 
 22
-00:01:35.485 --> 00:01:38.931
+00:01:36.646 --> 00:01:39.993
 The high pressure spool is
 simple: the high pressure turbine
 
 23
-00:01:38.971 --> 00:01:42.709
+00:01:40.033 --> 00:01:43.663
 drives only the high pressure
 compressor, so the compressor power
 
 24
-00:01:42.749 --> 00:01:47.282
+00:01:43.703 --> 00:01:48.118
 equals eta m H times the turbine power,
 which gives T t four point five.
 
 25
-00:01:47.332 --> 00:01:51.558
+00:01:48.168 --> 00:01:52.575
 The low pressure turbine drives both the
 fan and the low pressure compressor,
 
 26
-00:01:51.598 --> 00:01:56.436
+00:01:52.615 --> 00:01:57.644
 working on gas already cooled by the high
 pressure turbine, which gives T t five.
 
 27
-00:01:56.486 --> 00:02:00.204
+00:01:57.694 --> 00:02:01.440
 Careful with the mass flows: the
 fan compresses the whole inlet
 
 28
-00:02:00.244 --> 00:02:04.081
+00:02:01.480 --> 00:02:05.346
 flow, while the low pressure
 compressor only compresses the core;
 
 29
-00:02:04.121 --> 00:02:09.004
+00:02:05.386 --> 00:02:10.304
 mixing the two conventions changes the
 fan power by a factor one plus alpha.
 
 30
-00:02:09.054 --> 00:02:12.120
+00:02:10.354 --> 00:02:13.330
 The overall pressure ratio
 is the product of the three
 
 31
-00:02:12.160 --> 00:02:15.456
+00:02:13.370 --> 00:02:16.570
 compression ratios, so in
 exercise 1 A the high pressure
 
 32
-00:02:15.496 --> 00:02:20.748
+00:02:16.610 --> 00:02:21.709
 compressor must provide 30.6
 divided by 1.32 times 5, which is
 
 33
-00:02:20.788 --> 00:02:27.062
+00:02:21.749 --> 00:02:27.852
 4.636, and each compressor starts from the
 temperature the previous one left behind.
 
 34
-00:02:28.712 --> 00:02:31.513
+00:02:29.502 --> 00:02:32.355
 Thrust now comes from
 two streams, each with
 
 35
-00:02:31.553 --> 00:02:34.809
+00:02:32.395 --> 00:02:35.703
 its own momentum, ram
 drag and pressure term.
 
 36
-00:02:34.859 --> 00:02:39.165
+00:02:35.753 --> 00:02:39.897
 The thrust ratio F R compares how
 hard each stream works per unit of
 
 37
-00:02:39.205 --> 00:02:43.128
+00:02:39.937 --> 00:02:43.711
 its own mass flow: it is the
 ratio of specific thrusts, not of
 
 38
-00:02:43.168 --> 00:02:48.247
+00:02:43.751 --> 00:02:48.654
 thrusts, and values around one minimise
 fuel consumption in civil engines.
 
 39
-00:02:48.297 --> 00:02:51.344
+00:02:48.704 --> 00:02:51.690
 The kinetic energy increment
 adds both streams, and
 
 40
-00:02:51.384 --> 00:02:55.184
+00:02:51.730 --> 00:02:55.462
 the thermal and propulsive
 efficiencies follow as before.
 
 41
-00:02:55.234 --> 00:02:58.341
+00:02:55.512 --> 00:02:58.683
 In the manual's worked
 example, using the closed-form
 
 42
-00:02:58.381 --> 00:03:01.606
+00:02:58.723 --> 00:03:02.014
 propulsive efficiency with
 under-expanded nozzles loses
 
 43
-00:03:01.646 --> 00:03:05.975
+00:03:02.054 --> 00:03:06.462
 eight percentage points, so always
 compute it from the full thrust.
 
 44
-00:03:06.025 --> 00:03:10.170
+00:03:06.512 --> 00:03:10.661
 In exercise 1 A, F R comes out at
 about 10: the core stream works
 
 45
-00:03:10.210 --> 00:03:14.293
+00:03:10.701 --> 00:03:14.788
 ten times harder per kilogram than
 the fan stream, which says there
 
 46
-00:03:14.333 --> 00:03:19.053
+00:03:14.828 --> 00:03:19.552
 is room for a larger bypass ratio,
 exactly the trend of modern engines.
 
 47
-00:03:20.703 --> 00:03:24.431
+00:03:21.202 --> 00:03:25.093
 Here is exercise 1 A, the
 template for the whole partial.
 
 48
-00:03:24.481 --> 00:03:27.655
+00:03:25.143 --> 00:03:28.254
 The C F M fifty-six has two
 shafts: the high pressure
 
 49
-00:03:27.695 --> 00:03:31.051
+00:03:28.294 --> 00:03:31.583
 turbine drives the high pressure
 compressor, and the low
 
 50
-00:03:31.091 --> 00:03:34.387
+00:03:31.623 --> 00:03:34.853
 pressure turbine drives the
 low pressure compressor and
 
 51
-00:03:34.427 --> 00:03:38.875
+00:03:34.893 --> 00:03:39.252
 the fan, with pressure ratios
 5 and 1.32, a bypass ratio
 
 52
-00:03:38.915 --> 00:03:45.450
+00:03:39.292 --> 00:03:45.706
 of 6, an overall pressure ratio of
 30.6 and T t four of 1 600 kelvin.
 
 53
-00:03:45.500 --> 00:03:49.739
+00:03:45.756 --> 00:03:49.884
 Both nozzles are convergent, and
 the design point is cruise at 11
 
 54
-00:03:49.779 --> 00:03:56.207
+00:03:49.924 --> 00:03:56.195
 km, Mach 0.8, with a total mass
 flow of 170 kilograms per second.
 
 55
-00:03:56.257 --> 00:04:00.356
+00:03:56.245 --> 00:04:00.332
 We must draw the block diagram,
 compute the spool powers, the
 
 56
-00:04:00.396 --> 00:04:04.885
+00:04:00.372 --> 00:04:04.850
 thrust, T S F C and efficiencies,
 and sketch the T s diagram.
 
 57
-00:04:04.935 --> 00:04:09.444
+00:04:04.900 --> 00:04:09.499
 All the component data are isentropic
 efficiencies, so we use the isentropic
 
 58
-00:04:09.484 --> 00:04:16.418
+00:04:09.539 --> 00:04:16.604
 forms throughout, with 0.98 for the inlet
 and 0.9 for the burner pressure ratios.
 
 59
-00:04:18.068 --> 00:04:21.081
+00:04:18.254 --> 00:04:21.434
 Start at the inlet: the
 free-stream total temperature is
 
 60
-00:04:21.121 --> 00:04:27.521
+00:04:21.474 --> 00:04:28.206
 244.55 kelvin, and the total pressure
 drops by 2 % in the diffuser.
 
 61
-00:04:27.571 --> 00:04:30.725
+00:04:28.256 --> 00:04:31.410
 The fan raises the total
 temperature by its isentropic
 
 62
-00:04:30.765 --> 00:04:36.617
+00:04:31.450 --> 00:04:37.302
 relation to 268.30 kelvin,
 matching the official table.
 
 63
-00:04:36.667 --> 00:04:39.493
+00:04:37.352 --> 00:04:40.157
 The low pressure compressor,
 with a pressure ratio
 
 64
-00:04:39.533 --> 00:04:46.305
+00:04:40.197 --> 00:04:46.920
 of 5 and an efficiency of
 0.83, reaches 457.02 kelvin.
 
 65
-00:04:46.355 --> 00:04:50.942
+00:04:46.970 --> 00:04:51.537
 The high pressure compressor,
 with 4.636 and 0.80,
 
 66
-00:04:50.982 --> 00:04:57.304
+00:04:51.577 --> 00:04:57.873
 reaches 771.2 kelvin, and the
 total pressure is now 10.39 bar.
 
 67
-00:04:57.354 --> 00:05:01.334
+00:04:57.923 --> 00:05:01.873
 The powers follow: the fan
 works on all 170 kilograms per
 
 68
-00:05:01.374 --> 00:05:05.562
+00:05:01.913 --> 00:05:06.070
 second for 4 056 kilowatts, and
 the low pressure compressor
 
 69
-00:05:05.602 --> 00:05:11.799
+00:05:06.110 --> 00:05:12.263
 on the 24.29 kilograms per second
 of core for 4 604 kilowatts.
 
 70
-00:05:11.849 --> 00:05:17.121
+00:05:12.313 --> 00:05:17.566
 The high pressure compressor
 absorbs 7 665 kilowatts, so the low
 
 71
-00:05:17.161 --> 00:05:22.432
+00:05:17.606 --> 00:05:22.860
 pressure spool must supply 8 660
 kilowatts to its compressors and the
 
 72
-00:05:22.472 --> 00:05:28.824
+00:05:22.900 --> 00:05:29.231
 high pressure spool 7 665, matching the
 official solution to within rounding.
 
 73
-00:05:30.474 --> 00:05:36.150
+00:05:30.881 --> 00:05:36.551
 Now the burner: plugging T t
 three of 771.2 and T t four of
 
 74
-00:05:36.190 --> 00:05:42.748
+00:05:36.591 --> 00:05:43.143
 1 600 into the fuel ratio
 formula gives f equal to 0.0301.
 
 75
-00:05:42.798 --> 00:05:47.316
+00:05:43.193 --> 00:05:47.801
 The hot flow is 25.02 kilograms
 per second, and the high pressure
 
 76
-00:05:47.356 --> 00:05:53.781
+00:05:47.841 --> 00:05:54.395
 spool balance gives the turbine
 exit temperature: 1 600 minus 7 665
 
 77
-00:05:53.821 --> 00:06:03.605
+00:05:54.435 --> 00:06:04.406
 kilowatts divided by 0.95 times 25.02
 times 1.239, which is 1 339.7 kelvin.
 
 78
-00:06:03.655 --> 00:06:08.592
+00:06:04.456 --> 00:06:09.232
 Inverting the isentropic efficiency
 of 0.80 gives a pressure ratio of
 
 79
-00:06:08.632 --> 00:06:15.522
+00:06:09.272 --> 00:06:15.951
 0.373, so the total pressure after the
 high pressure turbine is 3.49 bar.
 
 80
-00:06:15.572 --> 00:06:18.497
+00:06:16.001 --> 00:06:18.993
 The low pressure spool must
 deliver the fan plus the low
 
 81
-00:06:18.537 --> 00:06:24.235
+00:06:19.033 --> 00:06:24.850
 pressure compressor powers, so the
 gas cools further to 1 045.6 kelvin.
 
 82
-00:06:24.285 --> 00:06:29.251
+00:06:24.900 --> 00:06:29.863
 With an efficiency of 0.81, the low
 pressure turbine pressure ratio is
 
 83
-00:06:29.291 --> 00:06:35.887
+00:06:29.903 --> 00:06:36.495
 0.254, leaving 0.887 bar at the core
 nozzle entry; notice that these two
 
 84
-00:06:35.927 --> 00:06:41.051
+00:06:36.535 --> 00:06:41.655
 turbine ratios are exactly those of the
 manual's table on polytropic efficiencies.
 
 85
-00:06:42.701 --> 00:06:45.172
+00:06:43.305 --> 00:06:45.759
 Both nozzles are
 convergent, so we apply the
 
 86
-00:06:45.212 --> 00:06:48.415
+00:06:45.799 --> 00:06:48.984
 hypothesis and check with
 the nozzle efficiencies.
 
 87
-00:06:48.465 --> 00:06:51.810
+00:06:49.034 --> 00:06:52.406
 For the core, the critical
 static temperature is two T t
 
 88
-00:06:51.850 --> 00:06:56.585
+00:06:52.446 --> 00:06:57.220
 over gamma plus one, 909.2
 kelvin, and the efficiency
 
 89
-00:06:56.625 --> 00:07:01.690
+00:06:57.260 --> 00:07:02.364
 definition gives a critical
 static pressure of 0.447 bar.
 
 90
-00:07:01.740 --> 00:07:06.812
+00:07:02.414 --> 00:07:07.555
 That is above the ambient 0.227 bar,
 so the core nozzle is choked: Mach
 
 91
-00:07:06.852 --> 00:07:13.108
+00:07:07.595 --> 00:07:13.932
 one, and a velocity of 581.3 metres
 per second from the enthalpy drop.
 
 92
-00:07:13.158 --> 00:07:18.378
+00:07:13.982 --> 00:07:19.130
 The fan nozzle, with only 0.45 bar
 of total pressure, gives a critical
 
 93
-00:07:18.418 --> 00:07:23.539
+00:07:19.170 --> 00:07:24.224
 pressure below ambient, so it is matched
 and its exit pressure equals ambient.
 
 94
-00:07:23.589 --> 00:07:30.322
+00:07:24.274 --> 00:07:31.125
 Then its exit temperature, with the
 0.90 efficiency, is 225.7 kelvin,
 
 95
-00:07:30.362 --> 00:07:37.941
+00:07:31.165 --> 00:07:38.870
 giving 292.5 metres per second and Mach
 0.97, all matching the official table.
 
 96
-00:07:37.991 --> 00:07:42.724
+00:07:38.920 --> 00:07:43.690
 For the choked core nozzle we still
 need the exit area, 0.25 square
 
 97
-00:07:42.764 --> 00:07:47.130
+00:07:43.730 --> 00:07:48.128
 metres from continuity, because its
 pressure term contributes thrust.
 
 98
-00:07:48.780 --> 00:07:52.884
+00:07:49.778 --> 00:07:53.901
 Now the thrust, term by term:
 the core jet gives 14.54
 
 99
-00:07:52.924 --> 00:07:57.255
+00:07:53.941 --> 00:07:58.293
 kilonewtons of momentum, the
 fan jet 42.62, the ram drag of
 
 100
-00:07:57.295 --> 00:08:02.648
+00:07:58.333 --> 00:08:03.710
 the 170 kilograms per second
 subtracts 40.14, and the choked
 
 101
-00:08:02.688 --> 00:08:09.168
+00:08:03.750 --> 00:08:10.260
 core nozzle's pressure term adds 5.49,
 for a total of 22.52 kilonewtons.
 
 102
-00:08:09.218 --> 00:08:16.982
+00:08:10.310 --> 00:08:18.124
 The fuel flow is 0.0301 times the core
 flow, 0.7315 kilograms per second, so
 
 103
-00:08:17.022 --> 00:08:23.802
+00:08:18.164 --> 00:08:24.986
 the T S F C is 32.49 milligrams per second
 per newton, exactly the official value.
 
 104
-00:08:23.852 --> 00:08:28.939
+00:08:25.036 --> 00:08:30.344
 The kinetic energy increment of
 the two streams is 5.72 megawatts.
 
 105
-00:08:28.989 --> 00:08:33.542
+00:08:30.394 --> 00:08:35.049
 So the thermal efficiency is 18.4
 %, low because of the modest
 
 106
-00:08:33.582 --> 00:08:37.859
+00:08:35.089 --> 00:08:39.461
 component efficiencies, and the
 propulsive efficiency is 92.9
 
 107
-00:08:37.899 --> 00:08:41.901
+00:08:39.501 --> 00:08:43.585
 %, high because both jets are slow
 compared with the flight speed.
 
 108
-00:08:41.951 --> 00:08:46.339
+00:08:43.635 --> 00:08:48.483
 The overall efficiency
 is 17.1 %, and the quick
 
 109
-00:08:46.379 --> 00:08:50.115
+00:08:48.523 --> 00:08:52.611
 check, v zero over h P R
 times T S F C, confirms it.
 
 110
-00:08:51.765 --> 00:08:54.649
+00:08:54.261 --> 00:08:57.228
 Part d asks for a sketch of
 the thermodynamic cycle,
 
 111
-00:08:54.689 --> 00:08:58.245
+00:08:57.268 --> 00:09:00.915
 which you should be able to
 draw from your station table.
 
 112
-00:08:58.295 --> 00:09:02.428
+00:09:00.965 --> 00:09:05.052
 Watch the core stream being built station
 by station from the computed totals:
 
 113
-00:09:02.468 --> 00:09:06.992
+00:09:05.092 --> 00:09:09.570
 first the free ram compression from the
 static free-stream to the total state.
 
 114
-00:09:07.042 --> 00:09:12.097
+00:09:09.620 --> 00:09:14.674
 Then the fan and the two compressors
 climb to 771 kelvin, each
 
 115
-00:09:12.137 --> 00:09:16.077
+00:09:14.714 --> 00:09:18.654
 process drifting to the right
 because losses generate entropy.
 
 116
-00:09:16.127 --> 00:09:20.483
+00:09:18.704 --> 00:09:22.952
 The burner adds heat up to 1
 600 kelvin at slightly falling
 
 117
-00:09:20.523 --> 00:09:25.834
+00:09:22.992 --> 00:09:28.179
 pressure, and the two turbines
 expand the gas down to 1 046 kelvin.
 
 118
-00:09:25.884 --> 00:09:30.542
+00:09:28.229 --> 00:09:32.899
 Finally the nozzle accelerates the
 flow to its choked exit at 909
 
 119
-00:09:30.582 --> 00:09:35.290
+00:09:32.939 --> 00:09:37.658
 kelvin static, and the vertical extent
 of the diagram is bounded by T t four.
 
 120
-00:09:35.340 --> 00:09:38.702
+00:09:37.708 --> 00:09:41.030
 Two cautions for the sketch:
 this is an open trace of total
 
 121
-00:09:38.742 --> 00:09:42.278
+00:09:41.070 --> 00:09:44.562
 states with losses, not a closed
 reversible cycle, so the area
 
 122
-00:09:42.318 --> 00:09:45.968
+00:09:44.602 --> 00:09:48.208
 under or inside it is not the net
 work; and the bypass stream is
 
 123
-00:09:46.008 --> 00:09:50.005
+00:09:48.248 --> 00:09:52.196
 a separate short branch, from 2
 to 13 through the fan and then
 
 124
-00:09:50.045 --> 00:09:54.951
+00:09:52.236 --> 00:09:57.087
 expanding in its own nozzle to 19,
 which you should add as a second line.
 
 125
-00:09:56.601 --> 00:09:59.840
+00:09:58.737 --> 00:10:02.206
 Exercise 1 B takes the same
 engine to sea level static
 
 126
-00:09:59.880 --> 00:10:06.262
+00:10:02.246 --> 00:10:09.049
 conditions, at 450 kilograms per
 second, so the core gets 64.29.
 
 127
-00:10:06.312 --> 00:10:09.578
+00:10:09.099 --> 00:10:12.461
 Without ram compression but
 with warmer air, the compressor
 
 128
-00:10:09.618 --> 00:10:15.346
+00:10:12.501 --> 00:10:18.388
 exit is hotter, 909 kelvin, and
 the overall pressure is 30.4 bar.
 
 129
-00:10:15.396 --> 00:10:19.899
+00:10:18.438 --> 00:10:23.155
 All spool powers scale up with the
 mass flow, about three times, and the
 
 130
-00:10:19.939 --> 00:10:26.346
+00:10:23.195 --> 00:10:29.887
 fuel ratio is slightly lower, 0.0267,
 because the burner entry is hotter.
 
 131
-00:10:26.396 --> 00:10:30.945
+00:10:29.937 --> 00:10:34.552
 At sea level the ambient pressure is
 high, so both nozzles turn out matched,
 
 132
-00:10:30.985 --> 00:10:38.159
+00:10:34.592 --> 00:10:41.862
 the core at Mach 0.71 and the fan at Mach
 0.58, a good reminder to always check.
 
 133
-00:10:38.209 --> 00:10:44.510
+00:10:41.912 --> 00:10:48.108
 The take-off thrust is 104.3
 kilonewtons with a T S F C of 16.44
 
 134
-00:10:44.550 --> 00:10:48.973
+00:10:48.148 --> 00:10:52.502
 milligrams per second per newton,
 both matching the official solution.
 
 135
-00:10:49.023 --> 00:10:53.273
+00:10:52.552 --> 00:10:56.897
 And since the aircraft is not moving,
 no useful power is produced: the
 
 136
-00:10:53.313 --> 00:10:57.625
+00:10:56.937 --> 00:11:01.344
 propulsive and overall efficiencies
 are zero by definition, even though
 
 137
-00:10:57.665 --> 00:11:03.653
+00:11:01.384 --> 00:11:07.496
 the thrust is large; only the thermal
 efficiency, 18.1 %, is meaningful.
 
 138
-00:11:05.303 --> 00:11:08.951
+00:11:09.146 --> 00:11:12.735
 Two architectures from the
 manual deserve a short mention.
 
 139
-00:11:09.001 --> 00:11:11.621
+00:11:12.785 --> 00:11:15.476
 In a mixed-exhaust turbofan,
 the core and bypass
 
 140
-00:11:11.661 --> 00:11:14.558
+00:11:15.516 --> 00:11:18.490
 streams join in a mixer and
 leave through one nozzle,
 
 141
-00:11:14.598 --> 00:11:18.163
+00:11:18.530 --> 00:11:22.180
 the standard layout of military
 engines with afterburners.
 
 142
-00:11:18.213 --> 00:11:21.478
+00:11:22.230 --> 00:11:25.580
 Because the mixer requires
 matching total pressures, the
 
 143
-00:11:21.518 --> 00:11:25.019
+00:11:25.620 --> 00:11:29.212
 turbine pressure ratio is fixed
 first, and the power balance
 
 144
-00:11:25.059 --> 00:11:28.561
+00:11:29.252 --> 00:11:32.844
 then delivers the bypass ratio:
 alpha becomes an output, the
 
 145
-00:11:28.601 --> 00:11:32.611
+00:11:32.884 --> 00:11:36.988
 single structural difference from
 the separate-exhaust engine.
 
 146
-00:11:32.661 --> 00:11:35.847
+00:11:37.038 --> 00:11:40.297
 Mixing recovers thrust by
 removing the velocity mismatch
 
 147
-00:11:35.887 --> 00:11:39.131
+00:11:40.337 --> 00:11:43.655
 between the streams, a few per
 cent, but on a large civil
 
 148
-00:11:39.171 --> 00:11:43.785
+00:11:43.695 --> 00:11:48.405
 engine the full-length duct costs more
 in weight and drag than it returns.
 
 149
-00:11:43.835 --> 00:11:47.294
+00:11:48.455 --> 00:11:51.937
 The turboshaft splits the turbine:
 the high pressure turbine
 
 150
-00:11:47.334 --> 00:11:50.735
+00:11:51.977 --> 00:11:55.400
 drives the compressor, and a
 free turbine drives the output
 
 151
-00:11:50.775 --> 00:11:54.060
+00:11:55.440 --> 00:11:58.746
 shaft, judged by its power
 specific fuel consumption; its
 
 152
-00:11:54.100 --> 00:11:58.883
+00:11:58.786 --> 00:12:03.597
 propulsive efficiency only makes sense
 together with its rotor or propeller.
 
 153
-00:12:00.533 --> 00:12:03.754
+00:12:05.247 --> 00:12:08.453
 A propeller produces thrust
 by giving a small velocity
 
 154
-00:12:03.794 --> 00:12:06.774
+00:12:08.493 --> 00:12:11.459
 increase to a large mass
 of air, the opposite of a
 
 155
-00:12:06.814 --> 00:12:11.030
+00:12:11.499 --> 00:12:15.697
 turbojet, and momentum theory
 captures it with an actuator disc.
 
 156
-00:12:11.080 --> 00:12:14.169
+00:12:15.747 --> 00:12:18.973
 Bernoulli on each side of
 the disc and the momentum
 
 157
-00:12:14.209 --> 00:12:17.666
+00:12:19.013 --> 00:12:22.622
 balance give the central result:
 the velocity at the disc
 
 158
-00:12:17.706 --> 00:12:21.798
+00:12:22.662 --> 00:12:26.918
 is the average of the upstream
 and far-downstream velocities.
 
 159
-00:12:21.848 --> 00:12:27.247
+00:12:26.968 --> 00:12:32.569
 With the axial induction factor a, the
 disc velocity is v zero times one plus a,
 
 160
-00:12:27.287 --> 00:12:32.821
+00:12:32.609 --> 00:12:38.336
 the wake velocity v zero times one plus
 two a, and the thrust two m dot a v zero.
 
 161
-00:12:32.871 --> 00:12:36.271
+00:12:38.386 --> 00:12:41.755
 The disc power, thrust times
 disc velocity, equals the
 
 162
-00:12:36.311 --> 00:12:39.711
+00:12:41.795 --> 00:12:45.164
 kinetic energy given to the
 slipstream, and the ideal,
 
 163
-00:12:39.751 --> 00:12:43.414
+00:12:45.204 --> 00:12:48.836
 Froude, propulsive efficiency
 is one over one plus a.
 
 164
-00:12:43.464 --> 00:12:46.712
+00:12:48.886 --> 00:12:52.165
 Solving the quadratic for
 the disc velocity shows that
 
 165
-00:12:46.752 --> 00:12:49.939
+00:12:52.205 --> 00:12:55.422
 the loss is governed by the
 disc loading, thrust over
 
 166
-00:12:49.979 --> 00:12:53.410
+00:12:55.462 --> 00:12:58.925
 disc area: a big diameter means
 high efficiency, but also
 
 167
-00:12:53.450 --> 00:12:57.514
+00:12:58.965 --> 00:13:03.064
 high tip speeds, ground clearance
 problems and root stresses.
 
 168
-00:12:59.164 --> 00:13:03.558
+00:13:04.714 --> 00:13:09.287
 A real propeller absorbs more shaft
 power than the ideal disc for the
 
 169
-00:13:03.598 --> 00:13:08.185
+00:13:09.327 --> 00:13:14.100
 same thrust, because of profile drag,
 swirl and tip losses, collected in
 
 170
-00:13:08.225 --> 00:13:13.330
+00:13:14.140 --> 00:13:19.437
 a loss efficiency eta L, so the propeller
 efficiency is eta L times eta P.
 
 171
-00:13:13.380 --> 00:13:17.438
+00:13:19.487 --> 00:13:23.629
 For cycle work the course uses the
 algebraic model plotted here: ten
 
 172
-00:13:17.478 --> 00:13:21.295
+00:13:23.669 --> 00:13:27.566
 M zero eta max at very low speed,
 constant at eta max up to Mach
 
 173
-00:13:21.335 --> 00:13:26.687
+00:13:27.606 --> 00:13:33.061
 0.7, and falling beyond, when the
 blade tips approach drag divergence.
 
 174
-00:13:26.737 --> 00:13:31.125
+00:13:33.111 --> 00:13:37.407
 The procedure is: thrust from the
 shaft power, disc velocity from the
 
 175
-00:13:31.165 --> 00:13:35.553
+00:13:37.447 --> 00:13:41.743
 disc area, then the induction factor,
 the disc power and eta L, which
 
 176
-00:13:35.593 --> 00:13:41.077
+00:13:41.783 --> 00:13:47.160
 must not exceed one; otherwise the disc
 is too small for the assumed efficiency.
 
 177
-00:13:41.127 --> 00:13:45.114
+00:13:47.210 --> 00:13:51.233
 At zero speed the efficiency is
 meaningless, so the static thrust
 
 178
-00:13:45.154 --> 00:13:49.266
+00:13:51.273 --> 00:13:55.421
 uses the figure of merit, F equals
 two rho A to the one third times
 
 179
-00:13:49.306 --> 00:13:54.966
+00:13:55.461 --> 00:14:01.172
 F M times the power to the two
 thirds, with F M around 0.7 to 0.8,
 
 180
-00:13:55.006 --> 00:13:58.994
+00:14:01.212 --> 00:14:05.235
 while the model's own limit, ten
 eta max times the power over the
 
 181
-00:13:59.034 --> 00:14:03.907
+00:14:05.275 --> 00:14:10.188
 speed of sound, can violate momentum
 theory, as exercise 1 B will show.
 
 182
-00:14:05.557 --> 00:14:07.590
+00:14:11.838 --> 00:14:13.908
 A turboprop is a turboshaft whose free
 
 183
-00:14:07.630 --> 00:14:10.435
+00:14:13.948 --> 00:14:16.797
 turbine drives a propeller
 through a gearbox.
 
 184
-00:14:10.485 --> 00:14:14.748
+00:14:16.847 --> 00:14:21.300
 It handles two streams, the gas
 generator flow and the propeller flow,
 
 185
-00:14:14.788 --> 00:14:19.174
+00:14:21.340 --> 00:14:25.921
 and their ratio beta behaves like a
 bypass ratio, but it is an output of
 
 186
-00:14:19.214 --> 00:14:23.989
+00:14:25.961 --> 00:14:30.932
 momentum theory, not a design choice,
 because the propeller has no duct.
 
 187
-00:14:24.039 --> 00:14:28.089
+00:14:30.982 --> 00:14:35.133
 The power reaching the propeller is the
 gearbox efficiency times the shaft's
 
 188
-00:14:28.129 --> 00:14:32.783
+00:14:35.173 --> 00:14:39.935
 share of the low pressure turbine power
 minus the low pressure compressor power.
 
 189
-00:14:32.833 --> 00:14:37.105
+00:14:39.985 --> 00:14:44.220
 The total thrust adds the jet and the
 propeller, and the kinetic energy
 
 190
-00:14:37.145 --> 00:14:41.477
+00:14:44.260 --> 00:14:48.554
 increment uses the disc power, so
 propeller losses appear in the thermal
 
 191
-00:14:41.517 --> 00:14:45.970
+00:14:48.594 --> 00:14:53.009
 efficiency; Mattingly uses the shaft
 power instead, which gives a higher
 
 192
-00:14:46.010 --> 00:14:50.854
+00:14:53.049 --> 00:14:57.854
 thermal and a lower propulsive efficiency
 but the same overall efficiency.
 
 193
-00:14:50.904 --> 00:14:54.122
+00:14:57.904 --> 00:15:01.123
 Finally, there is an optimum
 free-turbine expansion: more
 
 194
-00:14:54.162 --> 00:14:57.837
+00:15:01.163 --> 00:15:04.838
 expansion sends power to the
 efficient propeller until the jet is
 
 195
-00:14:57.877 --> 00:15:02.457
+00:15:04.878 --> 00:15:09.458
 starved, and the optimum shifts towards
 the jet as the flight speed grows.
 
 196
-00:15:04.107 --> 00:15:08.134
+00:15:11.108 --> 00:15:15.107
 Part 2 of exercise 1 A converts
 the engine into a propfan: the fan
 
 197
-00:15:08.174 --> 00:15:13.014
+00:15:15.147 --> 00:15:19.953
 becomes a propeller of 3.93 metres,
 the nacelle opens, and we keep
 
 198
-00:15:13.054 --> 00:15:16.848
+00:15:19.993 --> 00:15:23.761
 the core flow, the low pressure
 turbine pressure ratio and, as the
 
 199
-00:15:16.888 --> 00:15:20.392
+00:15:23.801 --> 00:15:27.280
 official solution does, the high
 pressure compressor ratio of
 
 200
-00:15:20.432 --> 00:15:26.027
+00:15:27.320 --> 00:15:32.876
 4.636, so the overall pressure
 ratio drops from 30.6 to 5 times
 
 201
-00:15:26.067 --> 00:15:34.783
+00:15:32.916 --> 00:15:41.574
 4.636, 23.2, with 1.70 bar after the
 booster and 7.87 bar at the burner.
 
 202
-00:15:34.833 --> 00:15:38.022
+00:15:41.624 --> 00:15:44.862
 Without the fan, the low
 pressure compressor starts from
 
 203
-00:15:38.062 --> 00:15:42.808
+00:15:44.902 --> 00:15:49.721
 the inlet temperature, so it
 ends at 416.6 kelvin, the
 
 204
-00:15:42.848 --> 00:15:49.022
+00:15:49.761 --> 00:15:56.022
 burner entry falls to 703
 kelvin, and f rises to 0.0318.
 
 205
-00:15:49.072 --> 00:15:56.965
+00:15:56.072 --> 00:16:04.020
 The compressor powers fall to 4 196
 kilowatts and 6 987 kilowatts, while the
 
 206
-00:15:57.005 --> 00:16:03.145
+00:16:04.060 --> 00:16:10.238
 low pressure turbine, with its pressure
 ratio kept, delivers 9 290 kilowatts.
 
 207
-00:16:03.195 --> 00:16:06.979
+00:16:10.288 --> 00:16:14.118
 The propeller receives the gearbox
 efficiency times the shaft's share
 
 208
-00:16:07.019 --> 00:16:12.688
+00:16:14.158 --> 00:16:19.895
 minus the low pressure compressor:
 4 583 kilowatts; note that the
 
 209
-00:16:12.728 --> 00:16:17.291
+00:16:19.935 --> 00:16:24.547
 gearbox efficiency multiplies both terms,
 as the official solution stresses.
 
 210
-00:16:17.341 --> 00:16:24.054
+00:16:24.597 --> 00:16:31.185
 At Mach 0.8 the model is past 0.7, so the
 propeller efficiency is 0.9 times one
 
 211
-00:16:24.094 --> 00:16:32.006
+00:16:31.225 --> 00:16:38.995
 minus 0.1 over 3, which is 0.87, and the
 propeller thrust is 16.89 kilonewtons.
 
 212
-00:16:32.056 --> 00:16:37.208
+00:16:39.045 --> 00:16:44.140
 The choked core jet adds
 13.38, for a total of 30.27
 
 213
-00:16:37.248 --> 00:16:41.823
+00:16:44.180 --> 00:16:48.703
 kilonewtons, with a T S F C of
 25.54 milligrams per second
 
 214
-00:16:41.863 --> 00:16:47.116
+00:16:48.743 --> 00:16:53.942
 per newton: 21 % better than the
 turbofan, exactly the official answer.
 
 215
-00:16:48.766 --> 00:16:51.367
+00:16:55.592 --> 00:16:58.266
 Now the propeller stream,
 from momentum theory
 
 216
-00:16:51.407 --> 00:16:55.157
+00:16:58.306 --> 00:17:02.159
 with the full disc area,
 12.13 square metres, and
 
 217
-00:16:55.197 --> 00:16:59.797
+00:17:02.199 --> 00:17:06.914
 the cruise density of 0.365
 kilograms per cubic metre.
 
 218
-00:16:59.847 --> 00:17:03.947
+00:17:06.964 --> 00:17:10.987
 The disc velocity is 243.9 metres per
 
 219
-00:17:03.987 --> 00:17:08.359
+00:17:11.027 --> 00:17:15.325
 second, so the induction
 factor is only 0.033.
 
 220
-00:17:08.409 --> 00:17:13.404
+00:17:15.375 --> 00:17:20.571
 The ideal propulsive efficiency
 is therefore 0.97, and the loss
 
 221
-00:17:13.444 --> 00:17:20.768
+00:17:20.611 --> 00:17:28.229
 efficiency eta L is 0.87 times
 1.033, which is 0.90, below one
 
 222
-00:17:20.808 --> 00:17:24.670
+00:17:28.269 --> 00:17:32.287
 as it must be: the official note
 says this factor collects the
 
 223
-00:17:24.710 --> 00:17:29.088
+00:17:32.327 --> 00:17:36.867
 profile drag, swirl and tip losses
 that momentum theory ignores.
 
 224
-00:17:29.138 --> 00:17:33.433
+00:17:36.917 --> 00:17:41.260
 The propeller moves 1 081
 kilograms per second, so the
 
 225
-00:17:33.473 --> 00:17:40.041
+00:17:41.300 --> 00:17:47.936
 total flow is 1 105 and the bypass
 ratio jumps from 6 to 44.5.
 
 226
-00:17:40.091 --> 00:17:47.714
+00:17:47.986 --> 00:17:55.609
 The efficiencies are 23.6 % thermal,
 92.2 % propulsive and 21.75 %
 
 227
-00:17:47.754 --> 00:17:53.468
+00:17:55.649 --> 00:18:01.363
 overall, against 17.1 % for the turbofan:
 this is the promise of the propfan.
 
 228
-00:17:55.118 --> 00:17:59.008
+00:18:03.013 --> 00:18:06.892
 Exercise 1 B converts the take-off
 engine into an open rotor, with
 
 229
-00:17:59.048 --> 00:18:03.502
+00:18:06.932 --> 00:18:11.373
 the rotor behind the gas generator,
 driven by the low pressure turbine.
 
 230
-00:18:03.552 --> 00:18:08.917
+00:18:11.423 --> 00:18:16.812
 The same power bookkeeping gives
 14 413 kilowatts for the rotor.
 
 231
-00:18:08.967 --> 00:18:13.344
+00:18:16.862 --> 00:18:21.199
 At zero speed the efficiency model
 cannot be used directly, so we try its
 
 232
-00:18:13.384 --> 00:18:19.093
+00:18:21.239 --> 00:18:26.895
 static limit, ten eta max times the
 power over the speed of sound, 381
 
 233
-00:18:19.133 --> 00:18:25.896
+00:18:26.935 --> 00:18:33.640
 kilonewtons, and compare it with an ideal
 disc of the same area, 183 kilonewtons.
 
 234
-00:18:25.946 --> 00:18:32.915
+00:18:33.690 --> 00:18:40.633
 The implied figure of merit, 381 over
 183 to the power three halves, is
 
 235
-00:18:32.955 --> 00:18:37.433
+00:18:40.673 --> 00:18:45.135
 about 3, which is impossible, since no
 propeller beats the ideal disc: the
 
 236
-00:18:37.473 --> 00:18:42.225
+00:18:45.175 --> 00:18:49.911
 algebraic model hides a disc loading,
 and here the disc is too small for it.
 
 237
-00:18:42.275 --> 00:18:46.938
+00:18:49.961 --> 00:18:54.659
 So, as instructed, we use the
 figure of merit 0.75: the rotor
 
 238
-00:18:46.978 --> 00:18:53.539
+00:18:54.699 --> 00:19:01.306
 gives 151.1 kilonewtons, and
 the matched core jet 20.4 more.
 
 239
-00:18:53.589 --> 00:18:57.666
+00:19:01.356 --> 00:19:05.312
 The disc velocity is the square root
 of the propeller thrust over two
 
 240
-00:18:57.706 --> 00:19:02.798
+00:19:05.352 --> 00:19:10.292
 rho A, 71.5 metres per second, so
 the propeller stream is rho A v p,
 
 241
-00:19:02.838 --> 00:19:09.422
+00:19:10.332 --> 00:19:16.720
 1 056 kilograms per second; the
 thermal efficiency is 17.8 %, while
 
 242
-00:19:09.462 --> 00:19:13.989
+00:19:16.760 --> 00:19:21.164
 the propulsive and overall efficiencies
 are zero at zero flight speed.
 
 243
-00:19:14.039 --> 00:19:20.791
+00:19:21.214 --> 00:19:27.888
 The total is 171.5 kilonewtons with
 a T S F C of 10.75 milligrams per
 
 244
-00:19:20.831 --> 00:19:26.422
+00:19:27.928 --> 00:19:33.455
 second per newton, a total flow of
 1 120 kilograms per second and a
 
 245
-00:19:26.462 --> 00:19:32.675
+00:19:33.495 --> 00:19:39.641
 bypass ratio of 16.4, and here eta
 L equals the figure of merit, 0.75.
 
 246
-00:19:34.325 --> 00:19:37.217
+00:19:41.291 --> 00:19:44.172
 Let us put the four results side by side.
 
 247
-00:19:37.267 --> 00:19:40.273
+00:19:44.222 --> 00:19:47.254
 With the same gas generator
 and the same turbine inlet
 
 248
-00:19:40.313 --> 00:19:43.205
+00:19:47.294 --> 00:19:50.212
 temperature, replacing the
 ducted fan by an unducted
 
 249
-00:19:43.245 --> 00:19:46.306
+00:19:50.252 --> 00:19:53.340
 propeller multiplies the
 bypass ratio several times and
 
 250
-00:19:46.346 --> 00:19:52.223
+00:19:53.380 --> 00:19:59.305
 cuts the fuel consumption by about 20
 % at cruise and 35 % on the ground.
 
 251
-00:19:52.273 --> 00:19:58.288
+00:19:59.355 --> 00:20:05.568
 The overall efficiency rises
 from 17.1 to 21.75 % at cruise.
 
 252
-00:19:58.338 --> 00:20:02.141
+00:20:05.618 --> 00:20:09.410
 The price is the tip Mach number
 limit on flight speed, about
 
 253
-00:20:02.181 --> 00:20:06.738
+00:20:09.450 --> 00:20:13.995
 Mach 0.8 even with swept blades,
 plus noise, the gearbox and
 
 254
-00:20:06.778 --> 00:20:11.726
+00:20:14.035 --> 00:20:18.971
 installation issues; that is the whole
 story of propfans and open rotors.
 
 255
-00:20:13.376 --> 00:20:16.223
+00:20:20.621 --> 00:20:23.479
 Here is the second page
 of your cheat sheet.
 
 256
-00:20:16.273 --> 00:20:20.017
+00:20:23.529 --> 00:20:27.192
 The mass flows: core, bypass
 and fuel referred to the core,
 
 257
-00:20:20.057 --> 00:20:24.192
+00:20:27.232 --> 00:20:31.286
 the fan on all the flow, and
 who drives whom on each spool.
 
 258
-00:20:24.242 --> 00:20:29.608
+00:20:31.336 --> 00:20:36.551
 The procedure in one line, which is
 exactly the structure of exercise 1 A.
 
 259
-00:20:29.658 --> 00:20:32.032
+00:20:36.601 --> 00:20:38.862
 Momentum theory and the
 propeller efficiency
 
 260
-00:20:32.072 --> 00:20:35.000
+00:20:38.902 --> 00:20:41.711
 model, with the gearbox
 in the propeller power.
 
 261
-00:20:35.050 --> 00:20:38.536
+00:20:41.761 --> 00:20:45.090
 And the static case: the figure
 of merit formula, the check
 
 262
-00:20:38.576 --> 00:20:42.061
+00:20:45.130 --> 00:20:48.459
 that it cannot exceed one, and
 the reminder that propulsive
 
 263
-00:20:42.101 --> 00:20:46.395
+00:20:48.499 --> 00:20:52.618
 and overall efficiencies are zero
 when the aircraft is not moving.
 
 264
-00:20:46.445 --> 00:20:49.154
+00:20:52.668 --> 00:20:55.392
 In part three we go inside
 the compressor and the
 
 265
-00:20:49.194 --> 00:20:53.134
+00:20:55.432 --> 00:20:59.392
 turbine, with velocity triangles
 and exercises 2 A to 3 B.
