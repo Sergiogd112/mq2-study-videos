@@ -190,3 +190,21 @@ html.pdf table.st th { background: #e8eefc; }
   section.sh h2 { color: #93c5fd; }
   table.st th { background: #1f2937; }
 }
+
+/* past exams */
+main.exams { max-width: 980px; margin: 0 auto; padding: 1.2rem 1.2rem 3rem; }
+main.exams h1 small, main.exams h2 small { display: block; font-size: 0.95rem; font-weight: 400; color: var(--mid); margin-top: 0.2rem; }
+main.exams h2 { margin-top: 2.4rem; border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
+.xtoc { margin: 1rem 0; font-size: 0.95rem; }
+section.xq { margin: 1.1rem 0; padding: 0.8rem 1rem; border: 1px solid var(--line); border-radius: 10px; }
+section.xq h3 { margin: 0 0 0.4rem; font-size: 1.05rem; display: flex; gap: 0.5rem; align-items: baseline; }
+.xn { color: var(--mid); font-weight: 700; white-space: nowrap; }
+.xp { margin-left: auto; font-size: 0.8rem; font-weight: 400; white-space: nowrap; }
+.xst { margin: 0.3rem 0; }
+.xr { font-size: 0.72rem; color: #92400e; background: #fef3c7; border-radius: 4px; padding: 0 0.35rem; white-space: nowrap; }
+section.xq details summary { cursor: pointer; color: var(--mid); font-size: 0.9rem; margin-top: 0.3rem; }
+.xa { margin: 0.5rem 0; }
+.xs { overflow-x: auto; overflow-y: hidden; }
+.xc { font-size: 0.92rem; color: var(--mid); margin: 0.4rem 0 0; }
+.xs .x2 { display: none; }
+@media (max-width: 700px) { .xs.xsplit .x1 { display: none; } .xs.xsplit .x2 { display: block; } .xs .katex-display { font-size: 0.92em; } }
