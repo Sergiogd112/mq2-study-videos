@@ -106,6 +106,7 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 * Friis: P_L = P_T D_T D_R (lambda / (4 pi R))^2 * prod(c_i)    (LINEAR units: W, m;  0 < c_i <= 1)
 * power density S = P_T D_T / (4 pi R^2);  P_L = S A_ef;  A_ef = lambda^2 D / (4 pi)
 * P_L [dBm] = P_T [dBm] + D_T + D_R - L_fs + sum c_i [dB]  (c_i <= 0 dB, ADDED);  L_fs = 20 log(4 pi R / lambda)
+* polarization mismatch: c_pol = cos^2(psi)  (POWER; the field projects as cos psi): 45 deg -> -3 dB, 60 deg -> -6 dB, 90 deg -> 0
 * R_max = (lambda/4pi) sqrt(P_T D_T D_R / P_L,min);   R = (lambda/4pi) 10^(L_fs/20)
 * dish of diameter d with 70 % aperture efficiency: A_ef = 0.7 pi d^2 / 4  ->  d = sqrt(4 A_ef / (0.7 pi))
 * normalised pattern t = D(theta,phi)/D;  G = e D;  NLPS = 0 dB - (largest secondary lobe)
