@@ -1,0 +1,1799 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:02.962
+Bienvenido a la segunda
+parte, donde abrimos
+
+2
+00:00:03.002 --> 00:00:06.627
+cada válvula del sangrado
+de motor del A320.
+
+3
+00:00:06.677 --> 00:00:10.219
+Aquí es donde viven las preguntas
+de examen: cada afirmación del
+
+4
+00:00:10.259 --> 00:00:13.912
+cuestionario pone a prueba un número
+o una causa y efecto, así que
+
+5
+00:00:13.952 --> 00:00:17.606
+iremos válvula a válvula, después
+resumiremos todas las maneras de
+
+6
+00:00:17.646 --> 00:00:22.585
+cortar el sangrado, y terminaremos
+respondiendo a las preguntas de 2020.
+
+7
+00:00:24.235 --> 00:00:26.595
+Esta figura de las transparencias es el
+
+8
+00:00:26.635 --> 00:00:29.879
+mapa de toda la clase,
+así que sigamos al aire.
+
+9
+00:00:29.929 --> 00:00:33.724
+El aire sale por la toma
+intermedia, la etapa 5, a través
+
+10
+00:00:33.764 --> 00:00:37.810
+de la válvula antirretorno de
+presión intermedia, la IPCV;
+
+11
+00:00:37.850 --> 00:00:41.330
+la toma de alta presión, la
+etapa 9, tiene su propia
+
+12
+00:00:41.370 --> 00:00:47.253
+válvula, la válvula de alta
+presión, HPV, que regula a 36 psi.
+
+13
+00:00:47.303 --> 00:00:51.823
+Las dos se unen en la válvula reguladora
+de presión, la PRV, que regula
+
+14
+00:00:51.863 --> 00:00:57.135
+a 44 psi y se manda a través de una
+línea de sensado desde el termostato
+
+15
+00:00:57.175 --> 00:01:01.580
+limitador de temperatura, el TLT; un
+transmisor de presión transferida,
+
+16
+00:01:01.620 --> 00:01:06.588
+P t, mide antes de ella y un transmisor
+de presión regulada, P r, después.
+
+17
+00:01:06.638 --> 00:01:10.059
+Aguas abajo, la válvula de
+sobrepresión, la OPV, que está
+
+18
+00:01:10.099 --> 00:01:13.520
+abierta por muelle, protege
+contra un fallo de la PRV;
+
+19
+00:01:13.560 --> 00:01:16.758
+después el preenfriador enfría
+el aire antes de que vaya a
+
+20
+00:01:16.798 --> 00:01:20.665
+los usuarios, y una rama va a la
+válvula de arranque del motor.
+
+21
+00:01:20.715 --> 00:01:24.918
+En el lado frío, el aire del fan pasa
+por la válvula de aire del fan, la
+
+22
+00:01:24.958 --> 00:01:29.573
+FAV, cerrada por muelle, atraviesa el
+preenfriador y sale al exterior; la
+
+23
+00:01:29.613 --> 00:01:35.090
+FAV la mueve neumáticamente el termostato
+de control de temperatura, el TCT.
+
+24
+00:01:35.140 --> 00:01:38.417
+El TLT lleva un solenoide
+que manda la BMC en los
+
+25
+00:01:38.457 --> 00:01:42.660
+motores CFM, o el control
+del motor en los V2500, y un
+
+26
+00:01:42.700 --> 00:01:45.542
+sensor de temperatura tras
+el preenfriador, junto con
+
+27
+00:01:45.582 --> 00:01:49.793
+los interruptores de posición de
+las válvulas, informan a la BMC.
+
+28
+00:01:51.443 --> 00:01:54.544
+Antes de los detalles, memoriza
+esta tabla, porque la mitad
+
+29
+00:01:54.584 --> 00:01:58.074
+de las afirmaciones de verdadero
+o falso la ponen a prueba.
+
+30
+00:01:58.124 --> 00:02:01.343
+La antirretorno intermedia
+simplemente deja salir el aire
+
+31
+00:02:01.383 --> 00:02:05.220
+de la etapa 5 cuando su presión
+supera la de aguas abajo.
+
+32
+00:02:05.270 --> 00:02:10.682
+La válvula de alta presión está cerrada
+por muelle, regula a 36 psi más
+
+33
+00:02:10.722 --> 00:02:17.207
+o menos 4, y se cierra del todo cuando
+la etapa 5 sola supera los 36 psi.
+
+34
+00:02:17.257 --> 00:02:20.489
+La válvula reguladora de presión
+también está cerrada por
+
+35
+00:02:20.529 --> 00:02:25.425
+muelle; con solo 8 psi se abre
+del todo, y regula a 44 psi
+
+36
+00:02:25.465 --> 00:02:30.006
+más o menos 4, bajo el control
+de la línea de sensado del TLT.
+
+37
+00:02:30.056 --> 00:02:33.804
+La válvula de sobrepresión es la
+excepción: abierta por muelle,
+
+38
+00:02:33.844 --> 00:02:39.485
+empieza a cerrar hacia los 74 psi
+y queda cerrada del todo a 90.
+
+39
+00:02:39.535 --> 00:02:42.450
+La válvula de aire del fan
+está cerrada por muelle y
+
+40
+00:02:42.490 --> 00:02:44.950
+solo abre cuando el
+termostato de control de
+
+41
+00:02:44.990 --> 00:02:49.603
+temperatura le manda aire, cuando
+el sangrado supera los 200 grados.
+
+42
+00:02:49.653 --> 00:02:53.086
+La válvula de cross-bleed es
+eléctrica, con dos motores, y la
+
+43
+00:02:53.126 --> 00:02:56.966
+válvula de sangrado de la APU la
+manda un solenoide; así que sin
+
+44
+00:02:57.006 --> 00:03:03.377
+sangrado, la HPV, la PRV y la FAV están
+cerradas y solo la OPV está abierta.
+
+45
+00:03:05.027 --> 00:03:08.789
+Esta gráfica responde a la pregunta
+clásica de qué válvula regula a
+
+46
+00:03:08.829 --> 00:03:13.435
+cada potencia del motor, usando la
+presión de la etapa 5 como variable.
+
+47
+00:03:13.485 --> 00:03:19.541
+En ralentí, cuando la etapa 5 da menos de
+36 psi, el aire de mayor presión de la
+
+48
+00:03:19.581 --> 00:03:27.147
+etapa 9 mantiene cerrada la IPCV, la HPV
+regula a 36 psi, y la PRV, por debajo de
+
+49
+00:03:27.187 --> 00:03:34.721
+su referencia de 44 psi, sigue abierta del
+todo, así que el sistema recibe 36 psi.
+
+50
+00:03:34.771 --> 00:03:40.148
+Entre 36 y 44 psi, la etapa 5
+sola supera la referencia de
+
+51
+00:03:40.188 --> 00:03:44.470
+la HPV, así que la HPV se
+cierra del todo y el aire viene
+
+52
+00:03:44.510 --> 00:03:48.216
+de la etapa 5 a través de
+la antirretorno, con la PRV
+
+53
+00:03:48.256 --> 00:03:52.582
+todavía abierta del todo: el sistema
+recibe lo que dé la etapa 5.
+
+54
+00:03:52.632 --> 00:03:56.607
+Por encima de 44 psi, lo
+típico en crucero, la
+
+55
+00:03:56.647 --> 00:04:02.108
+PRV toma el relevo y regula
+a 44 psi más o menos 4.
+
+56
+00:04:02.158 --> 00:04:06.046
+Por encima de esa línea están
+las protecciones: la BMC cierra
+
+57
+00:04:06.086 --> 00:04:11.499
+eléctricamente la PRV si la presión
+regulada supera los 57 psi, y
+
+58
+00:04:11.539 --> 00:04:17.636
+si incluso eso falla, la válvula de
+sobrepresión cierra entre 74 y 90 psi.
+
+59
+00:04:17.686 --> 00:04:21.421
+Y recuerda el caso obvio que señalan
+los apuntes: si ni siquiera la
+
+60
+00:04:21.461 --> 00:04:26.437
+etapa 9 llega a 36 psi, las válvulas
+simplemente dejan pasar el aire
+
+61
+00:04:26.477 --> 00:04:31.166
+que reciben, porque una válvula puede
+reducir la presión pero nunca añadirla.
+
+62
+00:04:32.816 --> 00:04:36.615
+Practiquemos los regímenes como los
+preguntaría un examen; después de
+
+63
+00:04:36.655 --> 00:04:41.177
+cada pregunta, pausa el vídeo y responde
+antes de que aparezca la solución.
+
+64
+00:04:41.227 --> 00:04:45.995
+Primero, ralentí, con 25 psi
+en la etapa 5 y 60 psi en la
+
+65
+00:04:46.035 --> 00:04:50.351
+etapa 9: ¿qué hacen la
+antirretorno, la HPV, la PRV y la
+
+66
+00:04:50.391 --> 00:04:53.965
+válvula de sobrepresión, y qué
+presión recibe el sistema?
+
+67
+00:04:54.015 --> 00:04:59.106
+El aire de la etapa 9 mantiene cerrada
+la antirretorno, la HPV regula a
+
+68
+00:04:59.146 --> 00:05:06.192
+36 psi, la PRV, por debajo de su
+referencia de 44 psi, está abierta del
+
+69
+00:05:06.232 --> 00:05:12.140
+todo, y la válvula de sobrepresión está
+abierta: el sistema recibe 36 psi.
+
+70
+00:05:12.190 --> 00:05:16.209
+Segundo, subida, con 40 psi en la etapa 5.
+
+71
+00:05:16.259 --> 00:05:20.691
+La HPV se cierra del todo, la
+antirretorno se abre, la PRV
+
+72
+00:05:20.731 --> 00:05:25.792
+sigue abierta del todo, y el sistema
+recibe simplemente unos 40 psi.
+
+73
+00:05:25.842 --> 00:05:29.420
+Tercero, crucero, con
+100 psi en la etapa 5.
+
+74
+00:05:29.470 --> 00:05:35.903
+La HPV sigue cerrada y la PRV
+regula a 44 psi más o menos 4.
+
+75
+00:05:35.953 --> 00:05:40.321
+Cuarto, en crucero el elemento
+regulador de la PRV falla alto.
+
+76
+00:05:40.371 --> 00:05:43.199
+La presión sube, y cuando
+el transmisor de presión
+
+77
+00:05:43.239 --> 00:05:48.363
+regulada marca 57 psi, la BMC
+excita el solenoide del TLT,
+
+78
+00:05:48.403 --> 00:05:53.515
+que ventea la línea de sensado y
+cierra la PRV, y con ella la HPV.
+
+79
+00:05:53.565 --> 00:05:56.817
+Quinto, y falla también
+el solenoide del TLT.
+
+80
+00:05:56.867 --> 00:06:00.473
+Entonces la última barrera es
+la válvula de sobrepresión, que
+
+81
+00:06:00.513 --> 00:06:05.911
+empieza a cerrar a 74 psi y queda
+cerrada del todo a 90, así que la
+
+82
+00:06:05.951 --> 00:06:09.796
+presión aguas abajo nunca supera
+esa banda; el método es siempre:
+
+83
+00:06:09.836 --> 00:06:17.059
+compara la etapa 5 con 36 y 44 psi, y
+después aplica las protecciones en orden.
+
+84
+00:06:18.709 --> 00:06:21.215
+Ahora la PRV por dentro, tal como los
+
+85
+00:06:21.255 --> 00:06:24.434
+apuntes describen la figura
+de las transparencias.
+
+86
+00:06:24.484 --> 00:06:27.726
+La mariposa está unida por una
+varilla y una manivela a un
+
+87
+00:06:27.766 --> 00:06:31.008
+pistón que separa dos cámaras:
+la cámara C, de apertura y
+
+88
+00:06:31.048 --> 00:06:35.132
+referencia, y la cámara D, de
+cierre, que además aloja un muelle.
+
+89
+00:06:35.182 --> 00:06:39.425
+Con solo 8 psi aguas arriba, el
+aire presuriza la cámara C y empuja
+
+90
+00:06:39.465 --> 00:06:43.201
+el pistón hacia arriba, abriendo
+la mariposa del todo; parte de ese
+
+91
+00:06:43.241 --> 00:06:47.874
+aire llega también a la cámara E y
+a la línea de sensado hacia el TLT.
+
+92
+00:06:47.924 --> 00:06:50.441
+Un elemento regulador
+calibrado mantiene la
+
+93
+00:06:50.481 --> 00:06:55.054
+presión de la cámara C en
+la referencia de 44 psi.
+
+94
+00:06:55.104 --> 00:06:58.858
+Una toma aguas abajo de la mariposa
+alimenta una pequeña válvula de
+
+95
+00:06:58.898 --> 00:07:03.841
+embudo: mientras la presión aguas
+abajo está por debajo de 44 psi se
+
+96
+00:07:03.881 --> 00:07:08.711
+queda asentada, pero por encima de
+44 se levanta, ventea a la atmósfera
+
+97
+00:07:08.751 --> 00:07:12.562
+y llena la cámara D, así que el
+pistón baja y la mariposa cierra en
+
+98
+00:07:12.602 --> 00:07:17.652
+parte; la presión baja, el embudo vuelve a
+asentarse, y la mariposa vuelve a abrir.
+
+99
+00:07:17.702 --> 00:07:21.375
+Así que la mariposa oscila deprisa
+alrededor de la posición de
+
+100
+00:07:21.415 --> 00:07:28.234
+44 psi, y por eso la especificación
+es de 44 más o menos 4 psi.
+
+101
+00:07:28.284 --> 00:07:31.879
+Para cerrar la PRV a propósito,
+se despresuriza la línea
+
+102
+00:07:31.919 --> 00:07:35.514
+de sensado hacia el TLT: entonces
+la cámara E deja que una
+
+103
+00:07:35.554 --> 00:07:38.866
+pequeña bola destape un orificio
+que ventea la cámara C, y
+
+104
+00:07:38.906 --> 00:07:41.819
+el muelle cierra la mariposa;
+como última protección
+
+105
+00:07:41.859 --> 00:07:47.094
+térmica, un fusible se funde a 450
+grados y ventea la misma línea.
+
+106
+00:07:48.744 --> 00:07:51.616
+La válvula de alta presión
+funciona con el mismo
+
+107
+00:07:51.656 --> 00:07:56.617
+principio que la PRV, con
+una referencia de 36 psi.
+
+108
+00:07:56.667 --> 00:07:59.811
+Está cerrada por muelle, se
+abre del todo en cuanto le
+
+109
+00:07:59.851 --> 00:08:03.407
+llegan más de 8 psi, y regula
+cuando la presión de la
+
+110
+00:08:03.447 --> 00:08:09.869
+etapa 9 supera los 36 psi, oscilando
+otra vez a 36 más o menos 4.
+
+111
+00:08:09.919 --> 00:08:15.329
+Cuando la etapa 5 da por sí sola más
+de 36 psi, la antirretorno se abre,
+
+112
+00:08:15.369 --> 00:08:20.721
+la presión aguas abajo de la mariposa
+de la HPV supera los 36, llena su
+
+113
+00:08:20.761 --> 00:08:26.268
+cámara de cierre, y la HPV se cierra
+del todo: ya no hace falta la etapa 9.
+
+114
+00:08:26.318 --> 00:08:30.449
+El enlace clave: la cámara C de la
+PRV está conectada a la cámara E
+
+115
+00:08:30.489 --> 00:08:35.059
+de la HPV, así que cuando la PRV
+se cierra despresurizando su línea
+
+116
+00:08:35.099 --> 00:08:39.729
+de sensado, la HPV pierde su presión
+de apertura y se cierra también.
+
+117
+00:08:39.779 --> 00:08:43.640
+Pero no al revés: en crucero la
+HPV está cerrada mientras la
+
+118
+00:08:43.680 --> 00:08:48.779
+PRV regula, así que una HPV
+cerrada no dice nada de la PRV.
+
+119
+00:08:50.429 --> 00:08:54.657
+Como la PRV y la HPV se cierran
+juntas, al examen le encanta
+
+120
+00:08:54.697 --> 00:08:59.370
+preguntar cuándo se cierra la PRV,
+así que aquí está el mapa completo.
+
+121
+00:08:59.420 --> 00:09:03.137
+Manualmente, la tripulación la
+cierra poniendo el pulsador ENG
+
+122
+00:09:03.177 --> 00:09:06.543
+BLEED en OFF, o pulsando el
+pulsador de fuego del motor; los
+
+123
+00:09:06.583 --> 00:09:11.101
+dos excitan el solenoide del TLT,
+que ventea la línea de sensado.
+
+124
+00:09:11.151 --> 00:09:14.386
+Automáticamente, la BMC
+excita el mismo solenoide en
+
+125
+00:09:14.426 --> 00:09:18.904
+cinco condiciones: más de
+57 psi tras la PRV, leídos
+
+126
+00:09:18.944 --> 00:09:23.082
+por el transmisor de presión
+regulada; más de 257
+
+127
+00:09:23.122 --> 00:09:26.019
+grados tras el preenfriador,
+leídos por el sensor de
+
+128
+00:09:26.059 --> 00:09:28.786
+temperatura; una fuga
+detectada por los lazos; la
+
+129
+00:09:28.826 --> 00:09:31.722
+secuencia de arranque de
+ese motor; y el sangrado de
+
+130
+00:09:31.762 --> 00:09:35.952
+la APU seleccionado, que es como
+la APU consigue la prioridad.
+
+131
+00:09:36.002 --> 00:09:40.391
+Neumáticamente, dentro del TLT, sin
+señal eléctrica: un flujo inverso,
+
+132
+00:09:40.431 --> 00:09:44.879
+detectado por la diferencia de presión
+a través de la PRV, la cierra,
+
+133
+00:09:44.919 --> 00:09:51.697
+mientras que una sobretemperatura de
+unos 235 a 245 grados solo ventea
+
+134
+00:09:51.737 --> 00:09:57.041
+en parte la línea de sensado, así que
+la PRV estrangula en lugar de cerrarse.
+
+135
+00:09:57.091 --> 00:10:00.337
+Y la propia PRV se cierra
+sin presión aguas arriba,
+
+136
+00:10:00.377 --> 00:10:03.568
+por debajo de 8 psi, porque
+la cierra su muelle, y
+
+137
+00:10:03.608 --> 00:10:08.470
+como último recurso su fusible
+térmico se funde a 450 grados.
+
+138
+00:10:10.120 --> 00:10:13.024
+La protección térmica
+funciona como una escalera de
+
+139
+00:10:13.064 --> 00:10:16.373
+dispositivos independientes,
+cada uno un paso más lejos de
+
+140
+00:10:16.413 --> 00:10:20.861
+lo normal, y una pregunta de examen
+puede empezar en cualquier peldaño.
+
+141
+00:10:20.911 --> 00:10:24.188
+En funcionamiento normal el
+TCT y la válvula de aire
+
+142
+00:10:24.228 --> 00:10:27.271
+del fan mantienen el aire
+que sale del preenfriador a
+
+143
+00:10:27.311 --> 00:10:31.617
+200 grados más o menos 15, de
+forma continua y neumática.
+
+144
+00:10:31.667 --> 00:10:35.639
+Si el sangrado se calienta igualmente,
+por ejemplo porque ha fallado el
+
+145
+00:10:35.679 --> 00:10:42.702
+TCT, hacia los 235 a 245 grados la
+sonda del TLT ventea en parte la
+
+146
+00:10:42.742 --> 00:10:48.120
+línea de sensado de la PRV y la PRV
+estrangula, limitando la temperatura.
+
+147
+00:10:48.170 --> 00:10:52.931
+A 257 grados el sensor de
+temperatura avisa a la BMC,
+
+148
+00:10:52.971 --> 00:10:56.818
+que excita el solenoide del
+TLT: la PRV, y con ella la
+
+149
+00:10:56.858 --> 00:11:01.094
+HPV, se cierran del todo, y
+aparece una precaución de ECAM.
+
+150
+00:11:01.144 --> 00:11:07.009
+Y si todo lo demás falla, a 450 grados
+el fusible térmico de la PRV se
+
+151
+00:11:07.049 --> 00:11:11.978
+funde y ventea la línea de sensado,
+cerrando la válvula como último recurso.
+
+152
+00:11:12.028 --> 00:11:15.839
+Así que para un TCT averiado la
+respuesta es: primero la limitación
+
+153
+00:11:15.879 --> 00:11:23.129
+del TLT, después el cierre por la BMC
+a 257, y después el fusible a 450.
+
+154
+00:11:24.779 --> 00:11:28.093
+El TLT es el elemento
+que manda la PRV, y su
+
+155
+00:11:28.133 --> 00:11:31.201
+funcionamiento es una
+pregunta abierta clásica.
+
+156
+00:11:31.251 --> 00:11:33.363
+Tiene un cuerpo regulador y una sonda
+
+157
+00:11:33.403 --> 00:11:37.011
+termostática metida en el
+conducto tras el preenfriador.
+
+158
+00:11:37.061 --> 00:11:41.301
+La sonda es un tubo exterior, de un
+metal que se dilata más y más deprisa,
+
+159
+00:11:41.341 --> 00:11:45.582
+soldado en su punta a una varilla
+interior; cuando el aire se calienta, el
+
+160
+00:11:45.622 --> 00:11:50.368
+tubo se alarga y tira de la varilla,
+que abre una pequeña válvula de venteo.
+
+161
+00:11:50.418 --> 00:11:56.795
+Entre unos 235 y 245 grados
+este venteo vacía la línea de
+
+162
+00:11:56.835 --> 00:12:02.122
+sensado de la PRV y la PRV
+estrangula, limitando la temperatura.
+
+163
+00:12:02.172 --> 00:12:08.482
+A 257 grados la BMC excita el solenoide
+de encima del TLT, cuya fuerza
+
+164
+00:12:08.522 --> 00:12:14.213
+magnética levanta su válvula, ventea del
+todo la línea de sensado y cierra la PRV.
+
+165
+00:12:14.263 --> 00:12:17.467
+El flujo inverso se detecta
+sin electricidad: un diafragma
+
+166
+00:12:17.507 --> 00:12:21.269
+separa una toma de antes de la
+PRV y una toma de después del
+
+167
+00:12:21.309 --> 00:12:24.512
+preenfriador; normalmente gana
+la presión de aguas arriba,
+
+168
+00:12:24.552 --> 00:12:27.699
+pero si la de aguas abajo es
+mayor el diafragma se mueve,
+
+169
+00:12:27.739 --> 00:12:30.999
+deja entrar aire en la cámara
+de la válvula del solenoide y
+
+170
+00:12:31.039 --> 00:12:35.918
+la empuja hasta abrirla, venteando la
+línea de sensado y cerrando la PRV.
+
+171
+00:12:37.568 --> 00:12:40.414
+Aguas abajo de la PRV viene la válvula de
+
+172
+00:12:40.454 --> 00:12:43.514
+sobrepresión, la última
+protección de presión.
+
+173
+00:12:43.564 --> 00:12:46.763
+Su mariposa está abierta por
+muelle, al revés que las demás
+
+174
+00:12:46.803 --> 00:12:51.216
+válvulas, y solo se cierra cuando
+la PRV no ha conseguido regular.
+
+175
+00:12:51.266 --> 00:12:55.568
+El aire de aguas arriba pasa por un
+filtro y actúa sobre dos pistones con
+
+176
+00:12:55.608 --> 00:13:01.277
+muelle: hacia los 74 psi los muelles
+empiezan a ceder y la mariposa empieza a
+
+177
+00:13:01.317 --> 00:13:10.111
+cerrar, y a 90 psi queda cerrada del todo;
+las transparencias dan de 73.8 a 89.9 psi.
+
+178
+00:13:10.161 --> 00:13:12.902
+Cuanto mayor es la presión,
+más deprisa cierra,
+
+179
+00:13:12.942 --> 00:13:16.072
+y cuando la presión se
+recupera vuelve a abrir.
+
+180
+00:13:16.122 --> 00:13:19.719
+Después viene el preenfriador,
+instalado en el pilón: un haz de
+
+181
+00:13:19.759 --> 00:13:23.182
+tubos metálicos que llevan el
+aire de sangrado caliente, con
+
+182
+00:13:23.222 --> 00:13:26.299
+aire frío del fan que los
+rodea y luego se descarga al
+
+183
+00:13:26.339 --> 00:13:30.846
+exterior, así que las dos corrientes
+intercambian calor pero nunca masa.
+
+184
+00:13:32.496 --> 00:13:35.915
+El lazo de temperatura es la
+otra pregunta favorita, y tiene
+
+185
+00:13:35.955 --> 00:13:39.823
+dos partes: el termostato que
+detecta y la válvula que actúa.
+
+186
+00:13:39.873 --> 00:13:43.800
+El termostato de control de
+temperatura, el TCT, tiene una sonda
+
+187
+00:13:43.840 --> 00:13:47.537
+en el conducto tras el preenfriador,
+construida como la sonda del
+
+188
+00:13:47.577 --> 00:13:52.181
+TLT: un tubo exterior que se dilata
+y arrastra una varilla interior.
+
+189
+00:13:52.231 --> 00:13:56.594
+Por debajo de 200 grados el venteo de
+la sonda está cerrado, el aire que
+
+190
+00:13:56.634 --> 00:14:01.052
+entra en el TCT llena su propia cámara
+A, el diafragma comprime el muelle y
+
+191
+00:14:01.092 --> 00:14:05.677
+cierra la válvula de aguja, así que no
+va aire a la válvula de aire del fan.
+
+192
+00:14:05.727 --> 00:14:10.130
+A 200 grados o más, la varilla abre
+el venteo, la cámara A se vacía,
+
+193
+00:14:10.170 --> 00:14:14.159
+la válvula de aguja se abre, y el
+aire regulado baja por la línea de
+
+194
+00:14:14.199 --> 00:14:17.832
+señal hasta la válvula de aire
+del fan; cuanto más se mueve la
+
+195
+00:14:17.872 --> 00:14:22.842
+varilla, más aire manda, así que la acción
+es proporcional, no de todo o nada.
+
+196
+00:14:24.492 --> 00:14:27.573
+Ahora la válvula que mueve
+el termostato, la válvula de
+
+197
+00:14:27.613 --> 00:14:31.367
+aire del fan, que muestra esta
+página de las transparencias.
+
+198
+00:14:31.417 --> 00:14:34.853
+Es una mariposa cerrada por
+muelle; el aire de señal del TCT
+
+199
+00:14:34.893 --> 00:14:37.847
+presuriza la cámara de su
+actuador, vence al muelle y la
+
+200
+00:14:37.887 --> 00:14:41.055
+abre, mientras que un pequeño
+orificio de purga deja escapar
+
+201
+00:14:41.095 --> 00:14:44.921
+algo de aire para que pueda volver
+a cerrar cuando baja la señal.
+
+202
+00:14:44.971 --> 00:14:48.157
+Cuanto más caliente está el
+sangrado, más aire manda el
+
+203
+00:14:48.197 --> 00:14:51.676
+TCT, más se abre la válvula,
+más aire del fan enfría el
+
+204
+00:14:51.716 --> 00:14:56.641
+preenfriador, y el lazo se estabiliza
+en 200 grados más o menos 15.
+
+205
+00:14:56.691 --> 00:15:01.388
+Fíjate en quién está en el lazo: el
+TCT, la FAV, la línea de sensado y
+
+206
+00:15:01.428 --> 00:15:06.457
+el preenfriador, y nadie más; la BMC
+lee la temperatura pero no la regula.
+
+207
+00:15:08.107 --> 00:15:12.613
+Última válvula: la de cross-bleed,
+con sus dos motores eléctricos.
+
+208
+00:15:12.663 --> 00:15:15.504
+En AUTO la regla que hay que
+recordar es que la válvula de
+
+209
+00:15:15.544 --> 00:15:19.619
+cross-bleed tiene la misma posición
+que la válvula de sangrado de la APU.
+
+210
+00:15:19.669 --> 00:15:23.571
+Más exactamente, cuando cualquiera
+de las BMC recibe la señal de
+
+211
+00:15:23.611 --> 00:15:27.232
+que la válvula de sangrado de la
+APU está abierta, sin ninguna
+
+212
+00:15:27.272 --> 00:15:30.836
+fuga detectada en los conductos
+neumáticos y sin ningún pulsador
+
+213
+00:15:30.876 --> 00:15:35.507
+de fuego de motor accionado, manda al
+motor número 1 y la válvula se abre.
+
+214
+00:15:35.557 --> 00:15:38.105
+Si se detecta una fuga
+durante la secuencia de
+
+215
+00:15:38.145 --> 00:15:41.032
+arranque de un motor, la
+válvula sigue abierta hasta
+
+216
+00:15:41.072 --> 00:15:44.742
+que termina la secuencia, para
+poder completar el arranque.
+
+217
+00:15:44.792 --> 00:15:48.566
+Cuando las BMC reciben la señal de
+que la válvula de sangrado de la
+
+218
+00:15:48.606 --> 00:15:52.770
+APU se ha cerrado, mandan al motor
+1 cerrar la válvula de cross-bleed.
+
+219
+00:15:52.820 --> 00:15:55.917
+En OPEN o SHUT, el motor número
+2 lleva la válvula a esa
+
+220
+00:15:55.957 --> 00:15:59.379
+posición fija, sea cual sea la
+válvula de sangrado de la APU;
+
+221
+00:15:59.419 --> 00:16:02.842
+y recuerda que con aire de la
+APU y el cross-bleed abierto, el
+
+222
+00:16:02.882 --> 00:16:06.737
+aire de la APU va hacia los
+motores, y las PRV de los motores
+
+223
+00:16:06.777 --> 00:16:10.145
+las cierran neumáticamente sus
+TLT, que detectan el flujo
+
+224
+00:16:10.185 --> 00:16:13.823
+inverso, y eléctricamente las
+BMC, porque está seleccionado el
+
+225
+00:16:13.863 --> 00:16:18.270
+sangrado de la APU, así que la APU
+tiene prioridad por partida doble.
+
+226
+00:16:19.920 --> 00:16:23.065
+Aquí tienes cinco escenarios
+para poner a prueba toda la
+
+227
+00:16:23.105 --> 00:16:26.981
+lógica; pausa después de cada
+pregunta y predice la respuesta.
+
+228
+00:16:27.031 --> 00:16:30.365
+Uno: un fallo del sangrado del
+motor 2 en crucero, con el
+
+229
+00:16:30.405 --> 00:16:34.359
+selector en AUTO y la APU
+apagada; ¿qué le pasa al pack 2?
+
+230
+00:16:34.409 --> 00:16:37.560
+La válvula de cross-bleed
+sigue a la válvula de la APU,
+
+231
+00:16:37.600 --> 00:16:40.919
+que está cerrada, y se queda
+cerrada, así que el pack 2 se
+
+232
+00:16:40.959 --> 00:16:43.886
+queda sin aire hasta que la
+tripulación selecciona el
+
+233
+00:16:43.926 --> 00:16:47.971
+cross-bleed en OPEN, y entonces el
+motor 1 alimenta los dos lados.
+
+234
+00:16:48.021 --> 00:16:51.993
+Dos: la tripulación pulsa el
+pulsador de fuego del motor 1.
+
+235
+00:16:52.043 --> 00:16:55.865
+Eso excita el solenoide del
+TLT, que cierra la PRV 1 y,
+
+236
+00:16:55.905 --> 00:16:59.074
+por el enlace, la HPV 1,
+y en AUTO la válvula de
+
+237
+00:16:59.114 --> 00:17:03.272
+cross-bleed no puede abrir porque se
+ha accionado un pulsador de fuego.
+
+238
+00:17:03.322 --> 00:17:06.493
+Tres: se detecta una fuga
+en el lado izquierdo.
+
+239
+00:17:06.543 --> 00:17:11.229
+Los lazos de fugas avisan a la BMC
+1, que cierra la PRV 1, y en AUTO el
+
+240
+00:17:11.269 --> 00:17:15.496
+cross-bleed sigue cerrado para que la
+fuga quede aislada del lado derecho.
+
+241
+00:17:15.546 --> 00:17:20.517
+Cuatro: se pierden los dos sangrados
+de motor por debajo de 20 000 pies.
+
+242
+00:17:20.567 --> 00:17:23.525
+La tripulación selecciona
+APU BLEED, la válvula de
+
+243
+00:17:23.565 --> 00:17:26.696
+sangrado de la APU se abre
+y, en AUTO, la válvula de
+
+244
+00:17:26.736 --> 00:17:31.238
+cross-bleed la sigue, así que los
+dos lados se alimentan desde la APU.
+
+245
+00:17:31.288 --> 00:17:34.297
+Cinco: arranque del motor 2 con la APU.
+
+246
+00:17:34.347 --> 00:17:37.461
+El cross-bleed está abierto
+porque sigue a la válvula de la
+
+247
+00:17:37.501 --> 00:17:41.051
+APU, la válvula de arranque 2
+está abierta, y la secuencia de
+
+248
+00:17:41.091 --> 00:17:45.738
+arranque mantiene cerrada la PRV 2
+hasta que el motor está en marcha.
+
+249
+00:17:47.388 --> 00:17:51.917
+Ahora el cuestionario de 2020,
+empezando por la pregunta 1.
+
+250
+00:17:51.967 --> 00:17:55.079
+La duda es que la APU solo
+alimenta el lado izquierdo,
+
+251
+00:17:55.119 --> 00:17:59.063
+mientras que el arrancador del
+motor 2 está en el lado derecho.
+
+252
+00:17:59.113 --> 00:18:02.039
+Pero en AUTO la válvula de
+cross-bleed sigue a la válvula
+
+253
+00:18:02.079 --> 00:18:04.900
+de sangrado de la APU, así
+que en cuanto se abre la
+
+254
+00:18:04.940 --> 00:18:08.681
+válvula de sangrado de la APU,
+el cross-bleed se abre también.
+
+255
+00:18:08.731 --> 00:18:12.455
+Por tanto el aire de la APU llega
+a las dos válvulas de arranque, y
+
+256
+00:18:12.495 --> 00:18:17.847
+durante cada secuencia de arranque la BMC
+mantiene cerrada la PRV de ese motor.
+
+257
+00:18:17.897 --> 00:18:21.736
+Así que la respuesta es la c, sí; la
+opción a dice un hecho cierto, que
+
+258
+00:18:21.776 --> 00:18:25.238
+el cross-bleed sigue a la válvula
+de la APU, pero saca de él la
+
+259
+00:18:25.278 --> 00:18:29.938
+conclusión equivocada, que es justo el
+tipo de trampa que ponen estas preguntas.
+
+260
+00:18:31.588 --> 00:18:36.593
+La pregunta 2 pide las afirmaciones
+falsas sobre la válvula de alta presión.
+
+261
+00:18:36.643 --> 00:18:40.533
+La afirmación a es falsa: en
+cuanto la etapa 5 sola supera los
+
+262
+00:18:40.573 --> 00:18:47.175
+36 psi la HPV está cerrada, así
+que desde luego no se abre a 44.
+
+263
+00:18:47.225 --> 00:18:49.838
+La afirmación b es falsa
+por lo mismo: que la
+
+264
+00:18:49.878 --> 00:18:54.727
+etapa 5 llegue a 36 psi
+es lo que cierra la HPV.
+
+265
+00:18:54.777 --> 00:18:58.924
+La afirmación c es verdadera, por el
+enlace que vimos: el flujo inverso hace
+
+266
+00:18:58.964 --> 00:19:04.361
+que el TLT ventee la línea de sensado de
+la PRV, la PRV se cierra, y la cámara
+
+267
+00:19:04.401 --> 00:19:10.568
+C de la PRV es lo que mantiene abierta la
+HPV, así que la HPV se cierra también.
+
+268
+00:19:10.618 --> 00:19:14.756
+La afirmación d es falsa: en ralentí
+con la etapa 5 por debajo de
+
+269
+00:19:14.796 --> 00:19:19.948
+36 psi la HPV es la válvula que
+regula, así que está abierta;
+
+270
+00:19:19.988 --> 00:19:24.007
+está cerrada siempre que la etapa
+5 sola supera su referencia de
+
+271
+00:19:24.047 --> 00:19:30.067
+36 psi, tanto si la PRV está entonces
+abierta del todo como si regula.
+
+272
+00:19:30.117 --> 00:19:33.694
+Así que las afirmaciones
+falsas son la a, la b y la d.
+
+273
+00:19:35.344 --> 00:19:38.264
+La pregunta 3 mezcla
+los dos dispositivos de
+
+274
+00:19:38.304 --> 00:19:41.488
+temperatura, y cada
+afirmación es una trampa.
+
+275
+00:19:41.538 --> 00:19:47.482
+La afirmación a está mal como mando:
+la BMC nunca mueve el TCT; 257 grados
+
+276
+00:19:47.522 --> 00:19:52.487
+es el umbral al que la BMC cierra la
+PRV a través del solenoide del TLT;
+
+277
+00:19:52.527 --> 00:19:56.840
+leída como secuencia en el tiempo es
+defendible, porque cuando la PRV se
+
+278
+00:19:56.880 --> 00:20:01.636
+cierra el aire se enfría y la sonda acaba
+cerrándose, así que la a es discutible.
+
+279
+00:20:01.686 --> 00:20:05.797
+La afirmación b está mal como causa
+y efecto: la sonda del TCT solo
+
+280
+00:20:05.837 --> 00:20:10.402
+sigue a la temperatura, y los
+57 psi que lee el transmisor de
+
+281
+00:20:10.442 --> 00:20:14.666
+presión regulada son una de las
+condiciones de cierre de la PRV; la
+
+282
+00:20:14.706 --> 00:20:18.533
+sonda podría estar abierta en ese
+momento si el aire está por encima
+
+283
+00:20:18.573 --> 00:20:24.722
+de 200 grados, pero no por los 57 psi,
+así que la b es como mucho ambigua.
+
+284
+00:20:24.772 --> 00:20:29.430
+La afirmación c está mal: cuando la
+sonda está cerrada, por debajo de 200
+
+285
+00:20:29.470 --> 00:20:33.954
+grados, la cámara A sigue llena, la
+válvula de aguja está cerrada, el TCT
+
+286
+00:20:33.994 --> 00:20:38.636
+no manda aire, y la válvula de aire
+del fan la mantiene cerrada su muelle.
+
+287
+00:20:38.686 --> 00:20:42.878
+La afirmación d está mal: el flujo
+inverso lo detecta el TLT y actúa
+
+288
+00:20:42.918 --> 00:20:47.391
+sobre la PRV; nada en esa lógica manda
+abrir del todo la válvula de aire
+
+289
+00:20:47.431 --> 00:20:51.397
+del fan, que el TCT sigue modulando
+según la temperatura, y con el
+
+290
+00:20:51.437 --> 00:20:56.300
+sangrado caliente cortado la temperatura
+tiende a bajar y la válvula a cerrarse.
+
+291
+00:20:56.350 --> 00:21:00.127
+Así que, con la lectura estricta
+de causa y efecto, ninguna de las
+
+292
+00:21:00.167 --> 00:21:04.002
+cuatro afirmaciones es correcta,
+con la a y la b discutibles si se
+
+293
+00:21:04.042 --> 00:21:07.877
+leen como secuencias en el tiempo;
+no hay solución oficial, así que
+
+294
+00:21:07.917 --> 00:21:12.316
+justifica cada respuesta exactamente
+así, que es lo que da los puntos.
+
+295
+00:21:13.966 --> 00:21:16.578
+Los exámenes antiguos
+tienen también preguntas
+
+296
+00:21:16.618 --> 00:21:21.177
+abiertas sobre el A320, y ya
+tienes todas las respuestas.
+
+297
+00:21:21.227 --> 00:21:25.628
+Para las condiciones del cierre
+eléctrico de la PRV, enumera las dos
+
+298
+00:21:25.668 --> 00:21:29.426
+manuales, el pulsador de sangrado
+en OFF y el pulsador de fuego, y
+
+299
+00:21:29.466 --> 00:21:36.437
+las cinco automáticas que manda la
+BMC: 57 psi, 257 grados, una fuga,
+
+300
+00:21:36.477 --> 00:21:41.268
+la secuencia de arranque del motor y
+la selección del sangrado de la APU.
+
+301
+00:21:41.318 --> 00:21:45.011
+Para explicar el TLT con flujo
+inverso, describe el diafragma
+
+302
+00:21:45.051 --> 00:21:48.355
+entre la toma de antes de
+la PRV y la de después del
+
+303
+00:21:48.395 --> 00:21:51.810
+preenfriador, y cómo una presión
+mayor aguas abajo lo empuja y
+
+304
+00:21:51.850 --> 00:21:56.436
+abre neumáticamente la válvula del
+solenoide, venteando la línea de sensado.
+
+305
+00:21:56.486 --> 00:22:00.933
+Para explicar el TCT, describe la sonda
+tras el preenfriador, el venteo que
+
+306
+00:22:00.973 --> 00:22:05.478
+se abre a 200 grados, la cámara A y la
+válvula de aguja, la línea de señal
+
+307
+00:22:05.518 --> 00:22:10.860
+hacia la válvula de aire del fan, y el
+resultado de 200 más o menos 15 grados.
+
+308
+00:22:10.910 --> 00:22:15.171
+Una pregunta de 2011 te da AUTO, sin
+pulsador de fuego de motor y sin
+
+309
+00:22:15.211 --> 00:22:18.858
+fuga, y pide las cuatro condiciones
+que faltan: son la parte de la
+
+310
+00:22:18.898 --> 00:22:22.935
+APU de la cadena, APU BLEED
+seleccionado, el pulsador de fuego de la
+
+311
+00:22:22.975 --> 00:22:27.124
+APU sin accionar, sin señal de parada
+de la APU, y la velocidad de la
+
+312
+00:22:27.164 --> 00:22:32.430
+APU estabilizada al 95 %, para que
+la válvula de sangrado de la APU
+
+313
+00:22:32.470 --> 00:22:36.953
+se abra y la válvula de cross-bleed,
+que la sigue en AUTO, se abra también.
+
+314
+00:22:37.003 --> 00:22:40.773
+Y siempre que puedas, añade un
+esquema rápido del circuito con sus
+
+315
+00:22:40.813 --> 00:22:45.376
+válvulas en orden: le demuestra al
+profesor que entiendes toda la cadena.
+
+316
+00:22:47.026 --> 00:22:51.297
+El examen de 2012 a 2013 tiene
+una pregunta tipo test sobre la
+
+317
+00:22:51.337 --> 00:22:55.944
+válvula de cross-bleed del A320
+que entra entera en el temario.
+
+318
+00:22:55.994 --> 00:22:59.716
+La afirmación a es la propia regla
+de AUTO de las transparencias, la
+
+319
+00:22:59.756 --> 00:23:03.700
+válvula de cross-bleed tiene la misma
+posición que la válvula de sangrado
+
+320
+00:23:03.740 --> 00:23:08.627
+de la APU, así que en ese contexto es
+correcta, aunque en OPEN o SHUT no lo es.
+
+321
+00:23:08.677 --> 00:23:13.530
+La afirmación b es incorrecta: las BMC
+actúan a través del motor número 1,
+
+322
+00:23:13.570 --> 00:23:18.873
+mientras que el motor número 2 es el que
+usan las posiciones manuales OPEN y SHUT.
+
+323
+00:23:18.923 --> 00:23:22.810
+La afirmación c es incorrecta: las
+condiciones de apertura automática
+
+324
+00:23:22.850 --> 00:23:26.569
+son la válvula de sangrado de la
+APU abierta, ningún pulsador de
+
+325
+00:23:26.609 --> 00:23:30.384
+fuego de motor y ninguna fuga,
+tolerando las fugas durante cualquier
+
+326
+00:23:30.424 --> 00:23:34.143
+arranque de motor; la excepción del
+arranque del motor izquierdo es
+
+327
+00:23:34.183 --> 00:23:38.071
+inventada, y la señal de parada de
+la APU actúa sobre la válvula de
+
+328
+00:23:38.111 --> 00:23:43.061
+sangrado de la APU a través de la ECB,
+no directamente sobre el cross-bleed.
+
+329
+00:23:43.111 --> 00:23:45.673
+La afirmación d es incorrecta: el TLT
+
+330
+00:23:45.713 --> 00:23:49.197
+manda la PRV, nunca la
+válvula de cross-bleed.
+
+331
+00:23:49.247 --> 00:23:52.603
+Así que la respuesta buscada
+es la opción 3, b, c y d
+
+332
+00:23:52.643 --> 00:23:55.712
+incorrectas; solo si lees
+siempre como que incluye las
+
+333
+00:23:55.752 --> 00:24:00.649
+posiciones manuales elegirías la opción
+5, y en ese caso dilo en una línea.
+
+334
+00:24:02.299 --> 00:24:05.020
+La protección contra el
+fuego conecta los dos
+
+335
+00:24:05.060 --> 00:24:09.151
+sistemas de este examen, así que
+se merece una transparencia.
+
+336
+00:24:09.201 --> 00:24:12.936
+En el panel superior hay tres
+pulsadores de fuego, ENG 1
+
+337
+00:24:12.976 --> 00:24:17.794
+FIRE, ENG 2 FIRE y APU FIRE,
+cada uno protegido por una tapa.
+
+338
+00:24:17.844 --> 00:24:21.652
+Cuando se detecta un fuego, el
+pulsador correspondiente se enciende
+
+339
+00:24:21.692 --> 00:24:25.499
+en rojo y suena un aviso; la
+tripulación levanta la tapa y pulsa el
+
+340
+00:24:25.539 --> 00:24:29.967
+botón, lo que silencia el aviso sonoro
+mientras la luz sigue encendida.
+
+341
+00:24:30.017 --> 00:24:33.193
+Después descargan el agente
+extintor: la APU tiene una
+
+342
+00:24:33.233 --> 00:24:36.297
+botella que inunda su
+compartimento, y cada motor tiene
+
+343
+00:24:36.337 --> 00:24:40.073
+dos agentes, que se descargan
+uno tras otro por redundancia.
+
+344
+00:24:40.123 --> 00:24:43.158
+Pulsar un pulsador de fuego
+de motor excita el solenoide
+
+345
+00:24:43.198 --> 00:24:47.662
+del TLT de ese motor, así que
+su PRV, y con ella su HPV, se
+
+346
+00:24:47.702 --> 00:24:51.293
+cierran, y en AUTO la válvula
+de cross-bleed no puede abrir.
+
+347
+00:24:51.343 --> 00:24:55.347
+En el lado hidráulico, el mismo
+pulsador cierra la válvula de fuego del
+
+348
+00:24:55.387 --> 00:25:00.749
+sistema que mueve ese motor, el verde para
+el motor 1 y el amarillo para el motor 2.
+
+349
+00:25:00.799 --> 00:25:03.711
+Y el pulsador APU FIRE es
+una de las condiciones que
+
+350
+00:25:03.751 --> 00:25:06.769
+comprueba la BMC antes de
+permitir el sangrado de la
+
+351
+00:25:06.809 --> 00:25:10.797
+APU, así que la válvula de sangrado
+de la APU se queda cerrada.
+
+352
+00:25:12.447 --> 00:25:15.287
+Aquí está toda la segunda
+parte como una tabla de
+
+353
+00:25:15.327 --> 00:25:19.263
+números, que vale la pena copiar
+de memoria antes del examen.
+
+354
+00:25:19.313 --> 00:25:26.064
+36 psi para la válvula de alta presión
+y 44 psi para la válvula reguladora de
+
+355
+00:25:26.104 --> 00:25:34.045
+presión, las dos más o menos 4; 57 psi
+y 257 grados para el cierre por la BMC,
+
+356
+00:25:34.085 --> 00:25:43.905
+235 a 245 grados para la sonda del TLT
+y 450 grados para el fusible de la PRV.
+
+357
+00:25:43.955 --> 00:25:48.888
+74 a 90 psi para la válvula
+de sobrepresión, 200 más o
+
+358
+00:25:48.928 --> 00:25:53.100
+menos 15 grados para el lazo
+de temperatura, 50 psi para
+
+359
+00:25:53.140 --> 00:25:57.819
+los depósitos hidráulicos y 20 000
+pies para el sangrado de la APU.
+
+360
+00:25:57.869 --> 00:26:01.134
+En la tercera parte pasamos al
+sistema hidráulico, que usa
+
+361
+00:26:01.174 --> 00:26:04.999
+parte de este aire de sangrado
+para presurizar sus depósitos.

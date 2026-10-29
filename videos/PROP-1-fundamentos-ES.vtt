@@ -1,0 +1,1572 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:02.892
+Bienvenido a la primera
+de tres clases para
+
+2
+00:00:02.932 --> 00:00:05.722
+el examen parcial de
+propulsión de aeronaves.
+
+3
+00:00:05.772 --> 00:00:09.426
+La primera parte monta la caja
+de herramientas: los fundamentos
+
+4
+00:00:09.466 --> 00:00:13.061
+termodinámicos, la numeración de
+estaciones, el modelo de cada
+
+5
+00:00:13.101 --> 00:00:16.813
+componente del motor, la ecuación
+del empuje y los rendimientos,
+
+6
+00:00:16.853 --> 00:00:21.308
+y el procedimiento completo del
+turborreactor con un ejemplo resuelto.
+
+7
+00:00:21.358 --> 00:00:25.588
+La segunda parte lo aplica a turbofanes,
+turbohélices y rotores abiertos,
+
+8
+00:00:25.628 --> 00:00:30.150
+resolviendo por completo los ejercicios
+1 A y 1 B, y la tercera trata las
+
+9
+00:00:30.190 --> 00:00:35.454
+etapas de compresor y de turbina con
+los ejercicios 2 A, 2 B, 3 A y 3 B.
+
+10
+00:00:35.504 --> 00:00:38.490
+Todos los números que aparecen
+se han recalculado con un
+
+11
+00:00:38.530 --> 00:00:41.961
+programa de ciclo que reproduce
+las soluciones oficiales.
+
+12
+00:00:43.611 --> 00:00:46.336
+Primero, las normas, de
+la página de exámenes que
+
+13
+00:00:46.376 --> 00:00:49.661
+los profesores actualizaron
+el veintidós de octubre.
+
+14
+00:00:49.711 --> 00:00:52.754
+Hay un conflicto con la fecha:
+el visor de horarios dice
+
+15
+00:00:52.794 --> 00:00:56.001
+lunes dos de noviembre, pero
+tanto la página de exámenes de
+
+16
+00:00:56.041 --> 00:00:59.689
+Atenea como la guía del curso
+dicen jueves cinco, de 15:00 a
+
+17
+00:00:59.729 --> 00:01:04.148
+18:00 en el aula 2.6 del
+TR5; dos fuentes del curso
+
+18
+00:01:04.188 --> 00:01:08.556
+coinciden en el cinco, pero confírmalo
+por correo con los dos profesores.
+
+19
+00:01:08.606 --> 00:01:11.468
+El examen dura dos horas
+y media sin descanso,
+
+20
+00:01:11.508 --> 00:01:14.761
+y salir del aula significa
+entregar el examen.
+
+21
+00:01:14.811 --> 00:01:18.016
+Puedes llevar agua, tu DNI,
+bolígrafos de cualquier
+
+22
+00:01:18.056 --> 00:01:21.419
+color excepto rojo y una
+calculadora no programable.
+
+23
+00:01:21.469 --> 00:01:25.539
+Y puedes llevar una chuleta de dos
+hojas por las dos caras, manuscrita
+
+24
+00:01:25.579 --> 00:01:29.980
+o impresa, que se recoge con el
+examen, así que guarda una fotocopia.
+
+25
+00:01:30.030 --> 00:01:34.525
+El parcial vale el 30 % de la
+asignatura y cubre la primera mitad
+
+26
+00:01:34.565 --> 00:01:37.624
+del plan del curso: análisis
+de diseño y turbohélices,
+
+27
+00:01:37.664 --> 00:01:42.606
+compresores y turbinas, exactamente
+los temas de los ejercicios 1 A a 3 B.
+
+28
+00:01:44.256 --> 00:01:47.810
+Toda la asignatura descansa
+sobre unas pocas hipótesis.
+
+29
+00:01:47.860 --> 00:01:50.848
+El gas es caloríficamente
+perfecto, con un juego de
+
+30
+00:01:50.888 --> 00:01:54.944
+propiedades para la zona fría,
+aire con gamma 1.4, y otro
+
+31
+00:01:54.984 --> 00:01:58.446
+para la zona caliente, productos
+de combustión con gamma de
+
+32
+00:01:58.486 --> 00:02:02.127
+unos 1.3; el flujo es
+unidimensional, estacionario y
+
+33
+00:02:02.167 --> 00:02:07.088
+adiabático en los conductos, e isentrópico
+solo donde se diga explícitamente.
+
+34
+00:02:07.138 --> 00:02:11.913
+La ecuación de estado es P igual a ro
+R T, con R igual a c p por gamma menos
+
+35
+00:02:11.953 --> 00:02:16.613
+uno entre gamma, y la conservación de
+la masa dice que ro v A es constante.
+
+36
+00:02:16.663 --> 00:02:19.677
+El primer principio equilibra
+el calor y el trabajo con
+
+37
+00:02:19.717 --> 00:02:22.842
+la variación de entalpía total,
+con el convenio de que el
+
+38
+00:02:22.882 --> 00:02:26.452
+trabajo es positivo cuando se
+extrae, como en una turbina.
+
+39
+00:02:26.502 --> 00:02:29.811
+La entropía varía como c p por
+el logaritmo del cociente de
+
+40
+00:02:29.851 --> 00:02:33.599
+temperaturas menos R por el logaritmo
+del cociente de presiones, y
+
+41
+00:02:33.639 --> 00:02:36.948
+esta es la relación que hay que
+recordar, porque las pérdidas
+
+42
+00:02:36.988 --> 00:02:41.620
+siempre aparecerán como caídas de presión
+total a temperatura total constante.
+
+43
+00:02:41.670 --> 00:02:44.908
+Por último, la relación
+isentrópica liga los cocientes de
+
+44
+00:02:44.948 --> 00:02:48.185
+temperatura y de presión con
+el exponente gamma menos uno
+
+45
+00:02:48.225 --> 00:02:52.945
+entre gamma, y la velocidad del sonido
+es la raíz cuadrada de gamma R T.
+
+46
+00:02:54.595 --> 00:02:58.345
+Las magnitudes totales, o de
+remanso, son la columna vertebral de
+
+47
+00:02:58.385 --> 00:03:02.759
+cualquier cálculo de motores, y hay
+una asimetría que debes entender.
+
+48
+00:03:02.809 --> 00:03:05.895
+La temperatura total solo
+exige que la deceleración sea
+
+49
+00:03:05.935 --> 00:03:10.775
+adiabática y sin trabajo: T t igual
+a T más v al cuadrado entre dos c p.
+
+50
+00:03:10.825 --> 00:03:15.343
+La presión total exige, además, que
+la deceleración sea reversible.
+
+51
+00:03:15.393 --> 00:03:18.374
+En función del número de
+Mach, T t entre T es uno más
+
+52
+00:03:18.414 --> 00:03:21.670
+gamma menos uno medios por M
+al cuadrado, y P t entre P
+
+53
+00:03:21.710 --> 00:03:25.356
+es ese mismo corchete elevado
+a gamma entre gamma menos uno.
+
+54
+00:03:25.406 --> 00:03:29.402
+La consecuencia es que en un conducto
+sin trabajo ni calor la temperatura
+
+55
+00:03:29.442 --> 00:03:33.437
+total es constante sean cuales sean
+las pérdidas, mientras que la presión
+
+56
+00:03:33.477 --> 00:03:37.362
+total cae con la entropía generada,
+P t dos entre P t uno igual a e
+
+57
+00:03:37.402 --> 00:03:42.230
+elevado a menos delta s entre R, como
+a través de una onda de choque normal.
+
+58
+00:03:42.280 --> 00:03:45.407
+Por eso cada componente se
+describe con un cociente de
+
+59
+00:03:45.447 --> 00:03:49.218
+temperaturas totales tau y un
+cociente de presiones totales pi, y
+
+60
+00:03:49.258 --> 00:03:54.182
+por eso una toma adiabática tiene tau
+d igual a uno pero pi d menor que uno.
+
+61
+00:03:55.832 --> 00:03:59.479
+Siempre que la continuidad se
+combina con las magnitudes totales
+
+62
+00:03:59.519 --> 00:04:03.512
+aparece el mismo grupo: el parámetro
+de gasto másico, m punto por la
+
+63
+00:04:03.552 --> 00:04:08.396
+raíz cuadrada de R T t, dividido por
+el área normal al flujo y por P t.
+
+64
+00:04:08.446 --> 00:04:12.038
+Solo depende de gamma y del número
+de Mach: la raíz cuadrada de
+
+65
+00:04:12.078 --> 00:04:15.905
+gamma por M, por uno más gamma
+menos uno medios M al cuadrado,
+
+66
+00:04:15.945 --> 00:04:19.713
+elevado a menos gamma más uno entre
+dos veces gamma menos uno, la
+
+67
+00:04:19.753 --> 00:04:24.086
+fórmula del título del gráfico, que
+tienes que copiar en tu chuleta.
+
+68
+00:04:24.136 --> 00:04:27.739
+Tiene un máximo en Mach uno: para
+unas condiciones totales dadas,
+
+69
+00:04:27.779 --> 00:04:31.210
+el mayor gasto por unidad de
+área es el sónico, que es lo que
+
+70
+00:04:31.250 --> 00:04:35.536
+significa que el flujo está bloqueado;
+por ejemplo, para gamma 1.3
+
+71
+00:04:35.576 --> 00:04:41.901
+y Mach 1.11, la salida del estátor de
+turbina del ejercicio 3 A, vale 0.661.
+
+72
+00:04:41.951 --> 00:04:45.400
+Lo usamos para dimensionar cada
+estación: el área es m punto
+
+73
+00:04:45.440 --> 00:04:49.621
+por raíz de R T t entre P t por
+M F P; en turbomáquinas el área
+
+74
+00:04:49.661 --> 00:04:53.726
+normal es el área de la corona por
+el coseno del ángulo del flujo.
+
+75
+00:04:53.776 --> 00:04:57.313
+Un aviso del manual: las tablas
+de Mattingly usan un M F P
+
+76
+00:04:57.353 --> 00:05:01.301
+dimensional que absorbe la raíz
+de R, así que si un área sale mal
+
+77
+00:05:01.341 --> 00:05:07.790
+por un factor de unos 17, la raíz de
+287, has mezclado los dos convenios.
+
+78
+00:05:09.440 --> 00:05:15.421
+La numeración de estaciones sigue la norma
+SAE AS 755, y tienes que usarla sin dudar.
+
+79
+00:05:15.471 --> 00:05:19.005
+En un turborreactor: 0 es la
+corriente libre, 2 la cara del
+
+80
+00:05:19.045 --> 00:05:23.025
+compresor, 3 la entrada de la
+cámara, 4 la salida de la cámara y
+
+81
+00:05:23.065 --> 00:05:28.105
+entrada de la turbina, 5 la salida de
+la turbina y 9 la salida de la tobera.
+
+82
+00:05:28.155 --> 00:05:32.484
+Un turbofán añade la 13 a la salida
+del fan y la 19 a la salida de
+
+83
+00:05:32.524 --> 00:05:35.889
+la tobera del fan, por donde el
+flujo secundario sale por su
+
+84
+00:05:35.929 --> 00:05:39.465
+propia tobera, y dos ejes dibujados
+como árboles: la turbina de
+
+85
+00:05:39.505 --> 00:05:43.210
+alta mueve el compresor de alta,
+y la turbina de baja mueve el fan
+
+86
+00:05:43.250 --> 00:05:49.275
+y el búster; la 2.5 está entre los
+compresores y la 4.5 entre las turbinas.
+
+87
+00:05:49.325 --> 00:05:53.015
+En un turbohélice, la turbina de
+baja, o libre, mueve la hélice a
+
+88
+00:05:53.055 --> 00:05:56.974
+través de una reductora, y la corriente
+de la hélice es una corriente
+
+89
+00:05:57.014 --> 00:06:01.610
+exterior sin tobera, que se trata con
+la teoría de cantidad de movimiento.
+
+90
+00:06:01.660 --> 00:06:05.087
+Un rotor abierto tiene el mismo
+diagrama de bloques, con el
+
+91
+00:06:05.127 --> 00:06:08.907
+rotor, a menudo propulsor detrás
+del generador de gas, movido por
+
+92
+00:06:08.947 --> 00:06:12.551
+la turbina de baja; estos diagramas
+de bloques, con sus ejes y
+
+93
+00:06:12.591 --> 00:06:17.173
+corrientes, salen en los ejercicios,
+así que practica dibujarlos rápido.
+
+94
+00:06:18.823 --> 00:06:22.367
+Cada cociente de componente se
+escribe pi para la presión total y
+
+95
+00:06:22.407 --> 00:06:26.452
+tau para la temperatura total, con
+un subíndice para el componente.
+
+96
+00:06:26.502 --> 00:06:29.875
+Dos miembros de la familia
+son especiales: pi r y tau r
+
+97
+00:06:29.915 --> 00:06:33.008
+describen la deceleración de
+la corriente libre, así que
+
+98
+00:06:33.048 --> 00:06:36.755
+pertenecen a la condición de
+vuelo y no a ningún componente.
+
+99
+00:06:36.805 --> 00:06:40.474
+El otro es tau lambda, c p t
+por T t cuatro dividido por c
+
+100
+00:06:40.514 --> 00:06:44.009
+p c por T cero: compara la
+entalpía total más caliente del
+
+101
+00:06:44.049 --> 00:06:47.313
+motor con la entalpía estática
+más fría, y casi todas las
+
+102
+00:06:47.353 --> 00:06:51.006
+tendencias de actuaciones se
+leen mejor en función de él.
+
+103
+00:06:51.056 --> 00:06:56.991
+En los ejercicios el gas frío tiene
+gamma 1.4 y c p 1 004.5, y el
+
+104
+00:06:57.031 --> 00:07:03.933
+gas caliente gamma 1.3 y c p 1 239
+julios por kilogramo y kelvin.
+
+105
+00:07:03.983 --> 00:07:07.614
+Y el dosado f se refiere siempre al
+gasto del núcleo que entra en la
+
+106
+00:07:07.654 --> 00:07:12.042
+cámara, que es la fuente del error más
+común en el consumo de los turbofanes.
+
+107
+00:07:13.692 --> 00:07:15.558
+Ahora los componentes, uno a uno,
+
+108
+00:07:15.598 --> 00:07:18.605
+empezando por la condición
+de vuelo y la toma.
+
+109
+00:07:18.655 --> 00:07:21.803
+La temperatura y la presión
+totales de la corriente libre
+
+110
+00:07:21.843 --> 00:07:25.158
+salen del número de Mach de vuelo
+suponiendo una deceleración
+
+111
+00:07:25.198 --> 00:07:29.408
+reversible, así que todas las pérdidas
+reales de la toma van a pi d.
+
+112
+00:07:29.458 --> 00:07:33.120
+Pi d es la pérdida por fricción
+y difusión, pi d máximo, por la
+
+113
+00:07:33.160 --> 00:07:37.335
+recuperación por choque de la norma
+militar: uno en vuelo subsónico, y uno
+
+114
+00:07:37.375 --> 00:07:46.212
+menos 0.075 por M cero menos uno elevado a
+1.35 en vuelo supersónico, 0.925 a Mach 2.
+
+115
+00:07:46.262 --> 00:07:50.644
+La toma es adiabática, así que tau d
+vale uno, y si se usa en su lugar un
+
+116
+00:07:50.684 --> 00:07:55.993
+rendimiento isentrópico, este compara la
+recuperación de presión ideal con la real.
+
+117
+00:07:56.043 --> 00:07:59.293
+La toma entrega el aire al fan
+o al compresor con un Mach
+
+118
+00:07:59.333 --> 00:08:04.638
+de unos 0.4 a 0.6, y en el
+ejercicio 1 A, a 11 km y Mach
+
+119
+00:08:04.678 --> 00:08:13.251
+0.8, la temperatura total es de
+244.55 kelvin y pi d vale 0.98.
+
+120
+00:08:14.901 --> 00:08:18.362
+El compresor eleva la presión
+total en pi c, una elección de
+
+121
+00:08:18.402 --> 00:08:22.426
+diseño, y el aumento de temperatura
+sale de su figura de mérito.
+
+122
+00:08:22.476 --> 00:08:25.131
+Con un rendimiento
+politrópico e c, tau c es pi
+
+123
+00:08:25.171 --> 00:08:28.271
+c elevado a gamma menos
+uno entre gamma por e c.
+
+124
+00:08:28.321 --> 00:08:31.203
+Con un rendimiento isentrópico,
+que es como dan los
+
+125
+00:08:31.243 --> 00:08:34.355
+datos los ejercicios, tau c
+es uno más pi c elevado a
+
+126
+00:08:34.395 --> 00:08:38.470
+gamma menos uno entre gamma, menos
+uno, todo dividido por eta c.
+
+127
+00:08:38.520 --> 00:08:42.428
+La potencia absorbida es m punto
+c p por el aumento de temperatura
+
+128
+00:08:42.468 --> 00:08:47.217
+total, y la variación de energía cinética
+ya está dentro de la entalpía total.
+
+129
+00:08:47.267 --> 00:08:50.061
+El fan se trata exactamente
+como un compresor, pero
+
+130
+00:08:50.101 --> 00:08:52.951
+recuerda que comprime todo
+el gasto de entrada, y su
+
+131
+00:08:52.991 --> 00:08:57.119
+relación de presiones está
+limitada a unos 1.4 a 1.7
+
+132
+00:08:57.159 --> 00:09:00.621
+en motores civiles por el Mach
+en la punta de los álabes.
+
+133
+00:09:00.671 --> 00:09:06.504
+Aplicando estas fórmulas al ejercicio
+1 A salen 268.3 kelvin tras el
+
+134
+00:09:06.544 --> 00:09:14.883
+fan, 457.0 tras el compresor de baja
+y 771.2 a la entrada de la cámara.
+
+135
+00:09:16.533 --> 00:09:18.867
+Toda turbomáquina tiene dos rendimientos,
+
+136
+00:09:18.907 --> 00:09:21.747
+y el examen espera que
+sepas la diferencia.
+
+137
+00:09:21.797 --> 00:09:25.617
+El rendimiento politrópico es el de
+una etapa infinitesimal, aplicado
+
+138
+00:09:25.657 --> 00:09:29.252
+uniformemente a lo largo de la
+máquina; el isentrópico compara la
+
+139
+00:09:29.292 --> 00:09:33.781
+máquina entera con un único proceso
+reversible entre las mismas presiones.
+
+140
+00:09:33.831 --> 00:09:36.736
+Como las isobaras divergen
+en el diagrama T s, el
+
+141
+00:09:36.776 --> 00:09:39.852
+rendimiento isentrópico de
+un compresor es menor que el
+
+142
+00:09:39.892 --> 00:09:42.854
+politrópico, y la diferencia
+crece con la relación de
+
+143
+00:09:42.894 --> 00:09:47.323
+presiones; en una turbina es al revés,
+por el efecto de recalentamiento.
+
+144
+00:09:47.373 --> 00:09:52.040
+Esta tabla, del manual, usa exactamente
+los componentes del ejercicio 1 A: el
+
+145
+00:09:52.080 --> 00:10:00.025
+0.85 del fan es un politrópico de
+0.856, el 0.83 del compresor de baja es
+
+146
+00:10:00.065 --> 00:10:09.353
+0.863, mientras que el 0.80 y el 0.81 de
+las turbinas son politrópicos de 0.78.
+
+147
+00:10:09.403 --> 00:10:12.610
+Usa el rendimiento politrópico
+para comparar diseños con
+
+148
+00:10:12.650 --> 00:10:15.741
+distintas relaciones de
+presiones, y el isentrópico al
+
+149
+00:10:15.781 --> 00:10:20.422
+analizar un motor concreto cuyos datos
+vienen así, como en los ejercicios.
+
+150
+00:10:22.072 --> 00:10:24.896
+La cámara de combustión
+quema combustible y entrega
+
+151
+00:10:24.936 --> 00:10:27.816
+el gas a la turbina a una
+temperatura uniforme T t
+
+152
+00:10:27.856 --> 00:10:30.680
+cuatro, limitada por los
+materiales de la turbina y
+
+153
+00:10:30.720 --> 00:10:34.102
+que es el parámetro de diseño
+más importante de todos.
+
+154
+00:10:34.152 --> 00:10:38.355
+El balance de energía dice que el
+rendimiento de la combustión por el gasto
+
+155
+00:10:38.395 --> 00:10:42.371
+de combustible por el poder calorífico
+es igual a la entalpía total que
+
+156
+00:10:42.411 --> 00:10:47.400
+sale, con el c p caliente, menos la
+entalpía total que entra, con el c p frío.
+
+157
+00:10:47.450 --> 00:10:52.595
+Despejando f queda c p t T t cuatro
+menos c p c T t tres, entre eta b h P R
+
+158
+00:10:52.635 --> 00:10:57.576
+menos c p t T t cuatro, o la forma
+equivalente con tau lambda y tau r tau c.
+
+159
+00:10:57.626 --> 00:11:01.587
+La cámara pierde presión total, más
+o menos uno menos épsilon gamma
+
+160
+00:11:01.627 --> 00:11:06.724
+medios por el Mach de la cámara al
+cuadrado, unos 0.95 para un Mach
+
+161
+00:11:06.764 --> 00:11:12.489
+de 0.2, y por eso las cámaras son
+anchas; los ejercicios usan 0.90.
+
+162
+00:11:12.539 --> 00:11:17.543
+En el ejercicio 1 A, con T t tres
+de 771 kelvin, T t cuatro de
+
+163
+00:11:17.583 --> 00:11:22.530
+1 600 kelvin y un poder
+calorífico de 42.5 megajulios por
+
+164
+00:11:22.570 --> 00:11:27.064
+kilogramo, f vale 0.0301;
+cuidado con una afirmación que
+
+165
+00:11:27.104 --> 00:11:31.314
+puedes leer, la fórmula solo
+diverge hacia los 34 000 kelvin,
+
+166
+00:11:31.354 --> 00:11:34.432
+lo que no tiene sentido,
+mientras que el límite real es
+
+167
+00:11:34.472 --> 00:11:38.965
+químico: el dosado estequiométrico
+del queroseno, unos 0.068,
+
+168
+00:11:39.005 --> 00:11:45.420
+corresponde a unos 2 300 a 2 500 kelvin,
+y los motores se quedan muy por debajo.
+
+169
+00:11:47.070 --> 00:11:49.656
+La turbina extrae
+potencia del gas caliente
+
+170
+00:11:49.696 --> 00:11:53.039
+para mover el compresor,
+el fan y los accesorios.
+
+171
+00:11:53.089 --> 00:11:56.370
+Su potencia es el gasto
+caliente, uno más f por el gasto
+
+172
+00:11:56.410 --> 00:11:59.748
+del núcleo, por c p t por la
+caída de temperatura total,
+
+173
+00:11:59.788 --> 00:12:03.516
+y el eje entrega una fracción
+eta m de ella al compresor.
+
+174
+00:12:03.566 --> 00:12:06.688
+Igualando las dos se obtiene
+tau t, y este balance de
+
+175
+00:12:06.728 --> 00:12:10.084
+potencias es el corazón del
+cálculo, la única ecuación que
+
+176
+00:12:10.124 --> 00:12:13.364
+liga la zona caliente con la
+fría; para un turborreactor
+
+177
+00:12:13.404 --> 00:12:18.731
+queda uno menos tau r por tau c menos
+uno entre eta m, uno más f, tau lambda.
+
+178
+00:12:18.781 --> 00:12:21.927
+Solo entonces se obtiene la
+relación de presiones, con el
+
+179
+00:12:21.967 --> 00:12:24.610
+exponente politrópico o,
+como en los ejercicios,
+
+180
+00:12:24.650 --> 00:12:27.852
+invirtiendo el rendimiento
+isentrópico: pi t es uno menos
+
+181
+00:12:27.892 --> 00:12:32.099
+uno menos tau t entre eta t, elevado
+a gamma entre gamma menos uno.
+
+182
+00:12:32.149 --> 00:12:35.621
+Fíjate en que el rendimiento
+politrópico divide el exponente
+
+183
+00:12:35.661 --> 00:12:39.016
+en un compresor y lo multiplica
+en una turbina, porque las
+
+184
+00:12:39.056 --> 00:12:42.411
+pérdidas aumentan el trabajo
+del compresor y reducen el de
+
+185
+00:12:42.451 --> 00:12:47.855
+la turbina; en el ejercicio
+1 A esto da 1 339.7 kelvin y
+
+186
+00:12:47.895 --> 00:12:54.860
+3.49 bar tras la turbina de alta
+y 1 045.6 kelvin tras la de baja.
+
+187
+00:12:56.510 --> 00:13:02.235
+La tobera acelera el gas, y es adiabática,
+así que T t nueve es igual a T t cinco.
+
+188
+00:13:02.285 --> 00:13:05.167
+En una tobera convergente-divergente
+la relación de
+
+189
+00:13:05.207 --> 00:13:08.317
+presiones de salida es una
+elección de diseño, y el Mach
+
+190
+00:13:08.357 --> 00:13:12.202
+de salida sale de la relación
+entre presión total y estática.
+
+191
+00:13:12.252 --> 00:13:16.072
+En una tobera puramente convergente,
+que es el caso de los ejercicios,
+
+192
+00:13:16.112 --> 00:13:20.043
+hay que suponer y comprobar: primero
+supón que la tobera está bloqueada,
+
+193
+00:13:20.083 --> 00:13:24.069
+Mach uno a la salida, donde P t entre
+P es gamma más uno medios elevado
+
+194
+00:13:24.109 --> 00:13:30.470
+a gamma entre gamma menos uno, 1.832
+para gas caliente y 1.893 para aire.
+
+195
+00:13:30.520 --> 00:13:34.856
+Si esa presión crítica es al menos la
+ambiente, la tobera está bloqueada
+
+196
+00:13:34.896 --> 00:13:39.232
+y la presión de salida es la crítica;
+si no, la tobera está adaptada, la
+
+197
+00:13:39.272 --> 00:13:44.059
+presión de salida es la ambiente y se
+calcula un Mach de salida subsónico.
+
+198
+00:13:44.109 --> 00:13:47.126
+Con un rendimiento isentrópico
+de tobera, como en los
+
+199
+00:13:47.166 --> 00:13:50.702
+ejercicios, la temperatura
+estática crítica es dos T t entre
+
+200
+00:13:50.742 --> 00:13:55.360
+gamma más uno, y la presión crítica
+sale de la definición del rendimiento.
+
+201
+00:13:55.410 --> 00:13:59.142
+En el ejercicio 1 A la presión
+crítica de la tobera del núcleo,
+
+202
+00:13:59.182 --> 00:14:05.350
+0.447 bar, está por encima de
+los 0.227 bar ambiente, así que
+
+203
+00:14:05.390 --> 00:14:10.282
+está bloqueada con 581 metros por
+segundo, mientras que la tobera
+
+204
+00:14:10.322 --> 00:14:16.839
+del fan está adaptada con Mach
+0.97 y 292.5 metros por segundo;
+
+205
+00:14:16.879 --> 00:14:21.349
+es normal que las dos toberas de un
+motor estén en regímenes distintos.
+
+206
+00:14:22.999 --> 00:14:27.083
+La ecuación del empuje sale de un
+balance de cantidad de movimiento en un
+
+207
+00:14:27.123 --> 00:14:31.320
+volumen de control cuyo contorno aguas
+arriba se lleva a la corriente libre
+
+208
+00:14:31.360 --> 00:14:36.398
+no perturbada, lo que elimina la fuerza de
+presión desconocida antes de la entrada.
+
+209
+00:14:36.448 --> 00:14:40.778
+El resultado es F igual a m punto
+nueve v nueve menos m punto cero v
+
+210
+00:14:40.818 --> 00:14:44.699
+cero más P nueve menos P cero por
+A nueve: un término de cantidad de
+
+211
+00:14:44.739 --> 00:14:48.565
+movimiento, la resistencia de admisión
+de subir el aire a bordo, y un
+
+212
+00:14:48.605 --> 00:14:52.820
+término de presión que solo existe
+cuando la tobera no está adaptada.
+
+213
+00:14:52.870 --> 00:14:56.534
+En un turbofán se añaden los términos
+de la corriente del fan, y las
+
+214
+00:14:56.574 --> 00:15:00.074
+áreas de salida salen de la
+continuidad con el estado estático de
+
+215
+00:15:00.114 --> 00:15:04.331
+salida; no olvides nunca el término
+de presión de una tobera bloqueada.
+
+216
+00:15:04.381 --> 00:15:08.445
+El empuje instalado resta la resistencia
+de la góndola y la resistencia
+
+217
+00:15:08.485 --> 00:15:12.939
+adicional, pero los rendimientos del
+motor usan el empuje no instalado.
+
+218
+00:15:12.989 --> 00:15:15.945
+Una idea bonita, de Farokhi:
+escribir la fuerza sobre
+
+219
+00:15:15.985 --> 00:15:19.115
+cada componente como la
+variación de la función impulso
+
+220
+00:15:19.155 --> 00:15:22.169
+muestra que el compresor y
+la cámara soportan grandes
+
+221
+00:15:22.209 --> 00:15:25.107
+fuerzas hacia delante,
+mientras que la turbina y la
+
+222
+00:15:25.147 --> 00:15:28.277
+tobera convergente tiran hacia
+atrás; el empuje neto es
+
+223
+00:15:28.317 --> 00:15:31.388
+la pequeña diferencia de
+fuerzas grandes; el texto del
+
+224
+00:15:31.428 --> 00:15:35.236
+manual invierte estos signos,
+así que fíate de esta versión.
+
+225
+00:15:36.886 --> 00:15:40.080
+Todo motor se juzga con el
+mismo puñado de números.
+
+226
+00:15:40.130 --> 00:15:43.895
+El empuje específico es el empuje
+por unidad de gasto de entrada, y
+
+227
+00:15:43.935 --> 00:15:47.758
+fija el tamaño del motor; el consumo
+específico de combustible es el
+
+228
+00:15:47.798 --> 00:15:51.620
+gasto de combustible por unidad de
+empuje, normalmente en miligramos
+
+229
+00:15:51.660 --> 00:15:55.759
+por segundo y newton, y entra en
+la ecuación de alcance de Breguet.
+
+230
+00:15:55.809 --> 00:15:59.074
+El rendimiento térmico es la
+potencia mecánica producida,
+
+231
+00:15:59.114 --> 00:16:02.263
+el aumento de energía cinética
+de todas las corrientes,
+
+232
+00:16:02.303 --> 00:16:06.944
+dividida por la potencia del
+combustible, m punto f por h P R.
+
+233
+00:16:06.994 --> 00:16:10.315
+El rendimiento propulsivo es
+la potencia útil, F v cero,
+
+234
+00:16:10.355 --> 00:16:13.507
+dividida por ese aumento de
+energía cinética, y el manual
+
+235
+00:16:13.547 --> 00:16:18.153
+insiste en que hay que usar el empuje
+completo, con los términos de presión.
+
+236
+00:16:18.203 --> 00:16:21.631
+El rendimiento global es su
+producto, F v cero entre la
+
+237
+00:16:21.671 --> 00:16:25.686
+potencia del combustible, que
+es igual a v cero entre h P R
+
+238
+00:16:25.726 --> 00:16:29.095
+por T S F C: una comprobación
+perfecta, porque en el
+
+239
+00:16:29.135 --> 00:16:35.207
+ejercicio 1 A, 236 metros por
+segundo entre 42.5 megajulios
+
+240
+00:16:35.247 --> 00:16:43.178
+por 32.49 miligramos por newton y segundo
+da exactamente el 17.1 % oficial.
+
+241
+00:16:44.828 --> 00:16:48.243
+Este es el compromiso central
+de toda la asignatura.
+
+242
+00:16:48.293 --> 00:16:51.626
+Para una sola corriente adaptada,
+el rendimiento propulsivo es
+
+243
+00:16:51.666 --> 00:16:55.596
+aproximadamente dos entre uno más v
+nueve entre v cero: cuanto más se
+
+244
+00:16:55.636 --> 00:17:00.392
+acerca la velocidad del chorro a la de
+vuelo, mayor es el rendimiento propulsivo.
+
+245
+00:17:00.442 --> 00:17:03.693
+Subir T t cuatro sube el
+rendimiento térmico pero también
+
+246
+00:17:03.733 --> 00:17:06.482
+la velocidad del chorro,
+lo que cuesta rendimiento
+
+247
+00:17:06.522 --> 00:17:09.717
+propulsivo; subir la relación
+de presiones también sube el
+
+248
+00:17:09.757 --> 00:17:12.730
+rendimiento térmico, pero la
+velocidad del chorro solo
+
+249
+00:17:12.770 --> 00:17:15.909
+crece hasta la relación de
+presiones de empuje específico
+
+250
+00:17:15.949 --> 00:17:18.809
+máximo y luego baja, así
+que más allá el rendimiento
+
+251
+00:17:18.849 --> 00:17:23.606
+propulsivo se recupera, como mostrará la
+transparencia de tendencias de diseño.
+
+252
+00:17:23.656 --> 00:17:27.917
+El turbofán rompe el acoplamiento: toma
+la potencia del núcleo y la reparte en
+
+253
+00:17:27.957 --> 00:17:32.109
+un gasto mucho mayor a menor velocidad,
+así que el rendimiento global mejora
+
+254
+00:17:32.149 --> 00:17:36.800
+aunque el térmico no lo haga, y la hélice
+es el caso extremo de la misma idea.
+
+255
+00:17:36.850 --> 00:17:40.217
+Esa es la razón de que los índices
+de derivación lleven cuatro
+
+256
+00:17:40.257 --> 00:17:44.178
+décadas creciendo, y de que hoy
+se estudien los rotores abiertos.
+
+257
+00:17:45.828 --> 00:17:48.158
+Todo esto se ensambla en un procedimiento
+
+258
+00:17:48.198 --> 00:17:51.727
+explícito, sin iteraciones,
+igual para cualquier motor.
+
+259
+00:17:51.777 --> 00:17:56.539
+Paso uno, propiedades del gas y
+condición de vuelo; paso dos, la toma.
+
+260
+00:17:56.589 --> 00:17:59.088
+Paso tres, el cociente de temperaturas del
+
+261
+00:17:59.128 --> 00:18:03.348
+compresor, y paso cuatro, la
+cámara: tau lambda y el dosado f.
+
+262
+00:18:03.398 --> 00:18:06.468
+Paso cinco, la turbina con
+el balance de potencias,
+
+263
+00:18:06.508 --> 00:18:10.760
+primero tau t y luego pi t; este
+es el paso que más se olvida.
+
+264
+00:18:10.810 --> 00:18:13.880
+Paso seis, la tobera: la
+relación entre presión total y
+
+265
+00:18:13.920 --> 00:18:17.272
+estática es el producto de
+todas las pi por P cero entre P
+
+266
+00:18:17.312 --> 00:18:20.382
+nueve, y luego el Mach de
+salida, con la comprobación de
+
+267
+00:18:20.422 --> 00:18:23.944
+bloqueo para una tobera convergente;
+paso siete, la temperatura
+
+268
+00:18:23.984 --> 00:18:28.970
+y la velocidad de salida, con cuidado con
+el gamma R distinto del gas caliente.
+
+269
+00:18:29.020 --> 00:18:32.587
+Paso ocho, las actuaciones:
+empuje específico, T S F C
+
+270
+00:18:32.627 --> 00:18:36.824
+igual a f entre el empuje
+específico, y los tres rendimientos.
+
+271
+00:18:38.474 --> 00:18:41.777
+El ejemplo resuelto del manual,
+sacado de Mattingly, permite
+
+272
+00:18:41.817 --> 00:18:46.100
+validar el procedimiento línea a
+línea: Mach 2 a 12 km, relación
+
+273
+00:18:46.140 --> 00:18:50.538
+de presiones del compresor 10, T
+t cuatro de 1 800 kelvin y una
+
+274
+00:18:50.578 --> 00:18:55.194
+tobera convergente-divergente con P
+cero entre P nueve igual a un medio.
+
+275
+00:18:55.244 --> 00:19:00.099
+La corriente libre da tau
+r 1.8 y pi r 7.82, y la
+
+276
+00:19:00.139 --> 00:19:05.845
+recuperación por choque de
+0.925 baja pi d a 0.879.
+
+277
+00:19:05.895 --> 00:19:09.254
+El compresor da tau c
+2.08 con un rendimiento
+
+278
+00:19:09.294 --> 00:19:13.333
+isentrópico de 0.864, por
+debajo del politrópico de
+
+279
+00:19:13.373 --> 00:19:19.388
+0.9 como era de esperar, y la
+cámara necesita un f de 0.0357.
+
+280
+00:19:19.438 --> 00:19:25.179
+El balance de potencias da
+tau t 0.8155 y pi t 0.375,
+
+281
+00:19:25.219 --> 00:19:29.052
+la tobera expande hasta Mach
+2.25 y el chorro sale a
+
+282
+00:19:29.092 --> 00:19:33.836
+4.25 veces la velocidad del
+sonido de la corriente libre.
+
+283
+00:19:33.886 --> 00:19:39.789
+El empuje específico es de 807 newton
+segundo por kilogramo y el T S F C de
+
+284
+00:19:39.829 --> 00:19:49.375
+44.2 miligramos por segundo y newton, con
+rendimientos del 42, el 74 y el 31 %.
+
+285
+00:19:49.425 --> 00:19:52.622
+El rendimiento propulsivo es
+alto porque a Mach 2 el chorro
+
+286
+00:19:52.662 --> 00:19:55.804
+solo va unas dos veces más
+rápido que el avión, y la fuerte
+
+287
+00:19:55.844 --> 00:19:58.825
+compresión dinámica mantiene
+alto el rendimiento térmico
+
+288
+00:19:58.865 --> 00:20:01.630
+pese a la pérdida por choque
+en la toma; por eso los
+
+289
+00:20:01.670 --> 00:20:05.472
+turborreactores sobreviven a Mach
+altos, donde los turbofanes no.
+
+290
+00:20:07.122 --> 00:20:10.804
+Hay dos tendencias que se deben
+entender cualitativamente.
+
+291
+00:20:10.854 --> 00:20:14.246
+Existe una relación de presiones
+óptima del compresor: subirla
+
+292
+00:20:14.286 --> 00:20:17.513
+sube el rendimiento térmico,
+pero entonces la turbina tiene
+
+293
+00:20:17.553 --> 00:20:20.779
+que expandir más para moverlo
+y queda menos presión para la
+
+294
+00:20:20.819 --> 00:20:24.822
+tobera, así que a partir de cierto
+punto el empuje específico cae.
+
+295
+00:20:24.872 --> 00:20:29.210
+En el ciclo ideal, el empuje específico
+máximo se da cuando tau c es igual
+
+296
+00:20:29.250 --> 00:20:33.353
+a la raíz cuadrada de tau lambda
+dividida por tau r, mientras que el
+
+297
+00:20:33.393 --> 00:20:37.497
+consumo mínimo se da con una relación
+de presiones mucho mayor, así que
+
+298
+00:20:37.537 --> 00:20:42.556
+los motores reales se diseñan entre las
+dos, como muestran estas curvas ideales.
+
+299
+00:20:42.606 --> 00:20:45.837
+Y al crecer el Mach de vuelo,
+la compresión dinámica hace
+
+300
+00:20:45.877 --> 00:20:49.107
+el trabajo y la relación de
+presiones óptima baja, hasta
+
+301
+00:20:49.147 --> 00:20:52.144
+que por encima de Mach 3
+o así se pueden quitar el
+
+302
+00:20:52.184 --> 00:20:56.447
+compresor y la turbina: el motor
+se convierte en un estatorreactor.
+
+303
+00:20:58.097 --> 00:21:01.965
+Resumamos la primera parte como
+la primera página de tu chuleta.
+
+304
+00:21:02.015 --> 00:21:05.328
+La temperatura total se conserva
+sin trabajo ni calor, la
+
+305
+00:21:05.368 --> 00:21:08.623
+presión total cae con las
+pérdidas, y cada componente es
+
+306
+00:21:08.663 --> 00:21:12.779
+una tau y una pi, con tau lambda
+como parámetro clave del ciclo.
+
+307
+00:21:12.829 --> 00:21:15.978
+Escribe las dos formas de las
+relaciones de compresor y
+
+308
+00:21:16.018 --> 00:21:19.283
+turbina, politrópica e
+isentrópica, la fórmula del dosado
+
+309
+00:21:19.323 --> 00:21:23.094
+y el recordatorio de que el
+balance de potencias da tau t.
+
+310
+00:21:23.144 --> 00:21:27.162
+Escribe la comprobación de la tobera
+convergente con sus dos cocientes
+
+311
+00:21:27.202 --> 00:21:31.958
+críticos, y la fórmula del parámetro de
+gasto másico para dimensionar áreas.
+
+312
+00:21:32.008 --> 00:21:36.131
+Y las fórmulas del empuje, el T S F
+C y los rendimientos, incluida la
+
+313
+00:21:36.171 --> 00:21:42.017
+comprobación rápida de que el rendimiento
+global es v cero entre h P R por T S F C.
+
+314
+00:21:42.067 --> 00:21:46.327
+En la segunda parte lo aplicamos todo
+al turbofán del ejercicio 1 A, a
+
+315
+00:21:46.367 --> 00:21:51.136
+su versión estática 1 B y a las
+conversiones a propfán y rotor abierto.

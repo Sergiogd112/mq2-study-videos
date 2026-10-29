@@ -20,6 +20,24 @@ const fmt = (x, n = 1) => (Math.abs(x) >= 1e4 ? x.toFixed(0) : x.toFixed(n)).rep
 
 function fig(name, spec) { FIGS[name] = spec; }
 
+/* Spanish pages load fig-es.js, which sets FIG_TR: exact strings plus regex rules applied to every text a figure
+   shows (canvas labels, control labels, readouts, title). i18n() is the identity on English pages. Results are cached
+   because labels are redrawn every frame. With FIG_TR.log set, untouched strings are collected there and regex-translated ones in FIG_TR.part. */
+const T_CACHE = new Map();
+function i18n(s) {
+  const R = window.FIG_TR;
+  s = String(s);
+  if (!R) return s;
+  let out = T_CACHE.get(s);
+  if (out !== undefined) return out;
+  const exact = Object.prototype.hasOwnProperty.call(R.exact, s);
+  out = exact ? R.exact[s] : R.subs.reduce((x, [re, rep]) => x.replace(re, rep), s);
+  if (R.log && !exact) { if (out !== s) R.part.add(out); else if (/[A-Za-z]{3}|\b(?:on|in|to|at|of|by|or|no|up|is|it)\b/.test(s.replace(R.keep, ""))) R.log.add(s); }
+  if (T_CACHE.size > 5000) T_CACHE.clear();
+  T_CACHE.set(s, out);
+  return out;
+}
+
 /* Text on the white figure canvas uses darker shades of the light diagram colours (≥ 4.5:1 contrast);
    strokes and fills keep the original colours. */
 const TEXT_INK = {
@@ -33,7 +51,7 @@ function makeApi(holder, spec, rec) {
   const svg = document.createElementNS(NS, "svg");
   svg.setAttribute("viewBox", `0 0 ${spec.w || 640} ${spec.h || 320}`);
   svg.setAttribute("role", "img");
-  svg.setAttribute("aria-label", spec.title || "figure");
+  svg.setAttribute("aria-label", i18n(spec.title || "figure"));
   holder.appendChild(svg);
   const defs = document.createElementNS(NS, "defs");
   svg.appendChild(defs);
@@ -88,7 +106,7 @@ function makeApi(holder, spec, rec) {
       return t;
     },
     setText(t, str) {
-      str = String(str);
+      str = i18n(str);
       if (t._s === str) return t;
       t._s = str;
       while (t.firstChild) t.removeChild(t.firstChild);
@@ -150,7 +168,7 @@ function makeApi(holder, spec, rec) {
       const wrap = document.createElement("label");
       wrap.className = "fig-slider";
       const name = document.createElement("span");
-      name.innerHTML = richHTML(label);
+      name.innerHTML = richHTML(i18n(label));
       const inp = document.createElement("input");
       Object.assign(inp, { type: "range", min, max, step, value });
       const out = document.createElement("output");
@@ -167,7 +185,7 @@ function makeApi(holder, spec, rec) {
       const bs = labels.map((l, i) => {
         const b = document.createElement("button");
         b.type = "button";
-        b.innerHTML = richHTML(l);
+        b.innerHTML = richHTML(i18n(l));
         b.addEventListener("click", () => { bs.forEach((x) => x.classList.remove("on")); b.classList.add("on"); cb(i, l); api.invalidate(); });
         wrap.appendChild(b);
         return b;
@@ -176,7 +194,7 @@ function makeApi(holder, spec, rec) {
       setTimeout(() => bs[start] && bs[start].click(), 0);
       return bs;
     },
-    note(str) { const p = document.createElement("div"); p.className = "fig-readout"; p.innerHTML = richHTML(str); controls.appendChild(p); return p; },
+    note(str) { const p = document.createElement("div"); p.className = "fig-readout"; p.innerHTML = richHTML(i18n(str)); controls.appendChild(p); return p; },
     loop(fn) { frames.push(fn); },
     /* Ask for one redraw even while paused (sliders, buttons, toggles). */
     invalidate() { if (rec) { rec.dirty = true; Anim.kick(); } },
@@ -228,7 +246,7 @@ const Anim = (() => {
       const badge = document.createElement("button");
       badge.type = "button";
       badge.className = "fig-play";
-      f.paint = () => (badge.textContent = f.paused ? "▶ play" : "❚❚ pause");
+      f.paint = () => (badge.textContent = i18n(f.paused ? "▶ play" : "❚❚ pause"));
       badge.addEventListener("click", () => { f.paused = !f.paused; f.paint(); kick(); });
       f.paint();
       const ctl = holder.querySelector(".fig-controls");
@@ -252,7 +270,7 @@ function mountOne(node) {
   rec.frames = frames;
   try { spec.init(api); } catch (e) { console.error("figure", node.dataset.fig, e); holder.insertAdjacentHTML("beforeend", `<p class="fig-err">figure error: ${e.message}</p>`); }
   const cap = node.querySelector("figcaption");
-  if (cap && !cap.textContent.trim()) cap.innerHTML = `<b>${richHTML(spec.title)}${/[?!.]$/.test(spec.title) ? "" : "."}</b> ${richHTML(spec.caption || "")}`;
+  if (cap && !cap.textContent.trim()) cap.innerHTML = `<b>${richHTML(i18n(spec.title))}${/[?!.]$/.test(spec.title) ? "" : "."}</b> ${richHTML(i18n(spec.caption || ""))}`;
   Anim.add(holder, rec);
 }
 

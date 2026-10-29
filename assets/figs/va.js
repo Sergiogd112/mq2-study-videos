@@ -53,7 +53,7 @@ fig("bleed_system", {
       paint(L.duct, left); paint(L.pack, left); paint(L.wai, left); paint(L.eng, prv1); paint(L.apu, apuOpen); paint(L.gnd, st.gnd);
       paint(R.duct, right); paint(R.pack, right); paint(R.wai, right); paint(R.eng, prv2);
       const src = [prv1 && "ENG 1", prv2 && "ENG 2", apuOpen && "APU", st.gnd && "ground cart"].filter(Boolean);
-      out.textContent = `sources: ${src.join(" + ") || "none"} · PACK 1 ${left ? "fed" : "NOT fed"} · PACK 2 ${right ? "fed" : "NOT fed"} · X-BLEED ${xOpen ? "OPEN" : "shut"}${apuOpen && (st.e1 || st.e2) ? " · APU priority: engine PRVs closed" : ""}`;
+      out.textContent = i18n(`sources: ${src.join(" + ") || "none"} · PACK 1 ${left ? "fed" : "NOT fed"} · PACK 2 ${right ? "fed" : "NOT fed"} · X-BLEED ${xOpen ? "OPEN" : "shut"}${apuOpen && (st.e1 || st.e2) ? " · APU priority: engine PRVs closed" : ""}`);
     };
     a.buttons(["ENG 1 BLEED on", "ENG 1 BLEED off"], (i) => { st.e1 = i === 0; upd(); });
     a.buttons(["ENG 2 BLEED on", "ENG 2 BLEED off"], (i) => { st.e2 = i === 0; upd(); });
@@ -97,8 +97,8 @@ fig("engine_bleed", {
       a.set(dIP, { stroke: act.ip ? "#fdba74" : C.soft }); a.set(dHP, { stroke: act.hp ? "#fca5a5" : C.soft }); a.set(dJ, { stroke: act.j ? "#fdba74" : C.soft });
       Object.entries(flows).forEach(([k, f]) => f.show(act[k]));
       a.setText(pTxt.p5, `${p5.toFixed(0)} psi`); a.setText(pTxt.p9, `${p9.toFixed(0)} psi`); a.setText(pTxt.out, `${out.toFixed(0)} psi`);
-      notes[0].textContent = `IPCV ${ipcv ? "open" : "shut (stage-9 air is higher)"} · HPV ${hpvState} · PRV ${prv} · OPV ${opv}`;
-      notes[1].textContent = out === 0 ? `no delivery: ${prv.startsWith("CLOSED") ? "PRV shut by the BMC" : "OPV shut"} ${closedBy}` : `delivered ≈ ${out.toFixed(0)} psi${prv === "REGULATING" ? " (44 ± 4)" : hpvState.startsWith("REG") ? " (36 ± 4)" : ""} ${closedBy}`;
+      notes[0].textContent = i18n(`IPCV ${ipcv ? "open" : "shut (stage-9 air is higher)"} · HPV ${hpvState} · PRV ${prv} · OPV ${opv}`);
+      notes[1].textContent = i18n(out === 0 ? `no delivery: ${prv.startsWith("CLOSED") ? "PRV shut by the BMC" : "OPV shut"} ${closedBy}` : `delivered ≈ ${out.toFixed(0)} psi${prv === "REGULATING" ? " (44 ± 4)" : hpvState.startsWith("REG") ? " (36 ± 4)" : ""} ${closedBy}`);
     };
     a.slider("stage-5 pressure (engine power)", 10, 110, 1, 25, (v) => { st.p5 = v; upd(); }, (v) => v + " psi");
     a.buttons(["PRV normal", "PRV regulator fails high"], (i) => { st.prvFail = i === 1; upd(); });
@@ -202,7 +202,7 @@ fig("thermostat_probe", {
       open = clamp((T - set) / (set === 200 ? 15 : 10), 0, 1);
       a.set(ball, { cx: 612 - open * 10 });
       vent.show(open > 0.02);
-      out.textContent = `T = ${T} °C: vent ${open > 0.02 ? (open * 100).toFixed(0) + " % open" : "closed"} → ${set === 200 ? (open > 0.02 ? "TCT sends signal air, FAV opens" : "no air to the FAV, FAV spring-closed") : open > 0.02 ? "PRV sense line bled, PRV throttles" : "PRV unaffected"}`;
+      out.textContent = i18n(`T = ${T} °C: vent ${open > 0.02 ? (open * 100).toFixed(0) + " % open" : "closed"} → ${set === 200 ? (open > 0.02 ? "TCT sends signal air, FAV opens" : "no air to the FAV, FAV spring-closed") : open > 0.02 ? "PRV sense line bled, PRV throttles" : "PRV unaffected"}`);
     };
     a.slider("duct temperature (°C)", 150, 280, 1, 190, (v) => { T = v; upd(); });
     a.loop((t) => vent(t));
@@ -283,7 +283,7 @@ fig("xbleed_logic", {
       else if (s.sel === "SHUT") { x = false; why = "selector SHUT (motor 2)"; }
       else { x = apu && !s.engFire && (!s.leak || s.start); why = !apu ? "AUTO, APU valve shut → shut (motor 1)" : s.engFire ? "AUTO, ENG FIRE pb → shut" : s.leak && !s.start ? "AUTO, leak → shut" : s.leak ? "AUTO, leak during start: stays open" : "AUTO, APU valve open → open (motor 1)"; }
       vA(apu, apu ? C.green : C.red); vX(x, x ? C.green : C.red);
-      a.setText(tA, apu ? "OPEN" : "SHUT"); a.setText(tX, x ? "OPEN" : "SHUT"); why2.textContent = `X-BLEED ${x ? "OPEN" : "SHUT"}: ${why}`;
+      a.setText(tA, apu ? "OPEN" : "SHUT"); a.setText(tX, x ? "OPEN" : "SHUT"); why2.textContent = i18n(`X-BLEED ${x ? "OPEN" : "SHUT"}: ${why}`);
     };
     a.buttons(["selector AUTO", "OPEN", "SHUT"], (i) => { s.sel = ["AUTO", "OPEN", "SHUT"][i]; upd(); });
   },
@@ -469,7 +469,7 @@ fig("piston_pump", {
     a.rect(x0 + L + 20, cy + 10, 40, 80, { fill: "#dcfce7", color: C.green, opacity: 0.6 }); a.text(x0 + L + 70, cy + 50, "suction (50 psi)", { size: 11, anchor: "start", color: C.green });
     const out = a.note("");
     let tilt = 15;
-    a.slider("swashplate tilt (°)", 0, 18, 0.5, 15, (v) => { tilt = v; out.textContent = v < 0.5 ? "neutral plate: no stroke, no flow (ENG PUMP OFF)" : `stroke ∝ tan(tilt): flow ${((Math.tan(rad(v)) / Math.tan(rad(18))) * 100).toFixed(0)} % of maximum`; });
+    a.slider("swashplate tilt (°)", 0, 18, 0.5, 15, (v) => { tilt = v; out.textContent = i18n(v < 0.5 ? "neutral plate: no stroke, no flow (ENG PUMP OFF)" : `stroke ∝ tan(tilt): flow ${((Math.tan(rad(v)) / Math.tan(rad(18))) * 100).toFixed(0)} % of maximum`); });
     a.loop((t) => {
       const w = t * 3, R = 70, th = rad(tilt);
       a.set(plate, { x1: x0 - 10 * Math.sin(th) * 0 - Math.tan(th) * (R + 15), y1: cy - (R + 15), x2: x0 + Math.tan(th) * (R + 15), y2: cy + (R + 15) });
@@ -673,7 +673,7 @@ fig("leak_meas", {
     const fl = groups.map(([n, u, y]) => { a.path(`M296,150 L360,150 L360,${y} L460,${y}`, { color: C.green, width: 6 }); Parts.box(a, 560, y, 200, 44, `${n}\n${u}`, { size: 11, fill: "#f0fdf4", color: C.green }); return Parts.flowDots(a, [[296, 150], [360, 150], [360, y], [460, y]], { color: C.green, gap: 20, speed: 50 }); });
     const out = a.note("");
     let open = true;
-    a.buttons(["normal: OPEN", "leak test: CLOSED"], (i) => { open = i === 0; v(open, open ? C.green : C.red); fl.forEach((f) => f.show(open)); out.textContent = open ? "flight controls fed permanently through the valve" : "section isolated: measure return flow per section (internal leakage)"; });
+    a.buttons(["normal: OPEN", "leak test: CLOSED"], (i) => { open = i === 0; v(open, open ? C.green : C.red); fl.forEach((f) => f.show(open)); out.textContent = i18n(open ? "flight controls fed permanently through the valve" : "section isolated: measure return flow per section (internal leakage)"); });
     a.loop((t) => open && fl.forEach((f) => f(t)));
   },
 });

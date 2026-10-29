@@ -244,7 +244,7 @@ fig("nozzle", {
     const parts = Array.from({ length: 40 }, (_, i) => ({ x: 40 + ((i * 37) % 600), f: ((i * 0.618) % 1) * 1.8 - 0.9, c: a.circle(0, 0, 3, { fill: C.red, color: "none" }) }));
     const notes = [a.note(""), a.note("")];
     const out = [0, 1, 2, 3].map(() => ({ t: "" }));
-    const show = () => { notes[0].textContent = out[0].t + " · " + out[1].t; notes[1].textContent = out[2].t + " · " + out[3].t; };
+    const show = () => { notes[0].textContent = i18n(out[0].t) + " · " + i18n(out[1].t); notes[1].textContent = i18n(out[2].t) + " · " + i18n(out[3].t); };
     const st = { Pt: 0.887, P0: 0.2273 };
     let M9 = 1, under = 1;
     const upd = () => {
@@ -381,7 +381,7 @@ fig("pic_trend", {
       const tco = Math.sqrt(tl) / tr, pco = Math.max(1, tco ** 3.5);
       a.set(opt, { x1: p.X(Math.log10(pco)), x2: p.X(Math.log10(pco)), y1: p.Y(0), y2: p.Y(1200) });
       const [Fo, So] = perf(pco);
-      read.innerHTML = richHTML(`τλ = ${tl.toFixed(2)}, τr = ${tr.toFixed(3)} → optimum πc = (√τλ/τr)^3.5 = ${pco.toFixed(1)}: F/ṁ₀ = ${Fo.toFixed(0)} N·s/kg, TSFC = ${So.toFixed(1)} mg/s/N`);
+      read.innerHTML = richHTML(i18n(`τλ = ${tl.toFixed(2)}, τr = ${tr.toFixed(3)} → optimum πc = (√τλ/τr)^3.5 = ${pco.toFixed(1)}: F/ṁ₀ = ${Fo.toFixed(0)} N·s/kg, TSFC = ${So.toFixed(1)} mg/s/N`));
     };
     a.slider("flight Mach M₀", 0, 3.5, 0.05, 2, (v) => { st.M0 = v; upd(); }, (v) => v.toFixed(2));
     a.slider("Tt4 (K)", 1200, 2000, 10, 1800, (v) => { st.Tt4 = v; upd(); });
@@ -445,7 +445,7 @@ fig("actuator_disc", {
       let up = "", dn = ""; for (let x = 0; x <= 700; x += 5) { up += (x ? "L" : "M") + x + "," + (cy - rad(x)).toFixed(1); dn = "L" + x + "," + (cy + rad(x)).toFixed(1) + dn; }
       a.set(tube, { d: up + dn.replace(/^L/, "L") + "z" });
       [[60, "v₀", 1], [xd + 40, "v_p = v₀(1 + a)", 1 + aa], [640, "v_e = v₀(1 + 2a)", 1 + 2 * aa]].forEach(([x, s, vv], i) => { a.set(lab[i], { x, y: cy - rad(x) - 12 }); a.setText(lab[i], s); });
-      out.innerHTML = richHTML(`η_P = 1/(1 + a) = ${(1 / (1 + aa)).toFixed(3)} · tube area far downstream / disc = ${(1 + aa) / (1 + 2 * aa) < 1 ? ((1 + aa) / (1 + 2 * aa)).toFixed(3) : ""}`);
+      out.innerHTML = richHTML(i18n(`η_P = 1/(1 + a) = ${(1 / (1 + aa)).toFixed(3)} · tube area far downstream / disc = ${(1 + aa) / (1 + 2 * aa) < 1 ? ((1 + aa) / (1 + 2 * aa)).toFixed(3) : ""}`));
     }, (v) => v.toFixed(2));
     a.loop((t, dt) => ps.forEach((p) => { p.x += 70 * vel(p.x) * dt; if (p.x > 700) p.x = 0; a.set(p.c, { cx: p.x, cy: cy + p.f * rad(p.x) }); }));
   },
@@ -592,7 +592,7 @@ fig("cascade_geom", {
           }
         }
       });
-      out.innerHTML = richHTML(`σ = c/s = ${st.sig.toFixed(2)} · Carter δ = (γ_i − γ_e)/(4√σ) = ${delta.toFixed(1)}° · turning (metal) = ${(st.gi - st.ge).toFixed(0)}°`);
+      out.innerHTML = richHTML(i18n(`σ = c/s = ${st.sig.toFixed(2)} · Carter δ = (γ_i − γ_e)/(4√σ) = ${delta.toFixed(1)}° · turning (metal) = ${(st.gi - st.ge).toFixed(0)}°`));
     };
     a.slider("solidity σ", 0.5, 2.5, 0.05, 1.2, (v) => { st.sig = v; draw(); }, (v) => v.toFixed(2));
     a.slider("inlet metal γ_i (°)", 20, 60, 1, 45, (v) => { st.gi = v; draw(); });
@@ -625,7 +625,7 @@ fig("free_vortex", {
         for (let k = 0; k <= 5; k++) { const r = st.ht + ((1 - st.ht) * k) / 5, v = (0.35 * rm) / r; a.arrow(140, y(r), 140 + v * 120, y(r), C.orange, 2); }
         a.text(200, y(1) - 14, "swirl v ∝ 1/r", { size: 12, color: C.orange }); a.text(90, y(st.ht) + 18, "hub", { size: 12 }); a.text(90, y(1) - 14, "tip", { size: 12 });
       });
-      out.innerHTML = richHTML(`hub/tip = ${st.ht.toFixed(2)}, R at mean radius = ${st.Rm.toFixed(2)} → R_hub = ${Rh.toFixed(3)}${Rh < 0 ? " (negative!)" : ""}, R_tip = ${R(1).toFixed(3)}`);
+      out.innerHTML = richHTML(i18n(`hub/tip = ${st.ht.toFixed(2)}, R at mean radius = ${st.Rm.toFixed(2)} → R_hub = ${Rh.toFixed(3)}${Rh < 0 ? " (negative!)" : ""}, R_tip = ${R(1).toFixed(3)}`));
     };
     a.slider("R at mean radius", 0, 0.9, 0.05, 0.5, (v) => { st.Rm = v; draw(); });
     a.slider("hub/tip ratio", 0.35, 0.9, 0.01, 0.5, (v) => { st.ht = v; draw(); });

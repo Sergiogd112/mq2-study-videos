@@ -1,0 +1,1537 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:04.746
+Bienvenido a la segunda parte, la
+que más puntos da en el examen.
+
+2
+00:00:04.796 --> 00:00:07.965
+El curso pasado, tres de los
+diez problemas salieron de
+
+3
+00:00:08.005 --> 00:00:11.232
+esta clase, una cascada de
+figuras de ruido, el punto de
+
+4
+00:00:11.272 --> 00:00:14.499
+intercepción de una cascada
+y una pregunta de compresión
+
+5
+00:00:14.539 --> 00:00:17.416
+y suelo de ruido, y casi
+todos los demás problemas
+
+6
+00:00:17.456 --> 00:00:21.424
+necesitan las conversiones a
+decibelios con las que empezamos.
+
+7
+00:00:21.474 --> 00:00:25.191
+Empezamos con los decibelios, luego
+el ruido y la figura de ruido,
+
+8
+00:00:25.231 --> 00:00:28.378
+después la no linealidad y
+los puntos de intercepción, y
+
+9
+00:00:28.418 --> 00:00:32.981
+terminamos con la sensibilidad y el
+margen dinámico, que lo combinan todo.
+
+10
+00:00:34.631 --> 00:00:38.660
+Los ingenieros de radio trabajan en
+decibelios porque las ganancias se
+
+11
+00:00:38.700 --> 00:00:43.119
+multiplican y los niveles de señal
+abarcan muchos órdenes de magnitud.
+
+12
+00:00:43.169 --> 00:00:47.638
+Un cociente de potencias en decibelios
+es 10 por el logaritmo del cociente,
+
+13
+00:00:47.678 --> 00:00:54.468
+así que duplicar la potencia suma 3.01
+dB y multiplicarla por diez suma 10 dB.
+
+14
+00:00:54.518 --> 00:00:58.100
+Una potencia absoluta necesita
+una referencia: el dBW
+
+15
+00:00:58.140 --> 00:01:01.332
+es relativo a un vatio, y
+el dBm a un milivatio, así
+
+16
+00:01:01.372 --> 00:01:06.013
+que el valor en dBm es siempre
+el valor en dBW más 30.
+
+17
+00:01:06.063 --> 00:01:09.618
+Las tensiones usan 20 por el
+logaritmo, porque la potencia
+
+18
+00:01:09.658 --> 00:01:12.982
+va con el cuadrado de la tensión,
+y la fórmula simple solo
+
+19
+00:01:13.022 --> 00:01:16.967
+vale cuando las dos tensiones
+están sobre impedancias iguales.
+
+20
+00:01:17.017 --> 00:01:22.251
+Los niveles de tensión se dan en dBV,
+relativos a un voltio, o en dBµV,
+
+21
+00:01:22.291 --> 00:01:28.652
+relativos a un microvoltio, y el valor
+en dBµV es el valor en dBV más 120.
+
+22
+00:01:28.702 --> 00:01:32.359
+Recuerda la regla: 10 log
+para potencias, 20 log para
+
+23
+00:01:32.399 --> 00:01:37.388
+tensiones, y un dB a secas es
+siempre un cociente, nunca un nivel.
+
+24
+00:01:39.038 --> 00:01:42.383
+Hagamos las tres conversiones
+de las transparencias.
+
+25
+00:01:42.433 --> 00:01:45.396
+Diez por el logaritmo de 0.05 es menos
+
+26
+00:01:45.436 --> 00:01:51.514
+13.01, así que 0.05 vatios
+son menos 13.01 dBW.
+
+27
+00:01:51.564 --> 00:01:56.553
+Sumando 30 salen 16.99
+dBm, que puedes comprobar
+
+28
+00:01:56.593 --> 00:02:03.709
+directamente: 50 milivatios entre un
+milivatio, diez log de 50, son 16.99.
+
+29
+00:02:03.759 --> 00:02:07.048
+Para la tensión, 20 por el
+logaritmo de diez elevado a
+
+30
+00:02:07.088 --> 00:02:13.119
+menos 3 son menos 60 dBV, y
+sumando 120 salen 60 dBµV.
+
+31
+00:02:13.169 --> 00:02:18.119
+Para volver desde menos 70 dBm, divide
+entre diez y eleva diez a esa potencia:
+
+32
+00:02:18.159 --> 00:02:24.061
+diez elevado a menos 7 milivatios, que son
+0.1 nanovatios, una señal recibida típica.
+
+33
+00:02:25.711 --> 00:02:30.089
+Los decibelios facilitan las cascadas,
+pero hay una trampa clásica.
+
+34
+00:02:30.139 --> 00:02:34.517
+Las ganancias en dB se suman, y un
+nivel en dBm más una ganancia en
+
+35
+00:02:34.557 --> 00:02:39.589
+dB da un nivel en dBm, así que 30
+dBm a través de un amplificador de
+
+36
+00:02:39.629 --> 00:02:45.425
+10 dB son 40 dBm; pero dos niveles
+en dBm no se pueden sumar: 30 dBm
+
+37
+00:02:45.465 --> 00:02:51.596
+más 30 dBm son un vatio más un vatio,
+dos vatios, que son 33 dBm, no 60.
+
+38
+00:02:51.646 --> 00:02:54.733
+En el apartado a, 200
+milivatios de salida para un
+
+39
+00:02:54.773 --> 00:03:00.390
+milivatio de entrada es una
+ganancia de 200, que son 23.01 dB.
+
+40
+00:03:00.440 --> 00:03:03.929
+En el apartado b, el atenuador
+reduce la potencia a la mitad,
+
+41
+00:03:03.969 --> 00:03:10.752
+una pérdida de 2, que son 3.01 dB,
+o una ganancia de menos 3.01 dB.
+
+42
+00:03:10.802 --> 00:03:15.924
+En el apartado c, pasa cada nivel
+a milivatios: uno, más 1.995, más
+
+43
+00:03:15.964 --> 00:03:22.827
+0.251, que son 3.246 milivatios,
+y diez log de eso son 5.11 dBm:
+
+44
+00:03:22.867 --> 00:03:27.220
+apenas más que el término mayor,
+como siempre que se suman potencias.
+
+45
+00:03:27.270 --> 00:03:31.743
+Y en el apartado d, las ganancias
+en dB simplemente se suman, 3 por
+
+46
+00:03:31.783 --> 00:03:37.674
+23 menos 3 son 66 dB, una ganancia
+lineal de casi cuatro millones.
+
+47
+00:03:39.324 --> 00:03:42.529
+El ruido fija la señal más
+pequeña que puede detectar un
+
+48
+00:03:42.569 --> 00:03:46.686
+receptor, así que limita el alcance
+de cualquier enlace de radio.
+
+49
+00:03:46.736 --> 00:03:50.549
+La fuente básica es el ruido térmico:
+en cualquier resistencia por
+
+50
+00:03:50.589 --> 00:03:54.634
+encima del cero absoluto, la agitación
+aleatoria de las cargas produce
+
+51
+00:03:54.674 --> 00:03:59.869
+una tensión de ruido cuyo valor eficaz
+es la raíz cuadrada de 4 k T B R.
+
+52
+00:03:59.919 --> 00:04:04.356
+Con la constante de Boltzmann,
+1.38 por diez elevado a menos
+
+53
+00:04:04.396 --> 00:04:09.293
+23 julios por kelvin, una
+resistencia de 50 ohmios a 290
+
+54
+00:04:09.333 --> 00:04:14.677
+kelvin en un ancho de banda de 1
+megahercio da 0.89 microvoltios.
+
+55
+00:04:14.727 --> 00:04:18.151
+La potencia que esta resistencia
+entrega a una carga adaptada
+
+56
+00:04:18.191 --> 00:04:22.403
+es simplemente k T B, que no depende
+para nada de la resistencia.
+
+57
+00:04:22.453 --> 00:04:27.928
+A la temperatura de referencia T cero
+de 290 kelvin, k T cero vale 4 por diez
+
+58
+00:04:27.968 --> 00:04:34.049
+elevado a menos 21 vatios por hercio, que
+son menos 204 dBW por hercio, o menos
+
+59
+00:04:34.089 --> 00:04:40.229
+174 dBm por hercio: memoriza este número,
+sale en todos los problemas de ruido.
+
+60
+00:04:40.279 --> 00:04:44.269
+Los dispositivos añaden además otros
+ruidos: el ruido de granalla, por
+
+61
+00:04:44.309 --> 00:04:48.125
+la naturaleza discreta de la
+corriente, y el ruido de parpadeo, que
+
+62
+00:04:48.165 --> 00:04:52.890
+crece como uno entre la frecuencia y
+sobre todo importa a bajas frecuencias.
+
+63
+00:04:54.540 --> 00:04:58.907
+La calidad de la señal recibida se
+mide con la relación señal a ruido, la
+
+64
+00:04:58.947 --> 00:05:03.644
+potencia de señal entre la potencia
+de ruido, normalmente en decibelios.
+
+65
+00:05:03.694 --> 00:05:07.301
+Todo componente real añade su
+propio ruido, así que la SNR
+
+66
+00:05:07.341 --> 00:05:10.295
+empeora de la entrada a la
+salida, y la figura de ruido
+
+67
+00:05:10.335 --> 00:05:14.378
+mide cuánto: la SNR de entrada
+entre la SNR de salida, al
+
+68
+00:05:14.418 --> 00:05:18.742
+menos uno, o en decibelios la SNR
+de entrada menos la de salida.
+
+69
+00:05:18.792 --> 00:05:21.380
+Se define con una fuente
+de ruido adaptada a la
+
+70
+00:05:21.420 --> 00:05:25.574
+temperatura de referencia
+de 290 kelvin a la entrada.
+
+71
+00:05:25.624 --> 00:05:28.857
+De forma equivalente, el
+componente se puede describir con
+
+72
+00:05:28.897 --> 00:05:32.243
+su temperatura equivalente de
+ruido T e: el ruido de salida
+
+73
+00:05:32.283 --> 00:05:35.799
+es k B G por T cero más T e,
+así que el factor de ruido es
+
+74
+00:05:35.839 --> 00:05:39.801
+uno más T e entre T cero, y T
+e es T cero por F menos uno.
+
+75
+00:05:39.851 --> 00:05:43.248
+Un aviso práctico: las fórmulas
+usan el factor lineal F,
+
+76
+00:05:43.288 --> 00:05:46.626
+mientras que las hojas de datos
+dan la figura de ruido en
+
+77
+00:05:46.666 --> 00:05:51.579
+decibelios, así que convierte siempre
+antes de usar la fórmula de la cascada.
+
+78
+00:05:53.229 --> 00:05:55.791
+Cuando se ponen varias
+etapas en cascada, su
+
+79
+00:05:55.831 --> 00:05:58.664
+ruido se combina según
+la fórmula de Friis.
+
+80
+00:05:58.714 --> 00:06:02.300
+El factor de ruido total es el
+primer factor, más el segundo
+
+81
+00:06:02.340 --> 00:06:05.745
+factor menos uno dividido por
+la primera ganancia, más el
+
+82
+00:06:05.785 --> 00:06:09.311
+tercer factor menos uno dividido
+por el producto de las dos
+
+83
+00:06:09.351 --> 00:06:13.751
+primeras ganancias, y así sucesivamente,
+todo en unidades lineales.
+
+84
+00:06:13.801 --> 00:06:17.425
+El ruido propio de cada etapa se
+divide por la ganancia que tiene
+
+85
+00:06:17.465 --> 00:06:21.535
+delante, porque cuando la señal
+llega allí ya ha sido amplificada.
+
+86
+00:06:21.585 --> 00:06:25.113
+Así que, siempre que su ganancia
+sea alta, la primera etapa
+
+87
+00:06:25.153 --> 00:06:28.862
+domina, y por eso todo receptor
+empieza con un amplificador de
+
+88
+00:06:28.902 --> 00:06:32.854
+bajo ruido y alta ganancia: las
+etapas siguientes apenas importan;
+
+89
+00:06:32.894 --> 00:06:37.840
+con una primera etapa con pérdidas o de
+poca ganancia, compara los términos.
+
+90
+00:06:37.890 --> 00:06:41.484
+Un componente pasivo con pérdidas,
+como un filtro, un cable o un
+
+91
+00:06:41.524 --> 00:06:45.004
+mezclador pasivo a temperatura
+ambiente, tiene una ganancia de
+
+92
+00:06:45.044 --> 00:06:48.694
+uno entre sus pérdidas y un factor
+de ruido igual a sus pérdidas,
+
+93
+00:06:48.734 --> 00:06:53.229
+y por eso un cable con pérdidas
+delante del LNA es tan perjudicial.
+
+94
+00:06:53.279 --> 00:06:56.325
+Y la ganancia total en dB
+es simplemente la suma
+
+95
+00:06:56.365 --> 00:06:59.306
+de las ganancias menos
+la suma de las pérdidas.
+
+96
+00:07:00.956 --> 00:07:04.197
+Este es el ejemplo resuelto
+de las transparencias.
+
+97
+00:07:04.247 --> 00:07:08.764
+Primero pásalo todo a lineal:
+ganancias de 10, 0.794
+
+98
+00:07:08.804 --> 00:07:16.729
+y 0.501, y factores de ruido
+de 1.585, 1.259 y 2.512.
+
+99
+00:07:16.779 --> 00:07:23.647
+Friis da 1.585, más 0.259 entre
+10, más 1.512 entre 10 por
+
+100
+00:07:23.687 --> 00:07:30.847
+0.794, que es 1.80, o 2.56 dB:
+fíjate en lo poco que añaden
+
+101
+00:07:30.887 --> 00:07:35.276
+el filtro y el mezclador después
+del amplificador de 10 dB.
+
+102
+00:07:35.326 --> 00:07:41.736
+La ganancia es 10 menos 1 menos 3,
+que son 6 dB, un factor de 3.98.
+
+103
+00:07:41.786 --> 00:07:49.149
+La temperatura equivalente de
+ruido es 290 por 0.80, 232 kelvin.
+
+104
+00:07:49.199 --> 00:07:53.733
+La antena está más fría que T cero,
+a 150 kelvin, así que el ruido
+
+105
+00:07:53.773 --> 00:08:00.652
+de salida es k B G por 150 más
+232: 1.38 por diez elevado a menos
+
+106
+00:08:00.692 --> 00:08:07.971
+23, por diez elevado a 7, por 3.98,
+por 382, que son 2.1 por diez
+
+107
+00:08:08.011 --> 00:08:13.174
+elevado a menos 13 vatios, menos
+96.8 dBm; la transparencia lo
+
+108
+00:08:13.214 --> 00:08:19.282
+redondea a 2.08 por diez elevado a menos
+13 vatios con el mismo valor en dBm.
+
+109
+00:08:20.932 --> 00:08:25.438
+Este fue el primer problema del examen
+del curso pasado, y es Friis puro.
+
+110
+00:08:25.488 --> 00:08:29.737
+Dos dB son un factor de
+1.585, así que el factor
+
+111
+00:08:29.777 --> 00:08:36.392
+total es 1.585 más 0.585
+entre 10, que es 1.643.
+
+112
+00:08:36.442 --> 00:08:43.456
+En decibelios son 2.16 dB: el segundo
+amplificador solo añade 0.16 dB.
+
+113
+00:08:43.506 --> 00:08:50.844
+La temperatura equivalente de
+ruido es 290 por 0.643, 186.6
+
+114
+00:08:50.884 --> 00:08:58.124
+kelvin; una copia resuelta puso
+185.6 porque redondeó F a 1.64.
+
+115
+00:08:58.174 --> 00:09:04.103
+Para el ruido de salida, suma los
+decibelios: menos 174 dBm por hercio,
+
+116
+00:09:04.143 --> 00:09:08.985
+más la figura de ruido, más diez log
+del ancho de banda, más la ganancia.
+
+117
+00:09:09.035 --> 00:09:16.748
+Eso es menos 174 más 2.16
+más 64.77 más 20, que son
+
+118
+00:09:16.788 --> 00:09:22.713
+menos 87.1 dBm, exactamente como
+en las dos copias resueltas.
+
+119
+00:09:24.363 --> 00:09:27.150
+En decibelios los cálculos
+de ruido se convierten en
+
+120
+00:09:27.190 --> 00:09:30.692
+una suma, que el diagrama de
+barras construye paso a paso.
+
+121
+00:09:30.742 --> 00:09:35.417
+Empieza en menos 174 dBm por
+hercio, suma diez log del
+
+122
+00:09:35.457 --> 00:09:38.364
+ancho de banda, suma la
+figura de ruido, y suma la
+
+123
+00:09:38.404 --> 00:09:42.702
+ganancia si quieres el ruido a la
+salida: ese es el suelo de ruido.
+
+124
+00:09:42.752 --> 00:09:48.153
+Sin la ganancia, la misma suma es el ruido
+referido a la entrada, k T cero B F.
+
+125
+00:09:48.203 --> 00:09:52.145
+La sensibilidad, la señal más
+débil que todavía da la SNR de
+
+126
+00:09:52.185 --> 00:09:56.517
+salida necesaria, es el ruido
+de entrada más esa SNR mínima.
+
+127
+00:09:56.567 --> 00:10:02.272
+Con un ancho de banda de 1 megahercio,
+una figura de ruido de 5 dB y una SNR
+
+128
+00:10:02.312 --> 00:10:11.105
+mínima de 10 dB, las barras dan menos 174
+más 60 más 5 más 10, que son menos 99 dBm.
+
+129
+00:10:11.155 --> 00:10:15.733
+Fíjate en que cada década de ancho
+de banda cuesta 10 dB, así que un
+
+130
+00:10:15.773 --> 00:10:20.386
+receptor de banda estrecha es mucho
+más sensible que uno de banda ancha.
+
+131
+00:10:22.036 --> 00:10:25.794
+Todo amplificador real es no
+lineal, y modelamos su salida como
+
+132
+00:10:25.834 --> 00:10:29.651
+una serie de potencias de la
+entrada: alfa cero más alfa uno por
+
+133
+00:10:29.691 --> 00:10:34.019
+la entrada más alfa dos por su
+cuadrado más alfa tres por su cubo.
+
+134
+00:10:34.069 --> 00:10:37.531
+Con un tono a la entrada, los
+términos cuadrático y cúbico
+
+135
+00:10:37.571 --> 00:10:41.395
+generan una componente continua
+y armónicos al doble y al triple
+
+136
+00:10:41.435 --> 00:10:46.192
+de la frecuencia; están lejos de la
+señal, así que un filtro los elimina.
+
+137
+00:10:46.242 --> 00:10:49.718
+El término cúbico cambia también
+la fundamental: su ganancia
+
+138
+00:10:49.758 --> 00:10:53.468
+pasa a ser alfa uno más tres
+cuartos de alfa tres A al cuadrado,
+
+139
+00:10:53.508 --> 00:10:57.042
+y como alfa tres es negativo en
+los amplificadores reales, la
+
+140
+00:10:57.082 --> 00:11:01.534
+ganancia baja al crecer la amplitud,
+que es la compresión de ganancia.
+
+141
+00:11:01.584 --> 00:11:05.276
+El problema real aparece con dos
+tonos cercanos: el término cúbico
+
+142
+00:11:05.316 --> 00:11:08.952
+produce productos de intermodulación
+de tercer orden en dos omega
+
+143
+00:11:08.992 --> 00:11:12.571
+uno menos omega dos y en dos omega
+dos menos omega uno, justo al
+
+144
+00:11:12.611 --> 00:11:17.259
+lado de las señales deseadas, en rojo,
+donde ningún filtro los puede quitar.
+
+145
+00:11:18.909 --> 00:11:22.011
+En una gráfica de potencia de
+salida frente a potencia de
+
+146
+00:11:22.051 --> 00:11:25.374
+entrada, las dos en dBm, la
+fundamental es una recta de
+
+147
+00:11:25.414 --> 00:11:28.571
+pendiente uno hasta que empieza
+a comprimirse; el punto de
+
+148
+00:11:28.611 --> 00:11:33.702
+compresión de 1 dB es donde queda
+1 dB por debajo de la recta ideal.
+
+149
+00:11:33.752 --> 00:11:36.691
+Los productos de tercer orden
+crecen con el cubo de la
+
+150
+00:11:36.731 --> 00:11:39.947
+entrada, así que en la gráfica
+en decibelios su recta tiene
+
+151
+00:11:39.987 --> 00:11:45.468
+pendiente 3: cada dB de más a la
+entrada añade 3 dB de intermodulación.
+
+152
+00:11:45.518 --> 00:11:49.203
+Prolongando las dos rectas, se cortan
+en el punto de intercepción de
+
+153
+00:11:49.243 --> 00:11:54.413
+tercer orden; su coordenada de entrada
+es el IIP3, y la de salida el OIP3.
+
+154
+00:11:54.463 --> 00:11:57.825
+Los dos se relacionan con
+la ganancia, OIP3 igual a
+
+155
+00:11:57.865 --> 00:12:01.519
+IIP3 más G, y para una no
+linealidad cúbica el punto de
+
+156
+00:12:01.559 --> 00:12:07.363
+compresión de 1 dB queda unos
+9.6 dB por debajo del IIP3.
+
+157
+00:12:07.413 --> 00:12:10.599
+Un extra útil: el nivel de
+intermodulación referido a la
+
+158
+00:12:10.639 --> 00:12:14.054
+entrada es 3 veces la potencia
+de entrada menos dos veces
+
+159
+00:12:14.094 --> 00:12:17.855
+el IIP3, así que la relación
+portadora a intermodulación es
+
+160
+00:12:17.895 --> 00:12:22.334
+el doble de la distancia entre el
+IIP3 y la potencia de entrada.
+
+161
+00:12:23.984 --> 00:12:27.961
+Para la linealidad la fórmula de la
+cascada funciona al revés que Friis:
+
+162
+00:12:28.001 --> 00:12:32.657
+el inverso del IIP3 total es la suma
+de los inversos del IIP3 de cada
+
+163
+00:12:32.697 --> 00:12:36.505
+etapa, multiplicados por la ganancia
+que tienen delante, así que una
+
+164
+00:12:36.545 --> 00:12:40.409
+etapa pesa más cuanta más ganancia
+tiene delante y cuanto menor es su
+
+165
+00:12:40.449 --> 00:12:45.778
+propio IIP3: las últimas etapas suelen ser
+el cuello de botella, pero no siempre.
+
+166
+00:12:45.828 --> 00:12:51.087
+Pasa a lineal: ganancias
+de 1.585, 0.316 y 100,
+
+167
+00:12:51.127 --> 00:12:55.791
+e intercepciones de 10,
+39.8 y 100 milivatios.
+
+168
+00:12:55.841 --> 00:13:04.949
+La suma es uno entre 10, más 1.585 entre
+39.8, más 1.585 por 0.316 entre 100,
+
+169
+00:13:04.989 --> 00:13:12.142
+que es 0.1448 por milivatio; aquí la
+primera etapa aporta el 69 %, la segunda
+
+170
+00:13:12.182 --> 00:13:18.701
+el 27 % y la última solo el 3.5 %,
+porque el atenuador que tiene delante le
+
+171
+00:13:18.741 --> 00:13:23.695
+recorta la ganancia, así que compara los
+términos en vez de fiarte de una regla.
+
+172
+00:13:23.745 --> 00:13:28.832
+Su inverso son 6.91 milivatios, 8.4 dBm.
+
+173
+00:13:28.882 --> 00:13:37.382
+La ganancia total es 2 menos 5 más 20,
+17 dB, así que el OIP3 es de 25.4 dBm.
+
+174
+00:13:37.432 --> 00:13:41.106
+Y el punto de compresión
+de 1 dB queda unos 9.6
+
+175
+00:13:41.146 --> 00:13:45.920
+dB por debajo del IIP3,
+menos 1.2 dBm a la entrada.
+
+176
+00:13:47.570 --> 00:13:51.485
+Este problema de balance combina
+los tres cálculos de cascada.
+
+177
+00:13:51.535 --> 00:13:58.700
+La ganancia es lo fácil: menos 2, más
+10, menos 4, más 20, que son 24 dB.
+
+178
+00:13:58.750 --> 00:14:01.877
+Para la figura de ruido, la
+figura no da la figura de
+
+179
+00:14:01.917 --> 00:14:05.044
+ruido del filtro ni del
+mezclador, así que toma la de
+
+180
+00:14:05.084 --> 00:14:10.094
+cada elemento pasivo igual a
+sus pérdidas: 2 dB y 4 dB.
+
+181
+00:14:10.144 --> 00:14:18.082
+Friis da entonces 1.585 más
+0.927 más 0.240 más 0.396, que
+
+182
+00:14:18.122 --> 00:14:25.402
+es 3.148, o 4.98 dB; el filtro
+delante cuesta 2 dB enteros.
+
+183
+00:14:25.452 --> 00:14:29.695
+Para el punto de intercepción, la
+figura solo dice IP3; en Pozar, de
+
+184
+00:14:29.735 --> 00:14:33.690
+donde viene esta figura, significa
+la intercepción de salida, así que
+
+185
+00:14:33.730 --> 00:14:38.842
+resta la ganancia de cada etapa: el
+amplificador de RF tiene un IIP3 de 0
+
+186
+00:14:38.882 --> 00:14:46.641
+dBm, el mezclador 15 más 4, 19 dBm, y el
+amplificador de FI 20 menos 20, 0 dBm.
+
+187
+00:14:46.691 --> 00:14:55.122
+La suma de la cascada es 0.631,
+más 6.31 entre 79.4, más 2.51, que
+
+188
+00:14:55.162 --> 00:15:01.039
+es 3.22 por milivatio, así que el
+IP3 de entrada es de menos 5.08
+
+189
+00:15:01.079 --> 00:15:06.012
+dBm: domina el amplificador de FI,
+que tiene toda la ganancia delante.
+
+190
+00:15:06.062 --> 00:15:10.567
+Si en cambio lees los IP3 como
+intercepciones de entrada, la respuesta es
+
+191
+00:15:10.607 --> 00:15:16.710
+más 5.41 dBm, así que en el examen
+escribe siempre qué lectura has usado.
+
+192
+00:15:18.360 --> 00:15:21.966
+El examen del curso pasado tenía
+una pregunta de intercepción
+
+193
+00:15:22.006 --> 00:15:25.553
+en cascada: una copia resuelta
+la tachó, y la otra, donde es
+
+194
+00:15:25.593 --> 00:15:28.900
+el problema 1, la hizo mal,
+así que hagámosla bien; la
+
+195
+00:15:28.940 --> 00:15:33.594
+ganancia del tercer bloque está tapada
+en la copia, pero apenas importa.
+
+196
+00:15:33.644 --> 00:15:37.501
+Los valores de la hoja de datos son
+intercepciones de salida, así que
+
+197
+00:15:37.541 --> 00:15:42.132
+primero resta la ganancia de cada
+etapa: el LNA tiene un IIP3 de 10
+
+198
+00:15:42.172 --> 00:15:48.170
+menos 20, menos 10 dBm, y el mezclador
+5 menos 15, también menos 10 dBm.
+
+199
+00:15:48.220 --> 00:15:53.413
+En milivatios, la suma es uno entre
+0.1, más 100 entre 0.1, más un
+
+200
+00:15:53.453 --> 00:15:58.195
+término despreciable del filtro, muy
+lineal, unos 1 010 por milivatio.
+
+201
+00:15:58.245 --> 00:16:02.381
+Así que el IIP3 del sistema es de
+más o menos un microvatio, menos
+
+202
+00:16:02.421 --> 00:16:07.301
+30 dBm, fijado casi del todo por
+el mezclador, que ve los 20 dB
+
+203
+00:16:07.341 --> 00:16:11.478
+enteros de ganancia del LNA;
+suponiendo que el tercer bloque es una
+
+204
+00:16:11.518 --> 00:16:19.992
+pérdida de 2.5 dB, la ganancia neta
+es de 32.5 dB y el OIP3 de 2.5 dBm.
+
+205
+00:16:20.042 --> 00:16:23.732
+Con la entrada dada de menos
+40 dBm, los productos de
+
+206
+00:16:23.772 --> 00:16:28.151
+intermodulación quedan dos veces
+10, es decir 20 dB, por debajo
+
+207
+00:16:28.191 --> 00:16:31.594
+de las portadoras, y como se
+dan todas las figuras de ruido,
+
+208
+00:16:31.634 --> 00:16:38.527
+Friis da un factor de ruido total de
+1.615, una figura de ruido de 2.08 dB.
+
+209
+00:16:38.577 --> 00:16:41.783
+La copia del compañero metió
+las intercepciones de salida
+
+210
+00:16:41.823 --> 00:16:45.485
+directamente en la fórmula como
+si fueran de entrada y sacó menos
+
+211
+00:16:45.525 --> 00:16:51.628
+15 dBm, que se corrigió como incorrecto:
+pasa siempre primero el OIP3 a IIP3.
+
+212
+00:16:53.278 --> 00:16:56.173
+La sensibilidad es la señal
+de entrada mínima con la
+
+213
+00:16:56.213 --> 00:17:00.176
+que el receptor todavía da
+una SNR de salida aceptable.
+
+214
+00:17:00.226 --> 00:17:04.384
+Parte de la definición del factor
+de ruido con la SNR de salida en
+
+215
+00:17:04.424 --> 00:17:08.691
+su valor mínimo admisible y el ruido
+de entrada igual a k T cero B.
+
+216
+00:17:08.741 --> 00:17:12.314
+Despejando la señal, la potencia
+mínima es k T cero, por el
+
+217
+00:17:12.354 --> 00:17:16.673
+ancho de banda, por el factor
+de ruido, por la SNR mínima.
+
+218
+00:17:16.723 --> 00:17:21.728
+En decibelios, la sensibilidad
+en dBm es menos 174, más la
+
+219
+00:17:21.768 --> 00:17:26.744
+figura de ruido, más diez log del
+ancho de banda, más la SNR mínima.
+
+220
+00:17:26.794 --> 00:17:30.082
+En un enlace digital la SNR
+mínima sale de una curva
+
+221
+00:17:30.122 --> 00:17:34.237
+de tasa de error de bit: la
+SNR que da la BER exigida.
+
+222
+00:17:34.287 --> 00:17:38.204
+Y la fórmula te dice cómo mejorar
+un receptor: un LNA mejor, un
+
+223
+00:17:38.244 --> 00:17:43.066
+ancho de banda más estrecho, o una
+modulación que necesite menos SNR.
+
+224
+00:17:44.716 --> 00:17:48.816
+El problema del satélite usa la
+fórmula de la sensibilidad al revés.
+
+225
+00:17:48.866 --> 00:17:54.657
+Primero convierte la BER: 0.001 %
+es diez elevado a menos 5, y en la
+
+226
+00:17:54.697 --> 00:18:00.490
+curva de la transparencia ese nivel
+se alcanza con una SNR de unos 17 dB.
+
+227
+00:18:00.540 --> 00:18:04.760
+Después despeja la figura de ruido
+de la fórmula de la sensibilidad: la
+
+228
+00:18:04.800 --> 00:18:11.571
+sensibilidad, más 174, menos diez log
+del ancho de banda, menos la SNR mínima.
+
+229
+00:18:11.621 --> 00:18:17.455
+Diez log de 3 000 son 34.77,
+así que la figura de ruido
+
+230
+00:18:17.495 --> 00:18:27.505
+es menos 118 más 174 menos
+34.77 menos 17, unos 4.2 dB.
+
+231
+00:18:27.555 --> 00:18:31.499
+Como la SNR se lee de una
+gráfica, un dB arriba o abajo es
+
+232
+00:18:31.539 --> 00:18:36.032
+aceptable, así que escribe el valor que
+has leído y arrástralo hasta el final.
+
+233
+00:18:37.682 --> 00:18:40.986
+El margen dinámico es el
+cociente entre los niveles mayor
+
+234
+00:18:41.026 --> 00:18:44.719
+y menor con los que el sistema
+se comporta como se desea.
+
+235
+00:18:44.769 --> 00:18:49.640
+El límite inferior lo fija el
+suelo de ruido, menos 174 más la
+
+236
+00:18:49.680 --> 00:18:53.473
+figura de ruido más diez log del
+ancho de banda más la ganancia,
+
+237
+00:18:53.513 --> 00:18:59.132
+típicamente entre menos 60 y menos 100
+dBm en el ancho de banda del sistema.
+
+238
+00:18:59.182 --> 00:19:02.056
+El superior lo fija la
+compresión, así que el margen
+
+239
+00:19:02.096 --> 00:19:05.025
+dinámico lineal a la salida
+es el punto de compresión
+
+240
+00:19:05.065 --> 00:19:08.832
+de 1 dB de salida menos el
+suelo de ruido de salida.
+
+241
+00:19:08.882 --> 00:19:10.915
+Referido a la entrada, es el punto de
+
+242
+00:19:10.955 --> 00:19:14.724
+compresión de 1 dB de entrada
+menos la sensibilidad.
+
+243
+00:19:14.774 --> 00:19:18.006
+Para pasar el punto de compresión
+de la entrada a la salida,
+
+244
+00:19:18.046 --> 00:19:21.824
+recuerda que ahí la ganancia ya
+está comprimida un dB, así que
+
+245
+00:19:21.864 --> 00:19:25.596
+el punto de entrada es el de
+salida menos la ganancia más uno.
+
+246
+00:19:27.246 --> 00:19:30.115
+Dos márgenes dinámicos de salida rápidos.
+
+247
+00:19:30.165 --> 00:19:35.376
+En el ejemplo, el suelo de ruido
+es menos 174 más 7 más diez log
+
+248
+00:19:35.416 --> 00:19:41.614
+de diez elevado a 8, que son 80,
+más 40, lo que da menos 47 dBm.
+
+249
+00:19:41.664 --> 00:19:48.051
+El margen dinámico es 25 menos menos
+47, que son 72 dB; la transparencia
+
+250
+00:19:48.091 --> 00:19:53.068
+lo hace también en unidades lineales,
+316 milivatios entre 2 por diez
+
+251
+00:19:53.108 --> 00:20:00.335
+elevado a menos 5 milivatios, 1.58 por
+diez elevado a 7, los mismos 72 dB.
+
+252
+00:20:00.385 --> 00:20:04.691
+En el problema, el suelo
+de ruido es menos 174
+
+253
+00:20:04.731 --> 00:20:11.997
+más 6 más 73.01 más 30,
+que son menos 65.0 dBm.
+
+254
+00:20:12.047 --> 00:20:18.678
+Así que el margen dinámico de
+salida es 21 más 65, 86 dB.
+
+255
+00:20:20.328 --> 00:20:24.044
+El último problema de las
+transparencias lo junta todo.
+
+256
+00:20:24.094 --> 00:20:30.596
+La ganancia es menos 1 más 10 menos 4
+más 20, 25 dB, y Friis, con el filtro y
+
+257
+00:20:30.636 --> 00:20:38.516
+el mezclador pasivos a sus pérdidas, da
+un factor de ruido de 2.66, 4.25 dB.
+
+258
+00:20:38.566 --> 00:20:42.684
+El ancho de banda de FI es de
+500 megahercios, así que la
+
+259
+00:20:42.724 --> 00:20:53.626
+sensibilidad es menos 174 más 4.25 más 87
+más los 20 dB exigidos, menos 62.8 dBm.
+
+260
+00:20:53.676 --> 00:20:57.195
+Leyendo los IP3 como intercepciones
+de salida, como en el
+
+261
+00:20:57.235 --> 00:21:00.528
+problema de balance anterior,
+las intercepciones de entrada
+
+262
+00:21:00.568 --> 00:21:06.007
+son 0 dBm para el amplificador
+de RF, 13 más 4, 17 dBm, para
+
+263
+00:21:06.047 --> 00:21:11.708
+el mezclador, y 16 menos 20, menos
+4 dBm, para el amplificador de FI.
+
+264
+00:21:11.758 --> 00:21:21.371
+La suma de la cascada es 0.794 más
+7.94 entre 50.1 más 3.16 entre 0.398,
+
+265
+00:21:21.411 --> 00:21:28.640
+que es 8.89 por milivatio, así que el
+IP3 de entrada es de menos 9.5 dBm.
+
+266
+00:21:28.690 --> 00:21:36.111
+El punto de compresión de 1 dB queda
+unos 9.6 dB más abajo, menos 19.1 dBm.
+
+267
+00:21:36.161 --> 00:21:45.102
+Y el margen dinámico de entrada es menos
+19.1 menos menos 62.8, que son 43.7 dB.
+
+268
+00:21:46.752 --> 00:21:49.876
+El último problema del examen
+del curso pasado venía como
+
+269
+00:21:49.916 --> 00:21:53.429
+una gráfica de potencia de
+salida frente a la de entrada.
+
+270
+00:21:53.479 --> 00:21:57.802
+En el punto de compresión de
+1 dB la ganancia es de 12 dB
+
+271
+00:21:57.842 --> 00:22:01.361
+en lugar de 13, así que el
+punto de entrada es 20 menos
+
+272
+00:22:01.401 --> 00:22:05.322
+12, 8 dBm; una copia resuelta
+puso 7, olvidando que la
+
+273
+00:22:05.362 --> 00:22:09.271
+ganancia está comprimida, así
+que la respuesta exacta es 8.
+
+274
+00:22:09.321 --> 00:22:13.559
+Entonces el IIP3 queda
+unos 9.6 dB más arriba,
+
+275
+00:22:13.599 --> 00:22:19.516
+17.6 dBm, y el OIP3 suma
+la ganancia, 30.6 dBm.
+
+276
+00:22:19.566 --> 00:22:26.003
+Para el suelo de ruido, el ancho de banda
+de 1 a 10 GHz son 9 GHz, cuyo diez log
+
+277
+00:22:26.043 --> 00:22:40.280
+es 99.54, así que el suelo es menos 174
+más 3.5 más 99.54 más 13, menos 57.96 dBm.
+
+278
+00:22:40.330 --> 00:22:44.195
+Eso da un margen dinámico
+de salida de 78 dB,
+
+279
+00:22:44.235 --> 00:22:47.228
+una línea extra útil si
+la pregunta lo pide.
+
+280
+00:22:48.878 --> 00:22:53.152
+Antes del resumen, las trampas que
+costaron puntos el curso pasado.
+
+281
+00:22:53.202 --> 00:22:57.929
+Nunca sumes niveles en dBm: pasa a
+milivatios, suma y vuelve a convertir.
+
+282
+00:22:57.979 --> 00:23:01.160
+Las dos fórmulas de cascada
+necesitan valores lineales,
+
+283
+00:23:01.200 --> 00:23:05.063
+factores de ruido, ganancias e
+intercepciones en milivatios.
+
+284
+00:23:05.113 --> 00:23:08.584
+En la fórmula de Friis domina la
+primera etapa si su ganancia es
+
+285
+00:23:08.624 --> 00:23:12.317
+alta, mientras que en la cascada
+de intercepción cada etapa pesa su
+
+286
+00:23:12.357 --> 00:23:16.441
+ganancia previa entre su propio
+IIP3, lo que a menudo convierte una
+
+287
+00:23:16.481 --> 00:23:20.788
+etapa final en el cuello de botella,
+pero compara siempre los términos.
+
+288
+00:23:20.838 --> 00:23:24.329
+Una etapa pasiva con pérdidas
+tiene una ganancia de menos
+
+289
+00:23:24.369 --> 00:23:28.189
+sus pérdidas y una figura de
+ruido igual a sus pérdidas.
+
+290
+00:23:28.239 --> 00:23:31.711
+Si una hoja de datos da la
+intercepción de salida, resta la
+
+291
+00:23:31.751 --> 00:23:36.565
+ganancia para obtener la de entrada
+antes de usar la fórmula de la cascada.
+
+292
+00:23:36.615 --> 00:23:40.122
+Y recuerda que el punto de compresión
+de entrada es el de salida
+
+293
+00:23:40.162 --> 00:23:45.275
+menos la ganancia más uno, y que
+menos 174 dBm por hercio solo vale
+
+294
+00:23:45.315 --> 00:23:50.653
+a 290 kelvin; para otra temperatura
+de la fuente usa directamente k T B.
+
+295
+00:23:52.303 --> 00:23:57.382
+Resumiendo la segunda parte: pasa
+entre vatios, dBW y dBm, entre
+
+296
+00:23:57.422 --> 00:24:04.077
+voltios, dBV y dBµV, y usa 10 log para
+potencias y 20 log para tensiones.
+
+297
+00:24:04.127 --> 00:24:08.881
+El ruido parte de menos 174
+dBm por hercio, la temperatura
+
+298
+00:24:08.921 --> 00:24:12.591
+equivalente es T cero por F menos
+uno, y las cascadas siguen a
+
+299
+00:24:12.631 --> 00:24:16.633
+Friis, con la primera etapa dominando
+cuando su ganancia es alta.
+
+300
+00:24:16.683 --> 00:24:20.469
+La linealidad se describe con el
+punto de compresión y el punto de
+
+301
+00:24:20.509 --> 00:24:25.049
+intercepción, con el OIP3 igual
+al IIP3 más la ganancia, el punto
+
+302
+00:24:25.089 --> 00:24:30.209
+de compresión unos 9.6 dB por
+debajo del IIP3, y la cascada de
+
+303
+00:24:30.249 --> 00:24:34.541
+intercepción ponderada por la ganancia
+que tiene delante cada etapa.
+
+304
+00:24:34.591 --> 00:24:37.805
+La sensibilidad y el suelo de
+ruido son la misma suma en
+
+305
+00:24:37.845 --> 00:24:41.466
+decibelios añadiendo la SNR
+mínima o la ganancia, y el
+
+306
+00:24:41.506 --> 00:24:45.634
+margen dinámico es la distancia
+del suelo al punto de compresión.
+
+307
+00:24:45.684 --> 00:24:48.250
+En la tercera parte
+pasamos a las líneas de
+
+308
+00:24:48.290 --> 00:24:52.338
+transmisión, la reflexión, la
+carta de Smith y la adaptación.

@@ -1,0 +1,1440 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:02.958
+Bienvenido a la primera
+de tres clases para el
+
+2
+00:00:02.998 --> 00:00:06.372
+examen de sistemas de aeronaves
+de Vehicles Aeroespacials.
+
+3
+00:00:06.422 --> 00:00:10.410
+El examen cubre dos sistemas
+del Airbus A320: todo el
+
+4
+00:00:10.450 --> 00:00:14.497
+sistema neumático, el capítulo
+36 de la ATA, y el sistema
+
+5
+00:00:14.537 --> 00:00:18.974
+hidráulico, el capítulo 29,
+hasta el sistema verde incluido.
+
+6
+00:00:19.024 --> 00:00:23.090
+Esta parte explica para qué sirve el
+sistema neumático, de dónde sale el
+
+7
+00:00:23.130 --> 00:00:27.197
+aire, quién lo usa y cómo lo controlan
+la tripulación y los ordenadores;
+
+8
+00:00:27.237 --> 00:00:31.750
+la segunda parte entra en cada válvula,
+y la tercera trata la hidráulica.
+
+9
+00:00:33.400 --> 00:00:34.946
+Primero, qué esperar.
+
+10
+00:00:34.996 --> 00:00:38.693
+El temario acordado para este examen
+son todas las transparencias de
+
+11
+00:00:38.733 --> 00:00:42.596
+neumática y las de hidráulica hasta
+el sistema verde, que termina en la
+
+12
+00:00:42.636 --> 00:00:47.328
+página 12, así que los detalles de los
+sistemas amarillo y azul quedan fuera.
+
+13
+00:00:47.378 --> 00:00:51.133
+El cuestionario de sistemas
+de 2020, el examen pasado más
+
+14
+00:00:51.173 --> 00:00:54.476
+parecido, es un conjunto de
+afirmaciones que hay que marcar
+
+15
+00:00:54.516 --> 00:00:57.875
+como verdaderas o falsas: por
+ejemplo, si la válvula de alta
+
+16
+00:00:57.915 --> 00:01:02.797
+presión abre a 36 psi, o qué
+depósito se llena desde qué panel.
+
+17
+00:01:02.847 --> 00:01:05.700
+Exámenes más antiguos piden
+también explicar cómo
+
+18
+00:01:05.740 --> 00:01:08.771
+funciona un componente, como
+el termostato limitador
+
+19
+00:01:08.811 --> 00:01:11.782
+de temperatura, o enumerar
+condiciones, como cuándo
+
+20
+00:01:11.822 --> 00:01:15.597
+se cierra eléctricamente la
+válvula reguladora de presión.
+
+21
+00:01:15.647 --> 00:01:19.716
+Algunos exámenes antiguos
+preguntan por el MD87, que
+
+22
+00:01:19.756 --> 00:01:22.592
+era de una versión anterior
+de la asignatura; las
+
+23
+00:01:22.632 --> 00:01:27.560
+transparencias actuales solo
+cubren el A320, así que sáltalos.
+
+24
+00:01:27.610 --> 00:01:30.626
+La habilidad ganadora es
+precisa: para cada válvula,
+
+25
+00:01:30.666 --> 00:01:33.271
+conocer su posición por
+defecto sin aire, las
+
+26
+00:01:33.311 --> 00:01:37.422
+presiones y temperaturas que la
+mueven, y qué elemento la manda.
+
+27
+00:01:39.072 --> 00:01:42.485
+El sistema neumático de un avión
+toma aire comprimido de una
+
+28
+00:01:42.525 --> 00:01:45.995
+de sus fuentes, los motores, la
+unidad de potencia auxiliar o
+
+29
+00:01:46.035 --> 00:01:50.011
+un carro de tierra, y lo lleva a
+los sistemas que lo necesitan.
+
+30
+00:01:50.061 --> 00:01:56.359
+En el A320 el aire se entrega
+regulado a 44 psi y unos 200 grados
+
+31
+00:01:56.399 --> 00:02:01.150
+Celsius: esos dos números son los valores
+de referencia de todo el sistema.
+
+32
+00:02:01.200 --> 00:02:03.504
+El usuario principal es el sistema de aire
+
+33
+00:02:03.544 --> 00:02:06.909
+acondicionado y presurización,
+el capítulo 21, después
+
+34
+00:02:06.949 --> 00:02:09.923
+el arranque de motores y el
+antihielo de las alas y de
+
+35
+00:02:09.963 --> 00:02:12.993
+las tomas de los motores,
+el capítulo 30; la lista
+
+36
+00:02:13.033 --> 00:02:17.514
+genérica de las transparencias menciona
+también el estabilizador vertical.
+
+37
+00:02:17.564 --> 00:02:20.345
+El aire de sangrado presuriza
+además los depósitos
+
+38
+00:02:20.385 --> 00:02:23.280
+hidráulicos, para que las
+bombas nunca caviten, y el
+
+39
+00:02:23.320 --> 00:02:28.072
+depósito de agua potable, para que el
+agua llegue a las cocinas y a los aseos.
+
+40
+00:02:28.122 --> 00:02:31.218
+Por último, puede dar potencia
+motriz, por ejemplo para
+
+41
+00:02:31.258 --> 00:02:33.954
+accionar las reversas o
+mover bombas hidráulicas
+
+42
+00:02:33.994 --> 00:02:37.830
+accionadas por aire, y en
+el A320 calienta además la
+
+43
+00:02:37.870 --> 00:02:41.754
+bodega de carga trasera, necesario
+para llevar animales vivos.
+
+44
+00:02:43.404 --> 00:02:45.821
+Hay tres fuentes de aire comprimido.
+
+45
+00:02:45.871 --> 00:02:49.213
+Los motores son la fuente
+principal en vuelo: de las etapas
+
+46
+00:02:49.253 --> 00:02:54.258
+altas del compresor el aire sale
+a entre 50 y 410 psi y entre
+
+47
+00:02:54.298 --> 00:02:59.073
+180 y 540 grados Celsius, de
+ralentí a crucero, demasiado
+
+48
+00:02:59.113 --> 00:03:03.705
+caliente y variable para usarlo
+directamente, y por eso hay que regularlo.
+
+49
+00:03:03.755 --> 00:03:08.224
+La unidad de potencia auxiliar, la APU,
+es una pequeña turbina de gas en la
+
+50
+00:03:08.264 --> 00:03:12.328
+cola que da potencia eléctrica y
+neumática en tierra, para arrancar los
+
+51
+00:03:12.368 --> 00:03:17.689
+motores y para el aire acondicionado, y en
+vuelo como respaldo, hasta 20 000 pies.
+
+52
+00:03:17.739 --> 00:03:21.076
+En tierra se puede conectar un
+carro neumático a través de un
+
+53
+00:03:21.116 --> 00:03:24.288
+panel de acceso de apertura
+rápida bajo el fuselaje, a una
+
+54
+00:03:24.328 --> 00:03:28.387
+toma con una válvula antirretorno
+que impide que el aire se escape.
+
+55
+00:03:28.437 --> 00:03:31.757
+Los apuntes insisten en que
+la APU está en la lista de
+
+56
+00:03:31.797 --> 00:03:35.529
+equipo mínimo, la MEL, el
+documento que dice qué elementos
+
+57
+00:03:35.569 --> 00:03:38.712
+pueden estar inoperativos y
+durante cuánto tiempo: los
+
+58
+00:03:38.752 --> 00:03:44.112
+defectos diferidos de categoría B,
+C y D permiten 3, 10 y 120 días.
+
+59
+00:03:44.162 --> 00:03:48.084
+Dos convenios de dibujo: los números
+impares están a la izquierda
+
+60
+00:03:48.124 --> 00:03:52.107
+y los pares a la derecha, y tanto
+la APU como la toma de tierra
+
+61
+00:03:52.147 --> 00:03:56.703
+alimentan el lado izquierdo, el lado
+1, del conducto de cross-bleed.
+
+62
+00:03:58.353 --> 00:04:00.269
+Este es el esquema genérico de las
+
+63
+00:04:00.309 --> 00:04:03.997
+transparencias, y todos los
+aviones comerciales lo siguen.
+
+64
+00:04:04.047 --> 00:04:08.250
+Cada motor alimenta su propio lado
+de un colector común a través de sus
+
+65
+00:04:08.290 --> 00:04:12.884
+válvulas de sangrado; los conductos
+neumáticos se dibujan discontinuos.
+
+66
+00:04:12.934 --> 00:04:15.426
+Una válvula de cross-bleed,
+o de aislamiento,
+
+67
+00:04:15.466 --> 00:04:18.578
+en el centro puede unir
+o separar los dos lados.
+
+68
+00:04:18.628 --> 00:04:22.685
+La APU entra en el colector por un
+lado, a través de su propia válvula de
+
+69
+00:04:22.725 --> 00:04:27.279
+sangrado y de una válvula antirretorno
+que impide el flujo inverso hacia ella.
+
+70
+00:04:27.329 --> 00:04:30.342
+Y los usuarios se conectan a
+lo largo del colector: los
+
+71
+00:04:30.382 --> 00:04:33.283
+packs de aire acondicionado,
+el antihielo de ala, los
+
+72
+00:04:33.323 --> 00:04:37.281
+arrancadores de los motores y la
+presurización de otros sistemas.
+
+73
+00:04:37.331 --> 00:04:41.360
+La idea de la arquitectura es flexibilidad
+con aislamiento: cualquier fuente
+
+74
+00:04:41.400 --> 00:04:46.249
+puede alimentar a cualquier usuario, y un
+lado averiado o con fugas se puede aislar.
+
+75
+00:04:47.899 --> 00:04:51.859
+Ahora el corazón del sistema:
+cómo se toma el aire del motor.
+
+76
+00:04:51.909 --> 00:04:54.859
+Normalmente el aire sale de
+una etapa intermedia del
+
+77
+00:04:54.899 --> 00:04:57.963
+compresor, la quinta etapa
+del compresor de alta en el
+
+78
+00:04:58.003 --> 00:05:01.987
+A320, a través de una válvula
+antirretorno, la válvula
+
+79
+00:05:02.027 --> 00:05:06.458
+antirretorno de presión intermedia,
+que solo le deja salir hacia fuera.
+
+80
+00:05:06.508 --> 00:05:10.054
+En ralentí o con poco empuje,
+la etapa 5 no da presión
+
+81
+00:05:10.094 --> 00:05:13.268
+suficiente, así que el aire
+se toma de una etapa más
+
+82
+00:05:13.308 --> 00:05:18.480
+alta, la etapa 9, a través de la
+válvula de alta presión, la HPV.
+
+83
+00:05:18.530 --> 00:05:21.443
+Los dos caminos se unen
+aguas arriba de la válvula
+
+84
+00:05:21.483 --> 00:05:27.088
+reguladora de presión, la PRV,
+que entrega 44 psi al sistema.
+
+85
+00:05:27.138 --> 00:05:29.860
+Después el aire se enfría
+en el preenfriador, un
+
+86
+00:05:29.900 --> 00:05:32.623
+intercambiador de calor
+donde aire frío sangrado
+
+87
+00:05:32.663 --> 00:05:35.270
+del fan rodea los tubos
+que llevan el sangrado
+
+88
+00:05:35.310 --> 00:05:38.032
+caliente; las dos corrientes
+nunca se mezclan, y
+
+89
+00:05:38.072 --> 00:05:40.909
+el aire del fan usado se
+descarga al exterior; una
+
+90
+00:05:40.949 --> 00:05:44.752
+válvula de aire del fan controla
+cuánto aire del fan se usa.
+
+91
+00:05:44.802 --> 00:05:48.246
+Sensores de presión y temperatura
+en varios puntos permiten a
+
+92
+00:05:48.286 --> 00:05:52.234
+los ordenadores de sangrado vigilar
+y controlar toda la cadena.
+
+93
+00:05:53.884 --> 00:05:57.178
+Las transparencias muestran la
+válvula típica de regulación
+
+94
+00:05:57.218 --> 00:06:01.862
+de sangrado, y las válvulas del
+A320 siguen el mismo patrón.
+
+95
+00:06:01.912 --> 00:06:04.632
+Una mariposa en el conducto
+la mueve un actuador
+
+96
+00:06:04.672 --> 00:06:07.105
+neumático, mientras que
+la válvula se manda
+
+97
+00:06:07.145 --> 00:06:11.980
+eléctricamente a través de un solenoide:
+mando eléctrico, actuación neumática.
+
+98
+00:06:12.030 --> 00:06:15.734
+El actuador compara una presión de
+referencia con la presión aguas
+
+99
+00:06:15.774 --> 00:06:19.422
+abajo de la mariposa: si la presión
+aguas abajo es demasiado alta
+
+100
+00:06:19.462 --> 00:06:23.223
+cierra un poco la mariposa, y si
+es demasiado baja la abre, así que
+
+101
+00:06:23.263 --> 00:06:27.415
+la mariposa oscila continuamente
+alrededor del valor de referencia.
+
+102
+00:06:27.465 --> 00:06:32.176
+La válvula tiene por tanto tres funciones:
+abrir y cerrar el sangrado, regular
+
+103
+00:06:32.216 --> 00:06:37.439
+la presión, y proteger el sistema contra
+la alta temperatura y el flujo inverso.
+
+104
+00:06:37.489 --> 00:06:41.537
+Los interruptores de posición envían
+señales discretas que, junto con las
+
+105
+00:06:41.577 --> 00:06:46.407
+presiones, comprueba un autotest para
+confirmar la posición real de la mariposa.
+
+106
+00:06:48.057 --> 00:06:50.300
+Veamos cada usuario por turno.
+
+107
+00:06:50.350 --> 00:06:53.880
+El antihielo de ala manda aire
+de sangrado caliente a través de
+
+108
+00:06:53.920 --> 00:06:57.393
+una válvula en cada ala a un
+conducto perforado a lo largo del
+
+109
+00:06:57.433 --> 00:07:01.019
+borde de ataque, que baña su
+superficie interior; unos conductos
+
+110
+00:07:01.059 --> 00:07:04.476
+telescópicos con juntas flexibles
+llevan el aire a los slats,
+
+111
+00:07:04.516 --> 00:07:07.875
+del slat 3 hacia fuera, y unos
+sensores de sobrepresión y
+
+112
+00:07:07.915 --> 00:07:12.515
+sobretemperatura permiten a la válvula
+cortar el suministro si algo va mal.
+
+113
+00:07:12.565 --> 00:07:16.102
+El antihielo de motor es aparte:
+una o varias válvulas en el
+
+114
+00:07:16.142 --> 00:07:19.738
+cárter del fan mandan aire
+caliente del propio motor al labio
+
+115
+00:07:19.778 --> 00:07:24.003
+de la toma, y un presostato le
+dice a la tripulación si funciona.
+
+116
+00:07:24.053 --> 00:07:28.207
+Para arrancar un motor, el aire de la
+APU, del carro de tierra o del otro
+
+117
+00:07:28.247 --> 00:07:32.125
+motor llega a la válvula de arranque,
+que se abre y mueve el arrancador
+
+118
+00:07:32.165 --> 00:07:35.988
+neumático de la caja de accesorios:
+el arrancador hace girar el eje de
+
+119
+00:07:36.028 --> 00:07:40.623
+alta, N2, que arrastra al fan, N1,
+y se inyecta combustible cuando N2
+
+120
+00:07:40.663 --> 00:07:45.428
+llega a la velocidad adecuada; girar el
+motor sin combustible se llama motoring.
+
+121
+00:07:45.478 --> 00:07:50.077
+Los depósitos hidráulicos se
+presurizan a 50 psi, normalmente desde
+
+122
+00:07:50.117 --> 00:07:54.363
+la etapa 8 del compresor de alta
+del motor 1; el profesor insiste en
+
+123
+00:07:54.403 --> 00:07:59.098
+que el dibujo de las transparencias,
+que muestra la etapa 9, está mal.
+
+124
+00:07:59.148 --> 00:08:01.568
+Por último el depósito de agua potable, la
+
+125
+00:08:01.608 --> 00:08:04.555
+calefacción de la bodega
+trasera y, sobre todo, los
+
+126
+00:08:04.595 --> 00:08:08.810
+packs de aire acondicionado,
+que pertenecen al capítulo 21.
+
+127
+00:08:10.460 --> 00:08:14.188
+Este es el esquema del
+A320 con sus usuarios.
+
+128
+00:08:14.238 --> 00:08:18.109
+El aire se obtiene de los dos
+motores, de la APU o de un carro de
+
+129
+00:08:18.149 --> 00:08:23.388
+tierra, seleccionados con los pulsadores
+ENG 1 BLEED, ENG 2 BLEED y APU BLEED.
+
+130
+00:08:23.438 --> 00:08:27.104
+Una válvula de cross-bleed en el
+conducto transversal separa los dos
+
+131
+00:08:27.144 --> 00:08:31.031
+lados o los une para que una sola
+fuente alimente a todos los usuarios;
+
+132
+00:08:31.071 --> 00:08:35.735
+cuando está cerrada, cada motor alimenta
+su propio pack de aire acondicionado.
+
+133
+00:08:35.785 --> 00:08:38.445
+En el dibujo de las
+transparencias, el motor 1
+
+134
+00:08:38.485 --> 00:08:42.265
+alimenta además la calefacción
+de la bodega de carga trasera.
+
+135
+00:08:42.315 --> 00:08:45.800
+El sistema está diseñado para
+que el sangrado de la APU tenga
+
+136
+00:08:45.840 --> 00:08:49.159
+prioridad: en cuanto se selecciona
+APU BLEED, la válvula de
+
+137
+00:08:49.199 --> 00:08:52.628
+sangrado de la APU se abre y
+las dos válvulas de sangrado de
+
+138
+00:08:52.668 --> 00:08:56.818
+motor se cierran automáticamente,
+así que la APU lo alimenta todo.
+
+139
+00:08:56.868 --> 00:09:00.303
+Y recuerda que la APU y la
+toma de tierra entran las dos
+
+140
+00:09:00.343 --> 00:09:04.404
+por el lado izquierdo, el lado
+1, del conducto de cross-bleed.
+
+141
+00:09:06.054 --> 00:09:09.291
+La tripulación controla el
+sistema desde el panel superior
+
+142
+00:09:09.331 --> 00:09:13.974
+21VU, que comparten el aire
+acondicionado y el sistema neumático.
+
+143
+00:09:14.024 --> 00:09:17.088
+Cada pulsador de sangrado de
+motor tiene dos leyendas:
+
+144
+00:09:17.128 --> 00:09:19.962
+con el sangrado pedido está
+apagado, aparece un OFF
+
+145
+00:09:20.002 --> 00:09:23.123
+blanco cuando la tripulación
+lo deselecciona, y un FAULT
+
+146
+00:09:23.163 --> 00:09:27.250
+ámbar, junto con un mensaje de
+ECAM, indica un fallo en ese lado.
+
+147
+00:09:27.300 --> 00:09:30.759
+El pulsador APU BLEED está
+normalmente apagado, muestra
+
+148
+00:09:30.799 --> 00:09:34.465
+un ON azul al seleccionarlo,
+y un FAULT ámbar si falla.
+
+149
+00:09:34.515 --> 00:09:37.402
+La válvula de cross-bleed
+se manda con un selector
+
+150
+00:09:37.442 --> 00:09:40.569
+giratorio de tres posiciones,
+AUTO, OPEN y SHUT, y la
+
+151
+00:09:40.609 --> 00:09:43.676
+válvula tiene dos motores
+eléctricos, uno que usa la
+
+152
+00:09:43.716 --> 00:09:47.531
+lógica automática y otro que
+usan las posiciones manuales.
+
+153
+00:09:47.581 --> 00:09:50.594
+En AUTO la válvula de cross-bleed
+sigue siempre a la válvula
+
+154
+00:09:50.634 --> 00:09:53.750
+de sangrado de la APU: solo
+abre cuando el aire se toma de
+
+155
+00:09:53.790 --> 00:09:57.451
+la APU, mientras que OPEN y SHUT
+la fuerzan pase lo que pase.
+
+156
+00:09:57.501 --> 00:10:00.925
+Esta es la cabina oscura de Airbus:
+en funcionamiento normal el
+
+157
+00:10:00.965 --> 00:10:04.221
+panel está apagado, y cualquier
+luz significa una condición
+
+158
+00:10:04.261 --> 00:10:08.857
+anormal o una selección no estándar que
+habrá que cancelar en algún momento.
+
+159
+00:10:10.507 --> 00:10:13.974
+La información llega a la
+tripulación a través del ECAM, las
+
+160
+00:10:14.014 --> 00:10:17.870
+dos pantallas centrales del
+panel de instrumentos principal.
+
+161
+00:10:17.920 --> 00:10:22.032
+La superior, la pantalla de motor y
+avisos, muestra permanentemente los
+
+162
+00:10:22.072 --> 00:10:26.653
+parámetros principales del motor,
+N1, N2, temperatura de los gases de
+
+163
+00:10:26.693 --> 00:10:30.571
+escape y flujo de combustible,
+además del combustible a bordo y las
+
+164
+00:10:30.611 --> 00:10:35.464
+superficies hipersustentadoras, con los
+mensajes de aviso y precaución abajo.
+
+165
+00:10:35.514 --> 00:10:39.664
+Las alertas de clase 1 son avisos rojos
+que exigen una acción inmediata de
+
+166
+00:10:39.704 --> 00:10:44.189
+la tripulación, y las de clase 2 son
+precauciones ámbar que no la exigen.
+
+167
+00:10:44.239 --> 00:10:48.058
+Los fallos de clase 3 no se
+muestran a la tripulación: los lee
+
+168
+00:10:48.098 --> 00:10:53.435
+mantenimiento en la unidad multipropósito
+de control y presentación, la MCDU.
+
+169
+00:10:53.485 --> 00:10:57.378
+La pantalla inferior, la pantalla
+de sistemas, muestra páginas
+
+170
+00:10:57.418 --> 00:11:01.755
+sinópticas, elegidas automáticamente
+según la fase de vuelo o con los
+
+171
+00:11:01.795 --> 00:11:06.966
+pulsadores del panel de control del ECAM;
+el pulsador BLEED trae esta página.
+
+172
+00:11:07.016 --> 00:11:10.702
+Muestra la posición de cada válvula
+de sangrado, las presiones y
+
+173
+00:11:10.742 --> 00:11:14.778
+temperaturas, y una indicación GND
+que solo aparece con el avión en
+
+174
+00:11:14.818 --> 00:11:19.359
+tierra, detectada por los sensores de
+proximidad del tren de aterrizaje.
+
+175
+00:11:21.009 --> 00:11:23.781
+Ahora un ejercicio con la
+página BLEED: para cada
+
+176
+00:11:23.821 --> 00:11:27.919
+situación, imagina la página antes
+de que aparezca la respuesta.
+
+177
+00:11:27.969 --> 00:11:33.102
+Uno: crucero normal, los dos sangrados
+de motor encendidos y la APU apagada.
+
+178
+00:11:33.152 --> 00:11:38.228
+Las dos PRV están abiertas, dibujadas
+en línea con el conducto; las HPV
+
+179
+00:11:38.268 --> 00:11:42.531
+están cerradas, porque basta la etapa
+5; la válvula de cross-bleed y la
+
+180
+00:11:42.571 --> 00:11:48.967
+de la APU están cerradas; y cada lado
+marca unos 44 psi y unos 200 grados.
+
+181
+00:11:49.017 --> 00:11:52.197
+Dos: en tierra antes de
+arrancar los motores, con APU
+
+182
+00:11:52.237 --> 00:11:55.520
+BLEED encendido y el selector
+de cross-bleed en AUTO.
+
+183
+00:11:55.570 --> 00:11:58.616
+La válvula de sangrado de
+la APU está abierta, la de
+
+184
+00:11:58.656 --> 00:12:02.320
+cross-bleed la ha seguido y
+está abierta, las dos PRV están
+
+185
+00:12:02.360 --> 00:12:07.031
+cerradas porque la APU tiene prioridad,
+y se muestra la indicación GND.
+
+186
+00:12:07.081 --> 00:12:10.519
+Tres: un fallo del sangrado
+del motor 2 en crucero.
+
+187
+00:12:10.569 --> 00:12:15.843
+La PRV 2 está cerrada, ENG 2 BLEED muestra
+un FAULT ámbar con una precaución de
+
+188
+00:12:15.883 --> 00:12:20.904
+ECAM, y la válvula de cross-bleed sigue
+cerrada hasta que la tripulación la abra.
+
+189
+00:12:20.954 --> 00:12:25.785
+Cuatro: un lado marca una temperatura
+de sangrado de 250 grados.
+
+190
+00:12:25.835 --> 00:12:30.421
+Eso está muy por encima del lazo de
+200 más o menos 15 grados, así que
+
+191
+00:12:30.461 --> 00:12:35.103
+el TCT y la válvula de aire del fan
+no dan abasto y la sonda del TLT ya
+
+192
+00:12:35.143 --> 00:12:42.288
+está estrangulando la PRV; si llega
+a 257 grados, la BMC cierra esa PRV.
+
+193
+00:12:43.938 --> 00:12:47.129
+El sistema lo vigilan dos
+ordenadores de vigilancia del
+
+194
+00:12:47.169 --> 00:12:51.536
+sangrado, la BMC 1 y la BMC 2,
+idénticas e intercambiables,
+
+195
+00:12:51.576 --> 00:12:55.979
+una por lado, conectadas permanentemente
+entre sí por buses de datos.
+
+196
+00:12:56.029 --> 00:12:59.882
+Cada una recibe señales eléctricas
+de los pulsadores, de la válvula de
+
+197
+00:12:59.922 --> 00:13:04.107
+cross-bleed, de los pulsadores de fuego
+de los motores y de la APU, de las
+
+198
+00:13:04.147 --> 00:13:08.278
+posiciones de las válvulas de sangrado,
+de los dos transmisores de presión,
+
+199
+00:13:08.318 --> 00:13:12.893
+la presión transferida antes de la PRV
+y la regulada después, del sensor de
+
+200
+00:13:12.933 --> 00:13:18.009
+temperatura y de los lazos de detección de
+fugas de su lado, y algunas del otro lado.
+
+201
+00:13:18.059 --> 00:13:20.856
+Con ellas vigila el
+sangrado, corta su lado si
+
+202
+00:13:20.896 --> 00:13:24.125
+detecta un fallo, e informa
+a la tripulación a través
+
+203
+00:13:24.165 --> 00:13:28.092
+del ECAM y a mantenimiento a
+través del sistema de fallos.
+
+204
+00:13:28.142 --> 00:13:31.815
+Alrededor de ellas, los concentradores
+de adquisición de datos del
+
+205
+00:13:31.855 --> 00:13:35.810
+sistema, los SDAC, recogen los datos
+para los ordenadores de avisos de
+
+206
+00:13:35.850 --> 00:13:39.523
+vuelo, que generan las alertas
+sonoras y visuales, y para los tres
+
+207
+00:13:39.563 --> 00:13:43.799
+ordenadores de pantallas, los DMC,
+dos trabajando y uno de reserva; la
+
+208
+00:13:43.839 --> 00:13:47.963
+CFDIU centraliza los fallos de
+todos los sistemas; las unidades de
+
+209
+00:13:48.003 --> 00:13:51.620
+interfaz de motor pasan los datos
+que recoge la unidad de control
+
+210
+00:13:51.660 --> 00:13:57.017
+propia de cada motor; y la APU la controla
+su caja de control electrónico, la ECB.
+
+211
+00:13:57.067 --> 00:14:00.208
+Por último, los lazos de
+detección de fugas recorren los
+
+212
+00:14:00.248 --> 00:14:03.673
+conductos, los pilones y el
+conducto de la APU; cuando uno
+
+213
+00:14:03.713 --> 00:14:07.593
+detecta aire caliente, la BMC
+aísla la fuga cerrando la válvula
+
+214
+00:14:07.633 --> 00:14:12.243
+de sangrado correspondiente antes de
+que se dañen los componentes cercanos.
+
+215
+00:14:13.893 --> 00:14:18.133
+El sangrado de la APU tiene su propia
+lógica, que muestra este esquema.
+
+216
+00:14:18.183 --> 00:14:21.462
+La APU entrega aire directamente
+al lado izquierdo del
+
+217
+00:14:21.502 --> 00:14:25.754
+conducto de cross-bleed, en tierra
+y en vuelo hasta 20 000 pies.
+
+218
+00:14:25.804 --> 00:14:28.242
+Su válvula de sangrado
+la acciona un actuador
+
+219
+00:14:28.282 --> 00:14:30.886
+neumático y la manda un
+solenoide, y una válvula
+
+220
+00:14:30.926 --> 00:14:34.966
+antirretorno aguas abajo impide
+que el aire vuelva hacia la APU.
+
+221
+00:14:35.016 --> 00:14:39.119
+Cuando la tripulación pulsa APU BLEED,
+se enciende el ON azul y la BMC
+
+222
+00:14:39.159 --> 00:14:43.102
+comprueba que no se ha accionado el
+pulsador de fuego de la APU y que no
+
+223
+00:14:43.142 --> 00:14:47.085
+hay ninguna fuga detectada en el
+conducto de la APU; en tierra se tolera
+
+224
+00:14:47.125 --> 00:14:51.724
+una fuga hasta que han arrancado los
+motores, y después hay que parar la APU.
+
+225
+00:14:51.774 --> 00:14:55.712
+Si se cumplen esas condiciones,
+la BMC avisa a la caja de control
+
+226
+00:14:55.752 --> 00:14:59.745
+electrónico de la APU, que abre la
+válvula de sangrado siempre que no
+
+227
+00:14:59.785 --> 00:15:05.569
+haya señal de parada de la APU y su
+velocidad esté estabilizada al 95 %.
+
+228
+00:15:05.619 --> 00:15:09.985
+Por último, el carro de tierra se conecta
+a través de un panel de acceso de
+
+229
+00:15:10.025 --> 00:15:14.392
+apertura rápida en la parte inferior
+izquierda del fuselaje a una toma cuya
+
+230
+00:15:14.432 --> 00:15:19.541
+válvula antirretorno tiene dos chapaletas
+con muelle que solo abren hacia dentro.
+
+231
+00:15:21.191 --> 00:15:23.890
+Arrancar los motores lo
+junta todo, y es el tema
+
+232
+00:15:23.930 --> 00:15:27.590
+de la primera pregunta
+del cuestionario de 2020.
+
+233
+00:15:27.640 --> 00:15:30.391
+Con los motores parados no
+hay sangrado de motor, así
+
+234
+00:15:30.431 --> 00:15:33.679
+que el aire viene de la APU
+o de un carro de tierra.
+
+235
+00:15:33.729 --> 00:15:37.365
+Seleccionar APU BLEED abre la
+válvula de sangrado de la APU y,
+
+236
+00:15:37.405 --> 00:15:40.822
+con el selector de cross-bleed en
+AUTO, la válvula de cross-bleed
+
+237
+00:15:40.862 --> 00:15:45.108
+la sigue y se abre, así que el aire
+de la APU llega a los dos lados.
+
+238
+00:15:45.158 --> 00:15:48.255
+El aire va entonces en sentido
+contrario al normal, del
+
+239
+00:15:48.295 --> 00:15:51.735
+colector hacia el motor, hasta
+la válvula de arranque, que se
+
+240
+00:15:51.775 --> 00:15:56.688
+abre y alimenta el arrancador neumático,
+que hace girar N2 y luego N1.
+
+241
+00:15:56.738 --> 00:16:00.008
+Durante la secuencia de
+arranque de un motor, su BMC
+
+242
+00:16:00.048 --> 00:16:03.203
+mantiene cerrada eléctricamente
+la válvula reguladora de
+
+243
+00:16:03.243 --> 00:16:07.073
+presión de ese motor, así que
+el motor que arranca no sangra.
+
+244
+00:16:07.123 --> 00:16:10.320
+Una vez el motor está en marcha,
+la válvula de arranque se
+
+245
+00:16:10.360 --> 00:16:13.613
+cierra; cuando la tripulación
+deselecciona APU BLEED, las
+
+246
+00:16:13.653 --> 00:16:18.189
+válvulas reguladoras de presión de los
+motores vuelven a abrir y a regular.
+
+247
+00:16:18.239 --> 00:16:20.879
+Y si se detecta una fuga
+durante la secuencia de
+
+248
+00:16:20.919 --> 00:16:23.558
+arranque, la válvula de
+cross-bleed sigue abierta
+
+249
+00:16:23.598 --> 00:16:26.406
+hasta que termina la
+secuencia, para no interrumpir
+
+250
+00:16:26.446 --> 00:16:29.253
+el arranque; así que sí,
+se pueden arrancar los dos
+
+251
+00:16:29.293 --> 00:16:32.881
+motores con sangrado de la
+APU con el selector en AUTO.
+
+252
+00:16:34.531 --> 00:16:37.899
+Toca practicar con el formato
+del examen: después de cada
+
+253
+00:16:37.939 --> 00:16:42.834
+afirmación, pausa el vídeo, decide si
+es verdadera o falsa, y luego escucha.
+
+254
+00:16:42.884 --> 00:16:47.170
+Uno: la APU puede dar aire de sangrado
+en vuelo a cualquier altitud.
+
+255
+00:16:47.220 --> 00:16:50.507
+Falso: su sangrado está
+limitado a 20 000 pies.
+
+256
+00:16:50.557 --> 00:16:53.159
+Dos: la APU y el carro de tierra alimentan
+
+257
+00:16:53.199 --> 00:16:56.073
+el lado derecho del
+conducto de cross-bleed.
+
+258
+00:16:56.123 --> 00:17:00.374
+Falso: los dos alimentan el
+lado izquierdo, el lado 1.
+
+259
+00:17:00.424 --> 00:17:02.367
+Tres: seleccionar APU BLEED cierra
+
+260
+00:17:02.407 --> 00:17:05.511
+automáticamente las válvulas
+de sangrado de motor.
+
+261
+00:17:05.561 --> 00:17:08.326
+Verdadero: es la prioridad de la APU.
+
+262
+00:17:08.376 --> 00:17:10.867
+Cuatro: en AUTO, la
+válvula de cross-bleed se
+
+263
+00:17:10.907 --> 00:17:13.788
+abre siempre que falla
+un sangrado de motor.
+
+264
+00:17:13.838 --> 00:17:17.512
+Falso: en AUTO solo sigue a la
+válvula de sangrado de la APU, y la
+
+265
+00:17:17.552 --> 00:17:21.885
+tripulación tiene que seleccionar OPEN
+para alimentar desde el otro motor.
+
+266
+00:17:21.935 --> 00:17:27.185
+Cinco: los depósitos hidráulicos se
+presurizan desde la etapa 9 del motor 2.
+
+267
+00:17:27.235 --> 00:17:32.403
+Falso: desde la etapa 8 del motor 1, con
+el colector neumático como respaldo.
+
+268
+00:17:32.453 --> 00:17:36.681
+Seis: los fallos de clase 3 aparecen
+en ámbar en el ECAM superior.
+
+269
+00:17:36.731 --> 00:17:42.781
+Falso: el ámbar es la clase 2, y la clase
+3 es solo para mantenimiento, en la MCDU.
+
+270
+00:17:42.831 --> 00:17:45.591
+Siete: cada BMC vigila su propio lado y
+
+271
+00:17:45.631 --> 00:17:48.719
+recibe además algunas
+señales del otro lado.
+
+272
+00:17:48.769 --> 00:17:49.816
+Verdadero.
+
+273
+00:17:49.866 --> 00:17:54.523
+Ocho: el antihielo de motor toma el
+aire del conducto de antihielo de ala.
+
+274
+00:17:54.573 --> 00:17:58.056
+Falso: cada motor tiene sus propias
+válvulas de antihielo en el
+
+275
+00:17:58.096 --> 00:18:02.528
+cárter del fan, que alimentan el labio
+de su toma con su propio sangrado.
+
+276
+00:18:04.178 --> 00:18:07.804
+Resumiendo la primera parte: el
+aire sale de la etapa 5 de los
+
+277
+00:18:07.844 --> 00:18:12.136
+motores, o de la etapa 9 en ralentí,
+de la APU hasta 20 000 pies, o
+
+278
+00:18:12.176 --> 00:18:16.637
+de un carro de tierra, y la APU y el
+carro alimentan el lado izquierdo.
+
+279
+00:18:16.687 --> 00:18:20.137
+Va a los packs, a los arrancadores,
+al antihielo de ala y de
+
+280
+00:18:20.177 --> 00:18:24.092
+motor, a los depósitos hidráulicos,
+presurizados desde la etapa 8
+
+281
+00:18:24.132 --> 00:18:28.844
+del motor 1, al depósito de agua y a
+la calefacción de la bodega trasera.
+
+282
+00:18:28.894 --> 00:18:32.043
+Por el camino pasa por la
+antirretorno o la válvula de
+
+283
+00:18:32.083 --> 00:18:34.996
+alta presión, la válvula
+reguladora de presión, la
+
+284
+00:18:35.036 --> 00:18:37.831
+válvula de sobrepresión
+y el preenfriador con su
+
+285
+00:18:37.871 --> 00:18:42.120
+válvula de aire del fan y su
+termostato de control de temperatura.
+
+286
+00:18:42.170 --> 00:18:45.479
+El sangrado de la APU tiene
+prioridad sobre los motores, y la
+
+287
+00:18:45.519 --> 00:18:49.741
+válvula de cross-bleed en AUTO sigue
+a la válvula de sangrado de la APU.
+
+288
+00:18:49.791 --> 00:18:53.386
+Dos BMC vigilan y aíslan, el
+ECAM muestra el estado, y la
+
+289
+00:18:53.426 --> 00:18:56.847
+cabina se queda a oscuras cuando
+todo va bien; en la segunda
+
+290
+00:18:56.887 --> 00:19:01.391
+parte abrimos cada válvula y aprendemos
+su lógica y sus números exactos.

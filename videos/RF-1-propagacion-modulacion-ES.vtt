@@ -1,0 +1,1498 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:03.126
+Bienvenido a la primera
+de tres clases para el
+
+2
+00:00:03.166 --> 00:00:06.639
+examen 1 de Sistemes de
+Radiofreqüència i Comunicació.
+
+3
+00:00:06.689 --> 00:00:09.782
+Esta parte trata el espectro
+radioeléctrico, cómo se
+
+4
+00:00:09.822 --> 00:00:13.035
+propagan las ondas de radio,
+la modulación analógica y
+
+5
+00:00:13.075 --> 00:00:16.919
+digital, y las arquitecturas
+de transmisores y receptores.
+
+6
+00:00:16.969 --> 00:00:20.066
+La segunda parte trata los
+decibelios, el ruido, la
+
+7
+00:00:20.106 --> 00:00:23.389
+linealidad, la sensibilidad
+y el margen dinámico, y la
+
+8
+00:00:23.429 --> 00:00:28.023
+tercera las líneas de transmisión,
+la carta de Smith y la adaptación.
+
+9
+00:00:28.073 --> 00:00:31.064
+Todos los problemas resueltos
+se han recalculado desde
+
+10
+00:00:31.104 --> 00:00:34.094
+cero, y cuando las transparencias
+o las soluciones del
+
+11
+00:00:34.134 --> 00:00:37.514
+curso pasado dan un número,
+el vídeo dice si coincide.
+
+12
+00:00:39.164 --> 00:00:41.406
+Primero, las reglas del juego.
+
+13
+00:00:41.456 --> 00:00:46.507
+Según el calendario de la asignatura, la
+Unidad 1, propagación de radiofrecuencia,
+
+14
+00:00:46.547 --> 00:00:51.597
+se dio en las tres primeras semanas y la
+Unidad 2, líneas de transmisión, desde la
+
+15
+00:00:51.637 --> 00:00:58.351
+cuarta semana, así que el examen 1 cubre
+las dos, y vale el 35 % de la nota final.
+
+16
+00:00:58.401 --> 00:01:01.391
+El examen 1 resuelto que
+compartieron tus compañeros
+
+17
+00:01:01.431 --> 00:01:04.869
+tiene diez problemas cortos,
+más o menos uno por tema.
+
+18
+00:01:04.919 --> 00:01:08.159
+Eran: una cascada de figuras
+de ruido, el oscilador local
+
+19
+00:01:08.199 --> 00:01:11.381
+de un superheterodino, el
+cociente entre las frecuencias
+
+20
+00:01:11.421 --> 00:01:14.545
+máximas utilizables de día y
+de noche, la impedancia de
+
+21
+00:01:14.585 --> 00:01:18.861
+entrada de una línea, una VSWR,
+un cable coaxial a partir
+
+22
+00:01:18.901 --> 00:01:21.910
+de una hoja de datos, el
+punto de intercepción de una
+
+23
+00:01:21.950 --> 00:01:25.017
+cascada, una comprobación de
+pérdidas de retorno y del
+
+24
+00:01:25.057 --> 00:01:30.010
+cable, un ancho de banda FM, y una
+pregunta de compresión y suelo de ruido.
+
+25
+00:01:30.060 --> 00:01:33.157
+Ninguno necesita álgebra
+larga: la clave es elegir la
+
+26
+00:01:33.197 --> 00:01:35.939
+fórmula correcta y pasar
+rápido de decibelios a
+
+27
+00:01:35.979 --> 00:01:40.058
+unidades lineales, que es exactamente
+lo que vamos a practicar.
+
+28
+00:01:41.708 --> 00:01:44.619
+El espectro electromagnético
+que se usa para radio lo
+
+29
+00:01:44.659 --> 00:01:48.629
+divide la ITU en bandas, cada
+una de una década de frecuencia.
+
+30
+00:01:48.679 --> 00:01:54.460
+La baja frecuencia va de 30 a 300
+kHz, la frecuencia media hasta 3 MHz,
+
+31
+00:01:54.500 --> 00:02:00.225
+la alta frecuencia hasta 30 MHz, la
+muy alta frecuencia hasta 300 MHz, la
+
+32
+00:02:00.265 --> 00:02:06.154
+ultra alta frecuencia hasta 3 GHz y la
+súper alta frecuencia hasta 30 GHz.
+
+33
+00:02:06.204 --> 00:02:10.186
+La aviación las usa casi todas:
+las radiobalizas no direccionales
+
+34
+00:02:10.226 --> 00:02:16.994
+están entre 190 y 535 kHz, la voz
+de largo alcance sobre los océanos
+
+35
+00:02:17.034 --> 00:02:26.604
+usa HF, entre 2 y 30 MHz, y la conocida
+banda de voz VHF va de 118 a 137 MHz.
+
+36
+00:02:26.654 --> 00:02:31.414
+Justo debajo, de 108 a 118
+MHz, están el VOR y el
+
+37
+00:02:31.454 --> 00:02:36.942
+localizador del ILS, con la senda
+de planeo cerca de 330 MHz.
+
+38
+00:02:36.992 --> 00:02:41.432
+Hacia 1 GHz, la banda L contiene
+el DME, el radar secundario en
+
+39
+00:02:41.472 --> 00:02:48.351
+1030 y 1090 MHz y el GPS en 1575
+MHz, y más arriba vienen el
+
+40
+00:02:48.391 --> 00:02:55.036
+radioaltímetro en 4.3 GHz y el radar
+meteorológico cerca de 9.4 GHz.
+
+41
+00:02:56.686 --> 00:02:59.310
+La primera fórmula de
+la asignatura relaciona
+
+42
+00:02:59.350 --> 00:03:02.423
+la longitud de onda, la
+frecuencia y el medio.
+
+43
+00:03:02.473 --> 00:03:05.523
+La longitud de onda es la
+velocidad de la luz dividida
+
+44
+00:03:05.563 --> 00:03:08.155
+por la frecuencia y por
+la raíz cuadrada de la
+
+45
+00:03:08.195 --> 00:03:12.436
+permitividad efectiva, porque las
+ondas se frenan en un dieléctrico.
+
+46
+00:03:12.486 --> 00:03:15.192
+En aire la permitividad
+es uno, así que 3 por
+
+47
+00:03:15.232 --> 00:03:19.930
+diez elevado a 8 entre diez
+elevado a 8 da 3.00 m.
+
+48
+00:03:19.980 --> 00:03:24.033
+En un cable de polietileno, con
+una permitividad de 2.3, la raíz
+
+49
+00:03:24.073 --> 00:03:30.338
+cuadrada es 1.517, y la longitud de
+onda se reduce a 1.98 m: por eso un
+
+50
+00:03:30.378 --> 00:03:35.098
+tramo de cable de cuarto de onda es más
+corto que una antena de cuarto de onda.
+
+51
+00:03:35.148 --> 00:03:42.371
+Y en agua, con una permitividad de 80.4,
+la longitud de onda es de solo 0.335 m.
+
+52
+00:03:44.021 --> 00:03:48.446
+Las ondas de radio viajan por una
+atmósfera con capas diferenciadas.
+
+53
+00:03:48.496 --> 00:03:52.656
+La troposfera, desde el suelo
+hasta unos 10 a 12 km, es donde
+
+54
+00:03:52.696 --> 00:03:56.052
+está el tiempo meteorológico,
+y curva ligeramente las ondas
+
+55
+00:03:56.092 --> 00:04:00.700
+VHF, alargando un poco su alcance
+más allá del horizonte óptico.
+
+56
+00:04:00.750 --> 00:04:06.599
+Por encima de la estratosfera,
+desde 50 a 80 km hasta 400 o 500
+
+57
+00:04:06.639 --> 00:04:10.485
+km, la ionosfera está ionizada por
+la radiación solar, así que sus
+
+58
+00:04:10.525 --> 00:04:14.939
+propiedades cambian entre el día y
+la noche y con la actividad solar.
+
+59
+00:04:14.989 --> 00:04:18.425
+La capa D, presente solo de
+día, absorbe las frecuencias
+
+60
+00:04:18.465 --> 00:04:22.754
+bajas, por debajo de unos 4
+MHz, mientras que las capas E,
+
+61
+00:04:22.794 --> 00:04:28.876
+F1 y F2 reflejan ondas hasta unos
+5, 10 y 30 MHz respectivamente.
+
+62
+00:04:28.926 --> 00:04:31.805
+De noche la capa D desaparece
+y las demás capas se
+
+63
+00:04:31.845 --> 00:04:35.859
+debilitan, y por eso las frecuencias
+utilizables bajan de noche.
+
+64
+00:04:37.509 --> 00:04:42.096
+Hay cuatro maneras de que una onda de
+radio llegue del transmisor al receptor.
+
+65
+00:04:42.146 --> 00:04:44.694
+La onda de superficie
+sigue la curvatura de la
+
+66
+00:04:44.734 --> 00:04:49.138
+Tierra, desde unos 20 kHz
+hasta 50 MHz; sus pérdidas
+
+67
+00:04:49.178 --> 00:04:52.007
+crecen con la frecuencia y
+son mayores sobre tierra
+
+68
+00:04:52.047 --> 00:04:54.707
+que sobre el mar, y son
+mínimas con polarización
+
+69
+00:04:54.747 --> 00:04:58.867
+vertical, y por eso las antenas de
+las radiobalizas son verticales.
+
+70
+00:04:58.917 --> 00:05:03.228
+Por encima de unos 50 MHz la
+onda de superficie se extingue
+
+71
+00:05:03.268 --> 00:05:06.698
+enseguida y la comunicación
+depende de la onda espacial: un
+
+72
+00:05:06.738 --> 00:05:11.027
+rayo directo, en visión directa,
+más un rayo reflejado en el suelo.
+
+73
+00:05:11.077 --> 00:05:14.397
+En la banda HF, la ionosfera
+puede devolver la onda
+
+74
+00:05:14.437 --> 00:05:17.177
+celeste a la Tierra, así
+que un solo salto puede
+
+75
+00:05:17.217 --> 00:05:21.563
+cubrir miles de kilómetros, y
+así funciona la voz HF oceánica.
+
+76
+00:05:21.613 --> 00:05:25.622
+Por último, las ondas troposféricas
+se dispersan o se canalizan en la
+
+77
+00:05:25.662 --> 00:05:30.647
+atmósfera baja, y a veces llevan la
+VHF mucho más allá del horizonte.
+
+78
+00:05:32.297 --> 00:05:36.885
+Este es un problema de onda de superficie
+con una fórmula empírica de alcance.
+
+79
+00:05:36.935 --> 00:05:40.861
+La raíz cuadrada de 5 000 W es 70.7.
+
+80
+00:05:40.911 --> 00:05:45.998
+Sobre el mar el alcance
+es 3 veces eso, 212 nmi.
+
+81
+00:05:46.048 --> 00:05:51.042
+Sobre tierra es solo 2 veces eso, 141 nmi.
+
+82
+00:05:51.092 --> 00:05:56.677
+Así que la diferencia es de 70.7 nmi,
+un tercio del alcance sobre el mar,
+
+83
+00:05:56.717 --> 00:06:01.670
+porque la onda de superficie pierde más
+energía sobre una tierra poco conductora.
+
+84
+00:06:03.320 --> 00:06:08.488
+Por encima de 50 MHz, el alcance lo
+fija el horizonte radioeléctrico.
+
+85
+00:06:08.538 --> 00:06:13.235
+La voz VHF, el VOR y el DME
+necesitan visión directa entre las
+
+86
+00:06:13.275 --> 00:06:17.178
+antenas, así que la curvatura de
+la Tierra limita la distancia.
+
+87
+00:06:17.228 --> 00:06:22.091
+Binns da la fórmula práctica: el
+alcance en millas náuticas es 1.23 por
+
+88
+00:06:22.131 --> 00:06:26.750
+la suma de las raíces cuadradas de las
+alturas de las dos antenas en pies.
+
+89
+00:06:26.800 --> 00:06:29.952
+Por las raíces cuadradas,
+el alcance crece despacio:
+
+90
+00:06:29.992 --> 00:06:33.535
+volar cuatro veces más alto
+solo duplica el alcance.
+
+91
+00:06:33.585 --> 00:06:36.483
+La trampa está en las unidades:
+las alturas tienen que
+
+92
+00:06:36.523 --> 00:06:39.421
+ir en pies y el resultado
+sale en millas náuticas, así
+
+93
+00:06:39.461 --> 00:06:44.001
+que pasa primero los metros
+dividiendo entre 0.3048.
+
+94
+00:06:45.651 --> 00:06:47.557
+Dos aplicaciones rápidas.
+
+95
+00:06:47.607 --> 00:06:50.546
+En el apartado a, la
+antena de tierra mide 10
+
+96
+00:06:50.586 --> 00:06:56.769
+m, es decir 32.8 ft, cuya
+raíz cuadrada es 5.73.
+
+97
+00:06:56.819 --> 00:07:02.634
+Entonces la raíz cuadrada de la altura
+del avión es 125 entre 1.23 menos
+
+98
+00:07:02.674 --> 00:07:11.577
+5.73, que es 95.9, así que el avión
+debe volar a unos 9 200 ft, 2.8 km.
+
+99
+00:07:11.627 --> 00:07:14.712
+En el apartado b el receptor
+está a nivel del suelo,
+
+100
+00:07:14.752 --> 00:07:17.660
+así que solo cuenta la
+altura del avión: pasa cada
+
+101
+00:07:17.700 --> 00:07:20.549
+altitud a pies, saca la
+raíz cuadrada, multiplica
+
+102
+00:07:20.589 --> 00:07:26.245
+por 1.23, y multiplica por
+1.852 para obtener kilómetros.
+
+103
+00:07:26.295 --> 00:07:36.351
+A 150 m el alcance es de 27 nmi, unos
+50 km, y a 300 m es de unos 72 km.
+
+104
+00:07:36.401 --> 00:07:47.588
+A 1 500 m llega a 160 km, a 3 000 m a
+226 km y a 5 000 m a 292 km: la gráfica
+
+105
+00:07:47.628 --> 00:07:52.912
+es una curva de raíz cuadrada, empinada
+al principio y luego cada vez más plana.
+
+106
+00:07:54.562 --> 00:07:56.983
+En las ondas celestes,
+la magnitud clave es
+
+107
+00:07:57.023 --> 00:07:59.777
+la densidad de electrones de la ionosfera.
+
+108
+00:07:59.827 --> 00:08:03.070
+Una onda enviada hacia arriba
+en vertical solo se refleja si
+
+109
+00:08:03.110 --> 00:08:06.517
+su frecuencia está por debajo
+de la frecuencia crítica, fc,
+
+110
+00:08:06.557 --> 00:08:10.018
+igual a 9 por la raíz cuadrada
+de la densidad de electrones,
+
+111
+00:08:10.058 --> 00:08:14.074
+con fc en hercios y la densidad
+en electrones por metro cúbico.
+
+112
+00:08:14.124 --> 00:08:18.514
+La solución del curso pasado usaba la
+misma fórmula en unidades más cómodas:
+
+113
+00:08:18.554 --> 00:08:23.586
+fc en megahercios es 9 por diez elevado
+a menos 3 por la raíz cuadrada de la
+
+114
+00:08:23.626 --> 00:08:28.290
+densidad en electrones por centímetro
+cúbico; las dos dan el mismo número.
+
+115
+00:08:28.340 --> 00:08:31.746
+Una onda que incide en la capa
+de forma oblicua, saliendo
+
+116
+00:08:31.786 --> 00:08:34.890
+del suelo con un ángulo de
+elevación theta, se puede
+
+117
+00:08:34.930 --> 00:08:38.337
+reflejar hasta una frecuencia
+mayor, la frecuencia máxima
+
+118
+00:08:38.377 --> 00:08:42.657
+utilizable, aproximadamente fc
+dividida por el seno de theta.
+
+119
+00:08:42.707 --> 00:08:46.061
+Por debajo de la MUF también
+hay una frecuencia mínima
+
+120
+00:08:46.101 --> 00:08:49.455
+utilizable, la LUF, fijada
+por la absorción en la capa
+
+121
+00:08:49.495 --> 00:08:52.844
+D, así que la ventana
+utilizable está entre las dos.
+
+122
+00:08:52.894 --> 00:08:56.485
+La MUF de día es más o
+menos el doble de la MUF de
+
+123
+00:08:56.525 --> 00:08:59.413
+noche, y en la práctica se
+trabaja a la frecuencia
+
+124
+00:08:59.453 --> 00:09:05.132
+óptima de trabajo, el 85 % de la
+MUF, como margen de seguridad.
+
+125
+00:09:06.782 --> 00:09:10.755
+Los dos problemas de onda celeste
+usan las mismas dos fórmulas.
+
+126
+00:09:10.805 --> 00:09:14.587
+Primero convierte la densidad:
+5 por diez elevado a 5 por
+
+127
+00:09:14.627 --> 00:09:18.174
+centímetro cúbico son 5 por
+diez elevado a 11 por metro
+
+128
+00:09:18.214 --> 00:09:24.797
+cúbico, así que la frecuencia crítica
+es 9 por su raíz cuadrada, 6.36 MHz.
+
+129
+00:09:24.847 --> 00:09:31.027
+En el apartado a, el seno del
+ángulo es 6.36 entre 24.58,
+
+130
+00:09:31.067 --> 00:09:36.992
+que es 0.259, así que el ángulo
+de elevación es de 15.0 grados.
+
+131
+00:09:37.042 --> 00:09:41.444
+En el apartado b, supón un solo salto
+con la reflexión a mitad de camino,
+
+132
+00:09:41.484 --> 00:09:47.686
+y la Tierra plana: la mitad de 1 300
+millas terrestres son 1 046 km, así
+
+133
+00:09:47.726 --> 00:09:55.399
+que la tangente de la elevación es 350
+entre 1 046, lo que da 18.5 grados.
+
+134
+00:09:55.449 --> 00:10:03.094
+Entonces la MUF es 6.36 entre el
+seno de 18.5 grados, 20.1 MHz,
+
+135
+00:10:03.134 --> 00:10:10.114
+y la frecuencia óptima de trabajo
+es el 85 % de eso, 17.1 MHz.
+
+136
+00:10:10.164 --> 00:10:14.891
+Si las millas se leen como millas
+náuticas, el ángulo es de 16.2 grados
+
+137
+00:10:14.931 --> 00:10:21.393
+y la OWF de 19.4 MHz, así que en el
+examen di siempre qué has supuesto.
+
+138
+00:10:23.043 --> 00:10:26.267
+Esto salió en el examen del
+curso pasado, con las densidades
+
+139
+00:10:26.307 --> 00:10:30.301
+leídas de una gráfica de densidad
+de electrones frente a la altura.
+
+140
+00:10:30.351 --> 00:10:32.675
+Usa la fórmula de la frecuencia crítica en
+
+141
+00:10:32.715 --> 00:10:35.879
+megahercios con la densidad
+por centímetro cúbico.
+
+142
+00:10:35.929 --> 00:10:40.084
+De día, 9 por diez elevado a menos
+3 por la raíz cuadrada de diez
+
+143
+00:10:40.124 --> 00:10:48.632
+elevado a 5 son 2.85 MHz; de noche, con
+2 por diez elevado a 4, son 1.27 MHz.
+
+144
+00:10:48.682 --> 00:10:51.812
+Dividiendo por el seno
+de 20 grados, la MUF
+
+145
+00:10:51.852 --> 00:10:58.123
+es de 8.32 MHz de día y
+de 3.72 MHz de noche.
+
+146
+00:10:58.173 --> 00:11:01.641
+El cociente es la raíz cuadrada
+del cociente de densidades, la
+
+147
+00:11:01.681 --> 00:11:06.734
+raíz de 5, que es 2.24, coherente
+con la regla de que la MUF de
+
+148
+00:11:06.774 --> 00:11:10.186
+día es más o menos el doble que
+la de noche; fíjate en que el
+
+149
+00:11:10.226 --> 00:11:14.254
+ángulo se cancela, así que el
+cociente no necesita trigonometría.
+
+150
+00:11:15.904 --> 00:11:19.993
+Los obstáculos y las discontinuidades
+modifican la propagación de cuatro
+
+151
+00:11:20.033 --> 00:11:24.741
+maneras, y el tamaño del obstáculo frente
+a la longitud de onda decide cuál.
+
+152
+00:11:24.791 --> 00:11:28.035
+La reflexión ocurre cuando una
+onda encuentra un objeto plano
+
+153
+00:11:28.075 --> 00:11:31.817
+mucho mayor que la longitud de
+onda, como el suelo o un hangar.
+
+154
+00:11:31.867 --> 00:11:35.221
+La refracción ocurre cuando una
+onda pasa de un medio a otro y
+
+155
+00:11:35.261 --> 00:11:38.951
+cambia de dirección, como en la
+troposfera y en la ionosfera.
+
+156
+00:11:39.001 --> 00:11:41.809
+La difracción ocurre cuando
+una onda encuentra un
+
+157
+00:11:41.849 --> 00:11:44.308
+borde y lo rodea,
+siguiendo el perfil de la
+
+158
+00:11:44.348 --> 00:11:48.534
+discontinuidad, lo que da algo de
+cobertura detrás de las colinas.
+
+159
+00:11:48.584 --> 00:11:51.940
+La dispersión ocurre cuando los
+obstáculos son menores que la
+
+160
+00:11:51.980 --> 00:11:55.281
+longitud de onda, como las gotas
+de lluvia para las ondas de
+
+161
+00:11:55.321 --> 00:11:59.290
+radar, que fragmentan la onda y
+la reemiten en todas direcciones.
+
+162
+00:12:00.940 --> 00:12:04.070
+Las transparencias cierran la
+propagación con una gráfica
+
+163
+00:12:04.110 --> 00:12:07.241
+de la absorción atmosférica
+frente a la frecuencia, y una
+
+164
+00:12:07.281 --> 00:12:10.857
+pregunta: ¿qué bandas elegirías
+para aplicaciones seguras?
+
+165
+00:12:10.907 --> 00:12:14.709
+La absorción tiene picos donde
+resuenan las moléculas de vapor de
+
+166
+00:12:14.749 --> 00:12:22.960
+agua y de oxígeno: el agua en 22 y 183
+GHz, y el oxígeno en 60 y 119 GHz.
+
+167
+00:12:23.010 --> 00:12:28.470
+Entre los picos hay ventanas,
+como 35 y 94 GHz, donde los
+
+168
+00:12:28.510 --> 00:12:32.566
+enlaces y los radares de onda
+milimétrica pueden llegar lejos.
+
+169
+00:12:32.616 --> 00:12:35.793
+Para un enlace seguro quieres
+lo contrario: trabajar en un
+
+170
+00:12:35.833 --> 00:12:38.899
+pico de absorción, sobre todo
+en la línea del oxígeno de
+
+171
+00:12:38.939 --> 00:12:42.670
+60 GHz, donde la señal se
+extingue en pocos kilómetros,
+
+172
+00:12:42.710 --> 00:12:46.387
+así que alguien que escuche
+desde lejos no la puede recibir.
+
+173
+00:12:48.037 --> 00:12:51.267
+Ahora los sistemas que
+envían y reciben las ondas.
+
+174
+00:12:51.317 --> 00:12:55.325
+Un transmisor es el sistema que
+genera la señal, un receptor recupera
+
+175
+00:12:55.365 --> 00:12:59.256
+la señal deseada de un espectro
+amplio lleno de otros transmisores,
+
+176
+00:12:59.296 --> 00:13:03.753
+interferencias y ruido, y un transceptor
+es las dos cosas en una caja.
+
+177
+00:13:03.803 --> 00:13:07.603
+La información empieza como una
+señal en banda base, cuyo espectro
+
+178
+00:13:07.643 --> 00:13:11.152
+está concentrado cerca de la
+frecuencia cero; el modulador la
+
+179
+00:13:11.192 --> 00:13:14.875
+convierte en una señal paso banda
+alrededor de la portadora, que
+
+180
+00:13:14.915 --> 00:13:19.745
+después se sube de frecuencia y se
+amplifica con el amplificador de potencia.
+
+181
+00:13:19.795 --> 00:13:22.775
+En el otro extremo, un
+amplificador de bajo ruido, más
+
+182
+00:13:22.815 --> 00:13:25.292
+amplificadores, una
+conversión a la baja y un
+
+183
+00:13:25.332 --> 00:13:28.145
+demodulador recuperan la
+señal en banda base con el
+
+184
+00:13:28.185 --> 00:13:30.885
+menor ruido y la menor
+distorsión posibles; en la
+
+185
+00:13:30.925 --> 00:13:35.470
+segunda parte veremos por qué el primer
+amplificador es el que más importa.
+
+186
+00:13:37.120 --> 00:13:41.040
+Cualquier portadora modulada se puede
+escribir como una amplitud A de
+
+187
+00:13:41.080 --> 00:13:45.115
+t por el coseno de omega C t más
+una fase fi de t: la modulación de
+
+188
+00:13:45.155 --> 00:13:49.579
+amplitud varía A, y las modulaciones
+de frecuencia y de fase varían fi.
+
+189
+00:13:49.629 --> 00:13:52.921
+En AM la envolvente es la
+amplitud de la portadora por uno
+
+190
+00:13:52.961 --> 00:13:56.362
+más m por el mensaje, donde el
+índice de modulación m es la
+
+191
+00:13:56.402 --> 00:13:59.585
+amplitud del mensaje entre la
+de la portadora, entre cero y
+
+192
+00:13:59.625 --> 00:14:03.470
+uno; mira cómo se hace más profunda
+la envolvente al crecer m.
+
+193
+00:14:03.520 --> 00:14:07.083
+En el espectro, la portadora va
+acompañada de una banda lateral
+
+194
+00:14:07.123 --> 00:14:11.086
+inferior y otra superior, imágenes
+especulares del mensaje, así que la
+
+195
+00:14:11.126 --> 00:14:16.165
+AM de doble banda lateral ocupa el doble
+de la frecuencia más alta del mensaje.
+
+196
+00:14:16.215 --> 00:14:21.499
+En el ejemplo de las transparencias,
+una señal de audio de 20 Hz a 30 kHz
+
+197
+00:14:21.539 --> 00:14:26.823
+sobre una portadora de 100 kHz necesita
+60 kHz, y cada banda lateral mide
+
+198
+00:14:26.863 --> 00:14:37.637
+29.98 kHz: la inferior va de 70 a 99.98
+kHz y la superior de 100.02 a 130 kHz.
+
+199
+00:14:39.287 --> 00:14:43.927
+En la modulación de frecuencia la amplitud
+se mantiene constante y la fase es
+
+200
+00:14:43.967 --> 00:14:48.937
+la integral del mensaje, así que la
+frecuencia instantánea sigue al mensaje.
+
+201
+00:14:48.987 --> 00:14:53.385
+La excursión máxima de frecuencia es
+la desviación, delta f, y el índice
+
+202
+00:14:53.425 --> 00:14:58.393
+de modulación m f es la desviación
+dividida por la frecuencia moduladora.
+
+203
+00:14:58.443 --> 00:15:02.915
+El ancho de banda que contiene
+más o menos el 98 % de la
+
+204
+00:15:02.955 --> 00:15:06.431
+potencia lo da la regla de
+Carson: el doble de la suma de la
+
+205
+00:15:06.471 --> 00:15:11.099
+desviación y la frecuencia moduladora,
+o dos f m por m f más uno.
+
+206
+00:15:11.149 --> 00:15:15.058
+El espectro es un conjunto de rayas
+separadas f m alrededor de la
+
+207
+00:15:15.098 --> 00:15:18.607
+portadora, con amplitudes dadas
+por las funciones de Bessel del
+
+208
+00:15:18.647 --> 00:15:22.947
+índice, y la banda de Carson,
+sombreada, contiene las significativas.
+
+209
+00:15:24.597 --> 00:15:26.851
+Dos problemas rápidos de FM.
+
+210
+00:15:26.901 --> 00:15:29.575
+En el apartado a la
+desviación es el índice por
+
+211
+00:15:29.615 --> 00:15:34.124
+la frecuencia moduladora,
+5 por 10, que son 50 kHz.
+
+212
+00:15:34.174 --> 00:15:37.832
+La regla de Carson da el
+doble de 50 más 10, es decir
+
+213
+00:15:37.872 --> 00:15:43.499
+120 kHz, centrados en 250
+MHz, con rayas espectrales
+
+214
+00:15:43.539 --> 00:15:48.363
+cada 10 kHz cuyas alturas siguen
+las funciones de Bessel de 5.
+
+215
+00:15:48.413 --> 00:15:51.702
+En el examen del curso pasado
+el índice era uno, así que
+
+216
+00:15:51.742 --> 00:15:56.135
+la desviación es igual a la
+frecuencia moduladora, 10 kHz.
+
+217
+00:15:56.185 --> 00:15:58.796
+Y el ancho de banda es
+2 por 10 por uno más
+
+218
+00:15:58.836 --> 00:16:02.851
+uno, 40 kHz, como sacaron
+las dos copias resueltas.
+
+219
+00:16:04.501 --> 00:16:07.358
+Con un mensaje digital,
+los tres parámetros de la
+
+220
+00:16:07.398 --> 00:16:11.236
+portadora dan tres modulaciones
+básicas por desplazamiento.
+
+221
+00:16:11.286 --> 00:16:13.952
+En la modulación por
+desplazamiento de amplitud
+
+222
+00:16:13.992 --> 00:16:17.221
+un uno envía la portadora
+y un cero no envía nada.
+
+223
+00:16:17.271 --> 00:16:20.180
+En la modulación por
+desplazamiento de frecuencia un
+
+224
+00:16:20.220 --> 00:16:23.519
+uno y un cero se envían a
+dos frecuencias distintas.
+
+225
+00:16:23.569 --> 00:16:26.194
+En la modulación por
+desplazamiento de fase la
+
+226
+00:16:26.234 --> 00:16:29.828
+fase salta 180 grados
+entre los dos símbolos.
+
+227
+00:16:29.878 --> 00:16:32.573
+Los moduladores de las
+transparencias son simples
+
+228
+00:16:32.613 --> 00:16:35.644
+conmutadores o multiplicadores,
+y los demoduladores son
+
+229
+00:16:35.684 --> 00:16:39.105
+un detector de envolvente para
+ASK, una pareja de filtros
+
+230
+00:16:39.145 --> 00:16:43.905
+para FSK y una multiplicación
+coherente con la portadora para PSK.
+
+231
+00:16:45.555 --> 00:16:49.183
+Una banda es todo el rango de
+espectro que puede usar un estándar,
+
+232
+00:16:49.223 --> 00:16:52.185
+un canal es el ancho de banda
+de un solo usuario, y la
+
+233
+00:16:52.225 --> 00:16:56.911
+multiplexación permite que varias señales
+compartan un medio sin interferirse.
+
+234
+00:16:56.961 --> 00:17:00.263
+En la multiplexación por división
+en frecuencia cada usuario
+
+235
+00:17:00.303 --> 00:17:03.550
+recibe su propia ranura de
+frecuencia, con bandas de guarda
+
+236
+00:17:03.590 --> 00:17:07.226
+entre ellas para que los filtros
+reales las puedan separar.
+
+237
+00:17:07.276 --> 00:17:10.818
+En la multiplexación por división
+en el tiempo los usuarios se
+
+238
+00:17:10.858 --> 00:17:14.963
+turnan, y cada uno usa toda la
+banda durante su ranura de tiempo.
+
+239
+00:17:15.013 --> 00:17:19.256
+En el problema de las transparencias
+cada señal lleva 6 MHz de vídeo
+
+240
+00:17:19.296 --> 00:17:23.702
+y necesita una banda de guarda de 4
+MHz, así que cada canal ocupa una
+
+241
+00:17:23.742 --> 00:17:28.320
+ranura de 10 MHz, pero solo si cada
+canal es de banda lateral única.
+
+242
+00:17:28.370 --> 00:17:32.794
+Con la banda lateral superior,
+una portadora en 700 MHz pone el
+
+243
+00:17:32.834 --> 00:17:38.614
+vídeo de 700 a 706 MHz, la banda
+de guarda lo lleva a 710, la
+
+244
+00:17:38.654 --> 00:17:44.433
+siguiente portadora está en 710,
+y así hasta 790 MHz; la figura de
+
+245
+00:17:44.473 --> 00:17:48.162
+la transparencia marca sus portadoras
+en el centro de las ranuras,
+
+246
+00:17:48.202 --> 00:17:53.473
+705, 715 y así, lo que solo es
+esquemático, aunque para un dibujo
+
+247
+00:17:53.513 --> 00:17:59.237
+a mano bloques de 6 MHz centrados
+en esas portadoras, de 702 a 708
+
+248
+00:17:59.277 --> 00:18:04.316
+MHz con guardas de 4 MHz, coinciden
+con la propia figura del profesor.
+
+249
+00:18:04.366 --> 00:18:07.976
+Con doble banda lateral cada
+canal ocuparía 12 MHz y
+
+250
+00:18:08.016 --> 00:18:13.134
+necesitaría una separación de 16
+MHz, así que di qué has supuesto.
+
+251
+00:18:13.184 --> 00:18:18.070
+En cualquier caso los diez canales
+llenan de 700 a 800 MHz, y el
+
+252
+00:18:18.110 --> 00:18:24.505
+convertidor de subida de 10 GHz lleva
+el múltiplex a 10.7 a 10.8 GHz.
+
+253
+00:18:26.155 --> 00:18:29.529
+En un transmisor de conversión
+directa la frecuencia de la
+
+254
+00:18:29.569 --> 00:18:32.413
+portadora es igual a la
+del oscilador local, y la
+
+255
+00:18:32.453 --> 00:18:36.687
+modulación y la subida de frecuencia
+ocurren en el mismo circuito.
+
+256
+00:18:36.737 --> 00:18:40.856
+Normalmente se construye con ramas
+en fase y en cuadratura: el flujo de
+
+257
+00:18:40.896 --> 00:18:45.132
+bits se divide en parejas de bits, uno
+modula un coseno y el otro un seno
+
+258
+00:18:45.172 --> 00:18:49.974
+de la misma portadora, lo que aumenta
+la robustez y la eficiencia espectral.
+
+259
+00:18:50.024 --> 00:18:53.907
+Un transmisor en dos pasos, en
+cambio, modula a una frecuencia
+
+260
+00:18:53.947 --> 00:18:58.536
+intermedia y luego sube de frecuencia,
+lo que facilita el filtrado.
+
+261
+00:18:58.586 --> 00:19:01.733
+Esta idea de cuadratura es
+la modulación de amplitud en
+
+262
+00:19:01.773 --> 00:19:05.962
+cuadratura, QAM: dos portadoras
+desfasadas 90 grados, y con las
+
+263
+00:19:06.002 --> 00:19:11.451
+señales en banda base adecuadas puede
+generar AM, FM o constelaciones digitales.
+
+264
+00:19:13.101 --> 00:19:15.959
+El receptor de batalla es
+el superheterodino: un
+
+265
+00:19:15.999 --> 00:19:19.280
+mezclador multiplica la señal
+entrante por un oscilador
+
+266
+00:19:19.320 --> 00:19:23.715
+local y produce la frecuencia
+diferencia, la frecuencia intermedia.
+
+267
+00:19:23.765 --> 00:19:26.965
+La sintonía se hace moviendo
+el oscilador local, mientras
+
+268
+00:19:27.005 --> 00:19:30.206
+que todo el filtrado selectivo
+y de alta ganancia se hace
+
+269
+00:19:30.246 --> 00:19:33.106
+en una FI fija, lo que da
+una sensibilidad y una
+
+270
+00:19:33.146 --> 00:19:37.362
+selectividad excelentes; el precio
+es más circuitería y más consumo.
+
+271
+00:19:37.412 --> 00:19:40.650
+Su punto débil es la imagen:
+una señal al otro lado del
+
+272
+00:19:40.690 --> 00:19:44.855
+oscilador local, a la misma
+distancia, también produce la FI.
+
+273
+00:19:44.905 --> 00:19:48.469
+Así que el filtro de RF antes
+del mezclador debe rechazar
+
+274
+00:19:48.509 --> 00:19:51.329
+la frecuencia imagen, y
+por eso las transparencias
+
+275
+00:19:51.369 --> 00:19:55.437
+incluyen el problema de la imagen
+entre las cuestiones de diseño.
+
+276
+00:19:57.087 --> 00:20:01.269
+En el examen del curso pasado la
+pregunta del receptor era corta.
+
+277
+00:20:01.319 --> 00:20:03.768
+La arquitectura es el superheterodino, que
+
+278
+00:20:03.808 --> 00:20:09.494
+convierte cada canal a la
+misma FI fija de 455 kHz.
+
+279
+00:20:09.544 --> 00:20:13.168
+Con el oscilador local por encima
+de la señal, su frecuencia es
+
+280
+00:20:13.208 --> 00:20:21.411
+5.5 más 0.455, que son 5.955 MHz,
+la respuesta de la copia resuelta.
+
+281
+00:20:21.461 --> 00:20:26.326
+La imagen queda entonces al otro
+lado del oscilador, en 5.955
+
+282
+00:20:26.366 --> 00:20:33.723
+más 0.455, que son 6.41 MHz, y
+el filtro de RF debe eliminarla.
+
+283
+00:20:33.773 --> 00:20:36.791
+Una de las copias resueltas
+da también la opción por
+
+284
+00:20:36.831 --> 00:20:43.555
+debajo, 5.045 MHz, cuya
+imagen estaría en 4.59 MHz;
+
+285
+00:20:43.595 --> 00:20:47.474
+cualquiera de las dos es correcta
+si dices cuál has elegido.
+
+286
+00:20:49.124 --> 00:20:52.625
+Resumiendo la primera parte: la
+longitud de onda es c entre f
+
+287
+00:20:52.665 --> 00:20:55.834
+por la raíz cuadrada de la
+permitividad, y la aviación usa
+
+288
+00:20:55.874 --> 00:21:00.097
+bandas desde radiobalizas de kilohercios
+hasta radares de gigahercios.
+
+289
+00:21:00.147 --> 00:21:03.234
+Las frecuencias bajas viajan
+como ondas de superficie,
+
+290
+00:21:03.274 --> 00:21:06.767
+la VHF y superiores como
+ondas espaciales limitadas
+
+291
+00:21:06.807 --> 00:21:10.762
+por el horizonte radioeléctrico,
+con la regla del 1.23
+
+292
+00:21:10.802 --> 00:21:14.743
+en pies y millas náuticas, y
+la HF como ondas celestes.
+
+293
+00:21:14.793 --> 00:21:18.125
+En las ondas celestes, la
+frecuencia crítica es 9 por
+
+294
+00:21:18.165 --> 00:21:21.674
+la raíz de la densidad de
+electrones, la MUF es fc
+
+295
+00:21:21.714 --> 00:21:26.915
+entre el seno de la elevación,
+y se trabaja al 85 % de ella.
+
+296
+00:21:26.965 --> 00:21:30.271
+La AM necesita el doble de
+la frecuencia más alta del
+
+297
+00:21:30.311 --> 00:21:33.259
+mensaje, la FM sigue la
+regla de Carson, y el
+
+298
+00:21:33.299 --> 00:21:38.728
+superheterodino lo convierte todo a una FI
+fija, a costa de una frecuencia imagen.
+
+299
+00:21:38.778 --> 00:21:41.371
+En la segunda parte
+pasamos a los números que
+
+300
+00:21:41.411 --> 00:21:44.122
+dominan el examen:
+decibelios, figura de ruido,
+
+301
+00:21:44.162 --> 00:21:47.731
+puntos de intercepción,
+sensibilidad y margen dinámico.

@@ -8,6 +8,9 @@ vehicles (VA: pneumatic and hydraulic systems). Each video has a page with chapt
 notes that follow it chapter by chapter: bullet points, worked solutions, key equations in LaTeX, interactive
 and animated figures, and the full narration.
 
+PROP, RF and VA also have Spanish versions (nine lectures, about 3.8 hours, `index-es.html`): Spanish narration,
+subtitles, notes and figure texts. Each lecture page links to its counterpart in the other language.
+
 Each exam also has a formula sheet (`formulas-<subject>.html`): LaTeX on the web, a two-page A4 PDF and an
 ASCII plain-text export in `sheets/`.
 

@@ -1,0 +1,2552 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:04.897
+Bienvenido a la tercera parte, dentro
+del compresor y de la turbina.
+
+2
+00:00:04.947 --> 00:00:08.951
+Deducimos la ecuación de Euler,
+fijamos los convenios, analizamos una
+
+3
+00:00:08.991 --> 00:00:12.702
+etapa de compresor y el diseño de
+etapa repetida con su gráfico,
+
+4
+00:00:12.742 --> 00:00:16.921
+resolvemos los ejercicios 2 A y 2
+B, y después hacemos lo mismo con
+
+5
+00:00:16.961 --> 00:00:20.613
+las etapas de turbina, con el
+mapa de diseño, el coeficiente de
+
+6
+00:00:20.653 --> 00:00:26.219
+Zweifel y la comprobación de esfuerzos en
+los álabes de los ejercicios 3 A y 3 B.
+
+7
+00:00:26.269 --> 00:00:30.827
+El ejercicio 3 A fue además el
+entregable de tu grupo, el 13, con fecha
+
+8
+00:00:30.867 --> 00:00:36.174
+el miércoles veintiocho a las 17:00,
+así que préstale especial atención.
+
+9
+00:00:37.824 --> 00:00:40.275
+Todo empieza con la ecuación de Euler.
+
+10
+00:00:40.325 --> 00:00:43.683
+El par sobre el fluido es igual
+a la variación de su momento
+
+11
+00:00:43.723 --> 00:00:47.817
+cinético, m punto por r v a la
+salida menos r v a la entrada,
+
+12
+00:00:47.857 --> 00:00:52.285
+donde v es la velocidad tangencial,
+y la potencia es omega por el par.
+
+13
+00:00:52.335 --> 00:00:55.018
+Igualando con el primer
+principio, la variación
+
+14
+00:00:55.058 --> 00:00:58.652
+de entalpía total es omega
+por la variación de r v.
+
+15
+00:00:58.702 --> 00:01:02.215
+En el radio medio, con la velocidad
+de los álabes U igual a omega
+
+16
+00:01:02.255 --> 00:01:05.987
+por r m, el trabajo del compresor
+por unidad de masa es U por el
+
+17
+00:01:06.027 --> 00:01:10.094
+aumento de giro, y el de la turbina
+es U por la disminución de giro.
+
+18
+00:01:10.144 --> 00:01:13.732
+Así que el trabajo solo depende de
+la velocidad de los álabes y de
+
+19
+00:01:13.772 --> 00:01:17.526
+las velocidades tangenciales, no de
+la velocidad axial ni de la forma
+
+20
+00:01:17.566 --> 00:01:21.099
+del álabe, y una velocidad de álabe
+alta es el camino más directo
+
+21
+00:01:21.139 --> 00:01:25.668
+hacia mucho trabajo por etapa, hasta
+que el esfuerzo en los álabes te frena.
+
+22
+00:01:27.318 --> 00:01:32.486
+La mayoría de los errores en turbomáquinas
+son de convenios, así que fíjalos ahora.
+
+23
+00:01:32.536 --> 00:01:37.038
+Una etapa de compresor es un rotor seguido
+de un estátor, mientras que una etapa
+
+24
+00:01:37.078 --> 00:01:41.580
+de turbina es un estátor, o tobera,
+seguido de un rotor, así que la estación 2
+
+25
+00:01:41.620 --> 00:01:46.122
+es la salida del rotor en un compresor
+pero la entrada del rotor en una turbina,
+
+26
+00:01:46.162 --> 00:01:50.998
+y estas estaciones locales no tienen nada
+que ver con las estaciones del ciclo.
+
+27
+00:01:51.048 --> 00:01:55.355
+Las velocidades absoluta y relativa
+se relacionan con V igual a V R más
+
+28
+00:01:55.395 --> 00:01:59.201
+U, la componente axial u es la misma
+en los dos sistemas, y todos los
+
+29
+00:01:59.241 --> 00:02:03.994
+ángulos se miden desde la dirección axial,
+alfa el absoluto y beta el relativo.
+
+30
+00:02:04.044 --> 00:02:07.991
+Las propiedades estáticas son las
+mismas en los dos sistemas, pero la
+
+31
+00:02:08.031 --> 00:02:11.919
+temperatura total, la presión total
+y el número de Mach no, y por eso
+
+32
+00:02:11.959 --> 00:02:16.411
+el rotor hay que analizarlo siempre
+en su propio sistema de referencia.
+
+33
+00:02:16.461 --> 00:02:20.471
+En un compresor las componentes
+tangenciales cumplen v más v R
+
+34
+00:02:20.511 --> 00:02:24.345
+igual a U; en una turbina, siguiendo
+a Mattingly, v dos se mide en
+
+35
+00:02:24.385 --> 00:02:28.748
+el sentido de U y v tres en contra,
+así que v dos R es v dos menos
+
+36
+00:02:28.788 --> 00:02:33.599
+U y v tres R es v tres más U, y los
+dos giros se suman en el trabajo.
+
+37
+00:02:35.249 --> 00:02:38.544
+En una etapa de compresor solo
+el rotor hace trabajo: c p
+
+38
+00:02:38.584 --> 00:02:42.162
+delta T t es igual a U por v
+dos menos v uno, que se puede
+
+39
+00:02:42.202 --> 00:02:45.271
+escribir con ángulos absolutos,
+como añadir giro, o con
+
+40
+00:02:45.311 --> 00:02:49.844
+ángulos relativos, como quitar giro
+relativo, lo que se paga con difusión.
+
+41
+00:02:49.894 --> 00:02:53.658
+A través del rotor, en su propio
+sistema, nada hace trabajo, así
+
+42
+00:02:53.698 --> 00:02:57.342
+que la temperatura total relativa
+se conserva, mientras que la
+
+43
+00:02:57.382 --> 00:03:02.249
+presión total relativa cae según el
+cociente de pérdidas del rotor L R.
+
+44
+00:03:02.299 --> 00:03:04.858
+A través del estátor, la temperatura total
+
+45
+00:03:04.898 --> 00:03:08.280
+se conserva y la presión
+total cae según L S.
+
+46
+00:03:08.330 --> 00:03:12.098
+Las pérdidas se cuantifican con
+coeficientes de pérdidas: la caída de
+
+47
+00:03:12.138 --> 00:03:16.182
+presión total dividida por la presión
+dinámica de entrada en el sistema de
+
+48
+00:03:16.222 --> 00:03:20.653
+la corona, que se convierte en L R
+igual a uno menos fi por gamma P uno M
+
+49
+00:03:20.693 --> 00:03:25.955
+uno R al cuadrado entre dos P t uno R,
+la forma que se usa en el ejercicio 2 A.
+
+50
+00:03:26.005 --> 00:03:29.706
+Las dos coronas deceleran el flujo
+en su propio sistema, contra un
+
+51
+00:03:29.746 --> 00:03:33.559
+gradiente de presión adverso, y por
+eso un compresor necesita muchas
+
+52
+00:03:33.599 --> 00:03:37.803
+etapas mientras que una o dos etapas
+de turbina bastan para moverlo.
+
+53
+00:03:39.453 --> 00:03:43.611
+Una etapa se caracteriza con unos
+pocos grupos adimensionales.
+
+54
+00:03:43.661 --> 00:03:47.945
+Los cocientes de presión y de temperatura
+de la etapa dan sus rendimientos
+
+55
+00:03:47.985 --> 00:03:52.951
+isentrópico y politrópico con las mismas
+fórmulas que para un compresor entero.
+
+56
+00:03:53.001 --> 00:03:55.810
+El grado de reacción es la
+fracción del aumento de
+
+57
+00:03:55.850 --> 00:03:59.857
+temperatura estática que ocurre
+en el rotor; 0.5 reparte la
+
+58
+00:03:59.897 --> 00:04:03.903
+difusión a partes iguales, y
+Farokhi defiende unos 0.6 porque
+
+59
+00:04:03.943 --> 00:04:08.397
+las capas límite en rotación toleran
+algo mejor los gradientes adversos.
+
+60
+00:04:08.447 --> 00:04:11.915
+El coeficiente de carga Psi
+es c p delta T t entre U al
+
+61
+00:04:11.955 --> 00:04:17.505
+cuadrado, típicamente 0.30 a
+0.35 en un compresor de alta, y
+
+62
+00:04:17.545 --> 00:04:24.436
+el coeficiente de flujo Fi es u
+entre U, típicamente 0.45 a 0.55.
+
+63
+00:04:24.486 --> 00:04:27.990
+El factor de difusión, de Lieblein,
+mide la deceleración en el
+
+64
+00:04:28.030 --> 00:04:32.232
+extradós y debe quedar por debajo
+de unos 0.6, mientras que el
+
+65
+00:04:32.272 --> 00:04:37.328
+cociente de de Haller de 0.72
+solo es una comprobación grosera.
+
+66
+00:04:37.378 --> 00:04:39.926
+Y el parámetro de esfuerzo
+en el álabe, A N al
+
+67
+00:04:39.966 --> 00:04:42.892
+cuadrado, relaciona el área
+de la corona y la velocidad
+
+68
+00:04:42.932 --> 00:04:46.679
+del eje con la resistencia
+específica que debe dar el material.
+
+69
+00:04:48.329 --> 00:04:52.259
+El análisis en la línea media da
+ángulos del flujo, pero los álabes se
+
+70
+00:04:52.299 --> 00:04:57.073
+dibujan con ángulos metálicos, y el
+vocabulario de cascadas relaciona los dos.
+
+71
+00:04:57.123 --> 00:05:00.436
+La solidez sigma es la cuerda
+entre el paso, donde el paso es
+
+72
+00:05:00.476 --> 00:05:03.899
+dos pi r m entre el número de
+álabes; referida a la cuerda
+
+73
+00:05:03.939 --> 00:05:08.027
+axial es la solidez axial, sigma
+por el coseno del ángulo de calado.
+
+74
+00:05:08.077 --> 00:05:11.498
+El flujo no sigue exactamente
+al álabe, así que distinguimos
+
+75
+00:05:11.538 --> 00:05:15.016
+los ángulos del flujo, alfa en
+el estátor o beta en el rotor,
+
+76
+00:05:15.056 --> 00:05:19.271
+de los ángulos metálicos gamma,
+dibujados con puntos en el esquema.
+
+77
+00:05:19.321 --> 00:05:21.696
+En el borde de ataque la diferencia es la
+
+78
+00:05:21.736 --> 00:05:25.267
+incidencia, alfa i menos
+gamma i, casi cero en diseño.
+
+79
+00:05:25.317 --> 00:05:29.358
+En el borde de salida el flujo gira
+de menos según la desviación, alfa e
+
+80
+00:05:29.398 --> 00:05:33.326
+menos gamma e: la regla de Carter da
+la curvatura entre cuatro raíz de
+
+81
+00:05:33.366 --> 00:05:37.408
+sigma en un compresor, mientras que
+en una turbina el flujo acelerado la
+
+82
+00:05:37.448 --> 00:05:42.106
+mantiene pequeña, la suma de los ángulos
+metálicos entre ocho raíz de sigma.
+
+83
+00:05:42.156 --> 00:05:45.794
+Juntar más los álabes reduce
+la desviación y el factor de
+
+84
+00:05:45.834 --> 00:05:49.149
+difusión, a costa de más
+álabes, peso y fricción; el
+
+85
+00:05:49.189 --> 00:05:53.733
+criterio de Zweifel de la turbina
+fija exactamente esta solidez.
+
+86
+00:05:55.383 --> 00:05:59.627
+Una simplificación muy potente es el
+diseño de corona y etapa repetidas: la
+
+87
+00:05:59.667 --> 00:06:03.568
+velocidad y el ángulo a la salida
+de la etapa son iguales a los de la
+
+88
+00:06:03.608 --> 00:06:08.527
+entrada, con coronas simétricas, así que
+las etapas se pueden apilar sin límite.
+
+89
+00:06:08.577 --> 00:06:12.287
+Entonces v uno más v dos es igual
+a la velocidad del álabe, y
+
+90
+00:06:12.327 --> 00:06:15.632
+el trabajo pasa a ser V dos
+al cuadrado menos V uno al
+
+91
+00:06:15.672 --> 00:06:19.151
+cuadrado entre c p: el mismo
+aumento de temperatura en cada
+
+92
+00:06:19.191 --> 00:06:23.521
+etapa, una consecuencia de la geometría
+y no una hipótesis adicional.
+
+93
+00:06:23.571 --> 00:06:26.520
+El cociente de temperaturas
+de la etapa solo depende
+
+94
+00:06:26.560 --> 00:06:29.784
+del Mach de entrada y de
+los dos ángulos del flujo.
+
+95
+00:06:29.834 --> 00:06:33.145
+El cociente entre la velocidad
+de la rueda y la velocidad
+
+96
+00:06:33.185 --> 00:06:36.613
+de entrada, y los coeficientes
+de carga y de flujo, pasan a
+
+97
+00:06:36.653 --> 00:06:40.471
+ser funciones puramente geométricas
+de alfa uno y alfa dos.
+
+98
+00:06:40.521 --> 00:06:44.003
+El grado de reacción es exactamente
+un medio, y el rendimiento
+
+99
+00:06:44.043 --> 00:06:47.413
+politrópico de una etapa es
+igual al del compresor entero, y
+
+100
+00:06:47.453 --> 00:06:51.610
+por eso es el rendimiento que se
+traslada de la etapa a la máquina.
+
+101
+00:06:53.260 --> 00:06:56.511
+Como la etapa repetida depende
+de muy pocos números, se
+
+102
+00:06:56.551 --> 00:07:00.611
+tabula en un gráfico de diseño,
+como este del ejercicio 2 A.
+
+103
+00:07:00.661 --> 00:07:04.944
+Frente al ángulo de entrada alfa uno,
+muestra el ángulo de salida alfa dos en
+
+104
+00:07:04.984 --> 00:07:09.436
+el eje derecho, el cociente de velocidad
+de la rueda omega r entre V uno en
+
+105
+00:07:09.476 --> 00:07:14.374
+verde, y la relación de presiones de la
+etapa para varios Mach de entrada en azul.
+
+106
+00:07:14.424 --> 00:07:18.475
+Hay dos maneras de usarlo: si la
+velocidad del álabe la fijan el eje
+
+107
+00:07:18.515 --> 00:07:22.987
+y el radio, eliges alfa uno, lees
+omega r entre V uno, sacas V uno y
+
+108
+00:07:23.027 --> 00:07:27.347
+el Mach, y después la relación de
+presiones de la etapa y alfa dos.
+
+109
+00:07:27.397 --> 00:07:31.134
+Si en cambio el objetivo es una
+relación de presiones, cada corte
+
+110
+00:07:31.174 --> 00:07:34.853
+con una línea de Mach es un diseño
+válido, que fija los ángulos y
+
+111
+00:07:34.893 --> 00:07:39.311
+el Mach, y entonces el gráfico te
+dice la velocidad de álabe necesaria.
+
+112
+00:07:39.361 --> 00:07:44.087
+Las tendencias: un Mach de entrada mayor
+da más relación de presiones por etapa, y
+
+113
+00:07:44.127 --> 00:07:50.891
+un alfa uno grande exige una velocidad de
+rueda alta; mantén M uno entre 0.4 y 0.6.
+
+114
+00:07:52.541 --> 00:07:55.224
+Un compresor multietapa
+apila etapas repetidas
+
+115
+00:07:55.264 --> 00:07:59.521
+idénticas, y cada una añade el
+mismo aumento de temperatura total.
+
+116
+00:07:59.571 --> 00:08:03.537
+Así que la temperatura total de
+salida es la de entrada más n s por
+
+117
+00:08:03.577 --> 00:08:07.318
+delta T t, y la relación de presiones
+global sale del rendimiento
+
+118
+00:08:07.358 --> 00:08:12.448
+politrópico: el cociente de temperaturas
+elevado a gamma e c entre gamma menos uno.
+
+119
+00:08:12.498 --> 00:08:16.120
+Como la temperatura de entrada de
+cada etapa crece, su cociente de
+
+120
+00:08:16.160 --> 00:08:19.561
+temperaturas y su relación de
+presiones bajan a lo largo de la
+
+121
+00:08:19.601 --> 00:08:23.112
+máquina, así que la relación global
+no es la de la primera etapa
+
+122
+00:08:23.152 --> 00:08:29.717
+elevada a n s; en el ejemplo del manual
+la relación de etapa baja de 1.25 a 1.15.
+
+123
+00:08:29.767 --> 00:08:33.105
+Invirtiendo la fórmula se obtiene
+el número de etapas para una
+
+124
+00:08:33.145 --> 00:08:37.199
+relación de presiones objetivo,
+redondeado hacia arriba a un entero.
+
+125
+00:08:37.249 --> 00:08:40.461
+El manual avisa de que Mattingly
+también escribe pi c igual a
+
+126
+00:08:40.501 --> 00:08:43.551
+pi c s elevado a N, pero
+eso solo es un recurso para
+
+127
+00:08:43.591 --> 00:08:47.897
+relacionar rendimientos y es incoherente
+con triángulos repetidos reales.
+
+128
+00:08:49.547 --> 00:08:51.576
+Hasta ahora todo ocurría en el radio
+
+129
+00:08:51.616 --> 00:08:54.495
+medio, pero un álabe va
+del buje a la punta.
+
+130
+00:08:54.545 --> 00:08:57.758
+Si se impusiera la misma
+variación de giro en todos los
+
+131
+00:08:57.798 --> 00:09:01.189
+radios, la ecuación de Euler
+daría un trabajo proporcional
+
+132
+00:09:01.229 --> 00:09:04.383
+al radio, mucho mayor en la
+punta, y los gradientes de
+
+133
+00:09:04.423 --> 00:09:08.618
+presión resultantes provocarían
+recirculación en las dos paredes.
+
+134
+00:09:08.668 --> 00:09:12.026
+Así que el diseño mantiene el
+trabajo uniforme a lo largo de
+
+135
+00:09:12.066 --> 00:09:15.537
+la envergadura, r por la variación
+de giro constante, junto
+
+136
+00:09:15.577 --> 00:09:19.722
+con la ecuación de equilibrio radial
+para entalpía total constante.
+
+137
+00:09:19.772 --> 00:09:23.426
+La solución más sencilla es el
+vórtice libre, r v constante,
+
+138
+00:09:23.466 --> 00:09:26.894
+que mantiene uniforme la velocidad
+axial y da una reacción de
+
+139
+00:09:26.934 --> 00:09:31.546
+uno menos uno menos la reacción
+media, por r m entre r al cuadrado.
+
+140
+00:09:31.596 --> 00:09:34.793
+Como muestra el gráfico, la
+reacción es mínima en el buje
+
+141
+00:09:34.833 --> 00:09:37.860
+y máxima en la punta, y en
+un álabe de compresor largo
+
+142
+00:09:37.900 --> 00:09:41.153
+puede hacerse negativa en el
+buje, y por eso se usan otras
+
+143
+00:09:41.193 --> 00:09:45.008
+distribuciones de giro cuando
+la relación buje punta es baja.
+
+144
+00:09:45.058 --> 00:09:49.581
+En una turbina los álabes son más cortos,
+así que la variación es más suave, y el
+
+145
+00:09:49.621 --> 00:09:55.322
+criterio habitual es mantener la reacción
+en el buje por encima de unos menos 0.15.
+
+146
+00:09:55.372 --> 00:09:59.277
+Por último, los radios del buje y
+de la punta salen del área de la
+
+147
+00:09:59.317 --> 00:10:03.103
+corona que da el parámetro de
+gasto másico y de la relación buje
+
+148
+00:10:03.143 --> 00:10:09.411
+punta elegida, típicamente 0.6 a
+0.75 a la entrada de un compresor.
+
+149
+00:10:11.061 --> 00:10:14.672
+El ejercicio 2 A da el ángulo
+de entrada, el estado estático
+
+150
+00:10:14.712 --> 00:10:21.186
+de entrada y el eje: 800 milímetros
+de radio medio a 2 500 rpm.
+
+151
+00:10:21.236 --> 00:10:25.100
+La velocidad del álabe es
+omega r: 2 500 por dos pi
+
+152
+00:10:25.140 --> 00:10:31.315
+entre 60 por 0.8, que es
+209.44 metros por segundo.
+
+153
+00:10:31.365 --> 00:10:35.748
+Entrando en el gráfico con alfa uno
+igual a 30 grados, la línea verde da
+
+154
+00:10:35.788 --> 00:10:42.571
+omega r entre V uno de unos 1.6, así
+que V uno es 130.9 metros por segundo.
+
+155
+00:10:42.621 --> 00:10:46.586
+Con la velocidad del
+sonido de entrada de 346
+
+156
+00:10:46.626 --> 00:10:50.807
+metros por segundo, el
+Mach de entrada es 0.38.
+
+157
+00:10:50.857 --> 00:10:55.638
+Ahora el triángulo: la velocidad
+axial es V uno por el coseno de 30,
+
+158
+00:10:55.678 --> 00:11:03.865
+113.36 metros por segundo, el giro
+de entrada es 65.45, y la condición
+
+159
+00:11:03.905 --> 00:11:11.583
+de corona repetida, v uno más v dos
+igual a U, da v dos igual a 143.99.
+
+160
+00:11:11.633 --> 00:11:18.251
+Así que alfa dos es 51.79 grados,
+coherente con los 50 grados leídos en el
+
+161
+00:11:18.291 --> 00:11:25.358
+gráfico, y V dos es 183.26 metros por
+segundo, todo como en la solución oficial.
+
+162
+00:11:27.008 --> 00:11:30.295
+Aquí están los dos triángulos
+dibujados a escala, con la
+
+163
+00:11:30.335 --> 00:11:33.952
+dirección tangencial horizontal
+y la axial hacia abajo.
+
+164
+00:11:34.002 --> 00:11:37.212
+A la entrada del rotor, la
+velocidad absoluta V uno y la
+
+165
+00:11:37.252 --> 00:11:40.518
+relativa V uno R salen del
+mismo punto, y la velocidad
+
+166
+00:11:40.558 --> 00:11:44.662
+del álabe U une sus extremos,
+porque V es igual a V R más U.
+
+167
+00:11:44.712 --> 00:11:47.861
+A la salida del rotor la
+velocidad absoluta ha ganado
+
+168
+00:11:47.901 --> 00:11:53.215
+giro, 144 metros por segundo
+frente a 65, y la relativa
+
+169
+00:11:53.255 --> 00:11:57.275
+lo ha perdido: el rotor ha
+aportado trabajo girando el flujo.
+
+170
+00:11:57.325 --> 00:12:00.558
+Fíjate en la simetría de la
+etapa repetida: la velocidad
+
+171
+00:12:00.598 --> 00:12:05.524
+relativa de entrada es igual a
+la absoluta de salida, 183.3
+
+172
+00:12:05.564 --> 00:12:08.855
+metros por segundo, y la
+relativa de salida es igual a la
+
+173
+00:12:08.895 --> 00:12:13.686
+absoluta de entrada, así que en realidad
+solo hay que resolver un triángulo.
+
+174
+00:12:15.336 --> 00:12:18.170
+Ahora la termodinámica, corona a corona.
+
+175
+00:12:18.220 --> 00:12:24.210
+La temperatura total de entrada es
+de 306.53 kelvin y la presión total
+
+176
+00:12:24.250 --> 00:12:30.890
+de 1.104 bar; en el sistema del
+rotor, con V uno R igual a 183 metros
+
+177
+00:12:30.930 --> 00:12:38.493
+por segundo, los valores totales
+relativos son 314.72 kelvin y 1.211 bar.
+
+178
+00:12:38.543 --> 00:12:43.394
+El coeficiente de pérdidas del rotor
+de 0.02 solo baja la presión total
+
+179
+00:12:43.434 --> 00:12:48.630
+relativa a 1.207 bar, y como la
+temperatura total relativa se conserva,
+
+180
+00:12:48.670 --> 00:12:55.925
+el estado estático a la salida del
+rotor es de 306.19 kelvin y 1.096 bar.
+
+181
+00:12:55.975 --> 00:12:59.466
+El trabajo de la etapa es V
+dos al cuadrado menos V uno al
+
+182
+00:12:59.506 --> 00:13:04.136
+cuadrado entre c p, 16.38
+kelvin, así que la temperatura
+
+183
+00:13:04.176 --> 00:13:11.360
+total absoluta pasa a 322.91 kelvin
+y la presión total a 1.320 bar.
+
+184
+00:13:11.410 --> 00:13:15.790
+El estátor pierde un poco de
+presión, hasta 1.316 bar, y
+
+185
+00:13:15.830 --> 00:13:18.737
+decelera el flujo de vuelta
+a V uno, subiendo la
+
+186
+00:13:18.777 --> 00:13:26.435
+temperatura estática a 314.38 kelvin
+y la presión estática a 1.198 bar.
+
+187
+00:13:26.485 --> 00:13:31.273
+Así que la relación de presiones
+de la etapa es 1.192 con un
+
+188
+00:13:31.313 --> 00:13:38.171
+rendimiento isentrópico del 96.4
+%, la reacción es exactamente 0.5,
+
+189
+00:13:38.211 --> 00:13:44.065
+el rendimiento politrópico es del
+96.5 %, y nueve etapas iguales
+
+190
+00:13:44.105 --> 00:13:51.854
+dan una relación de presiones global de
+3.77, el 3.76 oficial salvo redondeo.
+
+191
+00:13:53.504 --> 00:13:57.047
+Los ejercicios piden un esquema
+T s de la etapa, así que aquí
+
+192
+00:13:57.087 --> 00:14:01.076
+tienes una plantilla dibujada a
+escala con los números del 2 A.
+
+193
+00:14:01.126 --> 00:14:05.577
+Empieza por los tres estados estáticos
+sobre sus isobaras: la temperatura
+
+194
+00:14:05.617 --> 00:14:11.135
+estática sube en el rotor y otra vez en el
+estátor, porque las dos coronas difunden.
+
+195
+00:14:11.185 --> 00:14:15.692
+Cada estado total está por encima de su
+estático en V al cuadrado entre dos c
+
+196
+00:14:15.732 --> 00:14:20.742
+p, con la misma entropía, porque un estado
+total se alcanza de forma isentrópica.
+
+197
+00:14:20.792 --> 00:14:24.206
+En el sistema del rotor, la
+temperatura total relativa es la
+
+198
+00:14:24.246 --> 00:14:28.064
+misma en uno R y en dos R, una
+línea horizontal, mientras que
+
+199
+00:14:28.104 --> 00:14:32.369
+la presión total relativa cae un
+poco según el cociente de pérdidas.
+
+200
+00:14:32.419 --> 00:14:35.290
+En el sistema absoluto el
+rotor aporta trabajo: la
+
+201
+00:14:35.330 --> 00:14:39.990
+temperatura total sube de t
+uno a t dos en 16.4 kelvin.
+
+202
+00:14:40.040 --> 00:14:43.244
+En el estátor la temperatura
+total absoluta es constante y
+
+203
+00:14:43.284 --> 00:14:45.985
+la presión total cae
+ligeramente, mientras que la
+
+204
+00:14:46.025 --> 00:14:50.514
+temperatura estática vuelve a subir
+al decelerarse el flujo hasta V uno.
+
+205
+00:14:50.564 --> 00:14:54.125
+Y cada paso se desplaza a la
+derecha: cada pérdida es un aumento
+
+206
+00:14:54.165 --> 00:14:58.228
+de entropía, y así es como se
+muestran las pérdidas en el esquema.
+
+207
+00:14:59.878 --> 00:15:03.342
+El ejercicio 2 B va al revés:
+el objetivo es una relación
+
+208
+00:15:03.382 --> 00:15:06.378
+de presiones global de 5
+en nueve etapas, con un
+
+209
+00:15:06.418 --> 00:15:10.583
+rendimiento politrópico del 90
+%; cuidado, el enunciado da
+
+210
+00:15:10.623 --> 00:15:15.721
+una temperatura total de entrada
+de 316.18 kelvin, pero la
+
+211
+00:15:15.761 --> 00:15:21.950
+solución oficial usa 306.53, el
+valor del 2 A, y nosotros también.
+
+212
+00:15:22.000 --> 00:15:25.853
+En el gráfico del 2 B, que
+representa la relación de presiones
+
+213
+00:15:25.893 --> 00:15:29.626
+de nueve etapas frente a alfa
+uno, cualquier corte del nivel pi
+
+214
+00:15:29.666 --> 00:15:33.579
+c igual a 5 con una línea de
+Mach es válido; eligiendo M uno
+
+215
+00:15:33.619 --> 00:15:38.490
+igual a 0.45, dentro del rango
+recomendado, sale alfa uno de
+
+216
+00:15:38.530 --> 00:15:43.910
+unos 26 grados, y la línea discontinua
+da alfa dos de unos 50 grados.
+
+217
+00:15:43.960 --> 00:15:53.365
+La temperatura estática de entrada
+es 306.53 entre 1.0405, 294.6
+
+218
+00:15:53.405 --> 00:16:03.200
+kelvin, así que V uno es 0.45 por
+344, 154.82 metros por segundo.
+
+219
+00:16:03.250 --> 00:16:09.092
+La velocidad axial es V uno por
+el coseno de 26, 139.15, y la
+
+220
+00:16:09.132 --> 00:16:12.955
+condición de etapa repetida da la
+velocidad de álabe necesaria, u
+
+221
+00:16:12.995 --> 00:16:20.713
+por la tangente de 26 más la tangente
+de 50, 233.71 metros por segundo.
+
+222
+00:16:20.763 --> 00:16:26.142
+V dos es u entre el coseno de 50, 216.48
+
+223
+00:16:26.182 --> 00:16:34.081
+metros por segundo, con
+giros de 67.87 y 165.84.
+
+224
+00:16:34.131 --> 00:16:36.811
+Y el trabajo de la etapa
+es V dos al cuadrado
+
+225
+00:16:36.851 --> 00:16:41.656
+menos V uno al cuadrado
+entre c p, 22.79 kelvin.
+
+226
+00:16:43.306 --> 00:16:47.894
+Ahora el ciclo de la etapa, corona a
+corona, que la hoja oficial lista.
+
+227
+00:16:47.944 --> 00:16:52.292
+La presión estática de entrada
+es de 0.983 bar; en el
+
+228
+00:16:52.332 --> 00:16:55.860
+sistema del rotor la velocidad
+de entrada es igual a V dos,
+
+229
+00:16:55.900 --> 00:17:02.296
+así que los totales relativos
+son 317.93 kelvin y 1.284
+
+230
+00:17:02.336 --> 00:17:09.180
+bar, y el cociente de pérdidas del
+rotor de 0.9975 deja 1.281 bar.
+
+231
+00:17:09.230 --> 00:17:12.602
+Con la temperatura total relativa
+conservada, la temperatura
+
+232
+00:17:12.642 --> 00:17:18.176
+estática a la salida del rotor es
+de 305.99 kelvin y la presión de
+
+233
+00:17:18.216 --> 00:17:27.494
+1.120 bar, y en el sistema absoluto los
+totales son 329.32 kelvin y 1.449 bar.
+
+234
+00:17:27.544 --> 00:17:31.354
+El rendimiento politrópico da la
+relación de presiones de la etapa,
+
+235
+00:17:31.394 --> 00:17:42.559
+329.32 entre 306.53 elevado a 1.4
+por 0.9 entre 0.4, que es 1.2535,
+
+236
+00:17:42.599 --> 00:17:47.672
+así que la presión total a la salida
+de la etapa es de 1.416 bar, el
+
+237
+00:17:47.712 --> 00:17:53.866
+cociente de pérdidas implícito del
+estátor 0.978, y la reacción 0.5.
+
+238
+00:17:53.916 --> 00:18:00.326
+El rendimiento isentrópico
+de la etapa es del 89.67 %.
+
+239
+00:18:00.376 --> 00:18:05.569
+La temperatura de salida del
+compresor es 306.53 más nueve
+
+240
+00:18:05.609 --> 00:18:11.849
+por 22.79, 511.66 kelvin, y
+el rendimiento isentrópico
+
+241
+00:18:11.889 --> 00:18:18.128
+global es del 87.24 %, menor
+que el politrópico del 90 %,
+
+242
+00:18:18.168 --> 00:18:23.245
+justo como predice la primera
+parte; con los 316.18 kelvin
+
+243
+00:18:23.285 --> 00:18:29.391
+del enunciado la salida sería de 527.8
+kelvin y el rendimiento el mismo.
+
+244
+00:18:31.041 --> 00:18:34.421
+La turbina no es un compresor
+funcionando al revés.
+
+245
+00:18:34.471 --> 00:18:38.535
+Su etapa es una tobera seguida de un
+rotor, y el flujo se acelera en los
+
+246
+00:18:38.575 --> 00:18:42.582
+dos, con un gradiente de presión
+favorable, así que las capas límite se
+
+247
+00:18:42.622 --> 00:18:47.360
+mantienen finas y no hay nada parecido
+a la entrada en pérdida del compresor.
+
+248
+00:18:47.410 --> 00:18:51.386
+Eso permite mucha deflexión y grandes
+caídas de presión por etapa, y
+
+249
+00:18:51.426 --> 00:18:55.968
+por eso una o dos etapas de turbina
+mueven un compresor de diez etapas.
+
+250
+00:18:56.018 --> 00:18:59.210
+En cambio, la turbina está
+limitada por la temperatura y
+
+251
+00:18:59.250 --> 00:19:02.499
+los esfuerzos: el gas está más
+caliente de lo que aguanta
+
+252
+00:19:02.539 --> 00:19:05.384
+cualquier material de álabe,
+así que los álabes se
+
+253
+00:19:05.424 --> 00:19:09.987
+refrigeran con aire del compresor, lo
+que penaliza directamente el ciclo.
+
+254
+00:19:10.037 --> 00:19:13.517
+La ecuación de Euler de la etapa
+es c p delta T t igual a U
+
+255
+00:19:13.557 --> 00:19:17.205
+por v dos más v tres: con nuestro
+convenio de signos los giros
+
+256
+00:19:17.245 --> 00:19:20.278
+de entrada y de salida se
+suman, y por eso una etapa de
+
+257
+00:19:20.318 --> 00:19:24.690
+turbina extrae mucho más trabajo del
+que absorbe una etapa de compresor.
+
+258
+00:19:24.740 --> 00:19:28.876
+La tobera conserva la temperatura
+total y pierde presión total, y el
+
+259
+00:19:28.916 --> 00:19:33.995
+rotor conserva la temperatura total
+relativa y pierde presión total relativa.
+
+260
+00:19:35.645 --> 00:19:38.998
+Las etapas de turbina se
+caracterizan con el coeficiente de
+
+261
+00:19:39.038 --> 00:19:42.736
+carga, c p delta T t entre U al
+cuadrado, y el coeficiente de
+
+262
+00:19:42.776 --> 00:19:46.360
+flujo, u entre U, y con velocidad
+axial constante los cocientes
+
+263
+00:19:46.400 --> 00:19:50.833
+Psi entre Fi y R t entre Fi solo
+dependen de los ángulos relativos.
+
+264
+00:19:50.883 --> 00:19:55.335
+En una etapa de reacción nula, o de
+acción, los ángulos relativos son
+
+265
+00:19:55.375 --> 00:20:00.869
+iguales y el rotor solo gira el flujo;
+sin giro a la salida da Psi igual a 2.
+
+266
+00:20:00.919 --> 00:20:05.293
+En una etapa de reacción del 50
+% los triángulos son simétricos,
+
+267
+00:20:05.333 --> 00:20:08.825
+como la etapa repetida del compresor,
+y sin giro a la salida Psi
+
+268
+00:20:08.865 --> 00:20:12.412
+vale 1: la mitad del trabajo de
+la etapa de acción con la misma
+
+269
+00:20:12.452 --> 00:20:16.443
+velocidad de álabe, pero con
+velocidades y pérdidas mucho menores.
+
+270
+00:20:16.493 --> 00:20:19.846
+En general, sin giro a la
+salida, R t es uno menos Psi
+
+271
+00:20:19.886 --> 00:20:22.946
+medios: carga alta significa
+reacción baja, que es el
+
+272
+00:20:22.986 --> 00:20:27.606
+compromiso fundamental entre peso, por
+tener menos etapas, y rendimiento.
+
+273
+00:20:27.656 --> 00:20:30.803
+Dos límites duros: el ángulo
+de salida de la tobera alfa
+
+274
+00:20:30.843 --> 00:20:34.332
+dos no debe pasar de unos 70
+grados, y Psi de unos 2 es
+
+275
+00:20:34.372 --> 00:20:37.909
+el techo, porque más allá el
+rotor tendría que difundir.
+
+276
+00:20:37.959 --> 00:20:41.431
+Por último, la comprobación de
+bloqueo del manual: la tobera de
+
+277
+00:20:41.471 --> 00:20:44.776
+la primera etapa debe alcanzar
+un M dos mayor que uno para
+
+278
+00:20:44.816 --> 00:20:48.065
+fijar el gasto del motor, mientras
+que el Mach relativo a la
+
+279
+00:20:48.105 --> 00:20:51.410
+salida del rotor debe seguir
+siendo subsónico, por debajo de
+
+280
+00:20:51.450 --> 00:20:56.539
+unos 0.9 en la punta; en una
+etapa de reacción del 50 % V tres
+
+281
+00:20:56.579 --> 00:21:00.497
+R es igual a V dos y T tres es
+menor que T dos, así que M tres
+
+282
+00:21:00.537 --> 00:21:04.065
+R es aún mayor que M dos y las
+dos condiciones no se pueden
+
+283
+00:21:04.105 --> 00:21:08.357
+cumplir a la vez, y por eso una
+etapa del 50 % no puede fijar
+
+284
+00:21:08.397 --> 00:21:12.482
+el gasto; el ejercicio 3 A sí
+llega a un M dos de 1.11, pero
+
+285
+00:21:12.522 --> 00:21:18.503
+solo con un M tres R de 1.21, un artefacto
+de su velocidad de álabe poco realista.
+
+286
+00:21:20.153 --> 00:21:23.978
+Con velocidad axial constante, todo
+el espacio de diseño se reduce
+
+287
+00:21:24.018 --> 00:21:27.727
+a este mapa: la deflexión total
+épsilon, beta dos más beta tres,
+
+288
+00:21:27.767 --> 00:21:32.275
+frente a beta dos, con contornos
+de Psi entre Fi y de R t entre Fi.
+
+289
+00:21:32.325 --> 00:21:36.578
+Elegir el tipo de etapa fija un lugar
+geométrico: una etapa de reacción nula
+
+290
+00:21:36.618 --> 00:21:41.882
+vive sobre la línea R t entre Fi igual a
+cero, donde épsilon es dos veces beta dos.
+
+291
+00:21:41.932 --> 00:21:47.135
+Una etapa de reacción del 50 % sin
+giro a la salida vive en el borde
+
+292
+00:21:47.175 --> 00:21:52.081
+izquierdo, beta dos igual a cero, donde
+la deflexión es igual a alfa dos.
+
+293
+00:21:52.131 --> 00:21:55.808
+A lo largo de ese lugar, cada
+corte con un contorno de Psi entre
+
+294
+00:21:55.848 --> 00:21:59.467
+Fi es un candidato, y la elección
+habitual en los ejercicios es
+
+295
+00:21:59.507 --> 00:22:03.416
+la mayor Psi entre Fi que respete
+alfa dos menor de 70 grados y
+
+296
+00:22:03.456 --> 00:22:07.017
+el límite de Zweifel; como la
+reacción ya fija Psi y el ciclo
+
+297
+00:22:07.057 --> 00:22:10.735
+fija el trabajo, esta elección
+fija el coeficiente de flujo y la
+
+298
+00:22:10.775 --> 00:22:15.016
+forma de los triángulos, con menos
+velocidad axial y más deflexión.
+
+299
+00:22:15.066 --> 00:22:18.914
+Después el coeficiente de flujo sale
+de los ángulos, la velocidad de
+
+300
+00:22:18.954 --> 00:22:22.916
+álabe de la caída de temperatura que
+exige el ciclo, U igual a la raíz
+
+301
+00:22:22.956 --> 00:22:27.537
+cuadrada de c p delta T t entre Psi,
+y la velocidad axial es Fi por U.
+
+302
+00:22:29.187 --> 00:22:32.857
+Dos comprobaciones más completan
+el diseño de una turbina.
+
+303
+00:22:32.907 --> 00:22:37.099
+El coeficiente de Zweifel es el cociente
+entre la fuerza tangencial real
+
+304
+00:22:37.139 --> 00:22:41.331
+sobre un álabe y la fuerza máxima que
+daría una distribución de presiones
+
+305
+00:22:41.371 --> 00:22:46.085
+rectangular; con velocidad axial constante
+es dos s entre c x por el coseno
+
+306
+00:22:46.125 --> 00:22:51.229
+al cuadrado de beta tres por la tangente
+de beta dos más la tangente de beta tres.
+
+307
+00:22:51.279 --> 00:22:55.423
+Zweifel recomienda valores de
+unos 0.8 a 1, así que para
+
+308
+00:22:55.463 --> 00:22:58.771
+unos ángulos dados fija la
+solidez axial; el gráfico del
+
+309
+00:22:58.811 --> 00:23:03.194
+ejercicio 3 B representa Z r
+por c x entre s frente a los
+
+310
+00:23:03.234 --> 00:23:07.349
+dos ángulos relativos, con el
+límite admisible dibujado encima.
+
+311
+00:23:07.399 --> 00:23:10.789
+La segunda comprobación es el
+esfuerzo centrífugo en la raíz del
+
+312
+00:23:10.829 --> 00:23:14.272
+álabe, proporcional a la densidad,
+al cuadrado de la velocidad de
+
+313
+00:23:14.312 --> 00:23:18.895
+giro y al área de la corona, que se
+reordena en el parámetro A N al cuadrado.
+
+314
+00:23:18.945 --> 00:23:22.329
+El área de la corona sale del
+parámetro de gasto másico a la
+
+315
+00:23:22.369 --> 00:23:25.752
+entrada del rotor, y la resistencia
+específica resultante se
+
+316
+00:23:25.792 --> 00:23:30.022
+compara con las curvas de las
+aleaciones a la temperatura del álabe.
+
+317
+00:23:30.072 --> 00:23:33.334
+Si ningún material sirve,
+baja la velocidad, cambia la
+
+318
+00:23:33.374 --> 00:23:37.087
+conicidad del álabe, añade
+una etapa o vuelve al ciclo.
+
+319
+00:23:38.737 --> 00:23:42.476
+El ejercicio 3 A, el entregable
+de tu grupo, diseña la turbina
+
+320
+00:23:42.516 --> 00:23:46.587
+de baja de una etapa del motor
+de despegue del ejercicio 1 B.
+
+321
+00:23:46.637 --> 00:23:51.850
+Velocidad axial constante, sin giro
+a la salida y reacción del 50 %
+
+322
+00:23:51.890 --> 00:23:55.837
+significan que beta dos es igual
+a alfa tres, que es cero, beta
+
+323
+00:23:55.877 --> 00:24:00.721
+tres es igual a alfa dos, y el
+coeficiente de carga es exactamente uno.
+
+324
+00:24:00.771 --> 00:24:04.415
+Así que nos movemos por el borde
+izquierdo del mapa, donde la
+
+325
+00:24:04.455 --> 00:24:09.213
+deflexión es igual a alfa dos, y la
+tangente de alfa dos es uno entre Fi.
+
+326
+00:24:09.263 --> 00:24:12.948
+Queremos la mayor Psi entre
+Fi con alfa dos de 70 grados
+
+327
+00:24:12.988 --> 00:24:16.489
+como mucho: Psi entre Fi igual
+a 3 da Fi de un tercio y
+
+328
+00:24:16.529 --> 00:24:21.885
+alfa dos de 71.6 grados, que es
+demasiado, así que se descarta.
+
+329
+00:24:21.935 --> 00:24:27.247
+La línea siguiente, 2.5, da Fi
+igual a 0.4 y alfa dos igual a
+
+330
+00:24:27.287 --> 00:24:32.159
+68.2 grados, que es aceptable,
+y la solución oficial señala
+
+331
+00:24:32.199 --> 00:24:36.705
+que cualquier valor por debajo
+de 3 también se podría defender.
+
+332
+00:24:38.355 --> 00:24:41.492
+Para dimensionar los triángulos
+necesitamos la caída de
+
+333
+00:24:41.532 --> 00:24:48.411
+temperatura del ciclo: la turbina de
+baja del ejercicio 1 B cae 347.8 kelvin.
+
+334
+00:24:48.461 --> 00:24:51.863
+Cuidado: el texto oficial dice
+que viene del ejercicio 1
+
+335
+00:24:51.903 --> 00:24:57.026
+A, pero 347.8 kelvin es la
+caída de la turbina de baja
+
+336
+00:24:57.066 --> 00:25:02.638
+del 1 B, el motor de despegue;
+la del 1 A es de 294 kelvin.
+
+337
+00:25:02.688 --> 00:25:05.993
+Con Psi igual a uno, la
+velocidad del álabe es la raíz
+
+338
+00:25:06.033 --> 00:25:14.975
+cuadrada de 1 239 por 347.8,
+que es 656.4 metros por
+
+339
+00:25:15.015 --> 00:25:21.312
+segundo, y la velocidad axial
+es 0.4 veces eso, 262.6.
+
+340
+00:25:21.362 --> 00:25:26.905
+A la entrada del rotor, la tobera ha
+girado el flujo hasta 68.2 grados, así
+
+341
+00:25:26.945 --> 00:25:32.309
+que V dos es 707 metros por segundo y
+su giro es exactamente U, lo que hace
+
+342
+00:25:32.349 --> 00:25:37.154
+que la velocidad relativa de entrada
+sea puramente axial: beta dos es cero.
+
+343
+00:25:37.204 --> 00:25:40.908
+A la salida del rotor la velocidad
+absoluta es axial, sin giro,
+
+344
+00:25:40.948 --> 00:25:44.712
+mientras que la relativa lleva
+toda la velocidad del álabe hacia
+
+345
+00:25:44.752 --> 00:25:50.510
+atrás: por simetría V tres R es igual
+a V dos, 707 metros por segundo.
+
+346
+00:25:52.160 --> 00:25:55.391
+La termodinámica va hacia atrás
+desde la salida de la etapa,
+
+347
+00:25:55.431 --> 00:25:59.488
+porque los totales de salida los
+fija el ciclo del ejercicio 1 B.
+
+348
+00:25:59.538 --> 00:26:05.293
+Las temperaturas estáticas salen de las
+velocidades: 1 090.46 kelvin tras la
+
+349
+00:26:05.333 --> 00:26:13.216
+tobera, donde el gas va a 707 metros por
+segundo, y 916.57 kelvin a la salida.
+
+350
+00:26:13.266 --> 00:26:17.608
+La temperatura total relativa a la
+salida del rotor, con V tres R de
+
+351
+00:26:17.648 --> 00:26:24.090
+707, es de 1 118.28 kelvin, igual
+a la de la entrada del rotor; la
+
+352
+00:26:24.130 --> 00:26:31.623
+presión estática de salida es de 1.265
+bar y la total relativa de 2.995 bar.
+
+353
+00:26:31.673 --> 00:26:38.343
+Dividiendo por el cociente de pérdidas
+del rotor, 0.81, salen 3.698 bar a
+
+354
+00:26:38.383 --> 00:26:42.169
+la entrada del rotor en el sistema
+relativo, y de ahí una presión
+
+355
+00:26:42.209 --> 00:26:49.740
+estática de 3.315 bar y una presión total
+absoluta de 6.917 bar tras la tobera.
+
+356
+00:26:49.790 --> 00:26:53.457
+Comparando con los 8.32 bar de entrada, el
+
+357
+00:26:53.497 --> 00:26:57.965
+cociente de pérdidas implícito
+del estátor es 0.831.
+
+358
+00:26:58.015 --> 00:27:05.319
+El rendimiento isentrópico de la
+etapa es del 80.85 %, y del 81.0 %
+
+359
+00:27:05.359 --> 00:27:10.350
+sin redondear: tiene que ser igual
+al 81 % supuesto en el ejercicio
+
+360
+00:27:10.390 --> 00:27:14.282
+1 B, porque los dos estados extremos
+se tomaron de ese ciclo, así
+
+361
+00:27:14.322 --> 00:27:18.041
+que es una comprobación y no un
+resultado; lo realmente nuevo que
+
+362
+00:27:18.081 --> 00:27:22.305
+sale del diseño de la etapa es el
+cociente de pérdidas del estátor.
+
+363
+00:27:23.955 --> 00:27:28.101
+Y aquí está la plantilla de la
+turbina, con los números del 3 A.
+
+364
+00:27:28.151 --> 00:27:33.280
+En la tobera la temperatura total
+se queda en 1 292 kelvin mientras
+
+365
+00:27:33.320 --> 00:27:37.989
+la presión total baja un poco;
+la temperatura estática cae 174
+
+366
+00:27:38.029 --> 00:27:44.593
+kelvin, de 1 264 kelvin a la entrada,
+donde el flujo es axial a 263
+
+367
+00:27:44.633 --> 00:27:50.955
+metros por segundo, a 1 091 kelvin, al
+acelerarse hasta 707 metros por segundo.
+
+368
+00:27:51.005 --> 00:27:54.479
+En el sistema del rotor, la
+temperatura total relativa es la
+
+369
+00:27:54.519 --> 00:27:58.169
+misma en dos R y en tres R,
+mientras que la presión total
+
+370
+00:27:58.209 --> 00:28:03.244
+relativa cae según el cociente
+de pérdidas del rotor de 0.81.
+
+371
+00:28:03.294 --> 00:28:06.589
+En el sistema absoluto, la
+temperatura total baja de t
+
+372
+00:28:06.629 --> 00:28:12.316
+dos a t tres en el trabajo
+de la etapa, 347.7 kelvin.
+
+373
+00:28:12.366 --> 00:28:17.687
+Con reacción del 50 % las dos caídas
+estáticas son iguales, T uno menos
+
+374
+00:28:17.727 --> 00:28:23.292
+T dos igual a T dos menos T tres,
+174 kelvin cada una, y cada pérdida
+
+375
+00:28:23.332 --> 00:28:28.250
+vuelve a desplazar los estados a la
+derecha, donde las isobaras se separan.
+
+376
+00:28:29.900 --> 00:28:32.265
+Última parte del 3 A: el esfuerzo en el
+
+377
+00:28:32.305 --> 00:28:37.634
+álabe a 2 500 rpm con
+una conicidad de 0.8.
+
+378
+00:28:37.684 --> 00:28:42.308
+El Mach a la salida de la tobera es
+707 entre la velocidad del sonido
+
+379
+00:28:42.348 --> 00:28:49.238
+local, 1.11, y el parámetro de gasto
+másico para gamma 1.3 a ese Mach es 0.661.
+
+380
+00:28:49.288 --> 00:28:55.105
+Con el gasto del núcleo de 64.29
+kilogramos por segundo, las condiciones
+
+381
+00:28:55.145 --> 00:29:00.376
+totales en pascales y kelvin, y el
+coseno de 68.2 grados, el área de la
+
+382
+00:29:00.416 --> 00:29:06.623
+corona es de 0.230 metros cuadrados; ojo
+con las unidades, la presión en pascales.
+
+383
+00:29:06.673 --> 00:29:10.297
+La resistencia específica necesaria
+es A N al cuadrado por pi
+
+384
+00:29:10.337 --> 00:29:14.717
+por uno más la conicidad entre
+3 600 por diez elevado a tres,
+
+385
+00:29:14.757 --> 00:29:19.469
+que da solo 2.26 megapascales
+por gramo y centímetro cúbico.
+
+386
+00:29:19.519 --> 00:29:23.117
+Ahora compara con la tabla 1
+del enunciado, cuyos rangos son
+
+387
+00:29:23.157 --> 00:29:26.814
+valores a temperatura ambiente:
+las aleaciones de níquel dan al
+
+388
+00:29:26.854 --> 00:29:33.855
+menos 59 entre 13.4, 4.4, el acero
+al menos 35 y el titanio unos
+
+389
+00:29:33.895 --> 00:29:39.840
+157, pero las aleaciones de aluminio
+más débiles solo 1.24 entre
+
+390
+00:29:39.880 --> 00:29:47.037
+3.63, 0.34, así que no es cierto que
+cualquier material de la tabla sirva.
+
+391
+00:29:47.087 --> 00:29:50.141
+Y la temperatura decide: los
+álabes ven una temperatura
+
+392
+00:29:50.181 --> 00:29:54.135
+total relativa de unos 1 118
+kelvin, donde el aluminio y
+
+393
+00:29:54.175 --> 00:29:57.398
+el titanio no sirven, sus
+curvas en el gráfico del 3 B
+
+394
+00:29:57.438 --> 00:30:01.729
+acaban hacia 570 y 810
+kelvin, y un acero de baja
+
+395
+00:30:01.769 --> 00:30:04.880
+aleación ha perdido su
+resistencia, así que la respuesta
+
+396
+00:30:04.920 --> 00:30:08.030
+es una aleación de níquel,
+que en el gráfico aún da unos
+
+397
+00:30:08.070 --> 00:30:11.630
+25 a esa temperatura; la
+solución oficial solo dice que
+
+398
+00:30:11.670 --> 00:30:14.837
+es posible fabricarla, y añade
+que si no habría que bajar
+
+399
+00:30:14.877 --> 00:30:19.109
+la velocidad, cambiar la conicidad,
+añadir etapas o revisar el ciclo.
+
+400
+00:30:20.759 --> 00:30:25.336
+El ejercicio 3 B, que hicieron los otros
+grupos, diseña la turbina de alta de
+
+401
+00:30:25.376 --> 00:30:30.571
+una etapa del ejercicio 1 A como etapa de
+reacción nula, con un límite de Zweifel.
+
+402
+00:30:30.621 --> 00:30:33.793
+Reacción nula y sin giro a la
+salida dan beta tres igual
+
+403
+00:30:33.833 --> 00:30:37.063
+a beta dos, un coeficiente
+de carga de 2 y un giro a la
+
+404
+00:30:37.103 --> 00:30:40.665
+salida de la tobera del doble
+de la velocidad del álabe.
+
+405
+00:30:40.715 --> 00:30:44.198
+Entonces Psi entre Fi es dos veces
+la tangente de beta dos, que
+
+406
+00:30:44.238 --> 00:30:47.776
+también es la tangente de alfa
+dos, y el coeficiente de Zweifel
+
+407
+00:30:47.816 --> 00:30:51.354
+se simplifica a cuatro por el
+coseno al cuadrado de beta dos por
+
+408
+00:30:51.394 --> 00:30:55.322
+la tangente de beta dos, que es
+dos por el seno de dos beta dos.
+
+409
+00:30:55.372 --> 00:31:00.452
+Psi entre Fi igual a uno da beta
+dos de 26.6 grados y un Zweifel
+
+410
+00:31:00.492 --> 00:31:06.078
+de 1.60, dentro del límite de 1.8,
+con Fi igual a 2 y alfa dos de
+
+411
+00:31:06.118 --> 00:31:13.927
+45 grados; la hoja oficial lee
+27.5 y 45.6 grados en el gráfico.
+
+412
+00:31:13.977 --> 00:31:18.576
+Psi entre Fi de 1.5 da 1.92,
+por encima del límite, así
+
+413
+00:31:18.616 --> 00:31:23.661
+que se descarta; de hecho 1.8
+permite como mucho unos 1.25.
+
+414
+00:31:23.711 --> 00:31:28.268
+Con el límite relajado de 2.0 el
+coeficiente de Zweifel nunca manda,
+
+415
+00:31:28.308 --> 00:31:32.224
+porque dos por el seno de dos beta
+no puede pasar de 2, así que la
+
+416
+00:31:32.264 --> 00:31:36.355
+restricción real pasa a ser alfa
+dos menor de 70 grados: Psi entre
+
+417
+00:31:36.395 --> 00:31:44.483
+Fi de 2.5, Fi de 0.8 y alfa dos de
+68.2 grados, con un Zweifel de 1.95.
+
+418
+00:31:46.133 --> 00:31:51.053
+El ciclo del 1 A fija el trabajo:
+su turbina de alta cae 260.3
+
+419
+00:31:51.093 --> 00:31:54.701
+kelvin, así que con Psi igual a
+2 la velocidad del álabe es la
+
+420
+00:31:54.741 --> 00:32:03.016
+raíz cuadrada de 1 239 por 260.3
+entre 2, 401.6 metros por segundo.
+
+421
+00:32:03.066 --> 00:32:07.645
+Con Fi igual a 2 la velocidad
+axial es el doble, 803.1
+
+422
+00:32:07.685 --> 00:32:10.927
+metros por segundo, y el giro
+a la salida de la tobera
+
+423
+00:32:10.967 --> 00:32:17.882
+también es 2 U, así que V dos es 1
+136 metros por segundo a 45 grados.
+
+424
+00:32:17.932 --> 00:32:21.769
+La velocidad relativa de entrada,
+V dos menos U, tiene un giro
+
+425
+00:32:21.809 --> 00:32:28.278
+igual a U y un módulo de 898
+metros por segundo a 26.6 grados.
+
+426
+00:32:28.328 --> 00:32:31.968
+A la salida del rotor la velocidad
+absoluta es puramente axial,
+
+427
+00:32:32.008 --> 00:32:37.925
+803.1 metros por segundo, y la
+relativa, con los mismos 898
+
+428
+00:32:37.965 --> 00:32:41.605
+metros por segundo, es la imagen
+especular de la de entrada: el
+
+429
+00:32:41.645 --> 00:32:45.733
+rotor solo gira el flujo, que es
+lo que significa reacción nula.
+
+430
+00:32:47.383 --> 00:32:51.507
+La parte 3 es la termodinámica, que
+la hoja oficial toma en parte del
+
+431
+00:32:51.547 --> 00:32:56.870
+ejercicio 1 B por error, así que aquí se
+recalcula de forma coherente con el 1 A.
+
+432
+00:32:56.920 --> 00:33:00.416
+En el diseño estricto, los
+estáticos salen de las velocidades:
+
+433
+00:33:00.456 --> 00:33:03.894
+con reacción nula la entalpía
+estática no cambia en el rotor,
+
+434
+00:33:03.934 --> 00:33:08.685
+así que T dos es igual a T
+tres, 1 079.4 kelvin, una línea
+
+435
+00:33:08.725 --> 00:33:12.050
+estática horizontal en el
+esquema T s, aunque la presión
+
+436
+00:33:12.090 --> 00:33:18.656
+estática sigue bajando, de 1.521 a
+1.369 bar, por la pérdida del rotor.
+
+437
+00:33:18.706 --> 00:33:23.912
+La temperatura total relativa es
+de 1 404.8 kelvin a los dos lados
+
+438
+00:33:23.952 --> 00:33:27.748
+del rotor; a partir de los totales
+de salida, la presión estática de
+
+439
+00:33:27.788 --> 00:33:33.953
+salida es de 1.369 bar y la total
+relativa de 4.288 bar, así que la
+
+440
+00:33:33.993 --> 00:33:41.451
+total relativa a la entrada del
+rotor es 4.288 entre 0.9, 4.764 bar.
+
+441
+00:33:41.501 --> 00:33:46.174
+Volviendo al sistema absoluto,
+P dos es 1.521 bar y la presión
+
+442
+00:33:46.214 --> 00:33:51.289
+total a la salida de la tobera
+8.374 bar, un cociente de pérdidas
+
+443
+00:33:51.329 --> 00:33:56.116
+implícito del estátor de 0.895,
+y el rendimiento de la etapa es
+
+444
+00:33:56.156 --> 00:34:01.449
+del 80 %, igual al rendimiento de la
+turbina del 1 A por construcción.
+
+445
+00:34:01.499 --> 00:34:06.857
+El diseño relajado tiene menos
+velocidad axial, 321.3 metros por
+
+446
+00:34:06.897 --> 00:34:12.195
+segundo, una velocidad a la salida
+de la tobera de 865 metros por
+
+447
+00:34:12.235 --> 00:34:21.342
+segundo y temperaturas estáticas de 1 298
+kelvin, con presiones de 3.38 y 3.04 bar.
+
+448
+00:34:21.392 --> 00:34:24.893
+Sus presiones totales, su
+cociente de pérdidas del estátor
+
+449
+00:34:24.933 --> 00:34:28.250
+y su rendimiento son idénticos,
+porque solo dependen de
+
+450
+00:34:28.290 --> 00:34:31.730
+los estados extremos del ciclo
+y de la pérdida del rotor;
+
+451
+00:34:31.770 --> 00:34:38.018
+los 8.64 bar y el 83 % de la
+hoja oficial salen de mezclar
+
+452
+00:34:38.058 --> 00:34:42.315
+datos del 1 B, así que fíate del
+método y no de esos números.
+
+453
+00:34:43.965 --> 00:34:46.850
+La parte 4, la comprobación
+de esfuerzos, usa
+
+454
+00:34:46.890 --> 00:34:51.919
+la misma fórmula que el
+3 A, ahora a 25 000 rpm.
+
+455
+00:34:51.969 --> 00:34:55.239
+En el diseño estricto el Mach
+a la salida de la tobera es
+
+456
+00:34:55.279 --> 00:35:02.188
+1.79 y el parámetro de gasto
+másico para gamma 1.3 es 0.452.
+
+457
+00:35:02.238 --> 00:35:06.531
+Con el gasto del núcleo del
+1 A, 24.29 kilogramos por
+
+458
+00:35:06.571 --> 00:35:11.144
+segundo, el área de la corona
+es de 0.061 metros cuadrados.
+
+459
+00:35:11.194 --> 00:35:16.144
+Así que la resistencia específica
+necesaria es de 60.2 megapascales por
+
+460
+00:35:16.184 --> 00:35:21.914
+gramo y centímetro cúbico, cerca del
+57.7 oficial, que corresponde a sus
+
+461
+00:35:21.954 --> 00:35:28.827
+0.059 metros cuadrados; con las 20
+000 rpm impresas en la hoja oficial
+
+462
+00:35:28.867 --> 00:35:35.589
+saldría solo 38.5, así que ese número
+es una errata y lo correcto es 25 000.
+
+463
+00:35:35.639 --> 00:35:39.936
+El diseño relajado tiene un
+Mach menor, 1.25, y por tanto
+
+464
+00:35:39.976 --> 00:35:46.229
+una corona mayor, 0.083 metros
+cuadrados, y necesita 81.4.
+
+465
+00:35:46.279 --> 00:35:49.333
+Los álabes ven una temperatura
+total relativa de unos
+
+466
+00:35:49.373 --> 00:35:53.419
+1 405 kelvin, más allá del
+final de todas las curvas
+
+467
+00:35:53.459 --> 00:35:56.163
+del gráfico, así que solo
+sirve una aleación de
+
+468
+00:35:56.203 --> 00:35:59.140
+níquel monocristalina
+refrigerada: el gráfico le da
+
+469
+00:35:59.180 --> 00:36:04.336
+unos 55 a 57 hacia 1 200
+kelvin, así que el diseño
+
+470
+00:36:04.376 --> 00:36:07.313
+estricto va justo y necesita
+el metal por debajo de
+
+471
+00:36:07.353 --> 00:36:10.757
+unos 1 180 kelvin, mientras
+que el relajado lo
+
+472
+00:36:10.797 --> 00:36:15.584
+necesitaría hacia 1 050 kelvin; la
+respuesta oficial es monocristal.
+
+473
+00:36:17.234 --> 00:36:20.595
+Antes de dejar las turbinas, unas
+cuantas comprobaciones que los
+
+474
+00:36:20.635 --> 00:36:24.492
+ejercicios no piden pero que
+demuestran que se entiende de verdad.
+
+475
+00:36:24.542 --> 00:36:29.898
+En el 3 A, una velocidad de álabe
+de 656 metros por segundo a 2
+
+476
+00:36:29.938 --> 00:36:36.279
+500 rpm significa un radio medio
+de U entre omega, 2.51 metros,
+
+477
+00:36:36.319 --> 00:36:40.747
+y con una corona de 0.23 metros
+cuadrados los álabes tendrían
+
+478
+00:36:40.787 --> 00:36:45.662
+solo unos 1.5 centímetros de altura,
+lo que no es una turbina real.
+
+479
+00:36:45.712 --> 00:36:50.557
+Su Mach de 1.11 a la salida de la tobera
+viene además con un Mach relativo a la
+
+480
+00:36:50.597 --> 00:36:59.240
+salida del rotor de 707 entre 584, 1.21,
+por encima del 0.9 que permite el manual.
+
+481
+00:36:59.290 --> 00:37:04.719
+El diseño estricto del 3 B es peor:
+un M dos de 1.79 exigiría álabes de
+
+482
+00:37:04.759 --> 00:37:10.692
+tobera convergente-divergentes, y el Mach
+relativo a la salida del rotor es 1.42.
+
+483
+00:37:10.742 --> 00:37:15.992
+El diseño relajado del 3 B, con un
+M dos de 1.25 y un Mach relativo a
+
+484
+00:37:16.032 --> 00:37:20.871
+la salida del rotor de 0.74, es
+mejor aerodinámicamente, pero
+
+485
+00:37:20.911 --> 00:37:25.809
+necesita una resistencia específica
+de 81 en lugar de 60, así que un
+
+486
+00:37:25.849 --> 00:37:30.725
+diseñador solo lo mantendría con menos
+velocidad de giro o más refrigeración.
+
+487
+00:37:30.775 --> 00:37:33.802
+La sección del manual sobre
+el Mach óptimo del giro a la
+
+488
+00:37:33.842 --> 00:37:37.036
+salida de la tobera lo une
+todo: sin giro a la salida, M
+
+489
+00:37:37.076 --> 00:37:40.550
+dos por el seno de alfa dos es
+igual a 2 M T por uno menos
+
+490
+00:37:40.590 --> 00:37:43.673
+R t, donde M T es la
+velocidad del álabe entre la
+
+491
+00:37:43.713 --> 00:37:46.851
+velocidad del sonido a la
+salida de la tobera, así que la
+
+492
+00:37:46.891 --> 00:37:49.974
+reacción y el Mach del álabe
+fijan el giro, y el Mach a la
+
+493
+00:37:50.014 --> 00:37:54.379
+salida de la tobera se elige para el
+máximo trabajo por unidad de gasto.
+
+494
+00:37:54.429 --> 00:37:57.969
+En el examen, resuelve exactamente
+lo que pide el enunciado, y
+
+495
+00:37:58.009 --> 00:38:01.491
+después añade una línea de
+comprobación como estas: cuesta un
+
+496
+00:38:01.531 --> 00:38:05.403
+minuto y le demuestra al profesor
+que entiendes el resultado.
+
+497
+00:38:07.053 --> 00:38:09.658
+Para terminar, esto es
+lo que yo pondría en la
+
+498
+00:38:09.698 --> 00:38:13.498
+segunda hoja, páginas tres y
+cuatro, para las turbomáquinas.
+
+499
+00:38:13.548 --> 00:38:17.348
+Euler para las dos máquinas con los
+convenios de signos, y la relación
+
+500
+00:38:17.388 --> 00:38:22.292
+entre sistemas V igual a V R más U con
+los ángulos desde la dirección axial.
+
+501
+00:38:22.342 --> 00:38:25.141
+Las relaciones de las
+coronas de compresor con la
+
+502
+00:38:25.181 --> 00:38:29.124
+conversión del coeficiente de
+pérdidas y el grado de reacción.
+
+503
+00:38:29.174 --> 00:38:33.587
+Las fórmulas de la etapa repetida y
+la relación de presiones multietapa.
+
+504
+00:38:33.637 --> 00:38:36.729
+Los coeficientes de carga y
+de flujo de la turbina, las
+
+505
+00:38:36.769 --> 00:38:39.975
+relaciones del mapa, los casos
+de reacción y el límite de
+
+506
+00:38:40.015 --> 00:38:43.619
+70 grados, además de las
+fórmulas de Zweifel y de A N al
+
+507
+00:38:43.659 --> 00:38:47.710
+cuadrado y el área de la corona
+con el parámetro de gasto másico.
+
+508
+00:38:47.760 --> 00:38:52.174
+Añade una línea para la variación
+radial y el vocabulario de cascadas.
+
+509
+00:38:52.224 --> 00:38:56.129
+Y como el examen va de método, copia
+la tabla de estaciones del 1 A y
+
+510
+00:38:56.169 --> 00:39:00.131
+los triángulos y plantillas T s
+del 2 A y el 3 A como plantillas
+
+511
+00:39:00.171 --> 00:39:05.078
+resueltas; después practica cada ejercicio
+una vez más sin mirar, contra el reloj.
+
+512
+00:39:05.128 --> 00:39:06.348
+Mucha suerte.

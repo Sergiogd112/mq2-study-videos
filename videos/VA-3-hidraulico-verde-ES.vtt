@@ -1,0 +1,1774 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:06.999
+Bienvenido a la tercera parte, el sistema
+hidráulico del A320, el capítulo 29.
+
+2
+00:00:07.049 --> 00:00:10.852
+El temario del examen acaba después
+del sistema verde, así que vemos
+
+3
+00:00:10.892 --> 00:00:14.187
+la arquitectura común a los
+tres sistemas, los mandos y las
+
+4
+00:00:14.227 --> 00:00:17.975
+indicaciones, y después seguimos
+el sistema verde desde su depósito
+
+5
+00:00:18.015 --> 00:00:22.887
+hasta sus usuarios; las páginas detalladas
+del amarillo y del azul quedan fuera.
+
+6
+00:00:24.537 --> 00:00:30.250
+El A320 tiene tres sistemas hidráulicos
+independientes, con nombre de color.
+
+7
+00:00:30.300 --> 00:00:33.999
+El verde hace de sistema principal:
+tiene una bomba accionada por
+
+8
+00:00:34.039 --> 00:00:38.185
+el motor 1, la mayoría de los
+usuarios y el depósito más grande.
+
+9
+00:00:38.235 --> 00:00:41.731
+El amarillo se comporta como
+sistema alternativo: una bomba
+
+10
+00:00:41.771 --> 00:00:46.375
+accionada por el motor 2, más una
+bomba eléctrica y una bomba manual.
+
+11
+00:00:46.425 --> 00:00:49.900
+El azul es el sistema de
+emergencia, con una bomba eléctrica
+
+12
+00:00:49.940 --> 00:00:52.887
+y la turbina de aire de
+impacto; Airbus no usa estas
+
+13
+00:00:52.927 --> 00:00:57.143
+etiquetas, pero comparados con
+otros aviones esos son sus papeles.
+
+14
+00:00:57.193 --> 00:01:00.241
+Los tres trabajan a 3000 psi, y las bombas
+
+15
+00:01:00.281 --> 00:01:03.720
+accionadas por el motor son
+de cilindrada variable.
+
+16
+00:01:03.770 --> 00:01:07.819
+Cada sistema tiene su propio depósito,
+sus bombas, sus tuberías y sus
+
+17
+00:01:07.859 --> 00:01:11.611
+usuarios, así que una fuga en uno
+no puede vaciar otro; el único
+
+18
+00:01:11.651 --> 00:01:15.641
+enlace es la unidad de transferencia
+de potencia entre el verde y el
+
+19
+00:01:15.681 --> 00:01:21.186
+amarillo, que es mecánica y actúa con
+una diferencia de presión de 500 psi.
+
+20
+00:01:21.236 --> 00:01:23.983
+Y un detalle que pregunta
+el cuestionario: los tres
+
+21
+00:01:24.023 --> 00:01:27.925
+depósitos se llenan desde el panel
+de servicio del sistema verde.
+
+22
+00:01:29.575 --> 00:01:32.705
+Esta página de las transparencias
+lista los usuarios de
+
+23
+00:01:32.745 --> 00:01:36.206
+cada sistema, leídos hacia
+arriba desde cada depósito.
+
+24
+00:01:36.256 --> 00:01:40.010
+El verde, el más grande, alimenta
+el tren de aterrizaje y sus
+
+25
+00:01:40.050 --> 00:01:43.556
+compuertas, la dirección de
+la rueda de morro, los frenos
+
+26
+00:01:43.596 --> 00:01:47.163
+normales, la reversa del motor
+1, los motores de flaps y
+
+27
+00:01:47.203 --> 00:01:50.833
+slats, el estabilizador horizontal
+compensable, el timón de
+
+28
+00:01:50.873 --> 00:01:55.763
+dirección, un amortiguador de guiñada
+y muchos servos de mandos de vuelo.
+
+29
+00:01:55.813 --> 00:01:59.543
+El amarillo alimenta la reversa
+del motor 2, los flaps, las
+
+30
+00:01:59.583 --> 00:02:04.383
+puertas de carga, los frenos alternativos
+y su parte de mandos de vuelo.
+
+31
+00:02:04.433 --> 00:02:08.834
+El azul alimenta el motor generador de
+velocidad constante, que es el generador
+
+32
+00:02:08.874 --> 00:02:13.664
+eléctrico de emergencia, los slats y el
+resto de sus servos de mandos de vuelo.
+
+33
+00:02:13.714 --> 00:02:16.910
+Los mandos de vuelo muestran
+la filosofía de redundancia:
+
+34
+00:02:16.950 --> 00:02:20.705
+cada alerón tiene dos servoactuadores,
+uno azul y uno verde.
+
+35
+00:02:20.755 --> 00:02:24.005
+Y los timones de profundidad:
+en el izquierdo un servo es
+
+36
+00:02:24.045 --> 00:02:27.468
+verde y el otro azul, en el
+derecho uno azul y uno amarillo,
+
+37
+00:02:27.508 --> 00:02:30.642
+así que el control de cabeceo
+sobrevive a la pérdida de
+
+38
+00:02:30.682 --> 00:02:34.956
+cualquier sistema único; seguro ante
+fallos, como dicen los apuntes.
+
+39
+00:02:36.606 --> 00:02:38.814
+Veamos las fuentes de potencia.
+
+40
+00:02:38.864 --> 00:02:42.561
+Las bombas accionadas por el
+motor, la verde en el motor 1 y la
+
+41
+00:02:42.601 --> 00:02:46.184
+amarilla en el motor 2, van en
+la caja de accesorios, así que
+
+42
+00:02:46.224 --> 00:02:50.197
+giran siempre que gira el motor,
+aunque no estén dando presión.
+
+43
+00:02:50.247 --> 00:02:54.691
+Son bombas de cilindrada variable: unos
+pistones en un tambor giratorio, como
+
+44
+00:02:54.731 --> 00:02:59.116
+el cilindro de un revólver, se apoyan
+en una placa cuya inclinación fija una
+
+45
+00:02:59.156 --> 00:03:03.600
+electroválvula; inclinada, los pistones
+hacen carrera y dan fluido a 3000
+
+46
+00:03:03.640 --> 00:03:08.998
+psi, y con la placa neutra no hay caudal,
+que es el estado con el pulsador en OFF.
+
+47
+00:03:09.048 --> 00:03:12.378
+Se alimentan desde el
+depósito a 50 psi para que
+
+48
+00:03:12.418 --> 00:03:15.299
+nunca caviten, y el mismo
+fluido lubrica y refrigera
+
+49
+00:03:15.339 --> 00:03:18.721
+la bomba y vuelve por el
+filtro de drenaje de carcasa.
+
+50
+00:03:18.771 --> 00:03:22.425
+Las bombas eléctricas de corriente
+alterna son un respaldo en el
+
+51
+00:03:22.465 --> 00:03:25.888
+amarillo, que también se usa
+para las puertas de carga, y la
+
+52
+00:03:25.928 --> 00:03:31.242
+bomba principal del sistema azul;
+toman el fluido a 50 psi y dan 3000.
+
+53
+00:03:31.292 --> 00:03:34.487
+La lista de equipo mínimo las
+trata distinto: sin la bomba
+
+54
+00:03:34.527 --> 00:03:38.056
+eléctrica azul el avión no puede
+volar, mientras que la amarilla
+
+55
+00:03:38.096 --> 00:03:41.737
+es un elemento de categoría C,
+con 10 días para repararla; como
+
+56
+00:03:41.777 --> 00:03:46.143
+son idénticas, una bomba azul averiada
+se puede cambiar por la amarilla.
+
+57
+00:03:46.193 --> 00:03:48.953
+Por último el amarillo tiene
+una bomba manual, para
+
+58
+00:03:48.993 --> 00:03:52.638
+mover las puertas de carga cuando
+no hay potencia eléctrica.
+
+59
+00:03:54.288 --> 00:03:57.599
+Tres elementos más completan
+la parte de potencia.
+
+60
+00:03:57.649 --> 00:04:00.179
+La turbina de aire de
+impacto es la fuente de
+
+61
+00:04:00.219 --> 00:04:02.864
+emergencia del sistema
+azul: una turbina de dos
+
+62
+00:04:02.904 --> 00:04:05.605
+palas guardada en la parte
+ventral izquierda del
+
+63
+00:04:05.645 --> 00:04:08.290
+fuselaje cuyas palas de
+paso variable mantienen
+
+64
+00:04:08.330 --> 00:04:11.089
+una velocidad constante
+sea cual sea la velocidad
+
+65
+00:04:11.129 --> 00:04:13.830
+del avión, con los tiempos
+y las revoluciones en
+
+66
+00:04:13.870 --> 00:04:16.229
+una página posterior fuera del temario del
+
+67
+00:04:16.269 --> 00:04:18.971
+examen, que mueve una
+bomba azul y, a través del
+
+68
+00:04:19.011 --> 00:04:22.902
+motor generador de velocidad
+constante, da potencia eléctrica.
+
+69
+00:04:22.952 --> 00:04:27.003
+La despliega un paquete de muelles
+comprimidos, que se suelta cuando se
+
+70
+00:04:27.043 --> 00:04:31.035
+excita cualquiera de dos electroválvulas,
+automáticamente al perder la
+
+71
+00:04:31.075 --> 00:04:35.516
+potencia eléctrica, o manualmente con
+el pulsador protegido RAT MAN ON.
+
+72
+00:04:35.566 --> 00:04:41.735
+Los acumuladores guardan fluido contra
+una precarga de nitrógeno, 1885 psi a
+
+73
+00:04:41.775 --> 00:04:46.391
+20 grados en el acumulador verde de un
+litro, para que cuando un usuario pide
+
+74
+00:04:46.431 --> 00:04:51.380
+caudal de golpe, la caída de presión se
+absorba antes de que la bomba reaccione.
+
+75
+00:04:51.430 --> 00:04:55.251
+La unidad de transferencia de
+potencia es un motor hidráulico y una
+
+76
+00:04:55.291 --> 00:04:58.765
+bomba en un eje común, uno en
+el lado verde y otro en el lado
+
+77
+00:04:58.805 --> 00:05:03.086
+amarillo: con su pulsador en AUTO,
+cuando un sistema está más de 500
+
+78
+00:05:03.126 --> 00:05:07.120
+psi por debajo del otro, el sistema
+sano mueve el motor, que hace
+
+79
+00:05:07.160 --> 00:05:11.831
+girar la bomba del sistema débil,
+transfiriendo potencia pero nunca fluido.
+
+80
+00:05:11.881 --> 00:05:15.280
+Se inhibe durante el arranque de
+motores y cuando se manejan las
+
+81
+00:05:15.320 --> 00:05:18.558
+puertas de carga con la bomba
+eléctrica amarilla, para que un
+
+82
+00:05:18.598 --> 00:05:22.656
+avión en tierra no empiece a transferir
+potencia de forma inesperada.
+
+83
+00:05:24.306 --> 00:05:26.860
+Los depósitos se presurizan
+con aire, y ahí es
+
+84
+00:05:26.900 --> 00:05:30.183
+donde se encuentran los dos
+sistemas de este examen.
+
+85
+00:05:30.233 --> 00:05:34.782
+Cada depósito se presuriza
+a 50 psi, 3.5 bar, para
+
+86
+00:05:34.822 --> 00:05:38.373
+que las bombas estén siempre
+cebadas y nunca caviten.
+
+87
+00:05:38.423 --> 00:05:42.999
+El aire viene normalmente de la etapa
+8 del compresor de alta del motor 1.
+
+88
+00:05:43.049 --> 00:05:46.138
+Si se pierde el motor 1,
+lo suministra el sistema
+
+89
+00:05:46.178 --> 00:05:50.087
+neumático, y en tierra se puede
+usar una fuente de tierra.
+
+90
+00:05:50.137 --> 00:05:53.077
+Los depósitos están sellados,
+así que mantienen su
+
+91
+00:05:53.117 --> 00:05:57.104
+presión tras un fallo de
+presurización o una parada de motor.
+
+92
+00:05:57.154 --> 00:06:01.491
+Si la presión del aire baja de 22
+psi en el verde o el amarillo, o de
+
+93
+00:06:01.531 --> 00:06:06.096
+30 psi en el azul, el ECAM muestra
+un aviso de presión de aire baja.
+
+94
+00:06:07.746 --> 00:06:11.111
+La tripulación controla la
+hidráulica desde el panel superior
+
+95
+00:06:11.151 --> 00:06:15.410
+40VU, junto a los paneles de
+aire acondicionado y neumática.
+
+96
+00:06:15.460 --> 00:06:18.900
+Los pulsadores de las bombas
+de motor, ENG 1 PUMP para el
+
+97
+00:06:18.940 --> 00:06:22.670
+verde y ENG 2 PUMP para el
+amarillo, están apagados cuando la
+
+98
+00:06:22.710 --> 00:06:26.209
+bomba presuriza; un OFF blanco
+significa que la bomba gira con
+
+99
+00:06:26.249 --> 00:06:30.311
+el motor pero no da presión, y un
+FAULT ámbar significa un fallo.
+
+100
+00:06:30.361 --> 00:06:34.408
+La bomba eléctrica amarilla muestra
+un ON azul cuando se ha encendido, un
+
+101
+00:06:34.448 --> 00:06:38.942
+estado no normal que habrá que cancelar
+después, y un FAULT ámbar si falla.
+
+102
+00:06:38.992 --> 00:06:42.669
+El pulsador de la bomba eléctrica
+azul está en AUTO, y, con potencia
+
+103
+00:06:42.709 --> 00:06:46.057
+eléctrica disponible, la bomba
+funciona cuando hay un motor en
+
+104
+00:06:46.097 --> 00:06:49.665
+marcha, o en vuelo, que el sistema
+sabe porque el amortiguador del
+
+105
+00:06:49.705 --> 00:06:54.482
+tren de morro está extendido, o cuando
+se selecciona el BLUE PUMP OVERRIDE.
+
+106
+00:06:54.532 --> 00:06:57.532
+El pulsador PTU arma la
+unidad de transferencia
+
+107
+00:06:57.572 --> 00:07:00.663
+de potencia en AUTO, con
+su propio FAULT ámbar.
+
+108
+00:07:00.713 --> 00:07:04.697
+El pulsador RAT MAN ON está
+protegido por una tapa roja.
+
+109
+00:07:04.747 --> 00:07:08.976
+Un segundo panel más atrás tiene
+cuatro pulsadores protegidos: BLUE
+
+110
+00:07:09.016 --> 00:07:13.128
+PUMP OVERRIDE, que usa mantenimiento
+para hacer funcionar la bomba azul
+
+111
+00:07:13.168 --> 00:07:17.845
+en tierra, y las tres válvulas de medida
+de fugas, verde, azul y amarilla.
+
+112
+00:07:19.495 --> 00:07:24.431
+Pulsar HYD en el panel de control del ECAM
+trae esta página a la pantalla inferior.
+
+113
+00:07:24.481 --> 00:07:27.406
+Cada sistema tiene su
+etiqueta y su presión, de un
+
+114
+00:07:27.446 --> 00:07:32.598
+transmisor, en verde si es normal,
+unos 3000 psi, y en ámbar si es baja.
+
+115
+00:07:32.648 --> 00:07:36.038
+Cada bomba tiene un símbolo: un
+cuadrado en línea con la tubería
+
+116
+00:07:36.078 --> 00:07:39.415
+de suministro y verde cuando da
+presión; cruzado y ámbar cuando
+
+117
+00:07:39.455 --> 00:07:42.738
+la bomba está seleccionada en
+OFF; y un LO ámbar cuando está
+
+118
+00:07:42.778 --> 00:07:48.381
+seleccionada pero el presostato que
+tiene detrás marca menos de 1740 psi.
+
+119
+00:07:48.431 --> 00:07:51.677
+El depósito muestra su nivel
+con una flecha, verde en la
+
+120
+00:07:51.717 --> 00:07:55.080
+caja si es normal, más abajo
+y ámbar si es bajo, además de
+
+121
+00:07:55.120 --> 00:07:58.424
+una indicación de sobrecalentamiento
+cuando el fluido que
+
+122
+00:07:58.464 --> 00:08:01.886
+vuelve está demasiado caliente,
+lo que sugiere muchas fugas
+
+123
+00:08:01.926 --> 00:08:06.266
+internas, y LO AIR PRESS cuando
+baja la presurización del depósito.
+
+124
+00:08:06.316 --> 00:08:10.018
+Las válvulas de fuego del verde y
+del amarillo se muestran en línea y
+
+125
+00:08:10.058 --> 00:08:13.543
+en verde cuando están abiertas y
+cruzadas y en ámbar cuando están
+
+126
+00:08:13.583 --> 00:08:17.286
+cerradas del todo, y la PTU y la
+RAT salen en blanco cuando están
+
+127
+00:08:17.326 --> 00:08:22.014
+disponibles, en ámbar mientras cambian de
+estado, y en verde cuando suministran.
+
+128
+00:08:23.664 --> 00:08:25.617
+Y un ejercicio con la página HYD:
+
+129
+00:08:25.657 --> 00:08:28.844
+imagínala antes de que
+aparezca cada respuesta.
+
+130
+00:08:28.894 --> 00:08:30.405
+Uno: vuelo normal.
+
+131
+00:08:30.455 --> 00:08:35.440
+Las tres etiquetas de sistema están en
+verde a unos 3000 psi, las bombas de
+
+132
+00:08:35.480 --> 00:08:39.627
+motor verde y amarilla se dibujan en
+línea y en verde, las válvulas de
+
+133
+00:08:39.667 --> 00:08:44.923
+fuego están abiertas, y la PTU y la RAT
+están en blanco, es decir disponibles.
+
+134
+00:08:44.973 --> 00:08:49.874
+Dos: ha fallado la bomba accionada por
+el motor del verde, con la PTU en AUTO.
+
+135
+00:08:49.924 --> 00:08:53.472
+La bomba verde muestra un LO
+ámbar, el símbolo de la PTU
+
+136
+00:08:53.512 --> 00:08:56.605
+se pone verde con su flecha
+apuntando hacia el verde, y
+
+137
+00:08:56.645 --> 00:09:01.210
+el verde se mantiene a unos
+2 500 psi, todavía en verde.
+
+138
+00:09:01.260 --> 00:09:04.339
+Tres: se pulsa el pulsador
+de fuego del motor 1.
+
+139
+00:09:04.389 --> 00:09:07.531
+La válvula de fuego del
+verde se dibuja cruzada, en
+
+140
+00:09:07.571 --> 00:09:11.415
+ámbar, cerrada del todo, y
+la bomba verde muestra LO.
+
+141
+00:09:11.465 --> 00:09:14.369
+Cuatro: el depósito verde tiene una fuga.
+
+142
+00:09:14.419 --> 00:09:18.756
+La flecha del depósito baja por debajo
+de la caja y se pone ámbar al llegar
+
+143
+00:09:18.796 --> 00:09:22.957
+al nivel bajo de 3 litros, mientras
+que un sobrecalentamiento es otro
+
+144
+00:09:22.997 --> 00:09:28.016
+fallo: una fuga interna grande calienta
+el fluido de retorno sin bajar el nivel.
+
+145
+00:09:29.666 --> 00:09:32.863
+En el avión, cada tubería
+lleva una banda codificada, y
+
+146
+00:09:32.903 --> 00:09:37.551
+esta transparencia muestra el
+código hidráulico del A320.
+
+147
+00:09:37.601 --> 00:09:40.000
+Hay líneas de suministro y de retorno, y
+
+148
+00:09:40.040 --> 00:09:43.013
+las de retorno suelen
+tener mayor diámetro.
+
+149
+00:09:43.063 --> 00:09:47.519
+La combinación de colores identifica
+una línea hidráulica, frente a una de
+
+150
+00:09:47.559 --> 00:09:53.014
+combustible; los conductos neumáticos son
+mucho más gruesos y fáciles de distinguir.
+
+151
+00:09:53.064 --> 00:09:55.745
+Las flechas indican el
+sentido del flujo, y
+
+152
+00:09:55.785 --> 00:09:59.045
+los puntos negros marcan
+una línea de presión.
+
+153
+00:09:59.095 --> 00:10:01.887
+Una banda numerada
+identifica el sistema: el 1
+
+154
+00:10:01.927 --> 00:10:05.227
+es el verde, el 2 el
+azul y el 3 el amarillo.
+
+155
+00:10:05.277 --> 00:10:07.569
+Y un número de pieza permite al mecánico
+
+156
+00:10:07.609 --> 00:10:10.874
+encontrar exactamente esa
+tubería en los manuales.
+
+157
+00:10:12.524 --> 00:10:14.994
+Las válvulas de medida
+de fugas se merecen su
+
+158
+00:10:15.034 --> 00:10:18.285
+propia transparencia porque
+el cuestionario las usa.
+
+159
+00:10:18.335 --> 00:10:22.003
+En cada sistema, una válvula de
+medida de fugas aísla el grupo de
+
+160
+00:10:22.043 --> 00:10:26.672
+usuarios de mandos de vuelo primarios
+del resto de usuarios de ese sistema.
+
+161
+00:10:26.722 --> 00:10:30.346
+Normalmente está abierta, así que
+los mandos de vuelo se alimentan
+
+162
+00:10:30.386 --> 00:10:34.231
+permanentemente a través de ella; se
+cierra para la prueba de fugas, y
+
+163
+00:10:34.271 --> 00:10:38.172
+en el amarillo también automáticamente
+cuando se manejan las puertas de
+
+164
+00:10:38.212 --> 00:10:42.781
+carga con la bomba eléctrica, para que
+no se pueda mover ninguna superficie.
+
+165
+00:10:42.831 --> 00:10:47.447
+Las fugas se prueban porque el caudal de
+retorno es igual a la demanda más la fuga
+
+166
+00:10:47.487 --> 00:10:52.608
+interna permanente de cada componente, que
+fluye incluso con los usuarios en neutro.
+
+167
+00:10:52.658 --> 00:10:56.623
+La prueba usa un grupo hidráulico
+externo con un caudalímetro; la
+
+168
+00:10:56.663 --> 00:11:00.505
+fuga interna se lee en el
+caudalímetro, y cerrando las válvulas
+
+169
+00:11:00.545 --> 00:11:04.449
+sección a sección, ala derecha,
+ala izquierda, cola y centro, se
+
+170
+00:11:04.489 --> 00:11:08.844
+localiza el grupo culpable comparando
+con los valores admisibles.
+
+171
+00:11:08.894 --> 00:11:13.422
+Un exceso de fuga calienta el fluido y
+degrada el sistema; cuando se sospecha de
+
+172
+00:11:13.462 --> 00:11:18.381
+un servocontrol, se desconecta y se vuelve
+a probar la sección para confirmarlo.
+
+173
+00:11:20.031 --> 00:11:22.644
+Ahora seguimos el fluido
+por el sistema verde,
+
+174
+00:11:22.684 --> 00:11:25.687
+que es la última parte
+del temario del examen.
+
+175
+00:11:25.737 --> 00:11:29.275
+El depósito tiene como
+máximo 18 litros, unos 14 en
+
+176
+00:11:29.315 --> 00:11:32.910
+funcionamiento normal, con un
+aviso de nivel bajo a 3 litros;
+
+177
+00:11:32.950 --> 00:11:38.753
+está presurizado a 50 psi con un aviso
+de presión de aire baja a 22 psi.
+
+178
+00:11:38.803 --> 00:11:42.299
+El equipo de llenado de este sistema
+sirve a los tres: una válvula
+
+179
+00:11:42.339 --> 00:11:47.083
+selectora elige si la bomba manual llena
+el depósito verde, el amarillo o el azul.
+
+180
+00:11:47.133 --> 00:11:51.385
+Desde el depósito, el fluido pasa por
+la válvula de fuego, situada en el
+
+181
+00:11:51.425 --> 00:11:55.916
+pilón izquierdo y movida por un motor
+eléctrico; cuando la tripulación pulsa
+
+182
+00:11:55.956 --> 00:12:01.612
+el pulsador ENG 1 FIRE, se cierra y aísla
+el fluido verde del motor en llamas.
+
+183
+00:12:01.662 --> 00:12:05.442
+Después viene la bomba accionada
+por el motor, de 3000 psi,
+
+184
+00:12:05.482 --> 00:12:08.925
+autorregulada y de cilindrada
+variable, cuyo caudal de drenaje
+
+185
+00:12:08.965 --> 00:12:12.240
+de carcasa vuelve al depósito
+por su propio filtro, con una
+
+186
+00:12:12.280 --> 00:12:16.284
+indicación de obstrucción a una
+diferencia de presión de 87
+
+187
+00:12:16.324 --> 00:12:20.498
+psi, que no hay que confundir
+con los 3000 psi de presión del
+
+188
+00:12:20.538 --> 00:12:24.037
+sistema; un presostato tras ella
+activa la indicación LO por
+
+189
+00:12:24.077 --> 00:12:29.876
+debajo de 1740 psi, y la línea alimenta
+además la reversa del motor 1.
+
+190
+00:12:31.526 --> 00:12:34.302
+La bomba descarga en el
+bloque de alta presión, un
+
+191
+00:12:34.342 --> 00:12:36.893
+bloque que lleva la
+mayoría de los componentes
+
+192
+00:12:36.933 --> 00:12:40.943
+pequeños del sistema verde, todos
+con números que conviene saber.
+
+193
+00:12:40.993 --> 00:12:44.548
+El filtro de alta tiene un
+indicador de obstrucción que salta
+
+194
+00:12:44.588 --> 00:12:49.888
+con una diferencia de presión de
+87 psi, y se cambia cuando salta.
+
+195
+00:12:49.938 --> 00:12:52.971
+Hay una válvula antirretorno,
+y una válvula de toma de
+
+196
+00:12:53.011 --> 00:12:56.043
+muestras para sacar fluido,
+que el laboratorio analiza
+
+197
+00:12:56.083 --> 00:13:00.018
+buscando agua y partículas que
+delatan componentes desgastados.
+
+198
+00:13:00.068 --> 00:13:02.594
+Un transductor de presión
+envía la presión a los
+
+199
+00:13:02.634 --> 00:13:06.246
+ordenadores de mandos de vuelo
+ELAC y a la pantalla del ECAM.
+
+200
+00:13:06.296 --> 00:13:10.572
+Un presostato informa a los ordenadores
+de vuelo ELAC, SEC y FAC, a la
+
+201
+00:13:10.612 --> 00:13:17.931
+unidad de control de frenos y dirección,
+la BSCU, y al ECAM; salta a 1450 psi.
+
+202
+00:13:17.981 --> 00:13:21.416
+La válvula de alivio abre a 3500 psi para
+
+203
+00:13:21.456 --> 00:13:25.738
+proteger el sistema y
+vuelve a cerrar a 3200 psi.
+
+204
+00:13:25.788 --> 00:13:29.115
+Por último la válvula de medida
+de fugas, y fuera del bloque
+
+205
+00:13:29.155 --> 00:13:32.426
+el acumulador: un cilindro de
+acero de un litro envuelto en
+
+206
+00:13:32.466 --> 00:13:38.259
+Kevlar con una precarga de
+nitrógeno de 1885 psi a 20 grados.
+
+207
+00:13:39.909 --> 00:13:42.047
+El último bloque del sistema verde es el
+
+208
+00:13:42.087 --> 00:13:45.379
+bloque de la PTU, con su
+propio juego de válvulas.
+
+209
+00:13:45.429 --> 00:13:49.036
+La válvula selectora de frenos
+normales alimenta el sistema de
+
+210
+00:13:49.076 --> 00:13:53.662
+frenado normal y lo corta, poniéndolo
+a retorno, cuando hay un problema.
+
+211
+00:13:53.712 --> 00:13:56.766
+Una electroválvula, abierta
+con el pulsador PTU en
+
+212
+00:13:56.806 --> 00:13:59.345
+AUTO, corta el funcionamiento
+de la unidad de
+
+213
+00:13:59.385 --> 00:14:02.943
+transferencia de potencia
+cuando el pulsador está en OFF.
+
+214
+00:14:02.993 --> 00:14:06.629
+Dos válvulas antirretorno
+completan el camino de la PTU.
+
+215
+00:14:06.679 --> 00:14:09.813
+La válvula de prioridad,
+marcada con una P, aísla a los
+
+216
+00:14:09.853 --> 00:14:12.816
+usuarios de mucho caudal,
+el tren de aterrizaje y las
+
+217
+00:14:12.856 --> 00:14:15.706
+compuertas, la dirección
+de la rueda de morro y los
+
+218
+00:14:15.746 --> 00:14:18.653
+motores de slats y flaps,
+cuando baja la presión del
+
+219
+00:14:18.693 --> 00:14:21.770
+sistema, para que toda la
+presión disponible vaya a los
+
+220
+00:14:21.810 --> 00:14:25.617
+mandos de vuelo primarios y el
+avión siga siendo controlable.
+
+221
+00:14:25.667 --> 00:14:29.118
+El fluido vuelve por el bloque
+de retorno, con un transmisor de
+
+222
+00:14:29.158 --> 00:14:33.830
+temperatura y un filtro de retorno
+de 29 psi, hasta el depósito.
+
+223
+00:14:35.480 --> 00:14:38.660
+Volviendo al esquema del verde,
+el bloque de arriba es el
+
+224
+00:14:38.700 --> 00:14:42.552
+bloque de medida de fugas, y
+conviene saber quién está detrás.
+
+225
+00:14:42.602 --> 00:14:45.740
+A través de la válvula de
+medida de fugas, alimenta a
+
+226
+00:14:45.780 --> 00:14:48.857
+los usuarios de mandos de
+vuelo primarios del verde,
+
+227
+00:14:48.897 --> 00:14:52.844
+divididos en tres grupos: cola,
+ala izquierda y ala derecha.
+
+228
+00:14:52.894 --> 00:14:56.592
+El grupo de cola tiene el motor
+hidráulico que mueve el husillo del
+
+229
+00:14:56.632 --> 00:15:00.442
+estabilizador horizontal compensable,
+el timón de dirección, y uno de
+
+230
+00:15:00.482 --> 00:15:05.017
+los actuadores del amortiguador de
+guiñada que evitan el balanceo holandés.
+
+231
+00:15:05.067 --> 00:15:07.717
+El grupo del ala izquierda
+tiene uno de los dos
+
+232
+00:15:07.757 --> 00:15:11.198
+servoactuadores del alerón
+y los spoilers 1 y 5.
+
+233
+00:15:11.248 --> 00:15:15.163
+El grupo del ala derecha es la
+imagen especular en el lado derecho.
+
+234
+00:15:15.213 --> 00:15:17.948
+Las válvulas de corredera
+dibujadas arriba están
+
+235
+00:15:17.988 --> 00:15:20.609
+normalmente cerradas y
+solo se usan durante el
+
+236
+00:15:20.649 --> 00:15:24.700
+mantenimiento, para comprobar la
+fuga interna sección a sección.
+
+237
+00:15:26.350 --> 00:15:28.801
+Por último, dónde vive todo esto.
+
+238
+00:15:28.851 --> 00:15:32.066
+Casi todos los componentes del
+verde están en el hueco del
+
+239
+00:15:32.106 --> 00:15:35.322
+tren principal: basta abrir la
+compuerta del tren para ver
+
+240
+00:15:35.362 --> 00:15:39.696
+el depósito, los bloques de alta
+presión y de la PTU, y la PTU.
+
+241
+00:15:39.746 --> 00:15:43.799
+El depósito está hecho de dos cilindros
+metálicos soldados, con una válvula
+
+242
+00:15:43.839 --> 00:15:47.782
+de drenaje abajo, un bloque de aire
+con un manómetro, un presostato y una
+
+243
+00:15:47.822 --> 00:15:52.647
+válvula antirretorno, y un indicador de
+cantidad de lectura directa en el lateral.
+
+244
+00:15:52.697 --> 00:15:56.196
+Su sensor de nivel bajo es un
+condensador cilíndrico en el que
+
+245
+00:15:56.236 --> 00:15:59.336
+el fluido hidráulico hace de
+dieléctrico: al cambiar la
+
+246
+00:15:59.376 --> 00:16:04.007
+cantidad cambia la capacidad, y a 3
+litros envía la señal de nivel bajo.
+
+247
+00:16:05.657 --> 00:16:08.461
+Esta última página del verde
+muestra el bloque de la
+
+248
+00:16:08.501 --> 00:16:12.079
+PTU a la izquierda y el panel
+de servicio a la derecha.
+
+249
+00:16:12.129 --> 00:16:15.516
+En el bloque de la PTU se
+reconocen la válvula de prioridad,
+
+250
+00:16:15.556 --> 00:16:19.387
+las dos antirretorno y la
+electroválvula que vimos en el esquema.
+
+251
+00:16:19.437 --> 00:16:23.674
+El panel de servicio, tras la compuerta
+del tren principal izquierdo, tiene
+
+252
+00:16:23.714 --> 00:16:27.951
+la válvula selectora de llenado de los
+depósitos, para elegir verde, azul o
+
+253
+00:16:27.991 --> 00:16:32.732
+amarillo, y un indicador de cantidad con
+un rango de color para cada sistema.
+
+254
+00:16:32.782 --> 00:16:36.130
+Su toma de llenado con un filtro
+y su bomba manual de llenado,
+
+255
+00:16:36.170 --> 00:16:39.409
+que no hay que confundir con la
+bomba manual amarilla de las
+
+256
+00:16:39.449 --> 00:16:42.688
+puertas de carga, sirven para
+llenar los tres depósitos, que
+
+257
+00:16:42.728 --> 00:16:47.122
+es el hecho detrás de la afirmación
+b del cuestionario de 2020.
+
+258
+00:16:47.172 --> 00:16:50.120
+Tiene además las tomas de
+aspiración y de presión para
+
+259
+00:16:50.160 --> 00:16:52.997
+conectar un carro hidráulico
+de tierra, la mula, que
+
+260
+00:16:53.037 --> 00:16:57.205
+sustituye a la bomba verde para
+mantenimiento y pruebas en el hangar.
+
+261
+00:16:58.855 --> 00:17:02.204
+Para terminar con el sistema
+verde, sigamos fallos como lo
+
+262
+00:17:02.244 --> 00:17:06.217
+hace una afirmación de examen;
+pausa después de cada pregunta.
+
+263
+00:17:06.267 --> 00:17:09.326
+Uno: la bomba accionada por
+el motor del verde falla en
+
+264
+00:17:09.366 --> 00:17:13.153
+vuelo con la PTU en AUTO; ¿cuál
+es la primera indicación?
+
+265
+00:17:13.203 --> 00:17:16.094
+El presostato a la salida
+de la bomba marca menos de
+
+266
+00:17:16.134 --> 00:17:21.332
+1740 psi, y el ECAM muestra el
+LO ámbar en la bomba verde.
+
+267
+00:17:21.382 --> 00:17:22.347
+¿Y después?
+
+268
+00:17:22.397 --> 00:17:26.387
+En cuanto el verde está 500 psi
+por debajo del amarillo, el
+
+269
+00:17:26.427 --> 00:17:30.190
+sistema amarillo mueve la PTU,
+que mantiene el verde a unos 2
+
+270
+00:17:30.230 --> 00:17:34.220
+500 psi, así que nunca se llega
+al presostato del bloque de
+
+271
+00:17:34.260 --> 00:17:40.116
+1450 psi, y los frenos y la válvula
+de prioridad no se ven afectados.
+
+272
+00:17:40.166 --> 00:17:43.889
+Tres: el mismo fallo, pero con
+la PTU en OFF o inhibida, o con
+
+273
+00:17:43.929 --> 00:17:49.432
+el fluido verde perdido, así que
+la presión baja de 1450 psi.
+
+274
+00:17:49.482 --> 00:17:53.954
+El presostato del bloque avisa a la unidad
+de control de frenos y dirección, que
+
+275
+00:17:53.994 --> 00:17:58.911
+pierde los frenos normales y pasa a los
+frenos alternativos del sistema amarillo.
+
+276
+00:17:58.961 --> 00:18:01.587
+Cuatro: ¿y si la presión sigue bajando?
+
+277
+00:18:01.637 --> 00:18:04.691
+La válvula de prioridad corta
+los usuarios pesados, el
+
+278
+00:18:04.731 --> 00:18:07.670
+tren de aterrizaje y las
+compuertas, la dirección de
+
+279
+00:18:07.710 --> 00:18:10.763
+la rueda de morro y los
+motores de slats y flaps, para
+
+280
+00:18:10.803 --> 00:18:14.247
+que lo que queda vaya a los
+mandos de vuelo primarios.
+
+281
+00:18:14.297 --> 00:18:18.548
+Cinco: la tripulación pulsa el
+pulsador de fuego del motor 1.
+
+282
+00:18:18.598 --> 00:18:22.644
+La válvula de fuego del pilón izquierdo
+se cierra, la bomba accionada
+
+283
+00:18:22.684 --> 00:18:27.145
+por el motor se queda sin fluido y
+muestra LO, y la PTU todavía puede
+
+284
+00:18:27.185 --> 00:18:31.858
+presurizar el verde desde el amarillo,
+transfiriendo potencia, no fluido.
+
+285
+00:18:31.908 --> 00:18:36.728
+Seis: en tierra, se manejan las puertas
+de carga con la bomba eléctrica amarilla.
+
+286
+00:18:36.778 --> 00:18:40.274
+La PTU se inhibe, la válvula de
+medida de fugas del amarillo
+
+287
+00:18:40.314 --> 00:18:43.589
+se cierra y se avisa al ordenador
+de flaps para que no mueva
+
+288
+00:18:43.629 --> 00:18:47.014
+los flaps; ocurren a la vez, que
+es la trampa de la afirmación
+
+289
+00:18:47.054 --> 00:18:51.327
+b de la pregunta 5 del cuestionario,
+pero ninguna causa las demás.
+
+290
+00:18:52.977 --> 00:18:58.668
+Como en la primera parte, pausa después de
+cada afirmación, decide, y luego escucha.
+
+291
+00:18:58.718 --> 00:19:04.269
+Uno: las bombas accionadas por el motor
+dan 3000 psi en cuanto giran los motores.
+
+292
+00:19:04.319 --> 00:19:07.554
+Falso: giran con el motor pero
+solo dan presión cuando el
+
+293
+00:19:07.594 --> 00:19:11.333
+pulsador ENG PUMP no está en
+OFF, lo que inclina la placa.
+
+294
+00:19:11.383 --> 00:19:14.891
+Dos: la PTU puede pasar
+fluido del amarillo al verde.
+
+295
+00:19:14.941 --> 00:19:19.099
+Falso: transfiere potencia a
+través de su eje, nunca fluido.
+
+296
+00:19:19.149 --> 00:19:23.505
+Tres: el aviso de nivel bajo del
+depósito verde está en 3 litros.
+
+297
+00:19:23.555 --> 00:19:24.613
+Verdadero.
+
+298
+00:19:24.663 --> 00:19:29.297
+Cuatro: la válvula de alivio
+del verde abre a 3200 psi.
+
+299
+00:19:29.347 --> 00:19:34.469
+Falso: abre a 3500 y
+vuelve a cerrar a 3200.
+
+300
+00:19:34.519 --> 00:19:37.252
+Cinco: las válvulas de
+medida de fugas están
+
+301
+00:19:37.292 --> 00:19:40.732
+normalmente cerradas y se
+abren para las pruebas.
+
+302
+00:19:40.782 --> 00:19:43.806
+Falso: están normalmente
+abiertas, alimentando los
+
+303
+00:19:43.846 --> 00:19:47.505
+mandos de vuelo, y se cierran
+para la prueba de fugas.
+
+304
+00:19:47.555 --> 00:19:54.755
+Seis: el acumulador está precargado
+con nitrógeno a 1885 psi a 20 grados.
+
+305
+00:19:54.805 --> 00:19:55.817
+Verdadero.
+
+306
+00:19:55.867 --> 00:20:02.080
+Siete: la indicación LO de la bomba
+verde aparece por debajo de 1740 psi.
+
+307
+00:20:02.130 --> 00:20:03.154
+Verdadero.
+
+308
+00:20:03.204 --> 00:20:07.733
+Ocho: el aire de los depósitos viene
+normalmente del colector neumático.
+
+309
+00:20:07.783 --> 00:20:13.137
+Falso: viene normalmente de la etapa 8 del
+motor 1, y el colector es el respaldo.
+
+310
+00:20:14.787 --> 00:20:19.967
+La pregunta 4 del cuestionario de
+2020, las afirmaciones falsas.
+
+311
+00:20:20.017 --> 00:20:23.780
+La afirmación a es verdadera: la
+dirección de la rueda de morro es
+
+312
+00:20:23.820 --> 00:20:28.145
+un usuario del verde, alimentado a
+través de la válvula de prioridad.
+
+313
+00:20:28.195 --> 00:20:32.253
+La afirmación b es falsa: hay un
+único punto de llenado, el panel de
+
+314
+00:20:32.293 --> 00:20:36.800
+servicio del verde, con una válvula
+selectora para los tres depósitos.
+
+315
+00:20:36.850 --> 00:20:40.020
+La afirmación c es verdadera:
+la turbina de aire de
+
+316
+00:20:40.060 --> 00:20:43.106
+impacto mueve una bomba
+azul y, a través del motor
+
+317
+00:20:43.146 --> 00:20:46.953
+generador de velocidad constante,
+da potencia eléctrica.
+
+318
+00:20:47.003 --> 00:20:50.119
+La afirmación d habla de
+transferencia hidráulica: las
+
+319
+00:20:50.159 --> 00:20:53.676
+condiciones son correctas,
+AUTO, 500 psi, inhibida
+
+320
+00:20:53.716 --> 00:20:56.488
+durante el arranque de
+motores y el manejo de las
+
+321
+00:20:56.528 --> 00:20:59.587
+puertas de carga, pero lo
+que transfiere la PTU es
+
+322
+00:20:59.627 --> 00:21:02.686
+potencia, a través de su eje,
+nunca fluido, porque los
+
+323
+00:21:02.726 --> 00:21:05.727
+sistemas son independientes;
+leída como transferencia
+
+324
+00:21:05.767 --> 00:21:10.364
+de potencia, que es claramente lo que
+se quiere decir, la d es verdadera.
+
+325
+00:21:10.414 --> 00:21:14.677
+Así que la afirmación falsa es la b,
+y si tu examinador lee transferencia
+
+326
+00:21:14.717 --> 00:21:18.980
+literalmente como de fluido, también
+la d: escribe una línea diciendo que
+
+327
+00:21:19.020 --> 00:21:23.964
+la PTU transfiere potencia, no fluido,
+y quedas cubierto en cualquier caso.
+
+328
+00:21:25.614 --> 00:21:27.882
+La pregunta 5 pide las afirmaciones
+
+329
+00:21:27.922 --> 00:21:31.467
+correctas, y exige la lógica
+del bloque de la PTU.
+
+330
+00:21:31.517 --> 00:21:34.414
+La afirmación a está mal:
+armar la PTU no tiene
+
+331
+00:21:34.454 --> 00:21:37.510
+nada que ver con la válvula
+de medida de fugas.
+
+332
+00:21:37.560 --> 00:21:41.679
+La afirmación b también está mal, y es
+una trampa: durante el manejo de las
+
+333
+00:21:41.719 --> 00:21:46.221
+puertas de carga con la bomba eléctrica
+amarilla, la PTU se inhibe y la válvula
+
+334
+00:21:46.261 --> 00:21:50.545
+de medida de fugas del amarillo se cierra
+a la vez, pero ninguna causa la otra,
+
+335
+00:21:50.585 --> 00:21:55.696
+y la PTU nunca se inhibe porque se cierre
+una válvula de medida de fugas del verde.
+
+336
+00:21:55.746 --> 00:21:59.493
+La afirmación c es correcta: el
+presostato del verde, que salta
+
+337
+00:21:59.533 --> 00:22:04.344
+a 1450 psi, informa a la
+unidad de control de frenos y
+
+338
+00:22:04.384 --> 00:22:07.894
+dirección, y con el verde por
+debajo de ese valor se pierden
+
+339
+00:22:07.934 --> 00:22:12.722
+los frenos normales y toman el relevo
+los frenos alternativos del amarillo.
+
+340
+00:22:12.772 --> 00:22:16.900
+La afirmación d es correcta:
+800 psi es más que el umbral de
+
+341
+00:22:16.940 --> 00:22:20.786
+500 psi, así que el sistema
+amarillo mueve el motor de la
+
+342
+00:22:20.826 --> 00:22:24.504
+PTU, y la bomba de la PTU del
+lado verde aspira fluido del
+
+343
+00:22:24.544 --> 00:22:28.667
+depósito verde y lo descarga en la
+línea de alta presión del verde.
+
+344
+00:22:28.717 --> 00:22:32.753
+Así que las afirmaciones correctas
+son la c y la d; no hay solución
+
+345
+00:22:32.793 --> 00:22:37.810
+oficial, así que en el examen añade una
+línea de justificación a cada elección.
+
+346
+00:22:39.460 --> 00:22:43.095
+Para terminar, los números de
+la hidráulica en una tabla.
+
+347
+00:22:43.145 --> 00:22:47.747
+3000 psi en todos los sistemas,
+500 psi de diferencia de presión
+
+348
+00:22:47.787 --> 00:22:52.607
+para la PTU, 50 psi en los depósitos
+con aviso a 22, y el depósito
+
+349
+00:22:52.647 --> 00:22:57.857
+verde de 18 litros como máximo, 14 en
+normal, con aviso de nivel bajo a 3.
+
+350
+00:22:57.907 --> 00:23:05.096
+1740 psi para la indicación de presión
+baja de la bomba, 1450 psi para el
+
+351
+00:23:05.136 --> 00:23:11.349
+presostato del bloque, 3500 para abrir y
+3200 para cerrar la válvula de alivio,
+
+352
+00:23:11.389 --> 00:23:19.886
+87 y 29 psi para los filtros, y 1885 psi
+de nitrógeno en el acumulador de un litro.
+
+353
+00:23:19.936 --> 00:23:23.406
+Y la RAT, la fuente de emergencia
+del azul, que se despliega
+
+354
+00:23:23.446 --> 00:23:27.891
+automáticamente al perder la electricidad
+o con su pulsador protegido.
+
+355
+00:23:27.941 --> 00:23:30.996
+Con las tres clases tienes
+todo el temario del examen:
+
+356
+00:23:31.036 --> 00:23:34.721
+rehaz el cuestionario de 2020
+sin mirar, explica en voz
+
+357
+00:23:34.761 --> 00:23:38.561
+alta el TLT, el TCT y el
+cross-bleed, y dibuja de memoria
+
+358
+00:23:38.601 --> 00:23:42.792
+el circuito de sangrado y el sistema
+verde; mucha suerte el jueves.

@@ -459,7 +459,7 @@ fig("intermod", {
     a.slider("input level per tone (dBm)", -40, 0, 1, -20, (pin) => {
       const G = 20, IIP3 = 5, IIP2 = 25;
       L.forEach(([l, t, o]) => { const lvl = o === 1 ? pin + G : o === 3 ? 3 * pin - 2 * IIP3 + G : 2 * pin - IIP2 + G; a.set(l, { y2: p.Y(Math.max(-90, lvl)) }); a.set(t, { y: p.Y(Math.max(-90, lvl)) - 10 }); });
-      read.innerHTML = richHTML(`G = 20 dB, IIP3 = +5 dBm: wanted ${pin + G} dBm, IM3 ${3 * pin - 2 * IIP3 + G} dBm → C/IM3 = 2(IIP3 − P_in) = ${2 * (IIP3 - pin)} dB`);
+      read.innerHTML = richHTML(i18n(`G = 20 dB, IIP3 = +5 dBm: wanted ${pin + G} dBm, IM3 ${3 * pin - 2 * IIP3 + G} dBm → C/IM3 = 2(IIP3 − P_in) = ${2 * (IIP3 - pin)} dB`));
     });
   },
 });
@@ -779,7 +779,7 @@ fig("lsection", {
         a.text(620, 150, "Z_L", { size: 14, anchor: "start", weight: 700 });
         a.text(400, 270, `${s.shuntAtLoad ? "z_L inside r = 1 → shunt next to the load, then series" : "z_L outside r = 1 → series next to the load, then shunt"}`, { size: 13, color: C.blue });
       });
-      out.textContent = `${s.zl}: series ${s.ser[0]} = ${s.ser[1]}, shunt ${s.sh[0]} = ${s.sh[1]}`;
+      out.textContent = i18n(`${s.zl}: series ${s.ser[0]} = ${s.ser[1]}, shunt ${s.sh[0]} = ${s.sh[1]}`);
     };
     a.buttons(["example sol. 1", "example sol. 2", "problem sol. 1", "problem sol. 2"], (i) => draw(sols[i]));
   },

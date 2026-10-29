@@ -1,0 +1,1463 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:03.383
+Bienvenido a la segunda
+parte, donde los modelos de
+
+2
+00:00:03.423 --> 00:00:07.150
+componentes de la primera se
+convierten en motores completos.
+
+3
+00:00:07.200 --> 00:00:10.710
+Empezamos con el turbofán de
+flujos separados y su balance de
+
+4
+00:00:10.750 --> 00:00:14.145
+potencias con dos ejes, y después
+resolvemos paso a paso el
+
+5
+00:00:14.185 --> 00:00:20.356
+ejercicio 1 A, el CFM56 en crucero, y
+el 1 B, el mismo motor en despegue.
+
+6
+00:00:20.406 --> 00:00:23.513
+Luego repasamos la teoría de
+cantidad de movimiento de la
+
+7
+00:00:23.553 --> 00:00:26.937
+hélice y el turbohélice, y
+terminamos con las dos conversiones
+
+8
+00:00:26.977 --> 00:00:31.193
+de los ejercicios: un propfán en
+crucero y un rotor abierto en tierra.
+
+9
+00:00:32.843 --> 00:00:36.151
+Un turbofán de flujos separados
+divide el gasto de entrada
+
+10
+00:00:36.191 --> 00:00:39.556
+en una corriente de núcleo y
+una corriente secundaria, o de
+
+11
+00:00:39.596 --> 00:00:43.294
+derivación, y el índice de
+derivación alfa es su cociente.
+
+12
+00:00:43.344 --> 00:00:46.863
+Así que el gasto del núcleo
+es m punto cero entre uno más
+
+13
+00:00:46.903 --> 00:00:51.356
+alfa, y el secundario es alfa por
+m punto cero entre uno más alfa.
+
+14
+00:00:51.406 --> 00:00:54.593
+El combustible se refiere al
+núcleo, así que el gasto de
+
+15
+00:00:54.633 --> 00:00:58.512
+combustible es f por el gasto
+del núcleo, y el T S F C lleva
+
+16
+00:00:58.552 --> 00:01:02.028
+un factor uno más alfa en el
+denominador: olvidarlo es, según
+
+17
+00:01:02.068 --> 00:01:06.106
+el manual, el error más frecuente
+en los cálculos de turbofanes.
+
+18
+00:01:06.156 --> 00:01:09.009
+El turbofán tiene tres
+variables de diseño donde el
+
+19
+00:01:09.049 --> 00:01:12.356
+turborreactor tenía dos: además
+de la relación de presiones
+
+20
+00:01:12.396 --> 00:01:15.816
+del compresor y de T t cuatro,
+la relación de presiones del
+
+21
+00:01:15.856 --> 00:01:20.403
+fan y el índice de derivación, que
+están acopladas a través de la turbina.
+
+22
+00:01:20.453 --> 00:01:26.147
+En el ejercicio 1 A, con alfa igual a 6
+y un gasto total de 170 kilogramos por
+
+23
+00:01:26.187 --> 00:01:34.956
+segundo, el núcleo recibe 24.29 y el
+secundario 145.71 kilogramos por segundo.
+
+24
+00:01:36.606 --> 00:01:39.497
+Los turbofanes reales
+tienen dos ejes que giran a
+
+25
+00:01:39.537 --> 00:01:43.237
+velocidades distintas, y los
+ejercicios se plantean así.
+
+26
+00:01:43.287 --> 00:01:46.691
+El eje de alta es sencillo: la
+turbina de alta solo mueve el
+
+27
+00:01:46.731 --> 00:01:50.479
+compresor de alta, así que la
+potencia del compresor es eta m de
+
+28
+00:01:50.519 --> 00:01:54.945
+alta por la potencia de la turbina,
+lo que da T t cuatro punto cinco.
+
+29
+00:01:54.995 --> 00:01:58.717
+La turbina de baja mueve a la vez
+el fan y el compresor de baja,
+
+30
+00:01:58.757 --> 00:02:03.809
+trabajando con un gas ya enfriado por la
+turbina de alta, lo que da T t cinco.
+
+31
+00:02:03.859 --> 00:02:07.427
+Cuidado con los gastos: el fan
+comprime todo el gasto de entrada,
+
+32
+00:02:07.467 --> 00:02:11.092
+mientras que el compresor de baja
+solo comprime el núcleo; mezclar
+
+33
+00:02:11.132 --> 00:02:15.424
+los dos convenios cambia la potencia
+del fan en un factor uno más alfa.
+
+34
+00:02:15.474 --> 00:02:18.715
+La relación de presiones global
+es el producto de las tres
+
+35
+00:02:18.755 --> 00:02:21.997
+relaciones de compresión, así
+que en el ejercicio 1 A el
+
+36
+00:02:22.037 --> 00:02:27.485
+compresor de alta debe dar 30.6
+dividido entre 1.32 por 5, que
+
+37
+00:02:27.525 --> 00:02:33.250
+es 4.636, y cada compresor arranca de
+la temperatura que dejó el anterior.
+
+38
+00:02:34.900 --> 00:02:38.685
+Ahora el empuje viene de dos
+corrientes, cada una con su cantidad
+
+39
+00:02:38.725 --> 00:02:42.959
+de movimiento, su resistencia de
+admisión y su término de presión.
+
+40
+00:02:43.009 --> 00:02:47.360
+La relación de empujes F R compara
+lo que trabaja cada corriente por
+
+41
+00:02:47.400 --> 00:02:51.630
+unidad de su propio gasto: es el
+cociente de empujes específicos, no de
+
+42
+00:02:51.670 --> 00:02:56.711
+empujes, y los valores cercanos a uno
+minimizan el consumo en motores civiles.
+
+43
+00:02:56.761 --> 00:03:00.217
+El incremento de energía cinética
+suma las dos corrientes,
+
+44
+00:03:00.257 --> 00:03:04.042
+y los rendimientos térmico y
+propulsivo salen como antes.
+
+45
+00:03:04.092 --> 00:03:07.120
+En el ejemplo resuelto del
+manual, usar el rendimiento
+
+46
+00:03:07.160 --> 00:03:10.530
+propulsivo en forma cerrada con
+toberas subexpandidas pierde
+
+47
+00:03:10.570 --> 00:03:15.181
+ocho puntos porcentuales, así que
+calcúlalo siempre con el empuje completo.
+
+48
+00:03:15.231 --> 00:03:19.797
+En el ejercicio 1 A, F R sale de unos
+10: la corriente del núcleo trabaja
+
+49
+00:03:19.837 --> 00:03:23.897
+diez veces más por kilogramo que la
+del fan, lo que indica que hay margen
+
+50
+00:03:23.937 --> 00:03:28.724
+para un índice de derivación mayor, justo
+la tendencia de los motores modernos.
+
+51
+00:03:30.374 --> 00:03:34.079
+Este es el ejercicio 1 A, la
+plantilla de todo el parcial.
+
+52
+00:03:34.129 --> 00:03:39.169
+El CFM56 tiene dos ejes: la turbina
+de alta mueve el compresor de
+
+53
+00:03:39.209 --> 00:03:43.081
+alta, y la turbina de baja mueve
+el compresor de baja y el fan, con
+
+54
+00:03:43.121 --> 00:03:48.394
+relaciones de presiones de 5 y
+1.32, un índice de derivación de 6,
+
+55
+00:03:48.434 --> 00:03:54.564
+una relación de presiones global de
+30.6 y una T t cuatro de 1 600 kelvin.
+
+56
+00:03:54.614 --> 00:03:58.545
+Las dos toberas son convergentes,
+y el punto de diseño es el crucero
+
+57
+00:03:58.585 --> 00:04:04.775
+a 11 km y Mach 0.8, con un gasto
+total de 170 kilogramos por segundo.
+
+58
+00:04:04.825 --> 00:04:08.817
+Hay que dibujar el diagrama de
+bloques, calcular las potencias de los
+
+59
+00:04:08.857 --> 00:04:14.056
+ejes, el empuje, el T S F C y los
+rendimientos, y esbozar el diagrama T s.
+
+60
+00:04:14.106 --> 00:04:16.025
+Todos los datos de componentes son
+
+61
+00:04:16.065 --> 00:04:18.387
+rendimientos isentrópicos, así que usamos
+
+62
+00:04:18.427 --> 00:04:21.901
+siempre las formas isentrópicas, con 0.98
+
+63
+00:04:21.941 --> 00:04:26.554
+para la toma y 0.9 para la relación
+de presiones de la cámara.
+
+64
+00:04:28.204 --> 00:04:32.056
+Empezamos en la toma: la temperatura
+total de la corriente libre
+
+65
+00:04:32.096 --> 00:04:39.804
+es de 244.55 kelvin, y la presión
+total cae un 2 % en el difusor.
+
+66
+00:04:39.854 --> 00:04:42.691
+El fan sube la temperatura
+total, con su relación
+
+67
+00:04:42.731 --> 00:04:48.424
+isentrópica, hasta 268.30 kelvin,
+como en la tabla oficial.
+
+68
+00:04:48.474 --> 00:04:50.738
+El compresor de baja, con relación de
+
+69
+00:04:50.778 --> 00:04:58.414
+presiones 5 y rendimiento
+0.83, llega a 457.02 kelvin.
+
+70
+00:04:58.464 --> 00:05:03.438
+El compresor de alta, con
+4.636 y 0.80, llega a
+
+71
+00:05:03.478 --> 00:05:10.203
+771.2 kelvin, y la presión
+total ya es de 10.39 bar.
+
+72
+00:05:10.253 --> 00:05:14.157
+Las potencias salen enseguida:
+el fan trabaja sobre los 170
+
+73
+00:05:14.197 --> 00:05:18.889
+kilogramos por segundo con 4 056
+kilovatios, y el compresor de
+
+74
+00:05:18.929 --> 00:05:26.265
+baja sobre los 24.29 kilogramos por
+segundo del núcleo con 4 604 kilovatios.
+
+75
+00:05:26.315 --> 00:05:31.509
+El compresor de alta absorbe
+7 665 kilovatios, así que el
+
+76
+00:05:31.549 --> 00:05:36.214
+eje de baja debe dar 8 660
+kilovatios a sus compresores y
+
+77
+00:05:36.254 --> 00:05:41.955
+el de alta 7 665, como la
+solución oficial salvo redondeos.
+
+78
+00:05:43.605 --> 00:05:48.893
+Ahora la cámara: metiendo T
+t tres de 771.2 y T t cuatro
+
+79
+00:05:48.933 --> 00:05:54.671
+de 1 600 en la fórmula del
+dosado sale f igual a 0.0301.
+
+80
+00:05:54.721 --> 00:05:59.911
+El gasto caliente es de 25.02 kilogramos
+por segundo, y el balance del
+
+81
+00:05:59.951 --> 00:06:06.536
+eje de alta da la temperatura de salida
+de la turbina: 1 600 menos 7 665
+
+82
+00:06:06.576 --> 00:06:16.747
+kilovatios divididos entre 0.95 por
+25.02 por 1.239, que es 1 339.7 kelvin.
+
+83
+00:06:16.797 --> 00:06:20.222
+Invirtiendo el rendimiento
+isentrópico de 0.80
+
+84
+00:06:20.262 --> 00:06:24.215
+sale una relación de
+presiones de 0.373, así que
+
+85
+00:06:24.255 --> 00:06:29.303
+la presión total tras la
+turbina de alta es de 3.49 bar.
+
+86
+00:06:29.353 --> 00:06:32.584
+El eje de baja debe dar la
+potencia del fan más la del
+
+87
+00:06:32.624 --> 00:06:38.608
+compresor de baja, así que el gas se
+enfría más, hasta 1 045.6 kelvin.
+
+88
+00:06:38.658 --> 00:06:42.919
+Con un rendimiento de 0.81, la
+relación de presiones de la
+
+89
+00:06:42.959 --> 00:06:48.841
+turbina de baja es 0.254, y quedan
+0.887 bar a la entrada de la
+
+90
+00:06:48.881 --> 00:06:52.417
+tobera del núcleo; fíjate en que
+estas dos relaciones de turbina
+
+91
+00:06:52.457 --> 00:06:56.829
+son exactamente las de la tabla de
+rendimientos politrópicos del manual.
+
+92
+00:06:58.479 --> 00:07:01.341
+Las dos toberas son
+convergentes, así que aplicamos
+
+93
+00:07:01.381 --> 00:07:04.634
+suponer y comprobar con los
+rendimientos de tobera.
+
+94
+00:07:04.684 --> 00:07:08.045
+En el núcleo, la temperatura
+estática crítica es dos T t
+
+95
+00:07:08.085 --> 00:07:12.443
+entre gamma más uno, 909.2
+kelvin, y la definición del
+
+96
+00:07:12.483 --> 00:07:17.700
+rendimiento da una presión
+estática crítica de 0.447 bar.
+
+97
+00:07:17.750 --> 00:07:21.867
+Está por encima de los 0.227
+bar ambiente, así que la
+
+98
+00:07:21.907 --> 00:07:24.600
+tobera del núcleo está
+bloqueada: Mach uno, y una
+
+99
+00:07:24.640 --> 00:07:30.570
+velocidad de 581.3 metros por segundo
+a partir del salto de entalpía.
+
+100
+00:07:30.620 --> 00:07:35.277
+La tobera del fan, con solo
+0.45 bar de presión total,
+
+101
+00:07:35.317 --> 00:07:38.469
+da una presión crítica por
+debajo de la ambiente, así
+
+102
+00:07:38.509 --> 00:07:42.231
+que está adaptada y su presión
+de salida es la ambiente.
+
+103
+00:07:42.281 --> 00:07:49.705
+Entonces su temperatura de salida, con el
+rendimiento de 0.90, es de 225.7 kelvin,
+
+104
+00:07:49.745 --> 00:07:58.165
+lo que da 292.5 metros por segundo y Mach
+0.97, todo igual que en la tabla oficial.
+
+105
+00:07:58.215 --> 00:08:03.288
+Para la tobera bloqueada del núcleo aún
+necesitamos el área de salida, 0.25
+
+106
+00:08:03.328 --> 00:08:07.958
+metros cuadrados por continuidad, porque
+su término de presión aporta empuje.
+
+107
+00:08:09.608 --> 00:08:12.895
+Ahora el empuje, término a
+término: el chorro del núcleo
+
+108
+00:08:12.935 --> 00:08:17.885
+da 14.54 kilonewtons de cantidad
+de movimiento, el del fan
+
+109
+00:08:17.925 --> 00:08:23.470
+42.62, la resistencia de
+admisión de los 170 kilogramos
+
+110
+00:08:23.510 --> 00:08:27.629
+por segundo resta 40.14, y
+el término de presión de la
+
+111
+00:08:27.669 --> 00:08:34.792
+tobera bloqueada del núcleo suma
+5.49, en total 22.52 kilonewtons.
+
+112
+00:08:34.842 --> 00:08:39.417
+El gasto de combustible es
+0.0301 por el gasto del núcleo,
+
+113
+00:08:39.457 --> 00:08:46.399
+0.7315 kilogramos por segundo,
+así que el T S F C es de 32.49
+
+114
+00:08:46.439 --> 00:08:50.366
+miligramos por segundo y newton,
+exactamente el valor oficial.
+
+115
+00:08:50.416 --> 00:08:56.629
+El incremento de energía cinética de las
+dos corrientes es de 5.72 megavatios.
+
+116
+00:08:56.679 --> 00:09:01.887
+Así que el rendimiento térmico es
+del 18.4 %, bajo por los modestos
+
+117
+00:09:01.927 --> 00:09:07.191
+rendimientos de los componentes,
+y el propulsivo del 92.9 %, alto
+
+118
+00:09:07.231 --> 00:09:11.588
+porque los dos chorros son lentos
+comparados con la velocidad de vuelo.
+
+119
+00:09:11.638 --> 00:09:15.350
+El rendimiento global es del 17.1 %, y la
+
+120
+00:09:15.390 --> 00:09:20.417
+comprobación rápida, v cero entre
+h P R por T S F C, lo confirma.
+
+121
+00:09:22.067 --> 00:09:25.346
+El apartado d pide un esquema
+del ciclo termodinámico, que
+
+122
+00:09:25.386 --> 00:09:29.000
+deberías saber dibujar a partir
+de tu tabla de estaciones.
+
+123
+00:09:29.050 --> 00:09:32.611
+Mira cómo se construye la corriente
+del núcleo estación a estación
+
+124
+00:09:32.651 --> 00:09:36.212
+con los valores totales calculados:
+primero la compresión dinámica
+
+125
+00:09:36.252 --> 00:09:40.475
+gratuita desde el estado estático de
+la corriente libre hasta el total.
+
+126
+00:09:40.525 --> 00:09:45.574
+Después el fan y los dos compresores
+suben hasta 771 kelvin, y cada
+
+127
+00:09:45.614 --> 00:09:49.896
+proceso se desvía a la derecha porque
+las pérdidas generan entropía.
+
+128
+00:09:49.946 --> 00:09:54.217
+La cámara aporta calor hasta 1
+600 kelvin con una presión que
+
+129
+00:09:54.257 --> 00:09:59.584
+baja un poco, y las dos turbinas
+expanden el gas hasta 1 046 kelvin.
+
+130
+00:09:59.634 --> 00:10:02.186
+Por último la tobera
+acelera el flujo hasta su
+
+131
+00:10:02.226 --> 00:10:05.622
+salida bloqueada a 909
+kelvin de estática, y la
+
+132
+00:10:05.662 --> 00:10:09.110
+extensión vertical del
+diagrama la limita T t cuatro.
+
+133
+00:10:09.160 --> 00:10:12.832
+Dos advertencias para el esquema:
+es una traza abierta de estados
+
+134
+00:10:12.872 --> 00:10:16.772
+totales con pérdidas, no un ciclo
+reversible cerrado, así que el área
+
+135
+00:10:16.812 --> 00:10:20.426
+bajo ella o dentro de ella no es
+el trabajo neto; y la corriente
+
+136
+00:10:20.466 --> 00:10:24.424
+secundaria es una rama corta aparte,
+de 2 a 13 por el fan y luego
+
+137
+00:10:24.464 --> 00:10:29.839
+expandiéndose en su propia tobera hasta
+19, que debes añadir como segunda línea.
+
+138
+00:10:31.489 --> 00:10:35.572
+El ejercicio 1 B lleva el mismo motor
+a condiciones estáticas a nivel
+
+139
+00:10:35.612 --> 00:10:42.834
+del mar, con 450 kilogramos por segundo,
+así que el núcleo recibe 64.29.
+
+140
+00:10:42.884 --> 00:10:46.775
+Sin compresión dinámica pero con
+aire más caliente, la salida del
+
+141
+00:10:46.815 --> 00:10:53.636
+compresor está más caliente, 909 kelvin,
+y la presión global es de 30.4 bar.
+
+142
+00:10:53.686 --> 00:10:58.099
+Todas las potencias de los ejes escalan
+con el gasto, unas tres veces, y el
+
+143
+00:10:58.139 --> 00:11:04.485
+dosado es algo menor, 0.0267, porque la
+entrada a la cámara está más caliente.
+
+144
+00:11:04.535 --> 00:11:08.014
+A nivel del mar la presión
+ambiente es alta, así que las dos
+
+145
+00:11:08.054 --> 00:11:12.705
+toberas resultan adaptadas, la
+del núcleo a Mach 0.71 y la del
+
+146
+00:11:12.745 --> 00:11:18.608
+fan a Mach 0.58, un buen recordatorio
+de que siempre hay que comprobarlo.
+
+147
+00:11:18.658 --> 00:11:25.636
+El empuje de despegue es de 104.3
+kilonewtons con un T S F C de 16.44
+
+148
+00:11:25.676 --> 00:11:30.061
+miligramos por segundo y newton,
+ambos iguales a la solución oficial.
+
+149
+00:11:30.111 --> 00:11:33.725
+Y como el avión no se mueve, no
+se produce potencia útil: los
+
+150
+00:11:33.765 --> 00:11:37.739
+rendimientos propulsivo y global
+son cero por definición, aunque el
+
+151
+00:11:37.779 --> 00:11:43.940
+empuje sea grande; solo el rendimiento
+térmico, del 18.1 %, tiene sentido.
+
+152
+00:11:45.590 --> 00:11:49.109
+Dos arquitecturas del manual
+merecen una breve mención.
+
+153
+00:11:49.159 --> 00:11:52.634
+En un turbofán de flujo mezclado,
+las corrientes del núcleo y
+
+154
+00:11:52.674 --> 00:11:56.264
+secundaria se unen en un mezclador
+y salen por una sola tobera,
+
+155
+00:11:56.304 --> 00:12:00.400
+la disposición típica de los motores
+militares con poscombustión.
+
+156
+00:12:00.450 --> 00:12:04.253
+Como el mezclador exige presiones
+totales iguales, primero se fija
+
+157
+00:12:04.293 --> 00:12:07.921
+la relación de presiones de la
+turbina, y después el balance de
+
+158
+00:12:07.961 --> 00:12:11.182
+potencias da el índice de
+derivación: alfa pasa a ser un
+
+159
+00:12:11.222 --> 00:12:15.997
+resultado, la única diferencia estructural
+con el motor de flujos separados.
+
+160
+00:12:16.047 --> 00:12:20.156
+Mezclar recupera empuje al eliminar la
+diferencia de velocidades entre las
+
+161
+00:12:20.196 --> 00:12:23.913
+corrientes, unos pocos por ciento,
+pero en un motor civil grande el
+
+162
+00:12:23.953 --> 00:12:28.901
+conducto de longitud completa cuesta más
+en peso y resistencia de lo que devuelve.
+
+163
+00:12:28.951 --> 00:12:32.267
+El turboeje divide la turbina:
+la turbina de alta mueve el
+
+164
+00:12:32.307 --> 00:12:35.623
+compresor y una turbina libre
+mueve el eje de salida, y se
+
+165
+00:12:35.663 --> 00:12:38.979
+juzga por su consumo específico
+por unidad de potencia; su
+
+166
+00:12:39.019 --> 00:12:43.593
+rendimiento propulsivo solo tiene
+sentido junto con su rotor o su hélice.
+
+167
+00:12:45.243 --> 00:12:48.628
+Una hélice produce empuje dando
+un pequeño aumento de velocidad
+
+168
+00:12:48.668 --> 00:12:52.107
+a una gran masa de aire, lo
+contrario que un turborreactor, y la
+
+169
+00:12:52.147 --> 00:12:56.030
+teoría de cantidad de movimiento
+lo recoge con un disco actuador.
+
+170
+00:12:56.080 --> 00:12:59.390
+Bernoulli a cada lado del disco
+y el balance de cantidad de
+
+171
+00:12:59.430 --> 00:13:02.853
+movimiento dan el resultado
+central: la velocidad en el disco
+
+172
+00:13:02.893 --> 00:13:06.763
+es la media de las velocidades
+aguas arriba y muy aguas abajo.
+
+173
+00:13:06.813 --> 00:13:11.307
+Con el factor de inducción axial a, la
+velocidad en el disco es v cero por uno
+
+174
+00:13:11.347 --> 00:13:16.683
+más a, la de la estela v cero por uno más
+dos a, y el empuje dos m punto a v cero.
+
+175
+00:13:16.733 --> 00:13:20.350
+La potencia del disco, empuje
+por velocidad en el disco, es
+
+176
+00:13:20.390 --> 00:13:23.822
+igual a la energía cinética
+comunicada a la estela, y el
+
+177
+00:13:23.862 --> 00:13:28.055
+rendimiento propulsivo ideal, de
+Froude, es uno entre uno más a.
+
+178
+00:13:28.105 --> 00:13:31.723
+Resolviendo la cuadrática de la
+velocidad en el disco se ve que la
+
+179
+00:13:31.763 --> 00:13:35.492
+pérdida la gobierna la carga del
+disco, empuje entre área del disco:
+
+180
+00:13:35.532 --> 00:13:39.261
+un diámetro grande da mucho rendimiento,
+pero también velocidades de
+
+181
+00:13:39.301 --> 00:13:43.420
+punta altas, problemas de distancia
+al suelo y esfuerzos en la raíz.
+
+182
+00:13:45.070 --> 00:13:48.627
+Una hélice real absorbe más potencia
+en el eje que el disco ideal
+
+183
+00:13:48.667 --> 00:13:52.224
+para el mismo empuje, por la
+resistencia de perfil, el giro de la
+
+184
+00:13:52.264 --> 00:13:56.042
+estela y las pérdidas en las puntas,
+que se agrupan en un rendimiento
+
+185
+00:13:56.082 --> 00:14:00.803
+de pérdidas eta L, así que el rendimiento
+de la hélice es eta L por eta P.
+
+186
+00:14:00.853 --> 00:14:04.459
+Para cálculos de ciclo la asignatura
+usa el modelo algebraico que
+
+187
+00:14:04.499 --> 00:14:08.273
+se ve aquí: diez M cero eta máximo
+a muy baja velocidad, constante
+
+188
+00:14:08.313 --> 00:14:12.648
+en eta máximo hasta Mach 0.7, y
+decreciente a partir de ahí, cuando
+
+189
+00:14:12.688 --> 00:14:16.795
+las puntas de las palas se acercan
+a la divergencia de resistencia.
+
+190
+00:14:16.845 --> 00:14:20.426
+El procedimiento es: empuje a
+partir de la potencia en el eje,
+
+191
+00:14:20.466 --> 00:14:24.396
+velocidad en el disco a partir del
+área del disco, y luego el factor
+
+192
+00:14:24.436 --> 00:14:28.367
+de inducción, la potencia del disco
+y eta L, que no puede pasar de
+
+193
+00:14:28.407 --> 00:14:33.020
+uno; si pasa, el disco es demasiado
+pequeño para el rendimiento supuesto.
+
+194
+00:14:33.070 --> 00:14:36.211
+A velocidad cero el rendimiento
+no tiene sentido, así que
+
+195
+00:14:36.251 --> 00:14:39.504
+el empuje estático usa la
+figura de mérito, F igual a dos
+
+196
+00:14:39.544 --> 00:14:42.853
+ro A elevado a un tercio por
+F M por la potencia elevado
+
+197
+00:14:42.893 --> 00:14:47.542
+a dos tercios, con F M de unos
+0.7 a 0.8, mientras que el
+
+198
+00:14:47.582 --> 00:14:50.723
+límite propio del modelo, diez
+eta máximo por la potencia
+
+199
+00:14:50.763 --> 00:14:53.848
+entre la velocidad del sonido,
+puede violar la teoría de
+
+200
+00:14:53.888 --> 00:14:57.476
+cantidad de movimiento, como
+mostrará el ejercicio 1 B.
+
+201
+00:14:59.126 --> 00:15:01.427
+Un turbohélice es un turboeje cuya turbina
+
+202
+00:15:01.467 --> 00:15:04.549
+libre mueve una hélice a
+través de una reductora.
+
+203
+00:15:04.599 --> 00:15:07.892
+Maneja dos corrientes, la del
+generador de gas y la de la
+
+204
+00:15:07.932 --> 00:15:11.167
+hélice, y su cociente beta se
+comporta como un índice de
+
+205
+00:15:11.207 --> 00:15:14.675
+derivación, pero es un resultado
+de la teoría de cantidad de
+
+206
+00:15:14.715 --> 00:15:19.450
+movimiento y no una elección de diseño,
+porque la hélice no tiene conducto.
+
+207
+00:15:19.500 --> 00:15:22.346
+La potencia que llega a la
+hélice es el rendimiento de
+
+208
+00:15:22.386 --> 00:15:25.233
+la reductora por la parte
+del eje de la potencia de la
+
+209
+00:15:25.273 --> 00:15:28.616
+turbina de baja menos la
+potencia del compresor de baja.
+
+210
+00:15:28.666 --> 00:15:31.846
+El empuje total suma el del
+chorro y el de la hélice, y el
+
+211
+00:15:31.886 --> 00:15:35.455
+incremento de energía cinética usa
+la potencia del disco, así que
+
+212
+00:15:35.495 --> 00:15:38.842
+las pérdidas de la hélice aparecen
+en el rendimiento térmico;
+
+213
+00:15:38.882 --> 00:15:42.117
+Mattingly usa en su lugar la
+potencia en el eje, lo que da un
+
+214
+00:15:42.157 --> 00:15:47.116
+rendimiento térmico mayor y uno propulsivo
+menor, pero el mismo rendimiento global.
+
+215
+00:15:47.166 --> 00:15:51.205
+Por último, hay una expansión óptima
+de la turbina libre: más expansión
+
+216
+00:15:51.245 --> 00:15:55.226
+manda potencia a la eficiente hélice
+hasta dejar sin fuerza al chorro,
+
+217
+00:15:55.266 --> 00:15:59.753
+y el óptimo se desplaza hacia el chorro
+al crecer la velocidad de vuelo.
+
+218
+00:16:01.403 --> 00:16:04.696
+La parte 2 del ejercicio 1
+A convierte el motor en un
+
+219
+00:16:04.736 --> 00:16:09.140
+propfán: el fan pasa a ser
+una hélice de 3.93 metros, la
+
+220
+00:16:09.180 --> 00:16:12.239
+góndola se abre, y mantenemos
+el gasto del núcleo, la
+
+221
+00:16:12.279 --> 00:16:15.690
+relación de presiones de la
+turbina de baja y, como hace la
+
+222
+00:16:15.730 --> 00:16:18.847
+solución oficial, la relación
+del compresor de alta de
+
+223
+00:16:18.887 --> 00:16:24.286
+4.636, así que la relación de
+presiones global baja de 30.6
+
+224
+00:16:24.326 --> 00:16:33.506
+a 5 por 4.636, 23.2, con 1.70 bar tras
+el búster y 7.87 bar en la cámara.
+
+225
+00:16:33.556 --> 00:16:36.144
+Sin el fan, el compresor
+de baja arranca de la
+
+226
+00:16:36.184 --> 00:16:40.486
+temperatura de entrada,
+así que termina en 416.6
+
+227
+00:16:40.526 --> 00:16:46.874
+kelvin, la entrada de la cámara baja
+a 703 kelvin y f sube a 0.0318.
+
+228
+00:16:46.924 --> 00:16:51.924
+Las potencias de los compresores
+bajan a 4 196 kilovatios
+
+229
+00:16:51.964 --> 00:16:57.144
+y 6 987 kilovatios, mientras
+que la turbina de baja, con
+
+230
+00:16:57.184 --> 00:17:02.274
+su relación de presiones
+mantenida, da 9 290 kilovatios.
+
+231
+00:17:02.324 --> 00:17:06.429
+La hélice recibe el rendimiento de la
+reductora por la parte del eje menos
+
+232
+00:17:06.469 --> 00:17:12.311
+el compresor de baja: 4 583 kilovatios;
+fíjate en que el rendimiento de la
+
+233
+00:17:12.351 --> 00:17:16.734
+reductora multiplica los dos términos,
+como insiste la solución oficial.
+
+234
+00:17:16.784 --> 00:17:20.642
+A Mach 0.8 el modelo ha
+pasado de 0.7, así que el
+
+235
+00:17:20.682 --> 00:17:24.870
+rendimiento de la hélice es
+0.9 por uno menos 0.1 entre
+
+236
+00:17:24.910 --> 00:17:31.519
+3, que es 0.87, y el empuje de la
+hélice es de 16.89 kilonewtons.
+
+237
+00:17:31.569 --> 00:17:37.244
+El chorro bloqueado del núcleo
+suma 13.38, en total 30.27
+
+238
+00:17:37.284 --> 00:17:43.019
+kilonewtons, con un T S F C de
+25.54 miligramos por segundo y
+
+239
+00:17:43.059 --> 00:17:48.649
+newton: un 21 % mejor que el turbofán,
+exactamente la respuesta oficial.
+
+240
+00:17:50.299 --> 00:17:53.777
+Ahora la corriente de la hélice,
+con la teoría de cantidad de
+
+241
+00:17:53.817 --> 00:17:57.353
+movimiento, el área completa
+del disco, 12.13 metros
+
+242
+00:17:57.393 --> 00:18:03.106
+cuadrados, y la densidad de crucero
+de 0.365 kilogramos por metro cúbico.
+
+243
+00:18:03.156 --> 00:18:07.761
+La velocidad en el disco
+es de 243.9 metros por
+
+244
+00:18:07.801 --> 00:18:12.620
+segundo, así que el factor de
+inducción es de solo 0.033.
+
+245
+00:18:12.670 --> 00:18:17.884
+El rendimiento propulsivo ideal es
+por tanto 0.97, y el rendimiento de
+
+246
+00:18:17.924 --> 00:18:25.333
+pérdidas eta L es 0.87 por 1.033, que
+es 0.90, menor que uno como debe ser:
+
+247
+00:18:25.373 --> 00:18:29.490
+la nota oficial dice que este factor
+recoge la resistencia de perfil, el
+
+248
+00:18:29.530 --> 00:18:34.557
+giro y las pérdidas en las puntas que la
+teoría de cantidad de movimiento ignora.
+
+249
+00:18:34.607 --> 00:18:39.000
+La hélice mueve 1 081 kilogramos
+por segundo, así que el gasto
+
+250
+00:18:39.040 --> 00:18:45.464
+total es de 1 105 y el índice de
+derivación salta de 6 a 44.5.
+
+251
+00:18:45.514 --> 00:18:54.766
+Los rendimientos son 23.6 % el térmico,
+92.2 % el propulsivo y 21.75 %
+
+252
+00:18:54.806 --> 00:19:00.933
+el global, frente al 17.1 % del turbofán:
+esta es la promesa del propfán.
+
+253
+00:19:02.583 --> 00:19:06.699
+El ejercicio 1 B convierte el motor
+de despegue en un rotor abierto,
+
+254
+00:19:06.739 --> 00:19:11.304
+con el rotor detrás del generador de
+gas, movido por la turbina de baja.
+
+255
+00:19:11.354 --> 00:19:17.056
+La misma contabilidad de potencias
+da 14 413 kilovatios para el rotor.
+
+256
+00:19:17.106 --> 00:19:20.376
+A velocidad cero el modelo de
+rendimiento no se puede usar
+
+257
+00:19:20.416 --> 00:19:23.743
+directamente, así que probamos
+su límite estático, diez eta
+
+258
+00:19:23.783 --> 00:19:28.252
+máximo por la potencia entre
+la velocidad del sonido, 381
+
+259
+00:19:28.292 --> 00:19:34.349
+kilonewtons, y lo comparamos con un disco
+ideal de la misma área, 183 kilonewtons.
+
+260
+00:19:34.399 --> 00:19:40.218
+La figura de mérito implícita,
+381 entre 183 elevado a tres
+
+261
+00:19:40.258 --> 00:19:43.946
+medios, sale de unos 3, lo cual
+es imposible, porque ninguna
+
+262
+00:19:43.986 --> 00:19:47.615
+hélice supera al disco ideal: el
+modelo algebraico esconde una
+
+263
+00:19:47.655 --> 00:19:51.792
+carga del disco, y aquí el disco
+es demasiado pequeño para ella.
+
+264
+00:19:51.842 --> 00:19:57.486
+Así que, como indica el enunciado,
+usamos la figura de mérito 0.75: el
+
+265
+00:19:57.526 --> 00:20:04.685
+rotor da 151.1 kilonewtons, y el
+chorro adaptado del núcleo 20.4 más.
+
+266
+00:20:04.735 --> 00:20:08.121
+La velocidad en el disco es la
+raíz cuadrada del empuje de la
+
+267
+00:20:08.161 --> 00:20:12.503
+hélice entre dos ro A, 71.5
+metros por segundo, así que la
+
+268
+00:20:12.543 --> 00:20:16.659
+corriente de la hélice es ro
+A v p, 1 056 kilogramos por
+
+269
+00:20:16.699 --> 00:20:21.378
+segundo; el rendimiento térmico
+es del 17.8 %, mientras que
+
+270
+00:20:21.418 --> 00:20:25.925
+los rendimientos propulsivo y global
+son cero con velocidad de vuelo nula.
+
+271
+00:20:25.975 --> 00:20:33.313
+El total es de 171.5 kilonewtons con
+un T S F C de 10.75 miligramos por
+
+272
+00:20:33.353 --> 00:20:38.171
+segundo y newton, un gasto total de
+1 120 kilogramos por segundo y un
+
+273
+00:20:38.211 --> 00:20:45.760
+índice de derivación de 16.4, y aquí eta
+L es igual a la figura de mérito, 0.75.
+
+274
+00:20:47.410 --> 00:20:50.546
+Pongamos los cuatro resultados
+uno al lado del otro.
+
+275
+00:20:50.596 --> 00:20:54.177
+Con el mismo generador de gas y
+la misma temperatura de entrada
+
+276
+00:20:54.217 --> 00:20:57.511
+a la turbina, sustituir el fan
+carenado por una hélice sin
+
+277
+00:20:57.551 --> 00:21:00.787
+carenar multiplica varias veces
+el índice de derivación y
+
+278
+00:21:00.827 --> 00:21:07.328
+reduce el consumo de combustible un
+20 % en crucero y un 35 % en tierra.
+
+279
+00:21:07.378 --> 00:21:14.496
+El rendimiento global sube del
+17.1 al 21.75 % en crucero.
+
+280
+00:21:14.546 --> 00:21:18.828
+El precio es el límite del Mach en la
+punta sobre la velocidad de vuelo, Mach
+
+281
+00:21:18.868 --> 00:21:24.014
+0.8 incluso con palas en flecha, además
+del ruido, la reductora y los problemas
+
+282
+00:21:24.054 --> 00:21:29.014
+de instalación; esa es toda la historia
+de los propfanes y los rotores abiertos.
+
+283
+00:21:30.664 --> 00:21:33.104
+Esta es la segunda página de tu chuleta.
+
+284
+00:21:33.154 --> 00:21:36.576
+Los gastos: núcleo, secundario
+y combustible referido al
+
+285
+00:21:36.616 --> 00:21:41.294
+núcleo, el fan sobre todo el gasto,
+y quién mueve a quién en cada eje.
+
+286
+00:21:41.344 --> 00:21:43.462
+El procedimiento en una línea, que es
+
+287
+00:21:43.502 --> 00:21:46.535
+exactamente la estructura
+del ejercicio 1 A.
+
+288
+00:21:46.585 --> 00:21:49.419
+La teoría de cantidad de
+movimiento y el modelo de
+
+289
+00:21:49.459 --> 00:21:53.890
+rendimiento de la hélice, con la
+reductora en la potencia de la hélice.
+
+290
+00:21:53.940 --> 00:21:57.085
+Y el caso estático: la fórmula
+de la figura de mérito, la
+
+291
+00:21:57.125 --> 00:22:00.606
+comprobación de que no puede pasar
+de uno, y el recordatorio de
+
+292
+00:22:00.646 --> 00:22:05.354
+que los rendimientos propulsivo y global
+son cero cuando el avión no se mueve.
+
+293
+00:22:05.404 --> 00:22:08.822
+En la tercera parte entramos
+dentro del compresor y de la
+
+294
+00:22:08.862 --> 00:22:13.579
+turbina, con triángulos de velocidades
+y los ejercicios 2 A a 3 B.
