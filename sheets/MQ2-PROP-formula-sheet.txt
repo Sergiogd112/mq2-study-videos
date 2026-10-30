@@ -4,10 +4,10 @@ MQ2 PARTIAL EXAMS - PROP FORMULA SHEET
 On-design cycle analysis, propellers and turbomachinery
 
 Scope: T1 on-design analysis (turbojet, turbofan, mixed turbofan and afterburner, turboshaft,
-turboprop, propfan), T2 compressors, T3 turbines; exercises 1A-3B.
+turboprop, propfan), T2 compressors, T3 turbines.
 Rules: The partial allows a 2-sheet cheat sheet (4 faces, free format, handed in): this PDF fills
-the 4 A4 faces (print it double-sided on 2 sheets). Formulas, then the exercise recipes with
-shortcut forms, then data tables and the exercise reference values.
+the 4 A4 faces (print it double-sided on 2 sheets). Formulas, then solving recipes with shortcut
+forms, then data tables.
 Exam: Mon 2 Nov (Visor) or Thu 5 Nov 2026 (Atenea), 15:00
 Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-prop.html
 
@@ -55,7 +55,7 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 * burner: eta_b mdot_f h_PR = (mdot_3 + mdot_f) cp_t Tt4 - mdot_3 cp_c Tt3
       f = (cp_t Tt4 - cp_c Tt3)/(eta_b h_PR - cp_t Tt4) = (tau_lambda - tau_r tau_c)/(eta_b h_PR/(cp_c T0) - tau_lambda)
       pi_b ~ 1 - eps (gamma/2) Mb^2 (eps ~ 2, Mb ~ 0.2)
-    (exercises: pi_b = 0.90, h_PR = 42.5 MJ/kg; stoichiometric f ~ 0.068)
+    (jet fuel h_PR ~ 42.5-42.8 MJ/kg; stoichiometric f ~ 0.068)
 * turbojet spool balance: tau_t = 1 - tau_r (tau_c - 1) / (eta_m (1 + f) tau_lambda);
       pi_t = tau_t^(gamma_t/((gamma_t-1) e_t)) = [1 - (1 - tau_t)/eta_t]^(gamma_t/(gamma_t-1))
 * convergent nozzle, assume choked: Pt/P* = ((gamma+1)/2)^(gamma/(gamma-1)) = 1.832 (1.3), 1.893 (1.4);
@@ -148,11 +148,11 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 * vp = [v0 + sqrt(v0^2 + 2F/(rho0 A_D))]/2;   eta_prop = eta_L eta_P;   eta_L = W_D/W_prop = eta_prop (1 + a) <= 1
     (eta_L > 1: disc too small for the assumed eta_prop; v_prop = ve = 2 vp - v0)
 * eta_prop = 10 M0 eta_max (M0 <= 0.1);  eta_max (0.1-0.7);  eta_max [1 - (M0 - 0.7)/3] (0.7-0.85)
-    (eta_prop,max 0.80-0.85 (exercises 0.9); chart eta_prop = eta_L eta_P, no gearbox)
+    (eta_prop,max 0.80-0.90; chart eta_prop = eta_L eta_P, no gearbox)
 * static: F = (2 rho0 A_D)^(1/3) (FM W_prop)^(2/3);  FM = F^(3/2)/(sqrt(2 rho0 A_D) W_prop) ~ 0.70-0.80;  vs = sqrt(F/(2 rho0 A_D))
     (x2 power -> +59 % static thrust, x2 disc area -> +26 %)
 * model limit: F(M0 = 0) = 10 eta_max W_prop / a0;  FM_implied = (10 eta_max/a0)^(3/2) sqrt(W_prop/(2 rho0 A_D))
-    (FM_implied > 1 is impossible (1B open rotor: 3.0): use the FM formula with FM = 0.75)
+    (FM_implied > 1 is impossible: then use the FM formula with FM = 0.70-0.80)
 * W_prop = eta_g (eta_m,L W_LPT - W_LPC)  (eta_g multiplies BOTH);  F_prop = eta_prop W_prop / v0;  W_D = (1+a) eta_prop W_prop
 * turboprop: beta = mdot_prop/mdot_jet (OUTPUT of the propeller solution), mdot_jet = mdot_0/(1+beta), f = mdot_f/mdot_jet;
       W_prop/mdot_0 = eta_g cp_c T0/(1+beta) [eta_mL (1+f) tau_lambda tau_tH (1 - tau_tL) - tau_r (tau_cL - 1)]
@@ -245,7 +245,7 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
     (gamma 1.33, M_T 0.5: R_t = 0 -> M1 ~ 0.40, M2 ~ 1.48; R_t = 0.5 -> M1 ~ 0.65, M2 ~ 1.14)
 * Zweifel Z = Ft/Ft,max = (2s/c_x) cos^2(a_e) (tan a_i + (u_e/u_i) tan a_e) (u_i/u_e)^2;  stator a1 -> a2, rotor b2 -> b3;
       constant u rotor: Z_r = 2 (s/c_x) cos^2 b3 (tan b2 + tan b3)
-    (design Z 0.8-1.0; the exercises bound Z_r c_x/s (1.8 strict, 2.0 relaxed))
+    (design Z 0.8-1.0; a limit may be given on Z_r c_x/s instead)
 * tangential force per blade: Ft = rho u_i s (v_i + v_e) = rho u_i^2 s (tan a_i + (u_e/u_i) tan a_e);
       Ft,max = (Pti - Pe) c_x = rho u_e^2 c_x / (2 cos^2 a_e)
 * sigma_c ~ rho w^2 A (1 + At/Ah)/(4 pi)  <=>  A N^2 = 3600e3 (sigma_c/rho) / (pi (1 + At/Ah))
@@ -259,10 +259,10 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
   the flow). Sanity: r_m = U/omega and h = A/(2 pi r_m) must be realistic; typical LPT U 350-460
   m/s.
 
-13. FAST SOLVING 1: TURBOFAN, PROPFAN, OPEN ROTOR (EX. 1A, 1B)
---------------------------------------------------------------
-- Part 1 recipe: (1) a0, v0, Tt0, Pt0; Pt2 = pi_d Pt0. (2) Tt13, Tt25, Tt3 from pi and eta, pi_HPC =
-  OPR/(pi_f pi_LPC); Pt by multiplying the pi. (3) f; Pt4 = pi_b Pt3. (4) Tt45, Tt5 from the
+13. FAST SOLVING 1: TWO-SPOOL TURBOFAN AND ITS PROPELLER VERSIONS
+-----------------------------------------------------------------
+- Turbofan recipe: (1) a0, v0, Tt0, Pt0; Pt2 = pi_d Pt0. (2) Tt13, Tt25, Tt3 from pi and eta, pi_HPC
+  = OPR/(pi_f pi_LPC); Pt by multiplying the pi. (3) f; Pt4 = pi_b Pt3. (4) Tt45, Tt5 from the
   shortcuts below; Pt45, Pt5 from eta_t. (5) each nozzle: P* >= P0? -> T9, P9, v9, A9. (6) powers
   (kW), F, TSFC, dEk, efficiencies.
 * v0 = M0 sqrt(gamma_c R_c T0);  Tt0 = T0 (1 + 0.2 M0^2);  Pt0 = P0 (Tt0/T0)^3.5;  rho0 = P0/(R_c T0)
@@ -272,21 +272,22 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 * choked: T* = 2 Tt/(gamma+1), v9 = sqrt(gamma R T*) (M9 = 1), P9 = P*;  matched: P9 = P0, T9 from eta_n, v9 = sqrt(2 cp (Tt - T9));
       A9 = mdot_9 R T9/(P9 v9)
     (T*/Tt = 0.8696 (gamma 1.3), 0.8333 (gamma 1.4))
-- Part 2 recipe (fan replaced by a propeller): mdot_jet = mdot_core; Tt2 -> LPC -> HPC with the same
-  pi_LPC and pi_HPC; f; Tt45 from the HP balance; pi_LPT kept from part 1, so tau_LPT = 1 - eta_LPT
-  (1 - pi_LPT^eps) and Tt5 = tau_LPT Tt45; W_LPT = (1+f) mdot_core cp_t (Tt45 - Tt5); W_prop = eta_g
-  (eta_m W_LPT - W_LPC); core nozzle as before; F_jet = mdot_9 v9 - mdot_core v0 + (P9 - P0) A9.
+- Propfan / open rotor recipe (fan replaced by a propeller): mdot_jet = mdot_core; Tt2 -> LPC -> HPC
+  with the same pi_LPC and pi_HPC; f; Tt45 from the HP balance; pi_LPT kept from the turbofan
+  design, so tau_LPT = 1 - eta_LPT (1 - pi_LPT^eps) and Tt5 = tau_LPT Tt45; W_LPT = (1+f) mdot_core
+  cp_t (Tt45 - Tt5); W_prop = eta_g (eta_m W_LPT - W_LPC); core nozzle as before; F_jet = mdot_9 v9
+  - mdot_core v0 + (P9 - P0) A9.
 * flight: F_prop = eta_prop W_prop/v0 -> vp -> a, W_D = F_prop vp, eta_L = W_D/W_prop;
       static: F_prop = (2 rho0 A_D)^(1/3) (FM W_prop)^(2/3), vp = sqrt(F_prop/(2 rho0 A_D)), W_D = F_prop vp
-    (1A at M0 0.8: eta_prop = 0.9 (1 - 0.1/3) = 0.87, A_D = pi 3.93^2/4 = 12.13 m^2)
+    (at M0 0.8: eta_prop = eta_max (1 - 0.1/3); tractor propeller: A_D = pi D^2/4)
 * mdot_prop = rho0 A_D vp;  bypass = mdot_prop/mdot_core;  mdot_0 = mdot_core + mdot_prop;  dEk = (1/2)(mdot_9 v9^2 - mdot_core v0^2) + W_D
 
-14. FAST SOLVING 2: REPEATING COMPRESSOR STAGE (EX. 2A, 2B)
------------------------------------------------------------
-- 2A: U = omega r_m; the chart at a1 gives omega r/V1 and a2 -> V1, M1 = V1/a1. 2B: from pi_c, n_s,
-  e_c take dTt below, pick M1 (0.4-0.6) on the chart -> a1, a2; T1, P1 from Tt1, Pt1, M1; V1 = M1
-  sqrt(gamma R T1). Then the same chain: triangle, rotor in the relative frame, stator in the
-  absolute frame, stage figures.
+14. FAST SOLVING 2: REPEATING COMPRESSOR STAGE
+----------------------------------------------
+- Given N and r_m: U = omega r_m; the design chart at a1 gives omega r/V1 and a2 -> V1, M1 = V1/a1.
+  Given pi_c, n_s, e_c: take dTt below, pick M1 (0.4-0.6) on the chart -> a1, a2; T1, P1 from Tt1,
+  Pt1, M1; V1 = M1 sqrt(gamma R T1). Then the same chain: triangle, rotor in the relative frame,
+  stator in the absolute frame, stage figures.
 * u = V1 cos(a1);  tan a2 = U/u - tan a1 (v1 + v2 = U);  V2 = u/cos(a2);  V1R = V2, V2R = V1;  dTt = (V2^2 - V1^2)/cp
 * Tt1R = T1 + V2^2/(2cp) = Tt2R;  T2 = Tt1R - V1^2/(2cp);  Tt2 = Tt1 + dTt = Tt3;  T3 = Tt2 - V1^2/(2cp);  Tt3R = T3 + V2^2/(2cp)
 * Pt1R = P1 (Tt1R/T1)^3.5;  Pt2R = Pt1R - phi_cr rho1 V2^2/2 (or L_R Pt1R);  P2 = Pt2R (T2/Tt1R)^3.5;  Pt2 = P2 (Tt2/T2)^3.5
@@ -299,12 +300,12 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
     (check: V2^2 = V1^2 + cp dTt; n stages: pi_c = (1 + n dTt/Tt1)^(gamma e_c/(gamma-1)), not
     pi_cs^n)
 
-15. FAST SOLVING 3: TURBINE STAGE (EX. 3A, 3B)
-----------------------------------------------
-- Tt1, Pt1, Tt3, Pt3 and mdot from the cycle (3A: LPT of 1B, 45 -> 5; 3B: HPT of 1A, 4 -> 45). Psi
-  from the reaction; on the map take the LARGEST Psi/Phi with a2 <= 70 deg and the Zweifel limit;
-  Phi = Psi/(Psi/Phi); U = sqrt(cp dTt/Psi), u = Phi U; angles and speeds below; thermodynamics
-  BACKWARDS from the exit; L_S, eta_ts; A2 and sigma_c/rho.
+15. FAST SOLVING 3: AXIAL TURBINE STAGE
+---------------------------------------
+- Tt1, Pt1, Tt3, Pt3 and mdot from the cycle (HPT: 4 -> 45, LPT: 45 -> 5). Psi from the reaction; on
+  the map take the LARGEST Psi/Phi with a2 <= 70 deg and the Zweifel limit; Phi = Psi/(Psi/Phi); U =
+  sqrt(cp dTt/Psi), u = Phi U; angles and speeds below; thermodynamics BACKWARDS from the exit; L_S,
+  eta_ts; A2 and sigma_c/rho.
 * zero exit swirl, constant u: tan a2 = Psi/Phi;  tan b2 = (Psi - 1)/Phi;  tan b3 = 1/Phi;  R_t = 1 - Psi/2
     (50 %: Psi = 1, b2 = 0, b3 = a2;  0 %: Psi = 2, tan b2 = tan b3 = 1/Phi, tan a2 = 2/Phi)
 * V2 = u/cos(a2);  V2R = u/cos(b2);  V3 = u;  V3R = u/cos(b3) = sqrt(u^2 + U^2);  v2 = Psi U
@@ -370,58 +371,9 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
   12     | 216.65 | 0.1933  | 0.3108       | 0.2537 | 295.1
   13     | 216.65 | 0.1651  | 0.2655       | 0.2167 | 295.1
 - T = 288.15 - 6.5 h (h in km) up to 11 km, then 216.65 K; P = 1.01325 (T/288.15)^5.2559 bar below
-  11 km, P = 0.22632 exp(-0.1577 (h - 11)) above. The exercises give their own T0, P0 (1A: 216.80 K,
-  0.2273 bar): use those.
+  11 km, P = 0.22632 exp(-0.1577 (h - 11)) above. If the statement gives T0 and P0, use those.
 
-19. EXERCISE REFERENCE VALUES (CHECK YOUR WORKING)
---------------------------------------------------
-  Stn | 1A Tt (K) | 1A Pt (bar) | 1B Tt (K) | 1B Pt (bar)
-  ----+-----------+-------------+-----------+------------
-  0   | 244.55    | 0.3465      | 288.19    | 1.0150
-  2   | 244.55    | 0.3396      | 288.19    | 0.9947
-  13  | 268.30    | 0.4482      | 316.18    | 1.313
-  25  | 457.02    | 2.241       | 538.58    | 6.565
-  3   | 771.24    | 10.39       | 908.86    | 30.44
-  4   | 1600      | 9.351       | 1600      | 27.39
-  45  | 1339.69   | 3.491       | 1292.21   | 8.318
-  5   | 1045.60   | 0.8874      | 944.48    | 1.446
-- 1A (11 km, M0 0.8, mdot_0 170, core 24.29 kg/s): core nozzle CHOKED T9 909.2 K, P9 0.447 bar, v9
-  581.3 m/s, A9 0.251 m^2; fan nozzle matched M19 0.97, v19 292.5 m/s. W_fan 4056, W_LPC 4604, W_HPC
-  7666 kW; f 0.0301; F 22.51 kN; TSFC 32.49 mg/(N s); eta_T 18.4 %, eta_P 92.9 %, eta_O 17.1 %.
-- 1B (sea level static, mdot_0 450): both nozzles matched, M9 0.71 (v9 404.1), M19 0.58 (v19 201.3).
-  W_fan 12652, W_LPC 14361, W_HPC 23911 kW; f 0.0267; F 104.3 kN; TSFC 16.44 mg/(N s); eta_T 18.1 %.
-  Propeller version          | 1A propfan (D 3.93 m)              | 1B open rotor (A_D 12.03 m^2)
-  ---------------------------+------------------------------------+--------------------------------------------
-  Tt3 / Tt45 / Tt5 (K)       | 702.96 / 1363.13 / 1063.90         | 828.41 / 1320.00 / 964.80
-  W_LPC / W_HPC / W_LPT (kW) | 4196 / 6987 / 9290                 | 13090 / 21794 / 29104
-  W_prop (kW), f             | 4583, 0.0318                       | 14413, 0.0287
-  F_jet + F_prop = F (kN)    | 13.38 + 16.89 = 30.27              | 20.40 + 151.1 = 171.5 (FM 0.75)
-  TSFC (mg/(N s))            | 25.54                              | 10.75
-  mdot_0 (kg/s), bypass      | 1105, 44.5                         | 1120, 16.4
-  a, eta_L, efficiencies     | 0.033, 0.90; 23.6 / 92.2 / 21.75 % | 10 eta W/a0 = 381 kN -> FM 3.0 (impossible)
-  Compressor              | 2A (T1 298 K, P1 1 bar)          | 2B (Tt1 306.53 K, Pt1 1.13 bar)
-  ------------------------+----------------------------------+---------------------------------
-  a1, a2, M1              | 30, 51.79 deg, 0.38              | 26, 50 deg, 0.45
-  V1, u, U, V2 (m/s)      | 130.9, 113.4, 209.4, 183.3       | 154.8, 139.2, 233.7, 216.5
-  Tt1R, Pt1R, Pt2R        | 314.72 K, 1.211, 1.207 bar       | 317.93 K, 1.284, 1.281 bar
-  T2, P2, Tt2, Pt2        | 306.19 K, 1.096, 322.91 K, 1.320 | 305.99 K, 1.120, 329.32 K, 1.449
-  Pt3, T3                 | 1.316 bar, 314.38 K              | 1.416 bar, 317.39 K
-  dTt, pi_cs, eta_cs, R_c | 16.38 K, 1.192, 96.4 %, 0.5      | 22.79 K, 1.2535, 89.7 %, 0.5
-  9 stages                | e_c 96.5 %, pi_c 3.77            | Tt exit 511.66 K, eta_c 87.24 %
-  Turbine                     | 3A LPT of 1B (R 0.5)             | 3B HPT of 1A (R 0, strict / relaxed)
-  ----------------------------+----------------------------------+----------------------------------------
-  Psi, Psi/Phi, a2            | 1, 2.5, 68.2 deg                 | 2; 1 / 2.5; 45 / 68.2 deg
-  dTt, U, u (m/s)             | 347.7 K, 656.4, 262.6            | 260.3 K, 401.6, 803.1 / 321.3
-  b2, b3 (deg)                | 0, 68.2                          | 26.57 / 51.34 (b3 = b2)
-  V2, V2R (m/s)               | 706.9, 262.6                     | 1135.8, 898.0 / 865.0, 514.3
-  T2, P2, Pt2 (L_S)           | 1090.5 K, 3.33, 6.94 bar (0.835) | 1079.4 / 1298.0 K; Pt2 8.37 bar (0.896)
-  M2, A2 (m^2)                | 1.11, 0.229                      | 1.79, 0.061 / 1.25, 0.083
-  N, sigma_c/rho (MPa/(g/cc)) | 2500 rpm, 2.26 (any alloy)       | 25000 rpm: 60.2 / 81.4 (single crystal)
-- 3B old official sheet slips: N printed 20 000 rpm (38.5 there), alpha2 45.58 vs Psi/Phi = 1, T2
-  1089.7, eta_ts 83 %; values above recomputed with Pt4 = 9.351 bar and L_R 0.9. 3B strict needs C-D
-  vanes (M2 1.79) and has M3R 1.42.
-
-20. COMMON SLIPS
+19. COMMON SLIPS
 ----------------
 - Choked ratio exponent is gamma/(gamma-1) (1.832), not gamma/(gamma+1). e divides for compressors,
   multiplies for turbines. Fan work uses ALL the flow mdot_0. eta_g multiplies BOTH the LPT and LPC
