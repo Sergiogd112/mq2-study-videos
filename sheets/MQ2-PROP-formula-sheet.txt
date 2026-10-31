@@ -1,25 +1,23 @@
-MQ2 PARTIAL EXAMS - PROP FORMULA SHEET
-======================================
+MQ2 - PROP FORMULA SHEET
+========================
 220308 Sistemes de Propulsio d'Aeronaus
 On-design cycle analysis, propellers and turbomachinery
 
 Scope: T1 on-design analysis (turbojet, turbofan, mixed turbofan and afterburner, turboshaft,
 turboprop, propfan), T2 compressors, T3 turbines.
-Rules: The partial allows a 2-sheet cheat sheet (4 faces, free format, handed in): this PDF fills
-the 4 A4 faces (print it double-sided on 2 sheets). Formulas by topic, then data tables.
-Exam: Mon 2 Nov (Visor) or Thu 5 Nov 2026 (Atenea), 15:00
+Rules: Formula sheet, 2 A4 sheets (4 faces). Formulas by topic, then data tables.
 Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-prop.html
 
 Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
 ~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
-Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
-beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+Greek letters are spelled out (gamma, eta, pi, ...);
+a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 1. GAS, TOTALS AND MASS FLOW
 ----------------------------
 - Cold gas (stations 0-3, 13-19): gamma_c = 1.4, cp_c = 1004.5 J/(kg K), R_c = 287 J/(kg K). Hot gas
-  (4-9): gamma_t = 1.3, cp_t = 1239 J/(kg K), R_t = cp_t (gamma_t-1)/gamma_t = 285.9 J/(kg K). Use
-  R_t at hot stations.
+  (4-9): gamma_t = 1.3, cp_t = 1239 J/(kg K), R_t = cp_t (gamma_t-1)/gamma_t = 285.9 J/(kg K). R_t
+  applies at hot stations.
 * P = rho R T;  R = cp (gamma-1)/gamma;  a = sqrt(gamma R T);  rho1 v1 A1 = rho2 v2 A2
 * Q - W = mdot [(h + v^2/2)_out - (h + v^2/2)_in]
     (W > 0 extracted (turbine), W < 0 delivered (compressor))
@@ -57,24 +55,25 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
     (jet fuel h_PR ~ 42.5-42.8 MJ/kg; stoichiometric f ~ 0.068)
 * turbojet spool balance: tau_t = 1 - tau_r (tau_c - 1) / (eta_m (1 + f) tau_lambda);
       pi_t = tau_t^(gamma_t/((gamma_t-1) e_t)) = [1 - (1 - tau_t)/eta_t]^(gamma_t/(gamma_t-1))
-* convergent nozzle, assume choked: Pt/P* = ((gamma+1)/2)^(gamma/(gamma-1)) = 1.832 (1.3), 1.893 (1.4);
+* convergent nozzle, choked: Pt/P* = ((gamma+1)/2)^(gamma/(gamma-1)) = 1.832 (1.3), 1.893 (1.4);
       with eta_n: T* = 2 Tt/(gamma+1), P* = Pt [1 - (1 - T*/Tt)/eta_n]^(gamma/(gamma-1))
-    (P* >= P0 -> choked, P9 = P*, M9 = 1; else matched P9 = P0, M9 < 1)
+    (choked if P* >= P0 (P9 = P*, M9 = 1), otherwise P9 = P0, M9 < 1;  T*/Tt = 0.8696 (gamma 1.3),
+    0.8333 (gamma 1.4))
 * matched or C-D nozzle with eta_n: T9 = Tt5 [1 - eta_n (1 - (P9/Pt5)^((gamma_t-1)/gamma_t))];
       M9 = sqrt(2/(gamma_t-1) (Tt9/T9 - 1));  v9 = sqrt(2 cp_t (Tt5 - T9))
-    (eta_n route refers to Pt5; pi_n route uses Pt9 = pi_n Pt5 and M9 from Pt9/P9)
+    (eta_n is defined from Pt5; pi_n gives Pt9 = pi_n Pt5 and M9 from Pt9/P9)
 * fan nozzle: Pt19/P19 = (P0/P19) pi_r pi_d pi_f pi_fn;  Tt19 = Tt13, cold gas
     (civil fan nozzle: convergent and often unchoked at cruise)
 
 4. THRUST AND PERFORMANCE
 -------------------------
 * F = mdot_9 v9 - mdot_0 v0 + (P9 - P0) A9;   A9 = mdot_9 R T9 / (P9 v9);   impulse function I = P A (1 + gamma M^2)
-    (two streams: add mdot_19 v19 + (P19 - P0) A19; force on a component = I_in - I_out)
+    (two streams: extra term mdot_19 v19 + (P19 - P0) A19; force on a component = I_in - I_out)
 * installed F_inst = F - D_nac - D_add;  F_adim = F/(a0 mdot_0);  Isp = F/(mdot_f g) = 1/(g TSFC), g = 9.81
 * TSFC = mdot_f / F;  eta_T = dEk/(mdot_f h_PR);  eta_P = F v0 / dEk;  eta_O = eta_T eta_P = F v0/(mdot_f h_PR) = v0/(h_PR TSFC)
     (TSFC in mg/(N s) = 1e-6 kg/(N s); uninstalled F in the efficiencies)
 * dEk = (1/2)(mdot_9 v9^2 + mdot_19 v19^2 - mdot_0 v0^2);   one matched stream: eta_P ~ 2/(1 + v9/v0)
-    (eta_P with the FULL thrust (pressure terms included); static (v0 = 0): eta_P = eta_O = 0)
+    (eta_P includes the pressure thrust; static (v0 = 0): eta_P = eta_O = 0)
 * Pt9/P9 = (P0/P9) pi_r pi_d pi_c pi_b pi_t pi_n;   M9 = sqrt( 2/(gamma_t-1) [ (Pt9/P9)^((gamma_t-1)/gamma_t) - 1 ] )
 * T9/T0 = tau_lambda tau_t (cp_c/cp_t) / (Pt9/P9)^((gamma_t-1)/gamma_t);   v9/a0 = M9 sqrt(gamma_t R_t T9 / (gamma_c R_c T0))
 * F/mdot_0 = a0 [ (1+f) v9/a0 - M0 + (1+f) (R_t/R_c) (T9/T0)/(v9/a0) (1 - P0/P9)/gamma_c ];   TSFC = f / (F/mdot_0)
@@ -87,7 +86,7 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 * alpha = mdot_sec/mdot_core;  mdot_core = mdot_0/(1+alpha);  mdot_f = f mdot_core;  TSFC = f / ((1+alpha) F/mdot_0)
 * HP spool: W_HPC = eta_m,HP (1+f) mdot_core cp_t (Tt4 - Tt45),  W_HPC = mdot_core cp_c (Tt3 - Tt25)
 * LP spool: W_fan + W_LPC = eta_m,LP (1+f) mdot_core cp_t (Tt45 - Tt5);
-      W_fan = mdot_0 cp_c (Tt13 - Tt2) (ALL the flow);  W_LPC = mdot_core cp_c (Tt25 - Tt13)
+      W_fan = mdot_0 cp_c (Tt13 - Tt2) (total inlet flow);  W_LPC = mdot_core cp_c (Tt25 - Tt13)
 * OPR = pi_f pi_LPC pi_HPC;   compressor Tt_out = Tt_in [1 + (pi^eps - 1)/eta];
       turbine Pt_out/Pt_in = [1 - (1 - Tt_out/Tt_in)/eta_t]^(gamma_t/(gamma_t-1))
 * F = mdot_9 v9 + mdot_19 v19 - mdot_0 v0 + (P9 - P0) A9 + (P19 - P0) A19;   FR = (F_core/mdot_core)/(F_sec/mdot_sec)
@@ -97,11 +96,11 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 6. MIXED EXHAUST, MIXER AND AFTERBURNER
 ---------------------------------------
 - Long-duct turbofan: fan duct pi_fd = Pt16/Pt13 = 0.98-0.99, tau_fd = 1. Kutta condition at the
-  splitter: P6 = P16; design approximation Pt6 ~ Pt16 closes the cycle, so the bypass ratio becomes
-  an OUTPUT.
+  splitter: P6 = P16; design approximation Pt6 ~ Pt16 closes the cycle, with alpha set by the
+  pressure match.
 * pressure match: pi_t = pi_fd pi_f/(pi_b pi_c);  tau_t = pi_t^((gamma_t-1) e_t/gamma_t);
       alpha = [eta_m (1+f) tau_lambda (1 - tau_t) - tau_r (tau_c - 1)] / [tau_r (tau_f - 1)]
-    (negative or huge alpha: pi_f, pi_c, Tt4 cannot be matched; f does not depend on alpha)
+    (a physical alpha (>= 0) exists only for compatible pi_f, pi_c, Tt4; f is independent of alpha)
 * mixer entry: Pt6/P0 = pi_r pi_d pi_c pi_b pi_t, Tt6/T0 = tau_lambda tau_t cp_c/cp_t;
       Pt16/P0 = pi_r pi_d pi_f pi_fd, Tt16/T0 = tau_r tau_f
 * alpha' = mdot_16/mdot_6 = alpha/(1+f);  cp_6A = (cp_6 + alpha' cp_16)/(1+alpha');  R_6A = (R_6 + alpha' R_16)/(1+alpha');
@@ -112,14 +111,14 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
     (M6 = 0.4-0.5 is a design choice)
 * A16/A6 = alpha' sqrt(R16 Tt16/(R6 Tt6)) (Pt6/Pt16) MFP(gamma_6, M6)/MFP(gamma_16, M16);   A6A = A6 + A16
 * momentum (constant area): P6A A6A (1 + gamma_6A M6A^2) = P6 A6 [ (1 + gamma_6 M6^2) + (A16/A6)(1 + gamma_16 M16^2) ]
-    (solve for M6A (iterate from M6A = M6, subsonic root))
+    (implicit in M6A (subsonic root))
 * pi_M = Pt6A/Pt6 = pi_M,max (1+alpha') sqrt(R6A Tt6A/(R6 Tt6)) (A6/A6A) MFP(gamma_6, M6)/MFP(gamma_6A, M6A)
     (pi_M,max ~ 0.97 (friction); the rest is mixing loss)
 * afterburner: f_AB = (1 + f + alpha)(cp_AB Tt7 - cp_6A Tt6A)/(eta_AB h_PR - cp_AB Tt7);  pi_AB = Pt7/Pt6A;  f_tot = f + f_AB
     (fuel fractions referred to the core flow; turbojet: alpha = 0 and station 6 for 6A; dry: pi_AB
     = tau_AB = 1, f_AB = 0)
 * constant area A7 = A6A: MFP(gamma_7, M7) = (1+alpha+f_tot)/(1+alpha+f) MFP(gamma_6A, M6A) sqrt(R7 Tt7/(R6A Tt6A)) Pt6A/Pt7
-    (thermal choking if the right side > MFP(1) = 0.667 (gamma 1.3): keep the afterburner inlet M ~
+    (thermal choking if the right side > MFP(1) = 0.667 (gamma 1.3); afterburner inlet M typically
     0.2-0.3)
 * single nozzle: Pt9/P9 = (P0/P9) pi_r pi_d pi_c pi_b pi_t pi_M pi_AB pi_n (Tt9 = Tt7, gamma_7, R_7);  TSFC = f_tot/((1+alpha) F/mdot_0)
 * F/mdot_0 = a0/(1+alpha) [ (1+f_tot+alpha) v9/a0 - (1+alpha) M0 + (1+f_tot+alpha)(R_6A/R_c)(T9/T0)/(v9/a0)(1 - P0/P9)/gamma_c ]
@@ -140,26 +139,26 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 ------------------------------------
 * actuator disc: vp = (v0 + ve)/2;  a = (vp - v0)/v0;  F = 2 mdot a v0;  mdot = rho0 A_D vp;  W_D = F vp;  eta_P = 1/(1+a)
 * vp = [v0 + sqrt(v0^2 + 2F/(rho0 A_D))]/2;   eta_prop = eta_L eta_P;   eta_L = W_D/W_prop = eta_prop (1 + a) <= 1
-    (eta_L > 1: disc too small for the assumed eta_prop; v_prop = ve = 2 vp - v0)
+    (eta_L <= 1 bounds eta_prop for a given disc; v_prop = ve = 2 vp - v0)
 * eta_prop = 10 M0 eta_max (M0 <= 0.1);  eta_max (0.1-0.7);  eta_max [1 - (M0 - 0.7)/3] (0.7-0.85)
     (eta_prop,max 0.80-0.90; chart eta_prop = eta_L eta_P, no gearbox)
 * static: F = (2 rho0 A_D)^(1/3) (FM W_prop)^(2/3);  FM = F^(3/2)/(sqrt(2 rho0 A_D) W_prop) ~ 0.70-0.80;  vs = sqrt(F/(2 rho0 A_D))
-    (x2 power -> +59 % static thrust, x2 disc area -> +26 %)
+    (F_static ~ W_prop^(2/3) A_D^(1/3))
 * model limit: F(M0 = 0) = 10 eta_max W_prop / a0;  FM_implied = (10 eta_max/a0)^(3/2) sqrt(W_prop/(2 rho0 A_D))
-    (valid while FM_implied <= 1; real static FM 0.70-0.80)
-* W_prop = eta_g (eta_m,L W_LPT - W_LPC)  (eta_g multiplies BOTH);  F_prop = eta_prop W_prop / v0;  W_D = (1+a) eta_prop W_prop
+    (FM_implied <= 1 within the model; measured static FM 0.70-0.80)
+* W_prop = eta_g (eta_m,L W_LPT - W_LPC);  F_prop = eta_prop W_prop / v0;  W_D = (1+a) eta_prop W_prop
 * turboprop: beta = mdot_prop/mdot_jet (set by the propeller), mdot_jet = mdot_0/(1+beta), f = mdot_f/mdot_jet;
       W_prop/mdot_0 = eta_g cp_c T0/(1+beta) [eta_mL (1+f) tau_lambda tau_tH (1 - tau_tL) - tau_r (tau_cL - 1)]
     (tau_tH from the HP balance with tau_r tau_cL (tau_cH - 1) on top)
 * thrust power (matched nozzle): v0 F/mdot_0 = eta_prop W_prop/mdot_0 + (gamma_c-1)/(1+beta) M0 [(1+f) v9/a0 - M0] cp_c T0
-* mdot_prop = rho0 A_D vp;  dEk = (1/2) mdot_9 v9^2 - (1/2) mdot_jet v0^2 + W_D (DISC power);
+* mdot_prop = rho0 A_D vp;  dEk = (1/2) mdot_9 v9^2 - (1/2) mdot_jet v0^2 + W_D (W_D: disc power);
       TSFC = f/((1+beta) F/mdot_0);  PSFC = f/((1+beta) W_prop/mdot_0)
     (Mattingly uses W_prop instead of W_D: same eta_O, lower eta_P and higher eta_T)
 * J = v0/(N D);  C_P = W_prop/(rho0 N^3 D^5) (N in rev/s);  eta_prop = (C_F/C_P) J, C_F = F/(rho0 N^2 D^4);  M_tip = sqrt(v0^2 + (pi N D)^2)/a0
     (C_P = 1.76327e8 W[kW]/(sigma N[rpm]^3 D^5); drag divergence near M0 0.7, swept thin blades
     reach ~ 0.8)
 * optimum free-turbine expansion: tau_tL* = tau_tH^(-1/e_tH)/PI tau_tL^(-(1-e_tL)/e_tL)
-      + A [1 + (1-e_tL)/e_tL tau_tH^(-1/e_tH) tau_tL^(-1/e_tL)/PI]^2   (iterate from e_tL = 1: tau_tL,0 = tau_tH^(-1/e_tH)/PI + A)
+      + A [1 + (1-e_tL)/e_tL tau_tH^(-1/e_tH) tau_tL^(-1/e_tL)/PI]^2   (e_tL = 1: tau_tL* = tau_tH^(-1/e_tH)/PI + A)
 * A = [(gamma_c-1)/2 M0^2] / [tau_lambda tau_tH (eta_prop eta_g eta_mL)^2];   PI = (pi_r pi_d pi_cL pi_cH pi_b pi_n)^((gamma_t-1)/gamma_t)
     (faster flight or worse propeller -> larger tau_tL*: more energy left in the jet)
 * propfan / open rotor: alpha1 = mdot_prop/mdot_jet (output), alpha2 = mdot_sec/mdot_core (design);
@@ -175,11 +174,11 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 
 10. TURBOMACHINERY: EULER AND CONVENTIONS
 -----------------------------------------
-* torque tau_A = mdot (r_e v_e - r_i v_i);   h_te - h_ti = omega (r_e v_e - r_i v_i)  (work INTO the fluid)
-* mean line U = omega r_m:  compressor cp dTt = U (v2 - v1);  turbine cp dTt = U (v2 + v3)  (swirls ADD)
-* V = V_R + U;  v = u tan(alpha);  v_R = u tan(beta)  (angles from the AXIAL direction);  r_m = (r_t + r_h)/2;  omega = 2 pi N/60
-    (compressor: rotor 1-2 then stator 2-3, v + v_R = U; turbine: nozzle 1-2 then rotor 2-3, v2R =
-    v2 - U, v3R = v3 + U (v3 positive AGAINST U))
+* torque tau_A = mdot (r_e v_e - r_i v_i);   h_te - h_ti = omega (r_e v_e - r_i v_i)  (work done on the fluid)
+* mean line U = omega r_m:  compressor cp dTt = U (v2 - v1);  turbine cp dTt = U (v2 + v3)  (v3 measured opposite to U)
+* V = V_R + U;  v = u tan(alpha);  v_R = u tan(beta)  (angles measured from the axial direction);  r_m = (r_t + r_h)/2;  omega = 2 pi N/60
+    (compressor: rotor 1-2, stator 2-3, v + v_R = U; turbine: nozzle 1-2, rotor 2-3, v2R = v2 - U,
+    v3R = v3 + U (v3 positive opposite to U))
 - P, T, rho are frame-invariant; Tt, Pt, M are not. Rotor: Tt,R constant (same radius). Stator: Tt
   constant.
 
@@ -198,15 +197,15 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
       Carter: compressor d = (g_i - g_e)/(4 sqrt(sigma));  turbine d = (g_i + g_e)/(8 sqrt(sigma))  (g = metal angle)
 * compressor exit metal angle from the wanted exit flow angle: g_e = (4 a_e sqrt(sigma) - g_i)/(4 sqrt(sigma) - 1)
 * repeating stage (a1 = b2, b1 = a2, u const, R = 0.5): v1 + v2 = U;  cp dTt = V2^2 - V1^2;  w r / V1 = cos(a1) (tan a1 + tan a2)
-    (V1R = V2, V2R = V1: solve one triangle; T3 = Tt3 - V1^2/(2cp))
+    (V1R = V2, V2R = V1 (symmetric triangles); T3 = Tt3 - V1^2/(2cp))
 * tau_cs = 1 + (gamma-1) M1^2 / (1 + (gamma-1)/2 M1^2) * (cos^2 a1 / cos^2 a2 - 1);
       Psi = (tan a2 - tan a1)/(tan a1 + tan a2);  Phi = 1/(tan a1 + tan a2)
 * repeating stage: D = 1 - cos a2/cos a1 + (tan a2 - tan a1) cos(a2)/(2 sigma);  M3 = M1 sqrt(T1/T3);  pi_cs = tau_cs^(gamma e_c/(gamma-1))
-* multistage: pi_c = [(Tt1 + n_s dTt)/Tt1]^(gamma e_c/(gamma-1));  n_s ~ Tt1 (pi_c^((gamma-1)/(gamma e_c)) - 1)/dTt_stage (round up);
+* multistage: pi_c = [(Tt1 + n_s dTt)/Tt1]^(gamma e_c/(gamma-1));  n_s ~ Tt1 (pi_c^((gamma-1)/(gamma e_c)) - 1)/dTt_stage (n_s integer);
       exit M = M1 sqrt(T1/(T1 + n_s dTt))
     (stage ratios fall along the machine: pi_c != pi_cs^n; first stage set by inlet guide vanes)
 * radial equilibrium: dht/dr = u du/dr + v dv/dr + v^2/r;  free vortex (r v = const, u const): R = 1 - (1 - R_m)(r_m/r)^2
-    (reaction lowest at the hub (turbine: keep R_t > -0.15 there))
+    (reaction lowest at the hub (turbine hub R_t typically > -0.15))
 * annulus A = mdot sqrt(R Tt)/(Pt cos(alpha) MFP(M));  r_t = sqrt(A / (pi [1 - (r_h/r_t)^2]));  h = A/(2 pi r_m);
       omega = U_t/r_t, N = 30 omega/pi
     (hub/tip 0.60-0.75 at HPC inlet, 0.90-0.92 at exit; Pt in Pa)
@@ -230,22 +229,20 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
     (zero swirl + 0 %: Psi = 2, v2 = 2U, v2R = v3R = U; zero swirl + 50 %: Psi = 1; Psi > 2 means
     R_t < 0)
 * design map: Phi = 1/(tan a2 - tan b2);  U = sqrt(cp dTt / Psi);  u = Phi U
-    (map axes: turning b2 + b3 vs b2; design point: largest Psi/Phi with a2 <= 70 deg within the
-    Zweifel limit)
+    (map axes: turning b2 + b3 vs b2; usual limits a2 <= 70 deg and Z 0.8-1.0)
 * stage efficiency eta_ts = (1 - Tt3/Tt1)/(1 - (Pt3/Pt1)^((gamma-1)/gamma));   e_ts = gamma/(gamma-1) ln(Tt3/Tt1)/ln(Pt3/Pt1)
-* general stage (known M2, U): zero exit swirl sin a2 = Psi U/V2;  R_t = 1 - (1/(2 Psi)) (V2/U)^2 [1 - (V3/V2)^2];
+* general stage, zero exit swirl: sin a2 = Psi U/V2;  R_t = 1 - (1/(2 Psi)) (V2/U)^2 [1 - (V3/V2)^2];
       T3 = T2 - R_t (Tt1 - Tt3);  M3 = M2 (V3/V2) sqrt(T2/T3)
 * swirl Mach number: M2 sin(a2) = 2 M_T (1 - R_t), M_T = U/a2;
       max-work nozzle exit M2,opt = sqrt( 2/(gamma-1) [ (2 (1 + (gamma-1)/2 M1^2)^((gamma+1)/(gamma-1)) / ((gamma+1) M1^2))^((gamma-1)/2) - 1 ] )
-    (gamma 1.33, M_T 0.5: R_t = 0 -> M1 ~ 0.40, M2 ~ 1.48; R_t = 0.5 -> M1 ~ 0.65, M2 ~ 1.14)
 * Zweifel Z = Ft/Ft,max = (2s/c_x) cos^2(a_e) (tan a_i + (u_e/u_i) tan a_e) (u_i/u_e)^2;  stator a1 -> a2, rotor b2 -> b3;
       constant u rotor: Z_r = 2 (s/c_x) cos^2 b3 (tan b2 + tan b3)
-    (design Z 0.8-1.0; a limit may be given on Z_r c_x/s instead)
+    (design Z 0.8-1.0; equivalent loading parameter Z_r c_x/s)
 * tangential force per blade: Ft = rho u_i s (v_i + v_e) = rho u_i^2 s (tan a_i + (u_e/u_i) tan a_e);
       Ft,max = (Pti - Pe) c_x = rho u_e^2 c_x / (2 cos^2 a_e)
 * sigma_c ~ rho w^2 A (1 + At/Ah)/(4 pi)  <=>  A N^2 = 3600e3 (sigma_c/rho) / (pi (1 + At/Ah))
-    (N in rpm, A in m^2, sigma_c/rho in MPa/(g/cm^3) = 1000 m^2/s^2; too high: lower N, change
-    taper, add a stage)
+    (N in rpm, A in m^2, sigma_c/rho in MPa/(g/cm^3) = 1000 m^2/s^2; reduced by lower N, more taper
+    or more stages)
 * disk shape factor DSF = (omega r_r)^2 rho/(2 sigma_d);  thermal: sigma_tr = alpha E dT/3 (1 - r/r_h), sigma_ttheta = alpha E dT/3 (1 - 2 r/r_h)
     (cooled blades allow A N^2 ~ 4-5e10 in^2 rpm^2)
 * multistage turbine: equal dTt per stage, Tt3(n) = Tt1(1) - n_s dTt  (same Psi and R_t per stage at equal U)
@@ -253,31 +250,23 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 - Choking: first nozzle M2 > 1 and rotor exit M3R < 0.9 (a 50 % first stage, Psi = 1, cannot meter
   the flow). r_m = U/omega, h = A/(2 pi r_m); typical LPT U 350-460 m/s.
 
-13. TWO-SPOOL TURBOFAN AND PROPELLER CONVERSION
------------------------------------------------
-- pi_HPC = OPR/(pi_f pi_LPC);  Pt2 = pi_d Pt0;  Pt4 = pi_b Pt3;  each nozzle choked if P* >= P0,
-  matched otherwise.
-* v0 = M0 sqrt(gamma_c R_c T0);  Tt0 = T0 (1 + 0.2 M0^2);  Pt0 = P0 (Tt0/T0)^3.5;  rho0 = P0/(R_c T0)
+13. TWO-SPOOL TURBOFAN AND PROPFAN
+----------------------------------
 * spool balances per unit core flow: Tt45 = Tt4 - cp_c (Tt3 - Tt25)/(eta_mH (1+f) cp_t);
       Tt5 = Tt45 - cp_c [(1+alpha)(Tt13 - Tt2) + (Tt25 - Tt13)]/(eta_mL (1+f) cp_t)
-* turbine: tau_t = 1 - eta_t (1 - pi_t^((gamma_t-1)/gamma_t))  <=>  pi_t = [1 - (1 - tau_t)/eta_t]^(gamma_t/(gamma_t-1))  (exponent 4.333)
-* choked: T* = 2 Tt/(gamma+1), v9 = sqrt(gamma R T*) (M9 = 1), P9 = P*;  matched: P9 = P0, T9 from eta_n, v9 = sqrt(2 cp (Tt - T9));
-      A9 = mdot_9 R T9/(P9 v9)
-    (T*/Tt = 0.8696 (gamma 1.3), 0.8333 (gamma 1.4))
-- Fan replaced by a propeller (propfan, open rotor), same core: mdot_jet = mdot_core; Tt2 -> LPC ->
-  HPC with the same pi_LPC and pi_HPC; f; Tt45 from the HP balance; pi_LPT kept from the turbofan
-  design, so tau_LPT = 1 - eta_LPT (1 - pi_LPT^eps) and Tt5 = tau_LPT Tt45; W_LPT = (1+f) mdot_core
-  cp_t (Tt45 - Tt5); W_prop = eta_g (eta_m W_LPT - W_LPC); core nozzle as before; F_jet = mdot_9 v9
-  - mdot_core v0 + (P9 - P0) A9.
-* flight: F_prop = eta_prop W_prop/v0 -> vp -> a, W_D = F_prop vp, eta_L = W_D/W_prop;
+- Propeller on a turbofan core (propfan, open rotor): mdot_jet = mdot_core;  tau_LPT = 1 - eta_LPT
+  (1 - pi_LPT^eps);  W_LPT = (1+f) mdot_core cp_t Tt45 (1 - tau_LPT);  W_prop = eta_g (eta_mL W_LPT
+  - W_LPC);  F_jet = mdot_9 v9 - mdot_core v0 + (P9 - P0) A9.
+* flight: F_prop = eta_prop W_prop/v0, W_D = F_prop vp, eta_L = W_D/W_prop;
       static: F_prop = (2 rho0 A_D)^(1/3) (FM W_prop)^(2/3), vp = sqrt(F_prop/(2 rho0 A_D)), W_D = F_prop vp
     (tractor propeller: A_D = pi D^2/4; pusher or open rotor: annulus outside the nacelle)
 * mdot_prop = rho0 A_D vp;  bypass = mdot_prop/mdot_core;  mdot_0 = mdot_core + mdot_prop;  dEk = (1/2)(mdot_9 v9^2 - mdot_core v0^2) + W_D
 
-14. REPEATING COMPRESSOR STAGE: STATES THROUGH THE STAGE
---------------------------------------------------------
+14. REPEATING COMPRESSOR STAGE (R = 0.5)
+----------------------------------------
 - U = omega r_m; design chart: omega r/V1 and a2 as functions of a1 (M1 0.4-0.6). Rotor in the
-  relative frame, stator in the absolute frame.
+  relative frame, stator in the absolute frame. gamma = 1.4: gamma/(gamma-1) = 3.5, (gamma-1)/gamma
+  = 0.2857.
 * u = V1 cos(a1);  tan a2 = U/u - tan a1 (v1 + v2 = U);  V2 = u/cos(a2);  V1R = V2, V2R = V1;  dTt = (V2^2 - V1^2)/cp
 * Tt1R = T1 + V2^2/(2cp) = Tt2R;  T2 = Tt1R - V1^2/(2cp);  Tt2 = Tt1 + dTt = Tt3;  T3 = Tt2 - V1^2/(2cp);  Tt3R = T3 + V2^2/(2cp)
 * Pt1R = P1 (Tt1R/T1)^3.5;  Pt2R = Pt1R - phi_cr rho1 V2^2/2 (or L_R Pt1R);  P2 = Pt2R (T2/Tt1R)^3.5;  Pt2 = P2 (Tt2/T2)^3.5
@@ -287,21 +276,19 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
     (rho2 = P2/(R T2); R_c = (T2 - T1)/(T3 - T1) = 0.5 for the repeating stage)
 * dTt = (Tt1/n_s)(pi_c^((gamma-1)/(gamma e_c)) - 1);  pi_cs (first stage) = (1 + dTt/Tt1)^(gamma e_c/(gamma-1));
       eta_c = (pi_c^0.2857 - 1)/(n_s dTt/Tt1);  Tt,exit = Tt1 + n_s dTt
-    (V2^2 = V1^2 + cp dTt; n stages: pi_c = (1 + n dTt/Tt1)^(gamma e_c/(gamma-1)), not pi_cs^n)
+    (V2^2 = V1^2 + cp dTt; n stages: pi_c = (1 + n dTt/Tt1)^(gamma e_c/(gamma-1)))
 
-15. TURBINE STAGE: TRIANGLES AND STATES (CONSTANT U)
-----------------------------------------------------
-- HPT: stations 4 -> 45, LPT: 45 -> 5.  Phi = Psi/(Psi/Phi);  U = sqrt(cp dTt/Psi);  u = Phi U.
+15. TURBINE STAGE WITH CONSTANT AXIAL VELOCITY
+----------------------------------------------
 * zero exit swirl, constant u: tan a2 = Psi/Phi;  tan b2 = (Psi - 1)/Phi;  tan b3 = 1/Phi;  R_t = 1 - Psi/2
     (50 %: Psi = 1, b2 = 0, b3 = a2;  0 %: Psi = 2, tan b2 = tan b3 = 1/Phi, tan a2 = 2/Phi)
 * V2 = u/cos(a2);  V2R = u/cos(b2);  V3 = u;  V3R = u/cos(b3) = sqrt(u^2 + U^2);  v2 = Psi U
 * Zr c_x/s = 2 cos^2 b3 (tan b2 + tan b3) = 2 sin(2 b3) for zero reaction, sin(2 b3) for 50 % (zero swirl)
-* from the exit: T3 = Tt3 - u^2/(2cp);  P3 = Pt3 (T3/Tt3)^k;  Tt3R = T3 + V3R^2/(2cp) = Tt2R;  Pt3R = P3 (Tt3R/T3)^k;  Pt2R = Pt3R/L_R
+* T3 = Tt3 - u^2/(2cp);  P3 = Pt3 (T3/Tt3)^k;  Tt3R = T3 + V3R^2/(2cp) = Tt2R;  Pt3R = P3 (Tt3R/T3)^k = L_R Pt2R
     (k = gamma/(gamma-1) = 4.333; R = 285.9)
 * T2 = Tt1 - V2^2/(2cp);  P2 = Pt2R (T2/Tt2R)^k;  Pt2 = P2 (Tt1/T2)^k;  L_S = Pt2/Pt1;  M2 = V2/sqrt(gamma R T2)
     (Tt2R = T2 + V2R^2/(2cp) equals Tt3R; zero reaction: T3 = T2)
 * A2 = mdot sqrt(R Tt1)/(Pt2 cos(a2) MFP(M2)) (Pt in Pa);  sigma_c/rho = pi (1 + At/Ah) A N^2/3.6e6 [MPa/(g/cm^3)];  r_m = U/omega
-    (eta_ts = (1 - Tt3/Tt1)/(1 - (Pt3/Pt1)^(1/k)) should return the cycle eta_t)
 
 16. COMPONENT FIGURES OF MERIT (MATTINGLY)
 ------------------------------------------
@@ -361,12 +348,9 @@ beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma 
 
 19. CONVENTIONS
 ---------------
-- Choked ratio exponent gamma/(gamma-1) (1.832 for P*/Pt). e divides the exponent for compressors,
-  multiplies it for turbines. Fan work uses the whole flow mdot_0. eta_g multiplies both the LPT and
-  LPC terms of W_prop. Mechanical losses are charged to the turbine (W_c = eta_m W_t). Hot stations
-  use R_t, gamma_t, cp_t. Pt in Pa inside MFP and A. The eta_n route refers to Pt5, the pi_n route
-  to Pt9. eta_P uses the full thrust; eta_O = v0/(h_PR TSFC). Propeller: dEk contains W_D; eta_L <=
-  1, FM <= 1. Turbine v3 is positive against U. n_s is an integer (rounded up).
+- Mechanical losses are charged to the turbine (W_c = eta_m W_t). Stations 4-9 use gamma_t, R_t,
+  cp_t. Pt in Pa in MFP. Flow angles are measured from the axial direction; turbine v3 is positive
+  opposite to U. Propeller efficiencies use the disc power W_D.
 
 Unofficial revision sheet prepared by a student from the course material and the study videos; the
 course documents and the lecturers are the reference.

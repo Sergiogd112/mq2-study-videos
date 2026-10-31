@@ -1,5 +1,5 @@
-MQ2 PARTIAL EXAMS - VA FORMULA SHEET
-====================================
+MQ2 - VA FORMULA SHEET
+======================
 220306 Vehicles Aeroespacials
 A320 pneumatic (ATA 36) and hydraulic up to Green (ATA 29): numbers and logic
 
@@ -8,13 +8,11 @@ tests one number or one cause and effect per statement, so this sheet is mostly 
 and logic.
 Rules: Quiz format: circle the true (or false) statements; older papers ask to explain the TLT, TCT
 or the crossbleed.
-Exam: Thu 5 Nov 2026, 15:00, TR5 2.3
 Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-va.html
 
 Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
 ~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
-Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
-beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+Greek letters are spelled out (gamma, eta, pi, ...).
 
 1. PNEUMATIC: SOURCES, USERS, CONVENTIONS
 -----------------------------------------

@@ -1,18 +1,16 @@
-MQ2 PARTIAL EXAMS - RF FORMULA SHEET
-====================================
+MQ2 - RF FORMULA SHEET
+======================
 220307 Sistemes de RF i Comunicacio
 Propagation, modulation, noise, linearity, lines and matching
 
 Scope: Exam 1: Unit 1 (RF propagation, modulation, noise, linearity) and Unit 2 (transmission lines,
 Smith chart, matching).
 Rules: Short problems, about one per topic: choose the formula, convert dB <-> linear correctly.
-Exam: Tue 3 Nov 2026, 15:00, TR5 2.3
 Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-rf.html
 
 Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
 ~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
-Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
-beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+Greek letters are spelled out (gamma, eta, pi, ...); Gam is the reflection coefficient Gamma.
 
 1. SPECTRUM AND PROPAGATION
 ---------------------------

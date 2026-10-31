@@ -1,5 +1,5 @@
-MQ2 PARTIAL EXAMS - TASN FORMULA SHEET
-======================================
+MQ2 - TASN FORMULA SHEET
+========================
 220309 Transport Aeri i Sistemes de Navegacio
 Air navigation, signals, data and antennas
 
@@ -7,13 +7,11 @@ Scope: Sistemes de Navegacio part (Barlabe): navigation up to A/D and D/A conver
 signals excluded.
 Rules: The partial allows a scientific calculator only (no tables, no formula sheet): use this to
 revise and to rewrite from memory.
-Exam: Thu 29 Oct 2026, 15:00, TR5 2.3
 Web version: https://sergiogd112.github.io/mq2-study-videos/formulas-tasn.html
 
 Notation: ^ power, sqrt() square root, log = log10, ln natural log, _ subscript, +- plus or minus,
 ~ approximately, -> leads to, <=> equivalent, int integral, sum summation.
-Greek letters are spelled out (gamma, eta, pi, ...); in PROP a1, b2 ... are the flow angles alpha_1,
-beta_2 ... and g the blade metal angle; Gam is the reflection coefficient Gamma in RF.
+Greek letters are spelled out (gamma, eta, pi, ...).
 
 1. EARTH, UNITS AND ANGLES
 --------------------------
