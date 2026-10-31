@@ -55,17 +55,36 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (jet fuel h_PR ~ 42.5-42.8 MJ/kg; stoichiometric f ~ 0.068)
 * turbojet spool balance: tau_t = 1 - tau_r (tau_c - 1) / (eta_m (1 + f) tau_lambda);
       pi_t = tau_t^(gamma_t/((gamma_t-1) e_t)) = [1 - (1 - tau_t)/eta_t]^(gamma_t/(gamma_t-1))
-* convergent nozzle, choked: Pt/P* = ((gamma+1)/2)^(gamma/(gamma-1)) = 1.832 (1.3), 1.893 (1.4);
-      with eta_n: T* = 2 Tt/(gamma+1), P* = Pt [1 - (1 - T*/Tt)/eta_n]^(gamma/(gamma-1))
-    (choked if P* >= P0 (P9 = P*, M9 = 1), otherwise P9 = P0, M9 < 1;  T*/Tt = 0.8696 (gamma 1.3),
-    0.8333 (gamma 1.4))
-* matched or C-D nozzle with eta_n: T9 = Tt5 [1 - eta_n (1 - (P9/Pt5)^((gamma_t-1)/gamma_t))];
-      M9 = sqrt(2/(gamma_t-1) (Tt9/T9 - 1));  v9 = sqrt(2 cp_t (Tt5 - T9))
-    (eta_n is defined from Pt5; pi_n gives Pt9 = pi_n Pt5 and M9 from Pt9/P9)
-* fan nozzle: Pt19/P19 = (P0/P19) pi_r pi_d pi_f pi_fn;  Tt19 = Tt13, cold gas
-    (civil fan nozzle: convergent and often unchoked at cruise)
 
-4. THRUST AND PERFORMANCE
+4. NOZZLES
+----------
+* adiabatic: Tt9 = Tt8 = Tt5 (Tt7 with afterburner);  pi_n = Pt9/Pt5;
+      eta_n = (Tt5 - T9)/(Tt5 - T9s) = (1 - T9/Tt5)/(1 - (P9/Pt5)^((gamma_t-1)/gamma_t))
+    (stations: 8 throat, 9 exit (same plane in a convergent nozzle); eta_n is referred to Pt5, pi_n
+    to Pt9)
+* same exit state: pi_n = (P9/Pt5) (Tt5/T9)^(gamma_t/(gamma_t-1));  velocity coefficient C_V = v9/v9s = sqrt(eta_n)
+* core: Pt9/P9 = (P0/P9) pi_r pi_d pi_c pi_b pi_t pi_n;  fan: Pt19/P19 = (P0/P19) pi_r pi_d pi_f pi_fn, pi_fn = Pt19/Pt13
+    (two spools: pi_c = pi_cL pi_cH, pi_t = pi_tH pi_tL; fan stream: Tt19 = Tt13, gamma_c, R_c)
+* from Pt9/P9: M9 = sqrt( 2/(gamma-1) [ (Pt9/P9)^((gamma-1)/gamma) - 1 ] );  T9 = Tt9/(1 + (gamma-1)/2 M9^2);  v9 = M9 sqrt(gamma R T9)
+* with eta_n: T9 = Tt5 [1 - eta_n (1 - (P9/Pt5)^((gamma-1)/gamma))];  v9 = sqrt(2 cp (Tt5 - T9));  M9 = sqrt(2/(gamma-1) (Tt9/T9 - 1))
+* sonic exit: T*/Tt = 2/(gamma+1);  Pt/P* = ((gamma+1)/2)^(gamma/(gamma-1));  v* = sqrt(2 gamma R Tt/(gamma+1));
+      with eta_n: P* = Pt5 [1 - (1 - T*/Tt)/eta_n]^(gamma/(gamma-1))
+    (T*/Tt = 0.8696 (gamma 1.3), 0.8333 (gamma 1.4);  Pt/P* = 1.832 (gamma 1.3), 1.893 (gamma 1.4))
+* convergent nozzle: P* >= P0: choked, M9 = 1, P9 = P*, T9 = T*;  P* < P0: unchoked, P9 = P0, M9 < 1
+    (isentropic: choked for Pt9/P0 >= 1.832 (gamma 1.3), 1.893 (gamma 1.4); the exit static pressure
+    cannot fall below P*)
+* choked throat: mdot = Pt8 A8 MFP(1)/sqrt(R Tt8);  A9 = mdot_9 R T9/(P9 v9) = mdot_9 sqrt(R Tt9)/(Pt9 MFP(M9));
+      A9/A8 = (Pt8/Pt9) MFP(1)/MFP(M9)
+    (isentropic divergent part: A9/A8 = A/A*(M9) (table); MFP(1) = 0.6673 (gamma 1.3), 0.6847 (gamma
+    1.4))
+* gross thrust F_g = mdot_9 v9 + (P9 - P0) A9;  fixed Pt9, Tt9, A8: dF_g = (P9 - P0) dA9, maximum at P9 = P0 (matched)
+    (P9 > P0 under-expanded, P9 < P0 over-expanded; matched and isentropic: v9 = sqrt(2 cp Tt9 [1 -
+    (P0/Pt9)^((gamma-1)/gamma)]))
+- Convergent nozzles: subsonic civil engines and fan streams (the fan nozzle is often unchoked at
+  cruise). C-D nozzles: high nozzle pressure ratio (supersonic flight, afterburning), usually
+  variable area.
+
+5. THRUST AND PERFORMANCE
 -------------------------
 * F = mdot_9 v9 - mdot_0 v0 + (P9 - P0) A9;   A9 = mdot_9 R T9 / (P9 v9);   impulse function I = P A (1 + gamma M^2)
     (two streams: extra term mdot_19 v19 + (P19 - P0) A19; force on a component = I_in - I_out)
@@ -74,14 +93,13 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (TSFC in mg/(N s) = 1e-6 kg/(N s); uninstalled F in the efficiencies)
 * dEk = (1/2)(mdot_9 v9^2 + mdot_19 v19^2 - mdot_0 v0^2);   one matched stream: eta_P ~ 2/(1 + v9/v0)
     (eta_P includes the pressure thrust; static (v0 = 0): eta_P = eta_O = 0)
-* Pt9/P9 = (P0/P9) pi_r pi_d pi_c pi_b pi_t pi_n;   M9 = sqrt( 2/(gamma_t-1) [ (Pt9/P9)^((gamma_t-1)/gamma_t) - 1 ] )
 * T9/T0 = tau_lambda tau_t (cp_c/cp_t) / (Pt9/P9)^((gamma_t-1)/gamma_t);   v9/a0 = M9 sqrt(gamma_t R_t T9 / (gamma_c R_c T0))
 * F/mdot_0 = a0 [ (1+f) v9/a0 - M0 + (1+f) (R_t/R_c) (T9/T0)/(v9/a0) (1 - P0/P9)/gamma_c ];   TSFC = f / (F/mdot_0)
 * ideal turbojet, max specific thrust: tau_c,opt = sqrt(tau_lambda)/tau_r   (optimum pi_c -> 1 above M0 ~ 3: ramjet)
     (raising Tt4 and pi_c raises eta_T but also v9, which lowers eta_P: the turbofan breaks that
     coupling)
 
-5. TURBOFAN AND TWO SPOOLS
+6. TURBOFAN AND TWO SPOOLS
 --------------------------
 * alpha = mdot_sec/mdot_core;  mdot_core = mdot_0/(1+alpha);  mdot_f = f mdot_core;  TSFC = f / ((1+alpha) F/mdot_0)
 * HP spool: W_HPC = eta_m,HP (1+f) mdot_core cp_t (Tt4 - Tt45),  W_HPC = mdot_core cp_c (Tt3 - Tt25)
@@ -93,7 +111,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (mdot_9 = (1+f) mdot_core, mdot_19 = mdot_sec)
 - Per unit mdot_0, core-flow quantities carry the factor 1/(1+alpha).
 
-6. MIXED EXHAUST, MIXER AND AFTERBURNER
+7. MIXED EXHAUST, MIXER AND AFTERBURNER
 ---------------------------------------
 - Long-duct turbofan: fan duct pi_fd = Pt16/Pt13 = 0.98-0.99, tau_fd = 1. Kutta condition at the
   splitter: P6 = P16; design approximation Pt6 ~ Pt16 closes the cycle, with alpha set by the
@@ -127,7 +145,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (2-7 %, largest near alpha ~ 2 and for hot cores; high-bypass civil engines skip it for duct
     weight and drag)
 
-7. TURBOSHAFT
+8. TURBOSHAFT
 -------------
 * HPT drives the compressor: tau_tH = 1 - tau_r (tau_c - 1)/(eta_mH (1+f) tau_lambda);  tau_tL (free turbine) is a design choice;
       W_shaft/mdot_0 = eta_mL (1+f) cp_c T0 tau_lambda tau_tH (1 - tau_tL)
@@ -135,7 +153,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (residual jet: Pt9/P9 = (P0/P9) pi_r pi_d pi_c pi_b pi_tH pi_tL pi_n; eta_P not meaningful
     without the rotor)
 
-8. PROPELLERS, TURBOPROP, OPEN ROTOR
+9. PROPELLERS, TURBOPROP, OPEN ROTOR
 ------------------------------------
 * actuator disc: vp = (v0 + ve)/2;  a = (vp - v0)/v0;  F = 2 mdot a v0;  mdot = rho0 A_D vp;  W_D = F vp;  eta_P = 1/(1+a)
 * vp = [v0 + sqrt(v0^2 + 2F/(rho0 A_D))]/2;   eta_prop = eta_L eta_P;   eta_L = W_D/W_prop = eta_prop (1 + a) <= 1
@@ -165,14 +183,14 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
       TSFC = f/((1+alpha1)(1+alpha2) F/mdot_0);  open rotor at 45: A_D = pi D^2/4 - mdot_45 sqrt(R Tt45)/(Pt45 MFP45)
     (tractor propeller: A_D ~ pi D^2/4 (core streamtube neglected))
 
-9. ENGINE SIZING
-----------------
+10. ENGINE SIZING
+-----------------
 * mdot_0 = (F_inst + D_nac + D_add)/(F/mdot_0);   A_i = mdot_i sqrt(R_i Tt_i) / (Pt_i MFP(gamma_i, M_i))
 - mdot_i: mdot_0 at 0-3; (1+f) mdot_0/(1+alpha) at core 4-9; alpha mdot_0/(1+alpha) at fan 13-19;
   (1+f+alpha) mdot_0/(1+alpha) at 6A-9 (mixed). R_c, gamma_c cold, R_t, gamma_t hot. C-D nozzle:
   throat 8 and exit 9 are different areas.
 
-10. TURBOMACHINERY: EULER AND CONVENTIONS
+11. TURBOMACHINERY: EULER AND CONVENTIONS
 -----------------------------------------
 * torque tau_A = mdot (r_e v_e - r_i v_i);   h_te - h_ti = omega (r_e v_e - r_i v_i)  (work done on the fluid)
 * mean line U = omega r_m:  compressor cp dTt = U (v2 - v1);  turbine cp dTt = U (v2 + v3)  (v3 measured opposite to U)
@@ -182,7 +200,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 - P, T, rho are frame-invariant; Tt, Pt, M are not. Rotor: Tt,R constant (same radius). Stator: Tt
   constant.
 
-11. COMPRESSOR STAGE
+12. COMPRESSOR STAGE
 --------------------
 * cp dTt = U u (tan b1 - tan b2) = U u (tan a2 - tan a1)   (constant u)
 * rotor: Tt1R = T1 + V1R^2/(2cp) = Tt2R, Pt2R = L_R Pt1R;  stator: Tt3 = Tt2, Pt3 = L_S Pt2;
@@ -218,7 +236,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
   Phi / Psi                                 | -                           | 0.45-0.55 / 0.30-0.35
   first stage: hub/tip, axial M, U_tip      | 0.6-0.75, 0.48-0.6          | 350-460 m/s
 
-12. TURBINE STAGE
+13. TURBINE STAGE
 -----------------
 * nozzle: Tt2 = Tt1, Pt2 = L_S Pt1;  rotor: Tt3R = Tt2R, Pt3R = L_R Pt2R;
       L_S = 1/(1 + phi_ts [1 - (T2/Tt2)^(gamma/(gamma-1))]),  L_R = same with T3/Tt3R;  phi_t = (Pti - Pte)/(Pte - Pe)
@@ -250,7 +268,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 - Choking: first nozzle M2 > 1 and rotor exit M3R < 0.9 (a 50 % first stage, Psi = 1, cannot meter
   the flow). r_m = U/omega, h = A/(2 pi r_m); typical LPT U 350-460 m/s.
 
-13. TWO-SPOOL TURBOFAN AND PROPFAN
+14. TWO-SPOOL TURBOFAN AND PROPFAN
 ----------------------------------
 * spool balances per unit core flow: Tt45 = Tt4 - cp_c (Tt3 - Tt25)/(eta_mH (1+f) cp_t);
       Tt5 = Tt45 - cp_c [(1+alpha)(Tt13 - Tt2) + (Tt25 - Tt13)]/(eta_mL (1+f) cp_t)
@@ -262,7 +280,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (tractor propeller: A_D = pi D^2/4; pusher or open rotor: annulus outside the nacelle)
 * mdot_prop = rho0 A_D vp;  bypass = mdot_prop/mdot_core;  mdot_0 = mdot_core + mdot_prop;  dEk = (1/2)(mdot_9 v9^2 - mdot_core v0^2) + W_D
 
-14. REPEATING COMPRESSOR STAGE (R = 0.5)
+15. REPEATING COMPRESSOR STAGE (R = 0.5)
 ----------------------------------------
 - U = omega r_m; design chart: omega r/V1 and a2 as functions of a1 (M1 0.4-0.6). Rotor in the
   relative frame, stator in the absolute frame. gamma = 1.4: gamma/(gamma-1) = 3.5, (gamma-1)/gamma
@@ -278,7 +296,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
       eta_c = (pi_c^0.2857 - 1)/(n_s dTt/Tt1);  Tt,exit = Tt1 + n_s dTt
     (V2^2 = V1^2 + cp dTt; n stages: pi_c = (1 + n dTt/Tt1)^(gamma e_c/(gamma-1)))
 
-15. TURBINE STAGE WITH CONSTANT AXIAL VELOCITY
+16. TURBINE STAGE WITH CONSTANT AXIAL VELOCITY
 ----------------------------------------------
 * zero exit swirl, constant u: tan a2 = Psi/Phi;  tan b2 = (Psi - 1)/Phi;  tan b3 = 1/Phi;  R_t = 1 - Psi/2
     (50 %: Psi = 1, b2 = 0, b3 = a2;  0 %: Psi = 2, tan b2 = tan b3 = 1/Phi, tan a2 = 2/Phi)
@@ -290,7 +308,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (Tt2R = T2 + V2R^2/(2cp) equals Tt3R; zero reaction: T3 = T2)
 * A2 = mdot sqrt(R Tt1)/(Pt2 cos(a2) MFP(M2)) (Pt in Pa);  sigma_c/rho = pi (1 + At/Ah) A N^2/3.6e6 [MPa/(g/cm^3)];  r_m = U/omega
 
-16. COMPONENT FIGURES OF MERIT (MATTINGLY)
+17. COMPONENT FIGURES OF MERIT (MATTINGLY)
 ------------------------------------------
   Component                 | FoM            | Lvl 2       | Lvl 3       | Lvl 4
   --------------------------+----------------+-------------+-------------+-------------
@@ -305,7 +323,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 - A = subsonic, engines in nacelles; C = supersonic, engine in airframe; D = fixed convergent, F =
   variable C-D nozzle. Level 3 ~ 1985-2005 technology.
 
-17. ISENTROPIC FLOW TABLES
+18. ISENTROPIC FLOW TABLES
 --------------------------
   M    | Tt/T 1.4 | Pt/P 1.4 | MFP 1.4 | A/A* 1.4 | Tt/T 1.3 | Pt/P 1.3 | MFP 1.3
   -----+----------+----------+---------+----------+----------+----------+--------
@@ -325,7 +343,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 - Columns for gamma = 1.4 (cold) and 1.3 (hot). MFP = mdot sqrt(R Tt)/(Pt A), dimensionless (R
   outside). Choked: Tt/T* = 1.2, Pt/P* = 1.893 (gamma 1.4); 1.15, 1.832 (gamma 1.3).
 
-18. ISA STANDARD ATMOSPHERE
+19. ISA STANDARD ATMOSPHERE
 ---------------------------
   h (km) | T (K)  | P (bar) | rho (kg/m^3) | sigma  | a (m/s)
   -------+--------+---------+--------------+--------+--------
@@ -346,7 +364,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 - T = 288.15 - 6.5 h (h in km) up to 11 km, then 216.65 K; P = 1.01325 (T/288.15)^5.2559 bar below
   11 km, P = 0.22632 exp(-0.1577 (h - 11)) above.
 
-19. CONVENTIONS
+20. CONVENTIONS
 ---------------
 - Mechanical losses are charged to the turbine (W_c = eta_m W_t). Stations 4-9 use gamma_t, R_t,
   cp_t. Pt in Pa in MFP. Flow angles are measured from the axial direction; turbine v3 is positive
