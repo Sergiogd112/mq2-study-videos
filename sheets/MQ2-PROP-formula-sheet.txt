@@ -239,6 +239,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
       V1R  \   |              V2R   \  |                   V3R  \   |
              \ |                      \|                          \ |
     axial ->, U up; repeating stage: triangle 3 = triangle 1
+    components: u axial (all stations), v = u tan a and v_R = u tan b tangential (v + v_R = U)
     (angles from the axial direction; V = V_R + U, compressor v + v_R = U; rotor 1-2, stator 2-3;
     repeating stage: a1 = b2, b1 = a2, V3 = V1)
 * cp dTt = U u (tan b1 - tan b2) = U u (tan a2 - tan a1)   (constant u)
@@ -283,6 +284,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
         /    | U                         b3  \  
       / V2R /|                         V3R    \ |
     O --a2--b2------ axial                      \| U
+    components: u axial, v2 = u tan a2, v2R = v2 - U;  v3 = u tan a3, v3R = v3 + U (both against U)
     (nozzle 1-2, rotor 2-3; v3 and b3 positive opposite to U: v2R = v2 - U, v3R = v3 + U, Psi = (v2
     + v3)/U; a3 = 0 gives V3 = u)
 * nozzle: Tt2 = Tt1, Pt2 = L_S Pt1;  rotor: Tt3R = Tt2R, Pt3R = L_R Pt2R;
