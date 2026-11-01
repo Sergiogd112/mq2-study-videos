@@ -17,7 +17,8 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 ----------------------------
 - Cold gas (stations 0-3, 13-19): gamma_c = 1.4, cp_c = 1004.5 J/(kg K), R_c = 287 J/(kg K). Hot gas
   (4-9): gamma_t = 1.3, cp_t = 1239 J/(kg K), R_t = cp_t (gamma_t-1)/gamma_t = 285.9 J/(kg K). R_t
-  applies at hot stations.
+  applies at hot stations. Free stream, inlet, fan and compressors are ALWAYS cold gas (tau_r, pi_r
+  with gamma = 1.4).
 * P = rho R T;  R = cp (gamma-1)/gamma;  a = sqrt(gamma R T);  rho1 v1 A1 = rho2 v2 A2
 * Q - W = mdot [(h + v^2/2)_out - (h + v^2/2)_in]
     (W > 0 extracted (turbine), W < 0 delivered (compressor))
@@ -51,7 +52,9 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 * compressor: tau_c = pi_c^((gamma_c-1)/(gamma_c e_c)) = 1 + (pi_c^((gamma_c-1)/gamma_c) - 1)/eta_c;  Wc = mdot cp_c (Tt3 - Tt2)
 * eps = (gamma-1)/gamma:  eta_c = (pi_c^eps - 1)/(tau_c - 1), e_c = eps ln(pi_c)/ln(tau_c);
       eta_t = (1 - tau_t)/(1 - pi_t^eps), e_t = ln(tau_t)/(eps ln(pi_t))
-    (e divides for a compressor (tau = pi^(eps/e)), multiplies for a turbine (tau = pi^(eps e)))
+    (e divides for a compressor (tau = pi^(eps/e)), multiplies for a turbine (tau = pi^(eps e));
+    check: eta_c < e_c, eta_t > e_t, both within a few %; eta > 1 or far from e means a swapped
+    exponent)
 * burner: eta_b mdot_f h_PR = (mdot_3 + mdot_f) cp_t Tt4 - mdot_3 cp_c Tt3
       f = (cp_t Tt4 - cp_c Tt3)/(eta_b h_PR - cp_t Tt4) = (tau_lambda - tau_r tau_c)/(eta_b h_PR/(cp_c T0) - tau_lambda)
       pi_b ~ 1 - eps (gamma/2) Mb^2 (eps ~ 2, Mb ~ 0.2)
@@ -228,6 +231,9 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     v3R = v3 + U (v3 positive opposite to U))
 - P, T, rho are frame-invariant; Tt, Pt, M are not. Rotor: Tt,R constant (same radius). Stator: Tt
   constant.
+- Triangles: mark each angle a (absolute) or b (relative); U (not u) links v and v_R at each
+  station; symmetry only if stated (repeating row a1 = b2; 50 % a2 = b3); reaction from STATIC T;
+  then the limits.
 
 12. COMPRESSOR STAGE
 --------------------
@@ -247,6 +253,9 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
       L_R = 1 - phi_cr gamma P1 M1R^2 / (2 Pt1R),  phi_cr = (Pt1R - Pt2R)/(rho1 V1R^2/2);  L_S likewise with P2, M2
 * R_c = (T2 - T1)/(T3 - T1);  Psi = cp dTt/U^2 (HPC 0.30-0.35);  Phi = u1/U = 1/(tan a1 + tan b1) (0.45-0.55);
       Psi/Phi = tan b1 - (u2/u1) tan b2
+* rotor static rise T2 - T1 = (V1R^2 - V2R^2)/(2cp)  (Tt1R = Tt2R);  with V3 = V1: R_c = (V1R^2 - V2R^2)/(2 cp dTt)
+      = u (tan b1 + tan b2)/(2U)  (constant u)
+    (static T, never Tt; stator Tt3 = Tt2, stage dTt = Tt3 - Tt1)
 * eta_cs = (pi_cs^eps - 1)/(tau_cs - 1);  e_cs = (gamma-1)/gamma ln(Pt3/Pt1)/ln(Tt3/Tt1);  blade Mach Mb = U/a1
 * Lieblein diffusion factor D = 1 - Ve/Vi + |vi - ve|/(2 sigma Vi) <= 0.6 (design 0.50-0.55);
       rotor D_r = 1 - V2R/V1R + |v1R - v2R|/(2 sigma V1R);  stator D_s = 1 - V3/V2 + |v2 - v3|/(2 sigma V2)
