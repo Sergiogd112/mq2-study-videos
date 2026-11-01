@@ -31,6 +31,14 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 2. STATION NUMBERING (AS755)
 ----------------------------
+               13 ======= bypass duct ======= fan nozzle 19 -->
+    0      2   |fan|
+   --> inlet --|   |-- LPC -- HPC -- burner -- HPT -- LPT -- core nozzle -->
+                       25     3      4        45     5             9
+    HP spool: HPT drives HPC;  LP spool: LPT drives fan + LPC
+    mixed exhaust: core 6 + bypass 16 -> 6A; afterburner exit 7; throat 8; exit 9
+    (two-spool separate-exhaust turbofan (fn = fan nozzle); turbojet: 0-2-3-4-5-9; mixed exhaust:
+    core 6 + bypass 16 -> 6A, afterburner exit 7, nozzle throat 8)
   Stn | Location                | Stn      | Location
   ----+-------------------------+----------+-----------------------------
   0   | freestream              | 4        | burner exit / HPT vanes
@@ -202,6 +210,15 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 12. COMPRESSOR STAGE
 --------------------
+    rotor inlet (1)                     rotor exit (2)          axial ->, U up
+            V1 /|                              V2 /|
+             /  | U                             /  | U
+     O ---/--a1--|---- axial            O ---/--a2--|---- axial
+           \ b1  |                             \ b2  |
+        V1R  \   |                         V2R   \  |
+               \ |                                 \|
+    (angles from the axial direction; V = V_R + U, compressor v + v_R = U; rotor 1-2, stator 2-3;
+    repeating stage: a1 = b2, b1 = a2)
 * cp dTt = U u (tan b1 - tan b2) = U u (tan a2 - tan a1)   (constant u)
 * rotor: Tt1R = T1 + V1R^2/(2cp) = Tt2R, Pt2R = L_R Pt1R;  stator: Tt3 = Tt2, Pt3 = L_S Pt2;
       L_R = 1 - phi_cr gamma P1 M1R^2 / (2 Pt1R),  phi_cr = (Pt1R - Pt2R)/(rho1 V1R^2/2);  L_S likewise with P2, M2
@@ -238,6 +255,14 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 13. TURBINE STAGE
 -----------------
+    nozzle exit (2)                     rotor exit (3)           axial ->, U up
+        V2  /|                        O ---\--a3---------- axial
+          /  |                              \ V3  (v3 against U)
+        /    | U                         b3  \  
+      / V2R /|                         V3R    \ |
+    O --a2--b2------ axial                      \| U
+    (nozzle 1-2, rotor 2-3; v3 and b3 positive opposite to U: v2R = v2 - U, v3R = v3 + U, Psi = (v2
+    + v3)/U; a3 = 0 gives V3 = u)
 * nozzle: Tt2 = Tt1, Pt2 = L_S Pt1;  rotor: Tt3R = Tt2R, Pt3R = L_R Pt2R;
       L_S = 1/(1 + phi_ts [1 - (T2/Tt2)^(gamma/(gamma-1))]),  L_R = same with T3/Tt3R;  phi_t = (Pti - Pte)/(Pte - Pe)
 * Psi = cp dTt/U^2 = (u2/U)(tan a2 + (u3/u2) tan a3) = (u2/U)(tan b2 + (u3/u2) tan b3);  Phi = u2/U = 1/(tan a2 - tan b2)
@@ -247,7 +272,7 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
     (zero swirl + 0 %: Psi = 2, v2 = 2U, v2R = v3R = U; zero swirl + 50 %: Psi = 1; Psi > 2 means
     R_t < 0)
 * design map: Phi = 1/(tan a2 - tan b2);  U = sqrt(cp dTt / Psi);  u = Phi U
-    (map axes: turning b2 + b3 vs b2)
+    (map axes: turning b2 + b3 vs b2; usual limits a2 <= 70 deg and Z 0.8-1.0)
 * stage efficiency eta_ts = (1 - Tt3/Tt1)/(1 - (Pt3/Pt1)^((gamma-1)/gamma));   e_ts = gamma/(gamma-1) ln(Tt3/Tt1)/ln(Pt3/Pt1)
 * general stage, zero exit swirl: sin a2 = Psi U/V2;  R_t = 1 - (1/(2 Psi)) (V2/U)^2 [1 - (V3/V2)^2];
       T3 = T2 - R_t (Tt1 - Tt3);  M3 = M2 (V3/V2) sqrt(T2/T3)
@@ -255,26 +280,18 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
       max-work nozzle exit M2,opt = sqrt( 2/(gamma-1) [ (2 (1 + (gamma-1)/2 M1^2)^((gamma+1)/(gamma-1)) / ((gamma+1) M1^2))^((gamma-1)/2) - 1 ] )
 * Zweifel Z = Ft/Ft,max = (2s/c_x) cos^2(a_e) (tan a_i + (u_e/u_i) tan a_e) (u_i/u_e)^2;  stator a1 -> a2, rotor b2 -> b3;
       constant u rotor: Z_r = 2 (s/c_x) cos^2 b3 (tan b2 + tan b3)
-    (equivalent loading parameter Z_r c_x/s)
+    (design Z 0.8-1.0; equivalent loading parameter Z_r c_x/s)
 * tangential force per blade: Ft = rho u_i s (v_i + v_e) = rho u_i^2 s (tan a_i + (u_e/u_i) tan a_e);
       Ft,max = (Pti - Pe) c_x = rho u_e^2 c_x / (2 cos^2 a_e)
 * sigma_c ~ rho w^2 A (1 + At/Ah)/(4 pi)  <=>  A N^2 = 3600e3 (sigma_c/rho) / (pi (1 + At/Ah))
     (N in rpm, A in m^2, sigma_c/rho in MPa/(g/cm^3) = 1000 m^2/s^2; reduced by lower N, more taper
     or more stages)
 * disk shape factor DSF = (omega r_r)^2 rho/(2 sigma_d);  thermal: sigma_tr = alpha E dT/3 (1 - r/r_h), sigma_ttheta = alpha E dT/3 (1 - 2 r/r_h)
+    (cooled blades allow A N^2 ~ 4-5e10 in^2 rpm^2)
 * multistage turbine: equal dTt per stage, Tt3(n) = Tt1(1) - n_s dTt  (same Psi and R_t per stage at equal U)
     (only the first nozzle chokes and meters the engine flow)
 - Choking: first nozzle M2 > 1 and rotor exit M3R < 0.9 (a 50 % first stage, Psi = 1, cannot meter
   the flow). r_m = U/omega, h = A/(2 pi r_m); typical LPT U 350-460 m/s.
-  Turbine design range                         | Value
-  ---------------------------------------------+----------------------------------------
-  nozzle exit angle a2                         | <= 70 deg
-  exit swirl angle a3                          | 0-20 deg
-  velocity ratio U/sqrt(2 dht) = 1/sqrt(2 Psi) | 0.5-0.6 (Psi 1.4-2.0)
-  Zweifel coefficient Z                        | 0.8-1.0
-  rotor exit relative Mach M3R (tip)           | < 0.9
-  reaction at the hub R_t                      | > -0.15
-  cooled blades A N^2                          | 4-5e10 in^2 rpm^2 = 2.6-3.2e7 m^2 rpm^2
 
 14. TWO-SPOOL TURBOFAN AND PROPFAN
 ----------------------------------
@@ -368,32 +385,11 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
   10     | 223.15 | 0.2644  | 0.4127       | 0.3369 | 299.5
   11     | 216.65 | 0.2263  | 0.3639       | 0.2971 | 295.1
   12     | 216.65 | 0.1933  | 0.3108       | 0.2537 | 295.1
+  13     | 216.65 | 0.1651  | 0.2655       | 0.2167 | 295.1
 - T = 288.15 - 6.5 h (h in km) up to 11 km, then 216.65 K; P = 1.01325 (T/288.15)^5.2559 bar below
   11 km, P = 0.22632 exp(-0.1577 (h - 11)) above.
 
-20. SPECIFIC STRENGTH OF ENGINE ALLOYS
---------------------------------------
-  Alloy                 | sigma_c/rho in MPa/(g/cm^3) at T (K)
-  ----------------------+-------------------------------------------------------------------------------
-  aluminium             | 400: 129, 450: 113, 500: 87, 550: 51
-  titanium              | 700: 129, 750: 117, 800: 92
-  wrought nickel        | 850: 91, 900: 80, 950: 64, 1000: 50, 1050: 38, 1100: 27, 1150: 17, 1200: 7
-  high-strength nickel  | 950: 75, 1000: 63, 1050: 53, 1100: 46, 1150: 36, 1200: 24, 1250: 8
-  single-crystal nickel | 1000: 88, 1050: 81, 1100: 75, 1150: 68, 1200: 61, 1250: 55, 1300: 47, 1350: 36
-- From the turbomachinery manual, Fig. 4.17 (each curve ends at the alloy's usable limit).
-
-21. UNIT CONVERSIONS
---------------------
-  Quantity            | Conversion
-  --------------------+-----------------------------------------------------------------------------------------------------
-  length, area, speed | 1 in = 0.0254 m, 1 ft = 0.3048 m, 1 nmi = 1852 m, 1 kt = 0.51444 m/s;  1 in^2 = 6.4516e-4 m^2
-  mass, force         | 1 lbm = 0.45359 kg;  1 lbf = 4.44822 N
-  pressure            | 1 psi = 6894.76 Pa;  1 atm = 101325 Pa;  1 bar = 1e5 Pa
-  temperature         | T[K] = T[R]/1.8;  T[R] = T[F] + 459.67
-  energy, power       | 1 BTU = 1055.06 J, 1 BTU/lbm = 2326 J/kg, 1 BTU/(lbm R) = 4186.8 J/(kg K);  1 hp = 745.70 W
-  TSFC, PSFC, F/mdot  | 1 lbm/(lbf h) = 28.325 mg/(N s);  1 lbm/(hp h) = 0.16897 mg/(W s);  1 lbf/(lbm/s) = 9.80665 N/(kg/s)
-
-22. CONVENTIONS
+20. CONVENTIONS
 ---------------
 - Mechanical losses are charged to the turbine (W_c = eta_m W_t). Stations 4-9 use gamma_t, R_t,
   cp_t. Pt in Pa in MFP. Flow angles are measured from the axial direction; turbine v3 is positive
