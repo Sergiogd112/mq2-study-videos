@@ -31,25 +31,20 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 2. STATION NUMBERING (AS755)
 ----------------------------
-               13 ======= bypass duct ======= fan nozzle 19 -->
-    0      2   |fan|
-   --> inlet --|   |-- LPC -- HPC -- burner -- HPT -- LPT -- core nozzle -->
-                       25     3      4        45     5             9
-    HP spool: HPT drives HPC;  LP spool: LPT drives fan + LPC
-    mixed exhaust: core 6 + bypass 16 -> 6A; afterburner exit 7; throat 8; exit 9
-    (two-spool separate-exhaust turbofan (fn = fan nozzle); turbojet: 0-2-3-4-5-9; mixed exhaust:
-    core 6 + bypass 16 -> 6A, afterburner exit 7, nozzle throat 8)
-  Stn | Location                | Stn      | Location
-  ----+-------------------------+----------+-----------------------------
-  0   | freestream              | 4        | burner exit / HPT vanes
-  1   | inlet entry             | 45       | HPT exit / LPT entry
-  2   | inlet exit / fan face   | 5        | LPT exit
-  13  | fan exit                | 6, 16    | mixer entry: core, fan duct
-  25  | LPC exit / HPC entry    | 6A, 7    | mixer exit, afterburner exit
-  3   | HPC exit / burner entry | 8, 9, 19 | throat, core exit, fan exit
+- 0 freestream; 1 inlet entry; 2 inlet exit / fan face; 13 fan exit; 25 LPC exit / HPC entry; 3 HPC
+  exit / burner entry; 4 burner exit / HPT vanes; 45 HPT exit / LPT entry; 5 LPT exit; 6, 16 mixer
+  entry (core, fan duct); 6A mixer exit; 7 afterburner exit; 8 nozzle throat; 9 core exit; 19 fan
+  exit.
 
 3. CYCLE NOTATION AND COMPONENTS
 --------------------------------
+  [Turbojet block diagram]
+                                mdot_f
+                             3    v      mdot_0 + mdot_f
+                         +----> [ CC ] ------+
+    0           2        |                   v 4        5          9
+   Ambient --> [ D ] --> [ C >===========< T ] --> [ N ] --> Exhaust
+    mdot_0                 C and T on one shaft
 * tau_r = 1 + (gamma_c-1)/2 M0^2;  pi_r = tau_r^(gamma_c/(gamma_c-1));  tau_lambda = cp_t Tt4 / (cp_c T0);  f = mdot_f / mdot_3 (core)
 * inlet: pi_d = pi_d,max eta_r;  eta_r = 1 (M0 <= 1), 1 - 0.075 (M0 - 1)^1.35 (1 < M0 < 5);
       eta_d = [(Pt2/P0)^((gamma-1)/gamma) - 1] / (Tt0/T0 - 1)
@@ -109,6 +104,15 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 6. TURBOFAN AND TWO SPOOLS
 --------------------------
+  [Turbofan block diagram (two spools)]
+                       mdot_sec   19
+                    +----------> [ N_sec ] --> Exhaust (secondary)
+                    |            3          4
+                    |  25  +--> [ CC ] --+       (mdot_f into CC)
+    0     2   |\ 13 |  +--> [HPC>=====<HPT] --+ 45
+   Ambient --> [D] --> | F |--+--> [LPC> ............... <LPT] --> [N_core] --> Exhaust (core)
+               |/  mdot_core                               5           9
+    HP spool: HPC-HPT;  LP spool: F + LPC - LPT
 * alpha = mdot_sec/mdot_core;  mdot_core = mdot_0/(1+alpha);  mdot_f = f mdot_core;  TSFC = f / ((1+alpha) F/mdot_0)
 * HP spool: W_HPC = eta_m,HP (1+f) mdot_core cp_t (Tt4 - Tt45),  W_HPC = mdot_core cp_c (Tt3 - Tt25)
 * LP spool: W_fan + W_LPC = eta_m,LP (1+f) mdot_core cp_t (Tt45 - Tt5);
@@ -173,6 +177,15 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 * model limit: F(M0 = 0) = 10 eta_max W_prop / a0;  FM_implied = (10 eta_max/a0)^(3/2) sqrt(W_prop/(2 rho0 A_D))
     (FM_implied <= 1 within the model; measured static FM 0.70-0.80)
 * W_prop = eta_g (eta_m,L W_LPT - W_LPC);  F_prop = eta_prop W_prop / v0;  W_D = (1+a) eta_prop W_prop
+  [Turboprop block diagram]
+                                mdot_f
+                             3    v      mdot_0 + mdot_f
+                         +----> [ CC ] ------+
+    0           2        |                   v 4
+   Ambient --> [ D ] --> [ C >===========< HPT ] --+ 45
+    mdot_0                                         v         5         9
+               [ P ]=============================< LPT ] --> [ N ] --> Exhaust
+    HP spool: C-HPT;  LP spool (free turbine): LPT drives the propeller P
 * turboprop: beta = mdot_prop/mdot_jet (set by the propeller), mdot_jet = mdot_0/(1+beta), f = mdot_f/mdot_jet;
       W_prop/mdot_0 = eta_g cp_c T0/(1+beta) [eta_mL (1+f) tau_lambda tau_tH (1 - tau_tL) - tau_r (tau_cL - 1)]
     (tau_tH from the HP balance with tau_r tau_cL (tau_cH - 1) on top)
@@ -187,6 +200,14 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
       + A [1 + (1-e_tL)/e_tL tau_tH^(-1/e_tH) tau_tL^(-1/e_tL)/PI]^2   (e_tL = 1: tau_tL* = tau_tH^(-1/e_tH)/PI + A)
 * A = [(gamma_c-1)/2 M0^2] / [tau_lambda tau_tH (eta_prop eta_g eta_mL)^2];   PI = (pi_r pi_d pi_cL pi_cH pi_b pi_n)^((gamma_t-1)/gamma_t)
     (faster flight or worse propeller -> larger tau_tL*: more energy left in the jet)
+  [Open rotor block diagram]
+    0                  mdot_prop
+   Ambient --+-----------------------------------------> [ OR ]
+    mdot_0   |                    mdot_f                    ||  LP shaft
+             |  0      2       3    v                       ||
+             +--> [D] --> [C> --> [CC] --> 4 [HPT] -- 45 --> [LPT] --> [N] --> Exhaust
+        mdot_core           C ========= HPT (HP spool)      5         9
+    (open rotor between HPT and LPT (station 45), driven by the LP shaft)
 * propfan / open rotor: alpha1 = mdot_prop/mdot_jet (output), alpha2 = mdot_sec/mdot_core (design);
       TSFC = f/((1+alpha1)(1+alpha2) F/mdot_0);  open rotor at 45: A_D = pi D^2/4 - mdot_45 sqrt(R Tt45)/(Pt45 MFP45)
     (tractor propeller: A_D ~ pi D^2/4 (core streamtube neglected))
@@ -370,30 +391,9 @@ a1, b2 ... are the flow angles alpha_1, beta_2 ... and g the blade metal angle.
 
 19. ISA STANDARD ATMOSPHERE
 ---------------------------
-  h (km) | T (K)  | P (bar) | rho (kg/m^3) | sigma  | a (m/s)
-  -------+--------+---------+--------------+--------+--------
-  0      | 288.15 | 1.0132  | 1.2250       | 1.0000 | 340.3
-  1      | 281.65 | 0.8987  | 1.1117       | 0.9075 | 336.4
-  2      | 275.15 | 0.7950  | 1.0065       | 0.8216 | 332.5
-  3      | 268.65 | 0.7011  | 0.9091       | 0.7421 | 328.6
-  4      | 262.15 | 0.6164  | 0.8191       | 0.6687 | 324.6
-  5      | 255.65 | 0.5402  | 0.7361       | 0.6009 | 320.5
-  6      | 249.15 | 0.4718  | 0.6597       | 0.5385 | 316.4
-  7      | 242.65 | 0.4106  | 0.5895       | 0.4812 | 312.3
-  8      | 236.15 | 0.3560  | 0.5252       | 0.4287 | 308.1
-  9      | 229.65 | 0.3074  | 0.4664       | 0.3807 | 303.8
-  10     | 223.15 | 0.2644  | 0.4127       | 0.3369 | 299.5
-  11     | 216.65 | 0.2263  | 0.3639       | 0.2971 | 295.1
-  12     | 216.65 | 0.1933  | 0.3108       | 0.2537 | 295.1
-  13     | 216.65 | 0.1651  | 0.2655       | 0.2167 | 295.1
 - T = 288.15 - 6.5 h (h in km) up to 11 km, then 216.65 K; P = 1.01325 (T/288.15)^5.2559 bar below
-  11 km, P = 0.22632 exp(-0.1577 (h - 11)) above.
-
-20. CONVENTIONS
----------------
-- Mechanical losses are charged to the turbine (W_c = eta_m W_t). Stations 4-9 use gamma_t, R_t,
-  cp_t. Pt in Pa in MFP. Flow angles are measured from the axial direction; turbine v3 is positive
-  opposite to U. Propeller efficiencies use the disc power W_D.
+  11 km, P = 0.22632 exp(-0.1577 (h - 11)) above; rho = P/(R T), sigma = rho/1.225, a = sqrt(1.4 R
+  T). At 11 km: 216.65 K, 0.2263 bar, 0.3639 kg/m^3, a = 295.1 m/s.
 
 Unofficial revision sheet prepared by a student from the course material and the study videos; the
 course documents and the lecturers are the reference.
