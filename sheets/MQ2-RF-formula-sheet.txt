@@ -46,7 +46,8 @@ Greek letters are spelled out (gamma, eta, pi, ...); Gam is the reflection coeff
   one carrier.
 * superhet: f_IF = |f_RF - f_LO|;  image on the other side of the LO: f_im = f_LO +- f_IF
     (high-side LO: f_im = f_RF + 2 f_IF; low-side: f_im = f_RF - 2 f_IF; the RF filter must reject
-    it)
+    it; two LOs give the same IF: f_RF +- f_IF; homodyne (direct conversion) = LO at f_RF, IF = 0;
+    heterodyne = IF != 0)
 
 3. DECIBELS
 -----------
@@ -60,6 +61,8 @@ Greek letters are spelled out (gamma, eta, pi, ...); Gam is the reflection coeff
 * V_n,rms = sqrt(4 k T B R);  available noise power N = k T B;  k = 1.38e-23 J/K
 * k T0 = 4.0e-21 W/Hz = -204 dBW/Hz = -174 dBm/Hz   (T0 = 290 K)
 * F = SNR_in / SNR_out >= 1;  NF = 10 log F;  Te = T0 (F - 1);  F = 1 + Te/T0;  N_o = k B G (T0 + Te)
+    (F is LINEAR in Te = T0 (F - 1): NF 2.14 dB -> F 1.64 -> 186 K (using 2.14 gives the trap 331
+    K))
 * Friis (LINEAR): F_T = F1 + (F2 - 1)/G1 + (F3 - 1)/(G1 G2) + ...
     (passive lossy part at T0 with loss L: G = 1/L, F = L (NF [dB] = L [dB]))
 * output noise floor: N_o [dBm] = -174 + NF + 10 log B + G
@@ -95,7 +98,8 @@ Greek letters are spelled out (gamma, eta, pi, ...); Gam is the reflection coeff
     (PE eps_r 2.3 -> VF 66 %; PTFE 2.1 -> 69 %)
 * C = 24.12 eps_r / log10(D/d) = 3326 sqrt(eps_r) / Z0  [pF/m];   Z0 = 1/(vp C) (quickest from a datasheet)
 * A = 1.43 R / Z0 + 9.15 sqrt(eps_r) f F  [dB/100 m];  R = 25.4 (1/d + 1/D) sqrt(f)
-    (d, D in mm; f in MHz; F = tan(delta))
+    (d, D in mm; f in MHz; F = tan(delta); datasheet loss rises with f (~sqrt f, then ~f): check at
+    the TOP of the band)
 
 8. SMITH CHART AND S-PARAMETERS
 -------------------------------
