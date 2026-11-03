@@ -39,6 +39,8 @@ Greek letters are spelled out (gamma, eta, pi, ...); Gam is the reflection coeff
 ---------------------------
 * AM: x_AM = A_C [1 + m x(t)] cos(2 pi f_C t),  m = A_m / A_C,  0 < m < 1
 * tone: carrier + two sidebands of m A_C / 2 at f_C -+ f_m;  B_DSB = 2 f_m (highest message frequency)
+    (P_T = P_C (1 + m^2/2); sidebands carry m^2/(2 + m^2) (24 % at m = 0.8, 33 % max); Carson is FM
+    only)
 * FM: x_FM = A_C cos[2 pi f_C t + k_f int x dt];  m_f = delta_f / f_m
 * Carson (98 % of the power): B_FM = 2 (delta_f + f_m) = 2 f_m (m_f + 1);  lines at f_C + n f_m with J_n(m_f)
 - ASK: '1' carrier, '0' nothing. FSK: f1 / f2. PSK: '0' shifts the phase 180 deg. FDM: frequency
@@ -75,6 +77,7 @@ Greek letters are spelled out (gamma, eta, pi, ...); Gam is the reflection coeff
 - One tone: harmonics 2f0, 3f0 (filterable). Two tones: IM3 at 2f1 - f2 and 2f2 - f1, IN band. IM3
   grows 3 dB per dB of input.
 * OIP3 = IIP3 + G;   1 dB CP ~ IIP3 - 9.6 dB
+    (input 1 dB CP = output 1 dB CP - (G - 1): the gain is already 1 dB down there)
 * P_IM3,in = 3 P_in - 2 IIP3;   C/IM3 = 2 (IIP3 - P_in)   (dB, dBm)
 * cascade (LINEAR, mW, input-referred): 1/IIP3_T = 1/IIP3_1 + G1/IIP3_2 + G1 G2/IIP3_3 + ...
     (convert OIP3 to IIP3 first; the dominant term is often a LATE stage)
