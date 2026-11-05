@@ -44,6 +44,7 @@ h1{font-size:1.75rem;line-height:1.2;margin:.2rem 0 .4rem}h2{font-size:1.2rem;ma
 .mod .k{font-size:.75rem;color:var(--mid);font-weight:600;letter-spacing:.02em}.mod b{font-size:.98rem;line-height:1.3}.mod .d{font-size:.84rem;color:var(--mid);line-height:1.4}
 .mod .f{display:flex;justify-content:space-between;font-size:.78rem;color:var(--mid);margin-top:.15rem}.mod .f .err{color:var(--bad)}
 .custom .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:.8rem;margin:.8rem 0 1rem}
+.whole{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem 1.5rem;margin:0 0 .4rem}.whole h2{margin:0 0 .2rem}.whole p{margin:0;max-width:52ch}
 .emptybox{margin-top:.8rem;padding:.8rem 1rem;border-radius:8px;background:var(--warn-l);border:1px solid var(--line);font-size:.92rem}.emptybox p{margin:0 0 .6rem}
 .linkbtn{background:none;border:0;padding:0;color:var(--blue);text-decoration:underline;font-weight:600}
 .custom label{display:block;font-size:.82rem;font-weight:600;color:var(--mid);margin-bottom:.25rem}
@@ -199,7 +200,8 @@ function render(){
 /* home */
 function moduleCards(system){const hyd=system===HYD;return MODULES.filter(m=>m.system===system).map((m,i)=>{const qs=questionsInModule(m),seen=qs.filter(q=>tracking.seen[q.id]).length,miss=qs.filter(q=>tracking.misses[q.id]).length;
  return `<button type="button" class="mod ${hyd?'hyd':''}" data-module="${m.id}"><span class="k">BLOQUE ${pad(i+1)} · ${qs.length} preguntas</span><b>${esc(m.title)}</b><span class="d">${esc(m.desc)}</span><div class="bar ${hyd?'hyd':''}"><span style="width:${Math.round(100*seen/qs.length)}%"></span></div><span class="f"><span>${seen}/${qs.length} vistas</span>${miss?`<span class="err">${miss} por repasar</span>`:''}</span></button>`}).join('')}
-function startModule(id){const m=MODULES.find(x=>x.id===id);if(!m)return;Object.assign(prefs,{system:m.system,module:m.id,theme:ALLTHEMES,count:String(questionsInModule(m).length),mode:'practica',only:'todos',difficult:false,order:true});startSession()}
+// A block card starts that block's questions without touching the custom-session settings.
+function startModule(id){const m=MODULES.find(x=>x.id===id);if(m)startSession(questionsInModule(m).map(q=>q.id),'practica')}
 function renderHome(){
  const saved=state.queue.length&&state.i<state.queue.length&&Object.keys(state.answers).length;
  const mods=MODULES.filter(m=>prefs.system===ANY||m.system===prefs.system);if(prefs.module!==ANYMODULE&&!mods.some(m=>m.id===prefs.module))prefs.module=ANYMODULE;
@@ -207,7 +209,7 @@ function renderHome(){
  const available=filterPool().length,n=Math.min(available,Number(prefs.count)),base=filterPool('todos');
  const errHere=base.filter(q=>tracking.misses[q.id]).length,starHere=base.filter(q=>tracking.stars.includes(q.id)).length;
  const narrowed=prefs.system!==ANY||prefs.module!==ANYMODULE||prefs.theme!==ALLTHEMES||prefs.difficult;
- const counts=[...new Set([10,20,40,60,100,150,200,Number(prefs.count)])].filter(x=>x<available).sort((a,b)=>a-b);
+ const counts=[...new Set([10,20,40,60,100,150,200,250,300,Number(prefs.count)])].filter(x=>x<available).sort((a,b)=>a-b);
  const countVal=Number(prefs.count)>=available?'all':String(prefs.count);
  // Explain an empty selection and offer the way out instead of a disabled button.
  let empty='';
@@ -225,9 +227,10 @@ function renderHome(){
 <p class="lead">400 afirmaciones sobre el sistema neumático (ATA 36) y el hidráulico verde (ATA 29), con la explicación y la diapositiva de clase en cada corrección. Elige un bloque para estudiar un mecanismo cada vez.</p>
 <div class="stats"><span><b>${Object.keys(tracking.seen).length}</b>de 400 vistas</span><span><b>${numErrors()}</b>por repasar</span><span><b>${tracking.stars.length}</b>marcadas</span></div>
 ${saved?`<div class="card resume"><span>Tienes una sesión a medias: pregunta <b>${state.i+1}</b> de ${state.queue.length}, ${score()} aciertos.</span><button id="resume" class="btn primary">Continuar →</button></div>`:''}
+<section class="card pad whole"><div><h2>Banco completo</h2><p class="small">Las 400 preguntas de neumática y GREEN en orden aleatorio. Si lo dejas a medias, continúas donde lo dejaste.</p></div><div class="row"><button id="all400" class="btn primary lg">Hacer las 400 →</button><button id="sim400" class="btn lg">Simulacro de 400</button></div></section>
 <section class="sys"><div class="syshead"><h2><span class="dot"></span>Neumática · ATA 36</h2><span class="small">180 preguntas · 6 bloques</span></div><div class="mgrid">${moduleCards(NEU)}</div></section>
 <section class="sys"><div class="syshead"><h2><span class="dot hyd"></span>Hidráulica GREEN · ATA 29</h2><span class="small">220 preguntas · 11 bloques</span></div><div class="mgrid">${moduleCards(HYD)}</div></section>
-<section class="card pad custom"><h2>Sesión personalizada</h2><p class="small" style="margin:0">Mezcla materias, repite tus errores o haz un simulacro con la corrección al final.</p>
+<section class="card pad custom"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Sesión personalizada</h2>${narrowed||prefs.only!=='todos'?'<button id="resetF" type="button" class="linkbtn">Restablecer filtros (400 preguntas)</button>':''}</div><p class="small" style="margin:0">Mezcla materias, repite tus errores o haz un simulacro con la corrección al final.</p>
 <div class="grid">
 ${sel('system','Materia',[[ANY,'Neumática + GREEN'],[NEU,'Solo neumática'],[HYD,'Solo hidráulica GREEN']],prefs.system)}
 ${sel('module','Bloque',[[ANYMODULE,'Todos los bloques'],...mods.map(m=>[m.id,m.title])],prefs.module)}
@@ -245,6 +248,8 @@ ${available?`<p class="small" style="margin:.6rem 0 0">${available} preguntas cu
  $('#order').onchange=e=>{prefs.order=e.target.checked;save()};
  document.querySelectorAll('[data-module]').forEach(el=>el.onclick=()=>startModule(el.dataset.module));
  if($('#start'))$('#start').onclick=()=>startSession();
+ $('#all400').onclick=()=>startSession(BANK.map(q=>q.id),'practica');$('#sim400').onclick=()=>startSession(BANK.map(q=>q.id),'simulacro');
+ if($('#resetF'))$('#resetF').onclick=()=>{Object.assign(prefs,{system:ANY,module:ANYMODULE,theme:ALLTHEMES,difficult:false,only:'todos',count:'400'});save();renderHome()};
  document.querySelectorAll('[data-pick]').forEach(el=>el.onclick=()=>{const m=MODULES.find(x=>x.id===el.dataset.pick);Object.assign(prefs,{system:m.system,module:m.id,theme:ALLTHEMES,difficult:false});save();renderHome();$('.custom').scrollIntoView({block:'nearest'})});
  if($('#allList'))$('#allList').onclick=()=>startSession(prefs.only==='fallos'?Object.keys(tracking.misses).map(Number):tracking.stars,prefs.mode);
  if($('#clearF'))$('#clearF').onclick=()=>{Object.assign(prefs,{system:ANY,module:ANYMODULE,theme:ALLTHEMES,difficult:false});save();renderHome()};
