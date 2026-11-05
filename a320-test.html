@@ -43,9 +43,11 @@ h1{font-size:1.75rem;line-height:1.2;margin:.2rem 0 .4rem}h2{font-size:1.2rem;ma
 .mod:hover{border-color:var(--blue);transform:translateY(-1px)}.mod.hyd:hover{border-color:var(--hyd)}
 .mod .k{font-size:.75rem;color:var(--mid);font-weight:600;letter-spacing:.02em}.mod b{font-size:.98rem;line-height:1.3}.mod .d{font-size:.84rem;color:var(--mid);line-height:1.4}
 .mod .f{display:flex;justify-content:space-between;font-size:.78rem;color:var(--mid);margin-top:.15rem}.mod .f .err{color:var(--bad)}
-.custom .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem;margin:.8rem 0 1rem}
+.custom .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:.8rem;margin:.8rem 0 1rem}
+.emptybox{margin-top:.8rem;padding:.8rem 1rem;border-radius:8px;background:var(--warn-l);border:1px solid var(--line);font-size:.92rem}.emptybox p{margin:0 0 .6rem}
+.linkbtn{background:none;border:0;padding:0;color:var(--blue);text-decoration:underline;font-weight:600}
 .custom label{display:block;font-size:.82rem;font-weight:600;color:var(--mid);margin-bottom:.25rem}
-.custom select{width:100%;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:0 .5rem}
+.custom select{width:100%;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:0 .4rem;font-size:.92rem;text-overflow:ellipsis}
 .check{display:inline-flex;align-items:center;gap:.45rem;font-size:.9rem}.check input{width:1.05rem;height:1.05rem;accent-color:var(--blue)}
 /* quiz */
 .qbar{display:flex;align-items:center;gap:.8rem;margin:0 0 .9rem}.qbar .bar{flex:1}.qbar .count{font-size:.88rem;color:var(--mid);white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -172,7 +174,7 @@ if(!Array.isArray(state.queue)||state.queue.some(id=>!BY_ID.has(id))||!['home','
 let peek=false; // slide revealed before answering on the current question
 function save(){putJSON(STORE,state);putJSON(SETTINGS,prefs);putJSON(TRACK,tracking)}
 function themesFor(system){return [...new Set(BANK.filter(q=>(system===ANY||q.system===system)&&matchesModule(q)).map(q=>q.theme))]}
-function filterPool(){return BANK.filter(q=>(prefs.system===ANY||q.system===prefs.system)&&matchesModule(q)&&(prefs.theme===ALLTHEMES||prefs.theme===q.theme)&&(!prefs.difficult||q.exam||q.level>=3)&&(prefs.only!=='fallos'||(tracking.misses[q.id]||0)>0)&&(prefs.only!=='favoritas'||tracking.stars.includes(q.id)))}
+function filterPool(only=prefs.only){return BANK.filter(q=>(prefs.system===ANY||q.system===prefs.system)&&matchesModule(q)&&(prefs.theme===ALLTHEMES||prefs.theme===q.theme)&&(!prefs.difficult||q.exam||q.level>=3)&&(only!=='fallos'||(tracking.misses[q.id]||0)>0)&&(only!=='favoritas'||tracking.stars.includes(q.id)))}
 function toTop(){window.scrollTo({top:0})}
 function numErrors(){return Object.keys(tracking.misses).length}
 function go(phase){state.phase=phase;save();render();toTop()}
@@ -202,7 +204,22 @@ function renderHome(){
  const saved=state.queue.length&&state.i<state.queue.length&&Object.keys(state.answers).length;
  const mods=MODULES.filter(m=>prefs.system===ANY||m.system===prefs.system);if(prefs.module!==ANYMODULE&&!mods.some(m=>m.id===prefs.module))prefs.module=ANYMODULE;
  const themes=themesFor(prefs.system);if(!themes.includes(prefs.theme))prefs.theme=ALLTHEMES;
- const available=filterPool().length,n=Math.min(available,Number(prefs.count));
+ const available=filterPool().length,n=Math.min(available,Number(prefs.count)),base=filterPool('todos');
+ const errHere=base.filter(q=>tracking.misses[q.id]).length,starHere=base.filter(q=>tracking.stars.includes(q.id)).length;
+ const narrowed=prefs.system!==ANY||prefs.module!==ANYMODULE||prefs.theme!==ALLTHEMES||prefs.difficult;
+ const counts=[...new Set([10,20,40,60,100,150,200,Number(prefs.count)])].filter(x=>x<available).sort((a,b)=>a-b);
+ const countVal=Number(prefs.count)>=available?'all':String(prefs.count);
+ // Explain an empty selection and offer the way out instead of a disabled button.
+ let empty='';
+ if(!available){
+  const list=prefs.only==='fallos'?Object.keys(tracking.misses).map(Number):prefs.only==='favoritas'?tracking.stars:[];
+  const err=prefs.only==='fallos',what=err?'errores':'preguntas marcadas';
+  if(prefs.only!=='todos'&&!list.length)empty=`<p>Aún no tienes ${what}. ${prefs.only==='fallos'?'Aparecen aquí cuando fallas una pregunta.':'Marca preguntas con ☆ durante el test.'}</p>`;
+  else if(prefs.only!=='todos'){
+   const where=MODULES.map(m=>({m,c:questionsInModule(m).filter(q=>list.includes(q.id)).length})).filter(x=>x.c);
+   empty=`<p>${err?'Ninguno':'Ninguna'} de tus ${list.length} ${what} está en esta selección. Están en: ${where.map(x=>`<button type="button" class="linkbtn" data-pick="${x.m.id}">${esc(x.m.title)} (${x.c})</button>`).join(', ')}.</p><button id="allList" class="btn primary">Practicar ${err?'los':'las'} ${list.length} ${what}</button>`;
+  }else empty=`<p>Ninguna pregunta cumple estos filtros${prefs.difficult?' (en este apartado no hay preguntas marcadas como trampa)':''}.</p><button id="clearF" class="btn">Quitar filtros</button>`;
+ }
  const sel=(id,label,opts,val)=>`<div><label for="${id}">${label}</label><select id="${id}">${opts.map(([v,t])=>`<option value="${esc(v)}" ${String(val)===String(v)?'selected':''}>${esc(t)}</option>`).join('')}</select></div>`;
  $('#app').innerHTML=`<h1>A320 · Test de verdadero o falso</h1>
 <p class="lead">400 afirmaciones sobre el sistema neumático (ATA 36) y el hidráulico verde (ATA 29), con la explicación y la diapositiva de clase en cada corrección. Elige un bloque para estudiar un mecanismo cada vez.</p>
@@ -215,19 +232,23 @@ ${saved?`<div class="card resume"><span>Tienes una sesión a medias: pregunta <b
 ${sel('system','Materia',[[ANY,'Neumática + GREEN'],[NEU,'Solo neumática'],[HYD,'Solo hidráulica GREEN']],prefs.system)}
 ${sel('module','Bloque',[[ANYMODULE,'Todos los bloques'],...mods.map(m=>[m.id,m.title])],prefs.module)}
 ${sel('theme','Apartado',[[ALLTHEMES,'Todos'],...themes.map(t=>[t,t])],prefs.theme)}
-${sel('count','Preguntas',[10,20,40,60,100,150,200,400].map(x=>[x,x===400?'Todas':String(x)]),prefs.count)}
-${sel('only','Cuáles',[['todos','Todas'],['fallos',`Mis errores (${numErrors()})`],['favoritas',`Marcadas (${tracking.stars.length})`]],prefs.only)}
+${sel('count','Preguntas',[...counts.map(x=>[x,String(x)]),['all',`Todas (${available})`]],countVal)}
+${sel('only','Cuáles',[['todos','Todas'],['fallos',`Mis errores (${narrowed?errHere+' de '+numErrors():numErrors()})`],['favoritas',`Marcadas (${narrowed?starHere+' de '+tracking.stars.length:tracking.stars.length})`]],prefs.only)}
 ${sel('challenge','Nivel',[['all','Todos los niveles'],['hard','Solo trampas y difíciles']],prefs.difficult?'hard':'all')}
-${sel('mode','Corrección',[['practica','Después de cada pregunta'],['simulacro','Al final (simulacro)']],prefs.mode)}
+${sel('mode','Corrección',[['practica','Tras cada pregunta'],['simulacro','Al final (simulacro)']],prefs.mode)}
 </div>
 <div class="row" style="justify-content:space-between"><label class="check"><input id="order" type="checkbox" ${prefs.order?'checked':''}> Orden aleatorio</label>
-<button id="start" class="btn primary lg" ${available?'':'disabled'}>Empezar ${n} preguntas →</button></div>
-<p class="small" style="margin:.6rem 0 0">${available} preguntas cumplen los filtros.</p></section>`;
- const bind={system:v=>{prefs.system=v;prefs.module=ANYMODULE;prefs.theme=ALLTHEMES},module:v=>{prefs.module=v;prefs.theme=ALLTHEMES},theme:v=>prefs.theme=v,count:v=>prefs.count=v,only:v=>prefs.only=v,challenge:v=>prefs.difficult=v==='hard',mode:v=>prefs.mode=v};
+${available?`<button id="start" class="btn primary lg">Empezar ${n} pregunta${n===1?'':'s'} →</button>`:''}</div>
+${available?`<p class="small" style="margin:.6rem 0 0">${available} preguntas cumplen los filtros${n<available?`; se usarán ${n} al azar`:''}.</p>`:`<div class="emptybox">${empty}</div>`}</section>`;
+ const bind={system:v=>{prefs.system=v;prefs.module=ANYMODULE;prefs.theme=ALLTHEMES},module:v=>{prefs.module=v;prefs.theme=ALLTHEMES},theme:v=>prefs.theme=v,count:v=>prefs.count=v==='all'?'400':v,only:v=>prefs.only=v,challenge:v=>prefs.difficult=v==='hard',mode:v=>prefs.mode=v};
  for(const [id,f] of Object.entries(bind))$('#'+id).onchange=e=>{f(e.target.value);save();renderHome()};
  $('#order').onchange=e=>{prefs.order=e.target.checked;save()};
  document.querySelectorAll('[data-module]').forEach(el=>el.onclick=()=>startModule(el.dataset.module));
- $('#start').onclick=()=>startSession();if(saved)$('#resume').onclick=()=>go('quiz');
+ if($('#start'))$('#start').onclick=()=>startSession();
+ document.querySelectorAll('[data-pick]').forEach(el=>el.onclick=()=>{const m=MODULES.find(x=>x.id===el.dataset.pick);Object.assign(prefs,{system:m.system,module:m.id,theme:ALLTHEMES,difficult:false});save();renderHome();$('.custom').scrollIntoView({block:'nearest'})});
+ if($('#allList'))$('#allList').onclick=()=>startSession(prefs.only==='fallos'?Object.keys(tracking.misses).map(Number):tracking.stars,prefs.mode);
+ if($('#clearF'))$('#clearF').onclick=()=>{Object.assign(prefs,{system:ANY,module:ANYMODULE,theme:ALLTHEMES,difficult:false});save();renderHome()};
+ if(saved)$('#resume').onclick=()=>go('quiz');
 }
 function startSession(fixed=null,mode=null){let pool=fixed?fixed.map(id=>BY_ID.get(id)).filter(Boolean):filterPool();if(!pool.length){alert('No hay preguntas con esos filtros.');return}
  pool=prefs.order?shuffle(pool):pool;if(!fixed)pool=pool.slice(0,Number(prefs.count));
