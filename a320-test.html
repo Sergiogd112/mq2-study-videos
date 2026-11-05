@@ -275,7 +275,7 @@ ${shownAbove?slidesHtml(q,pages):(!done&&pages.length?`<div class="peek"><button
 <div class="choices"><button id="chooseTrue" class="choice ${cls(true)}" ${done?'disabled':''}><kbd>V</kbd>Verdadero${tag(true)}</button><button id="chooseFalse" class="choice ${cls(false)}" ${done?'disabled':''}><kbd>F</kbd>Falso${tag(false)}</button></div>
 ${reveal?`<div class="fb ${ok?'':'bad'}" id="fb"><h3>${ok?'✓ Correcto':'✕ Incorrecto'} · la afirmación es ${q.answer?'verdadera':'falsa'}</h3><p>${esc(q.why)}</p><div class="src">Fuente: ${esc(q.source)}</div>${shownAbove?'':slidesHtml(q,pages)}</div>`:''}
 ${done&&!reveal?`<div class="fb neutral" id="fb"><h3>Respuesta guardada</h3><p class="small">En el simulacro la corrección aparece al terminar.</p></div>`:''}
-${done?`<div class="next" id="nextrow"><button id="prev" class="btn ghost" ${state.i?'':'disabled'}>← Anterior</button><span class="hint">Pulsa <kbd>Enter</kbd> o <kbd>→</kbd></span><button id="next" class="btn primary lg">${last?'Ver resultados':'Siguiente pregunta →'}</button></div>`
+${done?`<div class="next" id="nextrow"><button id="prev" class="btn ghost" ${state.i?'':'disabled'}>← Anterior</button><span class="hint">Pulsa <kbd>Espacio</kbd>, <kbd>Enter</kbd> o <kbd>→</kbd></span><button id="next" class="btn primary lg">${last?'Ver resultados':'Siguiente pregunta →'}</button></div>`
 :`<div class="qfoot"><button id="prev" class="btn ghost" ${state.i?'':'disabled'}>← Anterior</button><span>Teclas: <b>V</b> verdadero · <b>F</b> falso</span></div>`}
 </article>`;
  $('#star').onclick=()=>{const s=new Set(tracking.stars);s.has(q.id)?s.delete(q.id):s.add(q.id);tracking.stars=[...s];save();renderQuiz()};
@@ -334,7 +334,7 @@ $('#nav-guide').onclick=()=>go('guide');$('#nav-progress').onclick=()=>go('progr
 document.addEventListener('keydown',e=>{if(state.phase!=='quiz'||e.altKey||e.ctrlKey||e.metaKey||$('#lb').open||/INPUT|SELECT|TEXTAREA/.test(document.activeElement?.tagName||''))return;
  const k=e.key.toLowerCase(),done=typeof state.answers[state.queue[state.i]]==='boolean';
  if(!done&&(k==='v'||k==='1'))chooseAnswer(true);else if(!done&&(k==='f'||k==='2'))chooseAnswer(false);
- else if(done&&(k==='enter'||k==='arrowright')){e.preventDefault();move(1)}else if(k==='arrowleft')move(-1)});
+ else if(done&&(k==='enter'||k===' '||k==='arrowright')){e.preventDefault();move(1)}else if(k==='arrowleft')move(-1)});
 render();
 </script>
 </body></html>
