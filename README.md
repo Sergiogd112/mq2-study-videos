@@ -14,6 +14,11 @@ subtitles, notes and figure texts. Each lecture page links to its counterpart in
 Each exam also has a formula sheet (`formulas-<subject>.html`): LaTeX on the web, a two-page A4 PDF and an
 ASCII plain-text export in `sheets/`.
 
+The Spanish A320 interactive test (`a320-test.html`), linked from both homepages under VA,
+provides 400 true/false questions across 17 study blocks for ATA 36 and ATA 29 GREEN,
+with immediate explanations, error review and browser-local progress. The referenced
+class PDFs are not included.
+
 Unofficial study material prepared by a student for exam revision. The narration is synthetic. Numbers were
 checked against the course solutions where they exist, but the course material and the lecturers are the
 reference. The figures in the notes are original schematic drawings; some slides in the videos reproduce
